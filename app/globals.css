@@ -1,0 +1,487 @@
+@import "tailwindcss";
+
+/* HI Labs Institutional Design System */
+/* Enforces discipline, seriousness, and cognitive friction */
+
+@theme inline {
+  /* HI Labs Color Palette - Institutional and Serious */
+  --color-background: #F4F4F2;
+  --color-primary: #1C1C1C;
+  --color-secondary: #5F6A7A;
+  --color-accent: #2F4A6D;
+  --color-warning: #8A2E2E;
+  
+  /* Typography System - IBM Plex Sans/Mono */
+  --font-sans: 'IBM Plex Sans', 'Inter', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Menlo', 'Monaco', monospace;
+  
+  /* Spacing System */
+  --spacing-section: 4rem;
+  --spacing-subsection: 2rem;
+  --spacing-element: 1rem;
+  --spacing-tight: 0.5rem;
+  --spacing-loose: 6rem;
+  
+  /* Layout System */
+  --max-width: 1200px;
+  --grid-columns: 12;
+  --margin-desktop: 2rem;
+  --margin-tablet: 1.5rem;
+  --margin-mobile: 1rem;
+  
+  /* Design Constraints - No rounded corners, shadows, or gradients */
+  --radius: 0;
+  --shadow: none;
+}
+
+/* HI Labs Base Styles - Institutional Design System */
+@layer base {
+  /* Reset and base styles enforcing design constraints */
+  * {
+    @apply border-0 outline-0;
+    /* Explicitly disable rounded corners, shadows, and gradients */
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background-image: none !important;
+  }
+  
+  /* Root element styling */
+  html {
+    font-family: var(--font-sans);
+    background-color: var(--color-background);
+    color: var(--color-primary);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  body {
+    @apply bg-background text-primary;
+    font-family: var(--font-sans);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+  }
+  
+  /* Typography hierarchy - IBM Plex Sans */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    color: var(--color-primary);
+    margin: 0;
+    line-height: 1.2;
+  }
+  
+  h1 {
+    font-size: 2.25rem; /* 36px */
+    letter-spacing: -0.025em;
+  }
+  
+  h2 {
+    font-size: 1.875rem; /* 30px */
+    letter-spacing: -0.025em;
+  }
+  
+  h3 {
+    font-size: 1.5rem; /* 24px */
+    font-weight: 500;
+    letter-spacing: -0.025em;
+  }
+  
+  p {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--color-primary);
+    margin: 0;
+  }
+  
+  /* Monospace typography for technical elements */
+  .mono, code, pre {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    line-height: 1.25;
+    color: var(--color-secondary);
+  }
+  
+  /* Links - institutional styling */
+  a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  a:hover {
+    color: var(--color-primary);
+  }
+  
+  /* Lists - clean and minimal */
+  ul, ol {
+    margin: 0;
+    padding-left: 1.5rem;
+  }
+  
+  li {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Horizontal rules for section division */
+  hr {
+    border: none;
+    height: 1px;
+    background-color: var(--color-secondary);
+    margin: var(--spacing-subsection) 0;
+  }
+  
+  /* Form elements - institutional styling with accessibility */
+  input, textarea, select {
+    font-family: var(--font-sans);
+    border: 1px solid var(--color-secondary);
+    background-color: var(--color-background);
+    color: var(--color-primary);
+    padding: 0.75rem;
+    /* Explicitly no border radius */
+    border-radius: 0;
+  }
+  
+  input:focus, textarea:focus, select:focus {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-color: var(--color-accent);
+  }
+  
+  /* Enhanced focus states for accessibility compliance */
+  input:focus-visible, textarea:focus-visible, select:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-color: var(--color-accent);
+  }
+  
+  /* Button base styles with accessibility */
+  button {
+    font-family: var(--font-sans);
+    cursor: pointer;
+    border: none;
+    /* Explicitly no border radius */
+    border-radius: 0;
+    transition: all 0.2s ease;
+  }
+  
+  button:focus {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+  
+  button:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+  
+  /* Link accessibility improvements */
+  a:focus {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+  
+  a:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+  
+  /* Skip link for screen readers */
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: var(--color-accent);
+    color: var(--color-background);
+    padding: 8px;
+    text-decoration: none;
+    z-index: 1000;
+    font-weight: 600;
+  }
+  
+  .skip-link:focus {
+    top: 6px;
+  }
+  
+  /* Screen reader only content */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    * {
+      border-color: currentColor !important;
+    }
+    
+    a {
+      text-decoration: underline;
+    }
+  }
+  
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+  
+  /* Disable animations except minimal motion */
+  * {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+    transition-duration: 0.2s !important;
+  }
+  
+  /* Allow only fade and slide animations */
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  .animate-slide-down {
+    animation: slideDown 0.3s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideDown {
+    from { 
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to { 
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Utility classes for the design system */
+@layer utilities {
+  /* Grid system - 12 columns with responsive behavior */
+  .grid-12 {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: var(--spacing-element);
+  }
+  
+  /* Responsive grid adjustments */
+  @media (max-width: 768px) {
+    .grid-12 {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-tight);
+    }
+  }
+  
+  /* Spacing utilities with responsive scaling */
+  .spacing-section {
+    margin: var(--spacing-subsection) 0;
+  }
+  
+  .spacing-subsection {
+    margin: var(--spacing-element) 0;
+  }
+  
+  .spacing-element {
+    margin: var(--spacing-tight) 0;
+  }
+  
+  @media (min-width: 768px) {
+    .spacing-section {
+      margin: var(--spacing-section) 0;
+    }
+    
+    .spacing-subsection {
+      margin: var(--spacing-subsection) 0;
+    }
+    
+    .spacing-element {
+      margin: var(--spacing-element) 0;
+    }
+  }
+  
+  /* Typography utilities with responsive scaling */
+  .text-institutional {
+    font-family: var(--font-sans);
+    color: var(--color-primary);
+  }
+  
+  .text-mono {
+    font-family: var(--font-mono);
+    color: var(--color-secondary);
+  }
+  
+  .text-accent {
+    color: var(--color-accent);
+  }
+  
+  /* Responsive heading utilities */
+  .heading-responsive-h1 {
+    font-size: 1.875rem; /* 30px mobile */
+    line-height: 2.25rem;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+  
+  @media (min-width: 768px) {
+    .heading-responsive-h1 {
+      font-size: 2.25rem; /* 36px tablet+ */
+      line-height: 2.5rem;
+    }
+  }
+  
+  .heading-responsive-h2 {
+    font-size: 1.5rem; /* 24px mobile */
+    line-height: 2rem;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+  
+  @media (min-width: 768px) {
+    .heading-responsive-h2 {
+      font-size: 1.875rem; /* 30px tablet+ */
+      line-height: 2.25rem;
+    }
+  }
+  
+  .heading-responsive-h3 {
+    font-size: 1.25rem; /* 20px mobile */
+    line-height: 1.75rem;
+    font-weight: 500;
+    color: var(--color-primary);
+  }
+  
+  @media (min-width: 768px) {
+    .heading-responsive-h3 {
+      font-size: 1.5rem; /* 24px tablet+ */
+      line-height: 2rem;
+    }
+  }
+  
+  /* Responsive body text */
+  .body-responsive {
+    font-size: 0.875rem; /* 14px mobile */
+    line-height: 1.25rem;
+    color: var(--color-primary);
+  }
+  
+  @media (min-width: 768px) {
+    .body-responsive {
+      font-size: 1rem; /* 16px tablet+ */
+      line-height: 1.5rem;
+    }
+  }
+  
+  /* Layout utilities with responsive behavior */
+  .container-institutional {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--margin-mobile);
+  }
+  
+  @media (min-width: 640px) {
+    .container-institutional {
+      padding: 0 var(--margin-mobile);
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .container-institutional {
+      padding: 0 var(--margin-tablet);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .container-institutional {
+      padding: 0 var(--margin-desktop);
+    }
+  }
+  
+  /* Section divider with responsive margins */
+  .section-divider {
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-secondary);
+    margin: var(--spacing-element) 0;
+  }
+  
+  @media (min-width: 768px) {
+    .section-divider {
+      margin: var(--spacing-subsection) 0;
+    }
+  }
+  
+  /* Two-column layout with responsive behavior */
+  .two-column {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-element);
+  }
+  
+  @media (min-width: 768px) {
+    .two-column {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-subsection);
+    }
+  }
+  
+  /* Responsive navigation utilities */
+  .nav-mobile-hidden {
+    display: none;
+  }
+  
+  @media (min-width: 768px) {
+    .nav-mobile-hidden {
+      display: flex;
+    }
+  }
+  
+  .nav-desktop-hidden {
+    display: block;
+  }
+  
+  @media (min-width: 768px) {
+    .nav-desktop-hidden {
+      display: none;
+    }
+  }
+  
+  /* Responsive button sizing */
+  .button-responsive {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+  
+  @media (min-width: 768px) {
+    .button-responsive {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+    }
+  }
+  
+  /* Focus states for accessibility */
+  .focus-institutional:focus {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+  
+  .focus-institutional:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+}
