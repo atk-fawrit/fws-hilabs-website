@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import FlagshipProgramPage from '@/features/flagship-program/FlagshipProgramPage';
+import FlagshipProgramPage from '@/src/features/flagship-program/FlagshipProgramPage';
 
 export const metadata: Metadata = {
   title: 'Flagship Program - HI Labs',

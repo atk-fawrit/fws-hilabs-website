@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import EmployersPage from '@/features/employers/EmployersPage';
+import EmployersPage from '@/src/features/employers/EmployersPage';
 
 export const metadata: Metadata = {
   title: 'Employers - HI Labs',

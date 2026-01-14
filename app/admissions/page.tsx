@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import AdmissionsPage from '@/features/admissions/AdmissionsPage';
+import AdmissionsPage from '@/src/features/admissions/AdmissionsPage';
 
 export const metadata: Metadata = {
   title: 'Admissions - HI Labs',

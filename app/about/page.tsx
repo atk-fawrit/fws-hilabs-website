@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import AboutPage from '@/features/about/AboutPage';
+import AboutPage from '@/src/features/about/AboutPage';
 
 export const metadata: Metadata = {
   title: 'About - HI Labs',

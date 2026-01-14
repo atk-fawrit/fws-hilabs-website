@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
-import Navigation from "@/components/layout/Navigation";
-import Footer from "@/components/layout/Footer";
+import Navigation from "@/src/shared/components/layout/Navigation";
+import Footer from "@/src/shared/components/layout/Footer";
 import "./globals.css";
 
 // HI Labs institutional typography - IBM Plex Sans and Mono

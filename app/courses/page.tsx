@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import CoursesPage from '@/features/courses/CoursesPage';
+import CoursesPage from '@/src/features/courses/CoursesPage';
 
 export const metadata: Metadata = {
   title: 'Short Programs - HI Labs',

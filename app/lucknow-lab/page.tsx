@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import LucknowLabPage from '@/features/lucknow-lab/LucknowLabPage';
+import LucknowLabPage from '@/src/features/lucknow-lab/LucknowLabPage';
 
 export const metadata: Metadata = {
   title: 'Lucknow Lab - HI Labs',

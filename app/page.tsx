@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import HomePage from '@/features/home/HomePage';
+import HomePage from '@/src/features/home/HomePage';
 
 export const metadata: Metadata = {
   title: 'HI Labs - Engineering Talent Production Lab',
