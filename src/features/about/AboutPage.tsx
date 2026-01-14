@@ -1,15 +1,14 @@
 import { Metadata } from 'next';
 import { H1, H2, H3 } from '@/src/shared/components/typography';
 import { BodyText } from '@/src/shared/components/typography';
+import { SectionDivider, InfoBox } from '@/src/shared/components/content';
 import { 
-  SectionDivider,
-  InstitutionalDocument,
   PrincipleItem,
   DomainSpecification,
   RoleSpecification,
   GovernanceItem,
   IntegritySection,
-} from '@/src/shared/components/content';
+} from './components';
 
 export const metadata: Metadata = {
   title: 'About - HI Labs',
@@ -29,7 +28,8 @@ export default function AboutPage() {
         <H2>Institutional Charter</H2>
         
         <div className="space-y-6">
-          <InstitutionalDocument
+          <InfoBox
+            variant="accent"
             title="INSTITUTIONAL DOCUMENT"
             description="This document establishes the institutional identity, operating principles, and governance framework of Human Intelligence Laboratories Private Limited as a systematic engineering talent production facility."
           />
@@ -405,7 +405,8 @@ export default function AboutPage() {
             </div>
           </div>
           
-          <InstitutionalDocument
+          <InfoBox
+            variant="accent"
             title="INTEGRITY COMMITMENT"
             description="HI Labs maintains systematic integrity standards through documented protocols, regular compliance verification, and accountability mechanisms that ensure ethical operation and stakeholder trust maintenance across all institutional activities and external relationships."
           />

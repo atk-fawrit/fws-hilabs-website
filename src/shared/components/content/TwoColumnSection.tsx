@@ -7,7 +7,6 @@
  */
 
 import React from 'react';
-import { colors, spacing, designUtils } from '@/src/shared/lib/design-system';
 
 interface TwoColumnSectionProps {
   leftContent: React.ReactNode;
@@ -33,11 +32,7 @@ export const TwoColumnSection: React.FC<TwoColumnSectionProps> = ({
       )}
       
       {/* Responsive two-column grid layout */}
-      <div className={`
-        ${designUtils.getResponsiveTwoColumnClasses()}
-        max-w-6xl mx-auto
-        ${designUtils.getResponsiveContainerClasses()}
-      `}>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-8 max-w-6xl mx-auto px-mobile sm:px-mobile md:px-tablet lg:px-desktop xl:px-desktop">
         {/* Left column */}
         <div className="space-y-3 md:space-y-4">
           {leftContent}

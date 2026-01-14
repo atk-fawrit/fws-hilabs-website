@@ -1,6 +1,7 @@
 import { H1, H2, H3 } from '@/src/shared/components/typography';
 import { BodyText } from '@/src/shared/components/typography';
 import { SectionDivider } from '@/src/shared/components/content';
+import { FacilitySection } from './components';
 
 export default function LucknowLabPage() {
   return (

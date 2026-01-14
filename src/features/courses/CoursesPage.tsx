@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import { H1, H2, H3 } from '@/src/shared/components/typography';
 import { BodyText } from '@/src/shared/components/typography';
-import { SectionDivider, CTAButton } from '@/src/shared/components/content';
+import { SectionDivider, CTAButton, InfoBox } from '@/src/shared/components/content';
+import { ProgramCategory } from './components';
 
 export const metadata: Metadata = {
   title: 'Short Programs - HI Labs',
@@ -21,14 +22,11 @@ export default function CoursesPage() {
         <H2>Program Boundaries</H2>
         
         <div className="space-y-6">
-          <div className="bg-warning/10 border-l-4 border-warning p-6 space-y-4">
-            <H3 className="text-warning font-mono">CLEAR SEPARATION</H3>
-            <BodyText className="font-mono text-sm">
-              Short Programs are completely separate from the HI Labs Flagship Program. 
-              These are weekend and time-bound skill-focused modules that do not provide 
-              pathway to the 12-month engineering production system.
-            </BodyText>
-          </div>
+          <InfoBox
+            variant="warning"
+            title="CLEAR SEPARATION"
+            description="Short Programs are completely separate from the HI Labs Flagship Program. These are weekend and time-bound skill-focused modules that do not provide pathway to the 12-month engineering production system."
+          />
           
           <BodyText>
             Short Programs operate as standalone educational modules designed for working 

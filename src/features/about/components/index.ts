@@ -4,7 +4,6 @@
  * Components specific to the About page
  */
 
-export { InstitutionalDocument } from './InstitutionalDocument';
 export { PrincipleItem } from './PrincipleItem';
 export { DomainSpecification } from './DomainSpecification';
 export { RoleSpecification } from './RoleSpecification';

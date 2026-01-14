@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { H1, H2, H3 } from '@/src/shared/components/typography';
 import { BodyText } from '@/src/shared/components/typography';
-import { SectionDivider, CTAButton } from '@/src/shared/components/content';
+import { SectionDivider, CTAButton, InfoBox } from '@/src/shared/components/content';
 
 export const metadata: Metadata = {
   title: 'Admissions - HI Labs',
@@ -27,14 +27,11 @@ export default function AdmissionsPage() {
             system under enforced evaluation and supervised deployment protocols.
           </BodyText>
           
-          <div className="bg-gray-50 border-l-4 border-accent p-6 space-y-4">
-            <H3 className="text-accent font-mono">SELECTION CRITERIA</H3>
-            <BodyText className="font-mono text-sm">
-              This is a filtering mechanism designed to identify serious candidates who 
-              understand the commitment and constraints of the program. We select for 
-              aptitude, commitment, and alignment with institutional expectations.
-            </BodyText>
-          </div>
+          <InfoBox
+            variant="neutral"
+            title="SELECTION CRITERIA"
+            description="This is a filtering mechanism designed to identify serious candidates who understand the commitment and constraints of the program. We select for aptitude, commitment, and alignment with institutional expectations."
+          />
           
           <BodyText>
             The admissions process evaluates technical aptitude, commitment capacity, and 

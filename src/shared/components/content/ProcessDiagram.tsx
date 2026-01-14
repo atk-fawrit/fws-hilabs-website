@@ -6,7 +6,6 @@
  */
 
 import React from 'react';
-import { colors, typography, spacing } from '@/src/shared/lib/design-system';
 
 interface ProcessDiagramProps {
   stages: string[];
@@ -26,17 +25,7 @@ export const ProcessDiagram: React.FC<ProcessDiagramProps> = ({
           <React.Fragment key={index}>
             {/* Stage box */}
             <div 
-              className="flex-shrink-0 px-4 py-3 border border-primary bg-background"
-              style={{
-                fontFamily: typography.fontFamily.mono.join(', '),
-                fontSize: typography.scale.body.fontSize,
-                fontWeight: typography.fontWeight.medium,
-                color: colors.primary,
-                backgroundColor: colors.background,
-                borderColor: colors.primary,
-                borderWidth: '1px',
-                borderStyle: 'solid',
-              }}
+              className="flex-shrink-0 px-4 py-3 border border-primary bg-background font-mono text-base font-medium text-primary"
             >
               {stage}
             </div>
@@ -44,13 +33,7 @@ export const ProcessDiagram: React.FC<ProcessDiagramProps> = ({
             {/* Connector arrow (except after last stage) */}
             {index < stages.length - 1 && (
               <div 
-                className="flex-shrink-0 text-primary"
-                style={{
-                  fontFamily: typography.fontFamily.mono.join(', '),
-                  fontSize: typography.scale.h3.fontSize,
-                  fontWeight: typography.fontWeight.regular,
-                  color: colors.primary,
-                }}
+                className="flex-shrink-0 text-primary font-mono text-2xl font-regular"
                 aria-hidden="true"
               >
                 {connector}

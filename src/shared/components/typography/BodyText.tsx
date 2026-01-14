@@ -6,7 +6,6 @@
  */
 
 import React from 'react';
-import { colors, typography, designUtils } from '@/src/shared/lib/design-system';
 
 interface BodyTextProps {
   children: React.ReactNode;

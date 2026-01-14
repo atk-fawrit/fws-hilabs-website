@@ -3,9 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { NavigationProps } from '@/src/shared/types/components';
-import { NavigationItem } from '@/src/shared/types/content';
-import { colors, typography, designUtils } from '@/src/shared/lib/design-system';
+import { NavigationProps, NavigationItem } from '@/src/shared/components/types';
 
 // Primary navigation structure - exactly eight sections as per requirements
 const navigationItems: NavigationItem[] = [

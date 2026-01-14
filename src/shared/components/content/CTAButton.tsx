@@ -9,7 +9,6 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { colors, typography, designUtils } from '@/src/shared/lib/design-system';
 
 interface CTAButtonProps {
   variant: 'primary' | 'text';

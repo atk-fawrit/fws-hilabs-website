@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { H1, H2, H3 } from '@/src/shared/components/typography';
 import { BodyText } from '@/src/shared/components/typography';
 import { SectionDivider, CTAButton } from '@/src/shared/components/content';
+import { DeploymentModel } from './components';
 
 export const metadata: Metadata = {
   title: 'Employers - HI Labs',

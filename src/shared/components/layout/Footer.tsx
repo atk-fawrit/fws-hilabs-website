@@ -1,6 +1,5 @@
 import Link from 'next/link';
-import { NavigationItem } from '@/src/shared/types/content';
-import { colors, typography } from '@/src/shared/lib/design-system';
+import { NavigationItem } from '@/src/shared/components/types';
 
 // Primary footer navigation links
 const primaryLinks: NavigationItem[] = [
