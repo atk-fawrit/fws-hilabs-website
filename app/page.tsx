@@ -9,10 +9,6 @@ export const metadata: Metadata = {
   },
 };
 
-// Enable static generation
-export const dynamic = 'force-static';
-export const revalidate = false;
-
 export default function Page() {
   return <HomePage />;
 }

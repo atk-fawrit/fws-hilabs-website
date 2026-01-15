@@ -5,14 +5,7 @@
  */
 
 import { BodyText } from '@/src/shared/components/typography';
-
-interface NumberedItemProps {
-  number: string;
-  title: string;
-  description: string;
-  items?: string[];
-  className?: string;
-}
+import { NumberedItemProps } from '@/src/shared/types';
 
 export function NumberedItem({
   number,

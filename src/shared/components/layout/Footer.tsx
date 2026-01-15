@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { NavigationItem } from '@/src/shared/components/types';
+import { NavigationItem, FooterProps } from '@/src/shared/types';
 
 // Primary footer navigation links
 const primaryLinks: NavigationItem[] = [
@@ -18,10 +18,6 @@ const policyLinks: NavigationItem[] = [
   { label: 'Code of Conduct', href: '/conduct', primary: false },
   { label: 'Contact', href: '/contact', primary: false },
 ];
-
-interface FooterProps {
-  className?: string;
-}
 
 export default function Footer({ className = '' }: FooterProps) {
   const currentYear = new Date().getFullYear();

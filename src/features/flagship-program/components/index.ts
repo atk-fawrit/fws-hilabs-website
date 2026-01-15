@@ -1,7 +1,11 @@
 /**
  * Flagship Program Feature Components
  * 
- * Components specific to the Flagship Program page
+ * Central export for all flagship program page components
  */
 
-export { TermSection } from './TermSection';
+// Export UI components
+export * from './ui';
+
+// Export section components
+export * from './sections';

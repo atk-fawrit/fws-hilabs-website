@@ -1,7 +1,2 @@
-/**
- * Outcomes Feature Components
- * 
- * Components specific to the Outcomes page
- */
-
-export { EvidenceCategory } from './EvidenceCategory';
+export * from './ui';
+export * from './sections';

@@ -1,7 +1,11 @@
 /**
  * Courses Feature Components
  * 
- * Components specific to the Courses page
+ * Central export for all courses page components
  */
 
-export { ProgramCategory } from './ProgramCategory';
+// Export UI components
+export * from './ui';
+
+// Export section components
+export * from './sections';

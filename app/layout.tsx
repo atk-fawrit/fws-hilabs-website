@@ -55,16 +55,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${ibmPlexSans.variable} ${ibmPlexMono.variable}`}>
-      <head>
-        {/* Preload critical resources */}
-        <link rel="preload" href="/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/IBMPlexSans-Medium.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        
-        {/* DNS prefetch for external resources */}
-        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-        <link rel="dns-prefetch" href="//fonts.gstatic.com" />
-      </head>
       <body className="antialiased bg-background text-primary font-sans">
         <div className="min-h-screen flex flex-col">
           {/* Primary Navigation - appears on all pages */}
@@ -72,20 +62,14 @@ export default function RootLayout({
             <Navigation currentPath="" />
           </header>
           
-          {/* Main Content Area with responsive 12-column grid system */}
+          {/* Main Content Area */}
           <main 
             id="main-content" 
             className="flex-1 w-full" 
             role="main"
             tabIndex={-1}
           >
-            <div className="container-institutional">
-              <div className="grid-12 py-4 md:py-8 lg:py-12">
-                <div className="col-span-12">
-                  {children}
-                </div>
-              </div>
-            </div>
+            {children}
           </main>
           
           {/* Footer - appears on all pages */}

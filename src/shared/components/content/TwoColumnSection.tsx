@@ -7,13 +7,7 @@
  */
 
 import React from 'react';
-
-interface TwoColumnSectionProps {
-  leftContent: React.ReactNode;
-  rightContent: React.ReactNode;
-  divider?: boolean;
-  className?: string;
-}
+import { TwoColumnSectionProps } from '@/src/shared/types';
 
 export const TwoColumnSection: React.FC<TwoColumnSectionProps> = ({
   leftContent,

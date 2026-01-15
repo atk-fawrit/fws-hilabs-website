@@ -7,17 +7,7 @@
 
 import { H3 } from '@/src/shared/components/typography';
 import { BodyText } from '@/src/shared/components/typography';
-
-interface DetailSectionProps {
-  number: string;
-  title: string;
-  description: string;
-  listTitle?: string;
-  items?: string[];
-  footerLabel?: string;
-  footerContent: string;
-  className?: string;
-}
+import { DetailSectionProps } from '@/src/shared/types';
 
 export function DetailSection({
   number,

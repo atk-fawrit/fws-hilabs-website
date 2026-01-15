@@ -6,12 +6,7 @@
  */
 
 import React from 'react';
-
-interface ProcessDiagramProps {
-  stages: string[];
-  connector?: string;
-  className?: string;
-}
+import { ProcessDiagramProps } from '@/src/shared/types';
 
 export const ProcessDiagram: React.FC<ProcessDiagramProps> = ({
   stages,

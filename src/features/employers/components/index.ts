@@ -1,7 +1,11 @@
 /**
  * Employers Feature Components
  * 
- * Components specific to the Employers page
+ * Central export for all employers page components
  */
 
-export { DeploymentModel } from './DeploymentModel';
+// Export UI components
+export * from './ui';
+
+// Export section components
+export * from './sections';

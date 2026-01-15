@@ -7,13 +7,7 @@
 
 import { H3 } from '@/src/shared/components/typography';
 import { BodyText } from '@/src/shared/components/typography';
-
-interface InfoBoxProps {
-  title: string;
-  description: string;
-  variant?: 'accent' | 'warning' | 'neutral';
-  className?: string;
-}
+import { InfoBoxProps } from '@/src/shared/types';
 
 export function InfoBox({ 
   title, 

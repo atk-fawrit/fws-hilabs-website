@@ -1,7 +1,11 @@
 /**
  * Lucknow Lab Feature Components
  * 
- * Components specific to the Lucknow Lab page
+ * Central export for all lucknow lab page components
  */
 
-export { FacilitySection } from './FacilitySection';
+// Export UI components
+export * from './ui';
+
+// Export section components
+export * from './sections';

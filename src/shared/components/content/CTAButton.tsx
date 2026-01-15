@@ -9,14 +9,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-
-interface CTAButtonProps {
-  variant: 'primary' | 'text';
-  href: string;
-  children: React.ReactNode;
-  className?: string;
-  external?: boolean;
-}
+import { CTAButtonProps } from '@/src/shared/types';
 
 export const CTAButton: React.FC<CTAButtonProps> = ({
   variant,

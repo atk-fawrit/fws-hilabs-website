@@ -39,9 +39,13 @@
   /* Reset and base styles enforcing design constraints */
   * {
     @apply border-0 outline-0;
-    /* Explicitly disable rounded corners, shadows, and gradients */
+    /* Explicitly disable rounded corners and shadows */
     border-radius: 0 !important;
     box-shadow: none !important;
+  }
+  
+  /* Disable gradients on specific elements, not globally */
+  button:not([class*="carousel"]), .card, .section {
     background-image: none !important;
   }
   

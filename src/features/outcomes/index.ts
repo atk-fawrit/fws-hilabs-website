@@ -1,2 +1,2 @@
 export { default as OutcomesPage } from './OutcomesPage';
-export { metadata } from './OutcomesPage';
+export { metadata } from './metadata';

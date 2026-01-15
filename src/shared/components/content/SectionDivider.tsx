@@ -6,11 +6,7 @@
  */
 
 import React from 'react';
-
-interface SectionDividerProps {
-  className?: string;
-  spacing?: 'tight' | 'normal' | 'loose';
-}
+import { SectionDividerProps } from '@/src/shared/types';
 
 export const SectionDivider: React.FC<SectionDividerProps> = ({
   className = '',
