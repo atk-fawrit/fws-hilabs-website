@@ -1,8 +1,4 @@
-/**
- * About Feature Sections
- * 
- * Section components that compose the about page
- */
+
 
 export { InstitutionalCharterSection } from './InstitutionalCharterSection';
 export { OperatingPrinciplesSection } from './OperatingPrinciplesSection';

@@ -1,8 +1,4 @@
-/**
- * Employers Feature Sections
- * 
- * Section components that compose the employers page
- */
+
 
 export { TalentProcurementSection } from './TalentProcurementSection';
 export { SupplySpecificationSection } from './SupplySpecificationSection';

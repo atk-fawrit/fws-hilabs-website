@@ -1,8 +1,3 @@
-/**
- * Courses Feature Sections
- * 
- * Section components that compose the courses page
- */
 
 export { ProgramBoundariesSection } from './ProgramBoundariesSection';
 export { OperatingFormatSection } from './OperatingFormatSection';

@@ -23,11 +23,11 @@
   --spacing-loose: 6rem;
   
   /* Layout System */
-  --max-width: 1200px;
+  --max-width-container: 1400px;
   --grid-columns: 12;
-  --margin-desktop: 2rem;
-  --margin-tablet: 1.5rem;
-  --margin-mobile: 1rem;
+  --margin-desktop: 0.5rem;
+  --margin-tablet: 0.5rem;
+  --margin-mobile: 0.5rem;
   
   /* Design Constraints - No rounded corners, shadows, or gradients */
   --radius: 0;
@@ -393,7 +393,7 @@
   
   /* Layout utilities with responsive behavior */
   .container-institutional {
-    max-width: var(--max-width);
+    max-width: var(--max-width-container);
     margin: 0 auto;
     padding: 0 var(--margin-mobile);
   }
@@ -412,6 +412,25 @@
   
   @media (min-width: 1024px) {
     .container-institutional {
+      padding: 0 var(--margin-desktop);
+    }
+  }
+  
+  /* Content container - for page sections */
+  .container-content {
+    max-width: var(--max-width-container);
+    margin: 0 auto;
+    padding: 0 var(--margin-mobile);
+  }
+  
+  @media (min-width: 768px) {
+    .container-content {
+      padding: 0 var(--margin-tablet);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .container-content {
       padding: 0 var(--margin-desktop);
     }
   }

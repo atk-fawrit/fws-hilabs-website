@@ -1,8 +1,4 @@
-/**
- * About Feature UI Components
- * 
- * Presentational components for the about page
- */
+
 
 export { PrincipleItem } from './PrincipleItem';
 export { DomainSpecification } from './DomainSpecification';

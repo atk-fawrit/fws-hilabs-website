@@ -11,7 +11,7 @@ import {
 export default function FlagshipProgramPage() {
   return (
     <div className="w-full bg-[#E8E8E6]">
-      <div className="bg-white max-w-7xl mx-auto px-4 md:px-8 py-16">
+      <div className="bg-white container-content py-16">
         <div className="max-w-5xl">
           <H1 className="text-4xl mb-8">Flagship Program</H1>
           

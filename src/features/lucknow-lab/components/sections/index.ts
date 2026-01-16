@@ -1,8 +1,4 @@
-/**
- * Lucknow Lab Feature Sections
- * 
- * Section components that compose the lucknow lab page
- */
+
 
 export { LocationRationaleSection } from './LocationRationaleSection';
 export { CatchmentAreaSection } from './CatchmentAreaSection';

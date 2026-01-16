@@ -3,7 +3,7 @@ import Image from 'next/image';
 export function TwoColumnSection() {
   return (
     <section className="bg-[#E8E8E6] py-4 md:py-6">
-      <div className="bg-white py-16 border-b border-secondary/20 max-w-7xl mx-auto px-4 md:px-8">
+      <div className="bg-white py-16 border-b border-secondary/20 container-content">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
           {/* Left Column - Programs */}
           <div>
@@ -17,7 +17,7 @@ export function TwoColumnSection() {
               <a href="/flagship-program" className="group flex gap-5 hover:opacity-90 transition-all">
                 <div className="relative w-36 h-24 flex-shrink-0 bg-secondary/20 overflow-hidden">
                   <Image
-                    src="/images/pexels-mikhail-nilov-7988079.jpg"
+                    src="/images/flagship-program-students.jpg"
                     alt="12-Month Program"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -37,7 +37,7 @@ export function TwoColumnSection() {
               <a href="/courses" className="group flex gap-5 hover:opacity-90 transition-all">
                 <div className="relative w-36 h-24 flex-shrink-0 bg-secondary/20 overflow-hidden">
                   <Image
-                    src="/images/ChatGPT Image Jan 15, 2026, 03_12_03 PM.png"
+                    src="/images/short-programs-professionals.png"
                     alt="Short Programs"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -68,7 +68,7 @@ export function TwoColumnSection() {
               <a href="/admissions" className="group flex gap-5 hover:opacity-90 transition-all">
                 <div className="relative w-36 h-24 flex-shrink-0 bg-secondary/20 overflow-hidden">
                   <Image
-                    src="/images/download.jpg"
+                    src="/images/admissions-process.jpg"
                     alt="Admissions"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -88,7 +88,7 @@ export function TwoColumnSection() {
               <a href="/lucknow-lab" className="group flex gap-5 hover:opacity-90 transition-all">
                 <div className="relative w-36 h-24 flex-shrink-0 bg-secondary/20 overflow-hidden">
                   <Image
-                    src="/images/e57e3206fa458c41ffe495f8823c4c58.jpg"
+                    src="/images/lucknow-lab-facility.jpg"
                     alt="Lucknow Lab"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"

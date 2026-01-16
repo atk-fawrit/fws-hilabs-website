@@ -3,13 +3,13 @@ import Image from 'next/image';
 export function DiscoverSection() {
   return (
     <section className="bg-[#E8E8E6] py-4 md:py-6">
-      <div className="bg-[#FAFAF9] py-20 max-w-7xl mx-auto px-4 md:px-8">
+      <div className="bg-[#FAFAF9] py-20 container-content">
         <h2 className="text-3xl font-light text-primary mb-12 tracking-tight">Discover</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <a href="/flagship-program" className="group bg-white border border-secondary/20 hover:border-accent/60 transition-all overflow-hidden hover:shadow-sm">
             <div className="relative w-full h-52 bg-secondary/10 overflow-hidden">
               <Image
-                src="/images/pexels-mikhail-nilov-7988079.jpg"
+                src="/images/flagship-program-students.jpg"
                 alt="Program Structure"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -29,7 +29,7 @@ export function DiscoverSection() {
           <a href="/outcomes" className="group bg-white border border-secondary/20 hover:border-accent/60 transition-all overflow-hidden hover:shadow-sm">
             <div className="relative w-full h-52 bg-secondary/10 overflow-hidden">
               <Image
-                src="/images/ChatGPT Image Jan 15, 2026, 03_12_03 PM.png"
+                src="/images/short-programs-professionals.png"
                 alt="Documented Evidence"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -49,7 +49,7 @@ export function DiscoverSection() {
           <a href="/employers" className="group bg-white border border-secondary/20 hover:border-accent/60 transition-all overflow-hidden hover:shadow-sm">
             <div className="relative w-full h-52 bg-secondary/10 overflow-hidden">
               <Image
-                src="/images/0342e2cc865451941a31fa725d003957.jpg"
+                src="/images/hero-engineering-career.jpg"
                 alt="Employer Partnerships"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"

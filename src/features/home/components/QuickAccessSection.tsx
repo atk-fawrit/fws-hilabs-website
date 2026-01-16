@@ -1,7 +1,7 @@
 export function QuickAccessSection() {
   return (
     <section className="bg-[#E8E8E6] py-4 md:py-6">
-      <div className="bg-white py-20 border-t border-secondary/10 max-w-7xl mx-auto px-4 md:px-8">
+      <div className="bg-white py-20 border-t border-secondary/10 container-content">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
           <div className="border-l-[3px] border-accent pl-7 group">
             <h3 className="text-primary font-normal mb-4 text-xl tracking-tight group-hover:text-accent transition-colors">Admissions</h3>

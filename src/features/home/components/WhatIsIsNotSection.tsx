@@ -1,7 +1,7 @@
 export function WhatIsIsNotSection() {
   return (
     <section className="bg-[#E8E8E6] py-4 md:py-6">
-      <div className="bg-[#1A1A1A] text-background py-20 max-w-7xl mx-auto px-4 md:px-8">
+      <div className="bg-[#1A1A1A] text-background py-20 container-content">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
           <div>
             <h2 className="text-2xl font-light mb-8 tracking-tight text-background">What HI Labs Is</h2>

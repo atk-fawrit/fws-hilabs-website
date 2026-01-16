@@ -1,13 +1,6 @@
-import { Metadata } from 'next';
 import LucknowLabPage from '@/src/features/lucknow-lab/LucknowLabPage';
 
-export const metadata: Metadata = {
-  title: 'Lucknow Lab - HI Labs',
-  description: 'Physical location details, operating model, and access policies for the HI Labs engineering talent production facility in Lucknow.',
-  alternates: {
-    canonical: '/lucknow-lab/',
-  },
-};
+export { metadata } from '@/src/features/lucknow-lab/metadata';
 
 // Enable static generation
 export const dynamic = 'force-static';

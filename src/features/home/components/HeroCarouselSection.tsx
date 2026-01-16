@@ -10,7 +10,7 @@ export function HeroCarouselSection({
 }: HeroCarouselProps) {
   return (
     <section className="w-full bg-[#E8E8E6] py-4 md:py-6">
-      <div className="relative h-[420px] bg-primary overflow-hidden max-w-7xl mx-auto px-4 md:px-8">
+      <div className="relative h-[420px] bg-primary overflow-hidden container-content">
         {slides.map((slide, index) => (
           <div
             key={index}
@@ -32,7 +32,7 @@ export function HeroCarouselSection({
               </div>
             </div>
             <div className="absolute inset-0 flex items-center z-20">
-              <div className="max-w-7xl mx-auto px-8 w-full">
+              <div className="container-content w-full">
                 <div className="max-w-2xl">
                   <h1 className="text-background text-3xl md:text-4xl font-light mb-4 leading-tight tracking-tight">
                     {slide.title}
