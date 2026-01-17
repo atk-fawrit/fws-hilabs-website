@@ -2,9 +2,10 @@ import Image from 'next/image';
 
 export function TwoColumnSection() {
   return (
-    <section className="bg-[#E8E8E6] py-4 md:py-6">
-      <div className="bg-white py-16 border-b border-secondary/20 container-content">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
+    <section className="w-full">
+      <div className="bg-white py-16 border-b border-secondary/20">
+        <div className="px-8 md:px-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
           {/* Left Column - Programs */}
           <div>
             <div className="flex justify-between items-baseline mb-8">
@@ -105,6 +106,7 @@ export function TwoColumnSection() {
                 </div>
               </a>
             </div>
+          </div>
           </div>
         </div>
       </div>

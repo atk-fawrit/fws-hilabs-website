@@ -4,15 +4,18 @@
 /* Enforces discipline, seriousness, and cognitive friction */
 
 @theme inline {
-  /* HI Labs Color Palette - Institutional and Serious */
-  --color-background: #F4F4F2;
+  /* HI Labs Color Palette - Oxford-inspired Institutional Design */
+  --color-background: #FFFFFF;
+  --color-page-background: #3C4043;
   --color-primary: #1C1C1C;
   --color-secondary: #5F6A7A;
   --color-accent: #2F4A6D;
+  --color-oxford-blue: #002147;
+  --color-oxford-blue-hover: #003366;
   --color-warning: #8A2E2E;
   
-  /* Typography System - IBM Plex Sans/Mono */
-  --font-sans: 'IBM Plex Sans', 'Inter', system-ui, sans-serif;
+  /* Typography System - Oxford-style serif fonts */
+  --font-sans: 'Georgia', 'Times New Roman', serif;
   --font-mono: 'IBM Plex Mono', 'Menlo', 'Monaco', monospace;
   
   /* Spacing System */
@@ -23,11 +26,11 @@
   --spacing-loose: 6rem;
   
   /* Layout System */
-  --max-width-container: 1400px;
+  --max-width-container: 1600px;
   --grid-columns: 12;
-  --margin-desktop: 0.5rem;
-  --margin-tablet: 0.5rem;
-  --margin-mobile: 0.5rem;
+  --margin-desktop: 2rem;
+  --margin-tablet: 1.5rem;
+  --margin-mobile: 1rem;
   
   /* Design Constraints - No rounded corners, shadows, or gradients */
   --radius: 0;
@@ -52,7 +55,7 @@
   /* Root element styling */
   html {
     font-family: var(--font-sans);
-    background-color: var(--color-background);
+    background-color: var(--color-page-background);
     color: var(--color-primary);
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
@@ -60,7 +63,8 @@
   }
   
   body {
-    @apply bg-background text-primary;
+    @apply text-primary;
+    background-color: var(--color-page-background);
     font-family: var(--font-sans);
     margin: 0;
     padding: 0;
@@ -416,7 +420,7 @@
     }
   }
   
-  /* Content container - for page sections */
+  /* Content container - for page sections with white background */
   .container-content {
     max-width: var(--max-width-container);
     margin: 0 auto;
@@ -433,6 +437,14 @@
     .container-content {
       padding: 0 var(--margin-desktop);
     }
+  }
+  
+  /* Page wrapper for content sections */
+  .page-content-wrapper {
+    background-color: var(--color-background);
+    margin: 0 auto;
+    max-width: var(--max-width-container);
+    min-height: calc(100vh - 200px);
   }
   
   /* Section divider with responsive margins */

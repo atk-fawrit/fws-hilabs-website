@@ -10,54 +10,88 @@ import { BodyText } from '@/src/shared/components/typography';
 
 export const EvaluationSystemSection: React.FC = () => {
   return (
-    <section className="space-y-10">
-      <H2 className="text-3xl font-light">Evaluation and Elimination System</H2>
+    <section className="space-y-8">
+      <div className="text-center">
+        <H2 className="text-4xl font-bold text-primary mb-3">Evaluation and Elimination System</H2>
+        <p className="text-xl text-secondary">Continuous evaluation with documented elimination criteria</p>
+      </div>
       
-      <div className="space-y-8">
-        <BodyText className="text-base leading-relaxed">
+      <div className="bg-secondary/5 p-6 border-l-[4px] border-secondary">
+        <BodyText className="text-lg leading-relaxed text-primary">
           The program operates continuous evaluation with documented elimination criteria. 
           All participants are subject to performance-based elimination at any stage.
         </BodyText>
+      </div>
+      
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {/* Evaluation Protocols Card */}
+        <div className="bg-white border border-secondary/20 p-5 shadow-sm">
+          <H3 className="text-xl font-bold text-primary mb-4 flex items-center">
+            <span className="bg-accent text-white w-8 h-8 rounded-full flex items-center justify-center text-sm mr-3">1</span>
+            EVALUATION PROTOCOLS
+          </H3>
+          <ul className="space-y-2">
+            <li className="flex items-start">
+              <span className="text-accent mr-2 mt-1 text-sm">•</span>
+              <BodyText className="text-sm leading-relaxed text-primary">Weekly technical assessments with documented scoring</BodyText>
+            </li>
+            <li className="flex items-start">
+              <span className="text-accent mr-2 mt-1 text-sm">•</span>
+              <BodyText className="text-sm leading-relaxed text-primary">Monthly comprehensive reviews with elimination consideration</BodyText>
+            </li>
+            <li className="flex items-start">
+              <span className="text-accent mr-2 mt-1 text-sm">•</span>
+              <BodyText className="text-sm leading-relaxed text-primary">Peer evaluation components with individual accountability</BodyText>
+            </li>
+            <li className="flex items-start">
+              <span className="text-accent mr-2 mt-1 text-sm">•</span>
+              <BodyText className="text-sm leading-relaxed text-primary">Project deliverable assessment against industry standards</BodyText>
+            </li>
+          </ul>
+        </div>
         
-        <div className="space-y-12">
-          <div className="space-y-6">
-            <H3 className="font-mono text-2xl">EVALUATION PROTOCOLS</H3>
-            <div className="pl-8 space-y-4">
-              <ul className="list-disc pl-6 space-y-3">
-                <li><BodyText className="text-base leading-relaxed">Weekly technical assessments with documented scoring</BodyText></li>
-                <li><BodyText className="text-base leading-relaxed">Monthly comprehensive reviews with elimination consideration</BodyText></li>
-                <li><BodyText className="text-base leading-relaxed">Peer evaluation components with individual accountability</BodyText></li>
-                <li><BodyText className="text-base leading-relaxed">Project deliverable assessment against industry standards</BodyText></li>
-              </ul>
-            </div>
-          </div>
-          
-          <div className="space-y-6">
-            <H3 className="font-mono text-2xl">ELIMINATION TRIGGERS</H3>
-            <div className="pl-8 space-y-4">
-              <div className="bg-warning/5 border-l-[3px] border-warning p-6 space-y-3">
-                <ul className="list-disc pl-6 space-y-3 font-mono text-sm">
-                  <li><BodyText className="font-mono">Performance below minimum threshold for two consecutive evaluations</BodyText></li>
-                  <li><BodyText className="font-mono">Attendance violations or failure to meet time commitments</BodyText></li>
-                  <li><BodyText className="font-mono">Inability to collaborate effectively in team environments</BodyText></li>
-                  <li><BodyText className="font-mono">Failure to complete required projects within specified timelines</BodyText></li>
-                  <li><BodyText className="font-mono">Violation of professional conduct standards</BodyText></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          
-          <div className="space-y-6">
-            <H3 className="font-mono text-2xl">ELIMINATION PROCESS</H3>
-            <div className="pl-8 space-y-4">
-              <BodyText className="text-base leading-relaxed">
-                Elimination decisions are made by instructional committee review. Participants 
-                receive written notification with specific performance deficiencies. No appeals 
-                process is available. Eliminated participants forfeit all program benefits and 
-                are not eligible for re-admission.
-              </BodyText>
-            </div>
-          </div>
+        {/* Elimination Triggers Card */}
+        <div className="bg-warning/5 border border-warning/30 p-5">
+          <H3 className="text-xl font-bold text-warning mb-4 flex items-center">
+            <span className="bg-warning text-white w-8 h-8 rounded-full flex items-center justify-center text-sm mr-3">!</span>
+            ELIMINATION TRIGGERS
+          </H3>
+          <ul className="space-y-2">
+            <li className="flex items-start">
+              <span className="text-warning mr-2 mt-1 text-sm">×</span>
+              <BodyText className="text-sm leading-relaxed text-primary">Performance below minimum threshold for two consecutive evaluations</BodyText>
+            </li>
+            <li className="flex items-start">
+              <span className="text-warning mr-2 mt-1 text-sm">×</span>
+              <BodyText className="text-sm leading-relaxed text-primary">Attendance violations or failure to meet time commitments</BodyText>
+            </li>
+            <li className="flex items-start">
+              <span className="text-warning mr-2 mt-1 text-sm">×</span>
+              <BodyText className="text-sm leading-relaxed text-primary">Inability to collaborate effectively in team environments</BodyText>
+            </li>
+            <li className="flex items-start">
+              <span className="text-warning mr-2 mt-1 text-sm">×</span>
+              <BodyText className="text-sm leading-relaxed text-primary">Failure to complete required projects within specified timelines</BodyText>
+            </li>
+            <li className="flex items-start">
+              <span className="text-warning mr-2 mt-1 text-sm">×</span>
+              <BodyText className="text-sm leading-relaxed text-primary">Violation of professional conduct standards</BodyText>
+            </li>
+          </ul>
+        </div>
+        
+        {/* Elimination Process Card */}
+        <div className="bg-white border border-secondary/20 p-5 shadow-sm">
+          <H3 className="text-xl font-bold text-primary mb-4 flex items-center">
+            <span className="bg-secondary text-white w-8 h-8 rounded-full flex items-center justify-center text-sm mr-3">2</span>
+            ELIMINATION PROCESS
+          </H3>
+          <BodyText className="text-sm leading-relaxed text-primary">
+            Elimination decisions are made by instructional committee review. Participants 
+            receive written notification with specific performance deficiencies. No appeals 
+            process is available. Eliminated participants forfeit all program benefits and 
+            are not eligible for re-admission.
+          </BodyText>
         </div>
       </div>
     </section>

@@ -1,6 +1,7 @@
 import { H1 } from '@/src/shared/components/typography';
 import { SectionDivider } from '@/src/shared/components/content';
 import {
+  HeroVideoSection,
   ProgramSpecificationSection,
   PhaseOneSection,
   PhaseTwoSection,
@@ -10,23 +11,15 @@ import {
 
 export default function FlagshipProgramPage() {
   return (
-    <div className="w-full bg-[#E8E8E6]">
-      <div className="bg-white container-content py-16">
-        <div className="max-w-5xl">
-          <H1 className="text-4xl mb-8">Flagship Program</H1>
-          
+    <div className="w-full min-h-screen bg-page-background">
+      <div className="max-w-[1600px] mx-auto bg-background">
+        <HeroVideoSection />
+        
+        <div className="px-6 md:px-8 py-8 space-y-8">
           <ProgramSpecificationSection />
-          <SectionDivider spacing="loose" />
-          
           <PhaseOneSection />
-          <SectionDivider spacing="loose" />
-          
           <PhaseTwoSection />
-          <SectionDivider spacing="loose" />
-          
           <EvaluationSystemSection />
-          <SectionDivider spacing="loose" />
-          
           <ApplicationProcessSection />
         </div>
       </div>

@@ -9,8 +9,8 @@ export function HeroCarouselSection({
   onSelectSlide,
 }: HeroCarouselProps) {
   return (
-    <section className="w-full bg-[#E8E8E6] py-4 md:py-6">
-      <div className="relative h-[420px] bg-primary overflow-hidden container-content">
+    <section className="w-full">
+      <div className="relative h-[420px] bg-primary overflow-hidden">
         {slides.map((slide, index) => (
           <div
             key={index}
@@ -32,12 +32,12 @@ export function HeroCarouselSection({
               </div>
             </div>
             <div className="absolute inset-0 flex items-center z-20">
-              <div className="container-content w-full">
+              <div className="w-full px-8 md:px-12">
                 <div className="max-w-2xl">
-                  <h1 className="text-background text-3xl md:text-4xl font-light mb-4 leading-tight tracking-tight">
+                  <h1 className="text-background text-3xl md:text-4xl font-bold mb-4 leading-tight tracking-tight">
                     {slide.title}
                   </h1>
-                  <p className="text-background/95 text-base md:text-lg leading-relaxed font-light">
+                  <p className="text-background/95 text-base md:text-lg leading-relaxed">
                     {slide.subtitle}
                   </p>
                 </div>

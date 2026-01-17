@@ -8,6 +8,7 @@ import {
   DiscoverSection,
   WhatIsIsNotSection,
   QuickAccessSection,
+  IntroductionSection,
 } from './components';
 
 export default function HomePage() {
@@ -25,19 +26,21 @@ export default function HomePage() {
   const selectSlide = (index: number) => setCurrentSlide(index);
 
   return (
-    <div className="w-full bg-[#E8E8E6]">
-      <HeroCarouselSection
-        slides={heroSlides}
-        currentSlide={currentSlide}
-        onNext={nextSlide}
-        onPrev={prevSlide}
-        onSelectSlide={selectSlide}
-      />
-      
-      <TwoColumnSection />
-      <DiscoverSection />
-      <WhatIsIsNotSection />
-      <QuickAccessSection />
+    <div className="w-full min-h-screen bg-page-background">
+      <div className="max-w-[1600px] mx-auto bg-background">
+        <IntroductionSection />
+        <HeroCarouselSection
+          slides={heroSlides}
+          currentSlide={currentSlide}
+          onNext={nextSlide}
+          onPrev={prevSlide}
+          onSelectSlide={selectSlide}
+        />
+        <TwoColumnSection />
+        <DiscoverSection />
+        <WhatIsIsNotSection />
+        <QuickAccessSection />
+      </div>
     </div>
   );
 }

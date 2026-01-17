@@ -1,5 +1,6 @@
 
 
+export { HeroVideoSection } from './HeroVideoSection';
 export { ProgramSpecificationSection } from './ProgramSpecificationSection';
 export { PhaseOneSection } from './PhaseOneSection';
 export { PhaseTwoSection } from './PhaseTwoSection';

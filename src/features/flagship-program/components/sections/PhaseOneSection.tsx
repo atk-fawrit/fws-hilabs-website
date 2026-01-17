@@ -6,7 +6,7 @@
 
 import React from 'react';
 import { H2 } from '@/src/shared/components/typography';
-import { TermSection } from '../ui';
+import { TermCard } from '../ui';
 
 const terms = [
   {
@@ -52,12 +52,15 @@ const terms = [
 
 export const PhaseOneSection: React.FC = () => {
   return (
-    <section className="space-y-10">
-      <H2 className="text-3xl font-light">Phase I: Foundation Terms (Months 1-9)</H2>
+    <section className="space-y-8">
+      <div className="text-center">
+        <H2 className="text-4xl font-bold text-primary mb-3">Phase I: Foundation Terms</H2>
+        <p className="text-xl text-secondary">Months 1-9: Building core engineering competencies</p>
+      </div>
       
-      <div className="space-y-16">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {terms.map((term) => (
-          <TermSection key={term.termNumber} {...term} />
+          <TermCard key={term.termNumber} {...term} />
         ))}
       </div>
     </section>
