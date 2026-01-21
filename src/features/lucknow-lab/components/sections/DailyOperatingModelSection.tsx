@@ -35,34 +35,27 @@ const operationalFramework = [
 
 export const DailyOperatingModelSection: React.FC = () => {
   return (
-    <section className="space-y-8">
-      <H2>Daily Operating Model</H2>
+    <section className="space-y-6">
+      <H2 className="text-3xl font-light text-primary mb-4">Daily Operating Model</H2>
       
-      <div className="space-y-6">
-        <BodyText>
+      <div className="space-y-4">
+        <BodyText className="text-primary/80 leading-relaxed">
           The Lucknow Lab operates through systematic daily protocols with 
           structured cohort management, competency development schedules, 
           and performance tracking systems that ensure consistent institutional 
           standards and operational efficiency.
         </BodyText>
         
-        <div className="space-y-12">
-          <div className="space-y-4">
-            <H3 className="font-mono">DAILY OPERATIONAL FRAMEWORK</H3>
-            <div className="pl-6 space-y-8">
-              {operationalFramework.map((item) => (
-                <div key={item.number} className="space-y-4">
-                  <BodyText><strong>{item.number}. {item.title}</strong></BodyText>
-                  <div className="pl-4 space-y-3">
-                    <BodyText>{item.description}</BodyText>
-                    <div className="bg-gray-50 p-4 border-l-2 border-secondary">
-                      <BodyText className="font-mono text-sm">{item.standard}</BodyText>
-                    </div>
-                  </div>
-                </div>
-              ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {operationalFramework.map((item) => (
+            <div key={item.number} className="bg-primary/5 border-l-4 border-primary p-4">
+              <BodyText className="font-medium text-primary mb-2 text-sm">{item.number}. {item.title}</BodyText>
+              <BodyText className="text-xs text-primary/80 leading-relaxed mb-3">{item.description}</BodyText>
+              <div className="bg-accent/10 p-2 border-l-2 border-accent">
+                <BodyText className="text-xs text-primary/70">{item.standard}</BodyText>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

@@ -1,6 +1,8 @@
 import Image from 'next/image';
+import { H2, BodyText } from '@/src/shared/components/typography';
+import { CTAButton } from '@/src/shared/components/content';
 
-export function TwoColumnSection() {
+export function ProgramsInfoSection() {
   return (
     <section className="w-full">
       <div className="bg-white py-16 border-b border-secondary/20">
@@ -9,10 +11,10 @@ export function TwoColumnSection() {
           {/* Left Column - Programs */}
           <div>
             <div className="flex justify-between items-baseline mb-8">
-              <h2 className="text-3xl font-light text-primary tracking-tight">Programs</h2>
-              <a href="/flagship-program" className="text-accent text-sm hover:text-primary transition-colors">
-                View All →
-              </a>
+              <H2 className="text-primary">Programs</H2>
+              <CTAButton href="/flagship-program" variant="text">
+                View All
+              </CTAButton>
             </div>
             <div className="space-y-8">
               <a href="/flagship-program" className="group flex gap-5 hover:opacity-90 transition-all">
@@ -26,19 +28,19 @@ export function TwoColumnSection() {
                   />
                 </div>
                 <div className="flex-1 flex flex-col justify-center">
-                  <h3 className="font-normal text-primary mb-2.5 text-lg leading-snug group-hover:text-accent transition-colors">
+                  <BodyText className="font-semibold text-primary mb-2.5 text-lg leading-snug group-hover:text-accent transition-colors">
                     12-Month Engineering Production System
-                  </h3>
-                  <p className="text-secondary text-sm leading-relaxed font-light">
+                  </BodyText>
+                  <BodyText className="text-secondary text-sm leading-relaxed">
                     Structured pipeline with enforced evaluation gates and supervised deployment
-                  </p>
+                  </BodyText>
                 </div>
               </a>
 
               <a href="/courses" className="group flex gap-5 hover:opacity-90 transition-all">
                 <div className="relative w-36 h-24 flex-shrink-0 bg-secondary/20 overflow-hidden">
                   <Image
-                    src="/images/short-programs-professionals.png"
+                    src="/images/short-programs-professionals.jpg"
                     alt="Short Programs"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -46,12 +48,12 @@ export function TwoColumnSection() {
                   />
                 </div>
                 <div className="flex-1 flex flex-col justify-center">
-                  <h3 className="font-normal text-primary mb-2.5 text-lg leading-snug group-hover:text-accent transition-colors">
+                  <BodyText className="font-semibold text-primary mb-2.5 text-lg leading-snug group-hover:text-accent transition-colors">
                     Short Programs for Professionals
-                  </h3>
-                  <p className="text-secondary text-sm leading-relaxed font-light">
+                  </BodyText>
+                  <BodyText className="text-secondary text-sm leading-relaxed">
                     Weekend skill-focused modules for working professionals
-                  </p>
+                  </BodyText>
                 </div>
               </a>
             </div>
@@ -60,10 +62,10 @@ export function TwoColumnSection() {
           {/* Right Column - Information */}
           <div>
             <div className="flex justify-between items-baseline mb-8">
-              <h2 className="text-3xl font-light text-primary tracking-tight">Information</h2>
-              <a href="/admissions" className="text-accent text-sm hover:text-primary transition-colors">
-                Learn More →
-              </a>
+              <H2 className="text-primary">Information</H2>
+              <CTAButton href="/admissions" variant="text">
+                Learn More
+              </CTAButton>
             </div>
             <div className="space-y-8">
               <a href="/admissions" className="group flex gap-5 hover:opacity-90 transition-all">
@@ -77,12 +79,12 @@ export function TwoColumnSection() {
                   />
                 </div>
                 <div className="flex-1 flex flex-col justify-center">
-                  <h3 className="font-normal text-primary mb-2.5 text-lg leading-snug group-hover:text-accent transition-colors">
+                  <BodyText className="font-semibold text-primary mb-2.5 text-lg leading-snug group-hover:text-accent transition-colors">
                     Admissions Process Overview
-                  </h3>
-                  <p className="text-secondary text-sm leading-relaxed font-light">
+                  </BodyText>
+                  <BodyText className="text-secondary text-sm leading-relaxed">
                     Transparent selection system with clearly defined criteria
-                  </p>
+                  </BodyText>
                 </div>
               </a>
 
@@ -97,12 +99,12 @@ export function TwoColumnSection() {
                   />
                 </div>
                 <div className="flex-1 flex flex-col justify-center">
-                  <h3 className="font-normal text-primary mb-2.5 text-lg leading-snug group-hover:text-accent transition-colors">
+                  <BodyText className="font-semibold text-primary mb-2.5 text-lg leading-snug group-hover:text-accent transition-colors">
                     Lucknow Laboratory Facility
-                  </h3>
-                  <p className="text-secondary text-sm leading-relaxed font-light">
+                  </BodyText>
+                  <BodyText className="text-secondary text-sm leading-relaxed">
                     In-person engineering laboratory environment
-                  </p>
+                  </BodyText>
                 </div>
               </a>
             </div>

@@ -1,13 +1,18 @@
 /**
  * Access Rules Section
+ * 
+ * Enhanced with expandable sections for better organization
  */
 
-import React from 'react';
-import { H2, H3 } from '@/src/shared/components/typography';
-import { BodyText } from '@/src/shared/components/typography';
+'use client';
+
+import React, { useState } from 'react';
+import { H2, BodyText } from '@/src/shared/components/typography';
+import { ExpandableSection } from '@/src/shared/components/content';
 
 const accessControls = [
   {
+    id: 1,
     number: '01',
     title: 'Candidate Access Protocols',
     description: 'Systematic candidate access operates through enrollment verification, identification protocols, and attendance tracking systems that ensure authorized facility access and systematic presence monitoring throughout competency development periods.',
@@ -19,6 +24,7 @@ const accessControls = [
     ],
   },
   {
+    id: 2,
     number: '02',
     title: 'Visitor Management System',
     description: 'Systematic visitor management operates through advance authorization, escort protocols, and limited access areas that maintain operational security while enabling necessary stakeholder interaction and institutional transparency requirements.',
@@ -30,6 +36,7 @@ const accessControls = [
     ],
   },
   {
+    id: 3,
     number: '03',
     title: 'Parent and Guardian Access',
     description: 'Parent and guardian access operates through systematic protocols with scheduled interaction periods, designated meeting areas, and information sharing boundaries that maintain institutional operations while enabling necessary family communication.',
@@ -41,6 +48,7 @@ const accessControls = [
     ],
   },
   {
+    id: 4,
     number: '04',
     title: 'Employer and Partnership Access',
     description: 'Employer and partnership access operates through systematic coordination with advance scheduling, designated interaction areas, and institutional protocol compliance that support deployment preparation and partnership development activities.',
@@ -54,37 +62,48 @@ const accessControls = [
 ];
 
 export const AccessRulesSection: React.FC = () => {
+  const [expandedControl, setExpandedControl] = useState<number | null>(null);
+
+  const handleToggle = (id: string | number) => {
+    const numericId = typeof id === 'string' ? parseInt(id, 10) : id;
+    setExpandedControl(expandedControl === numericId ? null : numericId);
+  };
+
   return (
     <section className="space-y-8">
-      <H2>Access Rules and Visit Policies</H2>
+      <H2 className="text-3xl font-light text-primary mb-4">Access Rules and Visit Policies</H2>
       
       <div className="space-y-6">
-        <BodyText>
+        <BodyText className="text-primary/80 leading-relaxed">
           The Lucknow Lab operates through systematic access control and visit 
           policies with defined entry protocols, visitor management systems, 
           and security boundaries that ensure operational integrity and 
           institutional protocol compliance.
         </BodyText>
         
-        <div className="space-y-12">
-          <div className="space-y-4">
-            <H3 className="font-mono">ACCESS CONTROL FRAMEWORK</H3>
-            <div className="pl-6 space-y-8">
-              {accessControls.map((control) => (
-                <div key={control.number} className="space-y-4">
-                  <BodyText><strong>{control.number}. {control.title}</strong></BodyText>
-                  <div className="pl-4 space-y-3">
-                    <BodyText>{control.description}</BodyText>
-                    <ul className="list-disc pl-6 space-y-2">
-                      {control.items.map((item, index) => (
-                        <li key={index}><BodyText>{item}</BodyText></li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+        <div className="space-y-1">
+          {accessControls.map((control) => (
+            <ExpandableSection
+              key={control.id}
+              id={control.id}
+              number={control.number}
+              title={control.title}
+              description={control.description}
+              expandedId={expandedControl}
+              onToggle={handleToggle}
+            >
+              <div className="text-sm uppercase tracking-wide text-primary/60 mb-4 font-medium">
+                Protocol Components
+              </div>
+              <ul className="space-y-3">
+                {control.items.map((item, idx) => (
+                  <li key={idx} className="text-primary/80 leading-relaxed pl-4 border-l-2 border-accent">
+                    <BodyText className="text-sm">{item}</BodyText>
+                  </li>
+                ))}
+              </ul>
+            </ExpandableSection>
+          ))}
         </div>
       </div>
     </section>

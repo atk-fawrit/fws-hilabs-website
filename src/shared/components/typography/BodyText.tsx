@@ -1,8 +1,8 @@
 /**
  * BodyText Component
  * 
- * Body text component that implements proper typography hierarchy
- * and maintains institutional design consistency with responsive scaling.
+ * Modern body text component with high contrast colors and proper responsive scaling.
+ * Updated for contemporary design with crisp typography and better readability.
  */
 
 import React from 'react';
@@ -25,13 +25,13 @@ export const BodyText: React.FC<BodyTextProps> = ({
     
     switch (variant) {
       case 'metadata':
-        classes = 'font-mono text-secondary text-xs md:text-sm leading-tight';
+        classes = 'text-xs md:text-sm font-medium text-gray-600 leading-tight';
         break;
       case 'secondary':
-        classes = 'body-responsive text-secondary';
+        classes = 'text-sm md:text-base text-gray-500 leading-relaxed';
         break;
       default:
-        classes = 'body-responsive text-primary';
+        classes = 'text-sm md:text-base text-gray-600 leading-relaxed';
     }
     
     return classes;

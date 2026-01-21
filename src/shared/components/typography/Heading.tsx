@@ -1,8 +1,8 @@
 /**
  * Heading Components
  * 
- * Semantic heading components that implement the institutional typography hierarchy.
- * Ensures consistent styling and proper semantic structure with responsive scaling.
+ * Modern heading components with bold fonts, high contrast, and proper responsive scaling.
+ * Updated for contemporary design with crisp typography and better visual hierarchy.
  */
 
 import React from 'react';
@@ -13,31 +13,31 @@ interface HeadingProps {
   id?: string;
 }
 
-// H1 - Primary page headings with responsive scaling
+// H1 - Primary page headings with modern bold styling
 export const H1: React.FC<HeadingProps> = ({ children, className = '', id }) => (
   <h1 
     id={id}
-    className={`heading-responsive-h1 ${className}`}
+    className={`text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight ${className}`}
   >
     {children}
   </h1>
 );
 
-// H2 - Section headings with responsive scaling
+// H2 - Section headings with modern bold styling
 export const H2: React.FC<HeadingProps> = ({ children, className = '', id }) => (
   <h2 
     id={id}
-    className={`heading-responsive-h2 ${className}`}
+    className={`text-2xl md:text-3xl font-bold text-gray-900 tracking-tight ${className}`}
   >
     {children}
   </h2>
 );
 
-// H3 - Subsection headings with responsive scaling
+// H3 - Subsection headings with modern semibold styling
 export const H3: React.FC<HeadingProps> = ({ children, className = '', id }) => (
   <h3 
     id={id}
-    className={`heading-responsive-h3 ${className}`}
+    className={`text-base md:text-lg font-semibold text-gray-800 ${className}`}
   >
     {children}
   </h3>

@@ -34,10 +34,10 @@ export function HeroCarouselSection({
             <div className="absolute inset-0 flex items-center z-20">
               <div className="w-full px-8 md:px-12">
                 <div className="max-w-2xl">
-                  <h1 className="text-background text-3xl md:text-4xl font-bold mb-4 leading-tight tracking-tight">
+                  <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-4">
                     {slide.title}
                   </h1>
-                  <p className="text-background/95 text-base md:text-lg leading-relaxed">
+                  <p className="text-white/95 text-base md:text-lg leading-relaxed">
                     {slide.subtitle}
                   </p>
                 </div>

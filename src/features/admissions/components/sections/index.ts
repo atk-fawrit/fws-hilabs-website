@@ -10,3 +10,5 @@ export { SelectionProcessSection } from './SelectionProcessSection';
 export { CommitmentAndRiskSection } from './CommitmentAndRiskSection';
 export { ApplicationProtocolSection } from './ApplicationProtocolSection';
 export { ApplicationCTASection } from './ApplicationCTASection';
+export { ExploreMoreSection } from './ExploreMoreSection';
+export { MainContentSection } from './MainContentSection';

@@ -5,9 +5,9 @@
  */
 
 import React, { useState } from 'react';
-import { H2, H3 } from '@/src/shared/components/typography';
+import { H3 } from '@/src/shared/components/typography';
 import { BodyText } from '@/src/shared/components/typography';
-import { CTAButton } from '@/src/shared/components/content';
+import { SectionHeader } from '@/src/shared/components/content';
 
 export const ApplicationCTASection: React.FC = () => {
   const [checklist, setChecklist] = useState({
@@ -26,9 +26,10 @@ export const ApplicationCTASection: React.FC = () => {
 
   return (
     <section className="space-y-4">
-      <div className="text-center">
-        <H2 className="text-2xl font-light text-primary mb-3 pb-3 border-b-2 border-accent">Begin Application Process</H2>
-      </div>
+      <SectionHeader 
+        title="Begin Application Process"
+        className="mb-6"
+      />
       
       <div className="space-y-4">
         <BodyText className="text-base leading-relaxed text-primary text-center">

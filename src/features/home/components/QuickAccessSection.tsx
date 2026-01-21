@@ -1,3 +1,6 @@
+import { H3, BodyText } from '@/src/shared/components/typography';
+import { CTAButton } from '@/src/shared/components/content';
+
 export function QuickAccessSection() {
   return (
     <section className="w-full">
@@ -5,33 +8,33 @@ export function QuickAccessSection() {
         <div className="px-8 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
             <div className="border-l-[3px] border-accent pl-7 group">
-              <h3 className="text-primary font-semibold mb-4 text-xl tracking-tight group-hover:text-accent transition-colors">Admissions</h3>
-              <p className="text-secondary text-base mb-5 leading-relaxed">
+              <H3 className="text-primary mb-4 group-hover:text-accent transition-colors">Admissions</H3>
+              <BodyText className="text-secondary mb-5 leading-relaxed">
                 Transparent selection system with clearly defined criteria and evaluation frameworks.
-              </p>
-              <a href="/admissions" className="text-accent hover:text-primary text-sm font-medium transition-colors inline-flex items-center gap-2">
-                View requirements <span className="text-lg">→</span>
-              </a>
+              </BodyText>
+              <CTAButton href="/admissions" variant="text">
+                View requirements
+              </CTAButton>
             </div>
 
             <div className="border-l-[3px] border-accent pl-7 group">
-              <h3 className="text-primary font-semibold mb-4 text-xl tracking-tight group-hover:text-accent transition-colors">Program Structure</h3>
-              <p className="text-secondary text-base mb-5 leading-relaxed">
+              <H3 className="text-primary mb-4 group-hover:text-accent transition-colors">Program Structure</H3>
+              <BodyText className="text-secondary mb-5 leading-relaxed">
                 Three training terms followed by supervised deployment in partner organizations.
-              </p>
-              <a href="/flagship-program" className="text-accent hover:text-primary text-sm font-medium transition-colors inline-flex items-center gap-2">
-                Learn more <span className="text-lg">→</span>
-              </a>
+              </BodyText>
+              <CTAButton href="/flagship-program" variant="text">
+                Learn more
+              </CTAButton>
             </div>
 
             <div className="border-l-[3px] border-accent pl-7 group">
-              <h3 className="text-primary font-semibold mb-4 text-xl tracking-tight group-hover:text-accent transition-colors">Lucknow Lab</h3>
-              <p className="text-secondary text-base mb-5 leading-relaxed">
+              <H3 className="text-primary mb-4 group-hover:text-accent transition-colors">Lucknow Lab</H3>
+              <BodyText className="text-secondary mb-5 leading-relaxed">
                 In-person engineering laboratory facility with structured training environment.
-              </p>
-              <a href="/lucknow-lab" className="text-accent hover:text-primary text-sm font-medium transition-colors inline-flex items-center gap-2">
-                Visit location <span className="text-lg">→</span>
-              </a>
+              </BodyText>
+              <CTAButton href="/lucknow-lab" variant="text">
+                Visit location
+              </CTAButton>
             </div>
           </div>
         </div>

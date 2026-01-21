@@ -54,11 +54,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${ibmPlexSans.variable} ${ibmPlexMono.variable}`}>
-      <body className="antialiased bg-background text-primary font-sans">
+      <body className="antialiased bg-background text-primary font-sans" suppressHydrationWarning={true}>
         <div className="min-h-screen flex flex-col">
           {/* Primary Navigation - appears on all pages */}
           <header role="banner">
-            <Navigation currentPath="" />
+            <Navigation />
           </header>
           
           {/* Main Content Area */}

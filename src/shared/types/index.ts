@@ -14,10 +14,17 @@ export type {
 // Content component types
 export type {
   CTAButtonProps,
-  DetailSectionProps,
   InfoBoxProps,
-  NumberedItemProps,
-  ProcessDiagramProps,
-  SectionDividerProps,
-  TwoColumnSectionProps,
+  InteractiveCardProps,
+  ImageCardProps,
+  ProcessCardProps,
 } from './content.types';
+
+// Common types
+export type {
+  BaseSection,
+  ExpandableSection,
+  PageContainerProps,
+  DocumentHeaderProps,
+  ExpandableSectionProps,
+} from './common.types';

@@ -5,17 +5,16 @@
  */
 
 import React from 'react';
-import { H2, H3 } from '@/src/shared/components/typography';
 import { BodyText } from '@/src/shared/components/typography';
-import { InfoBox } from '@/src/shared/components/content';
+import { SectionHeader } from '@/src/shared/components/content';
 
 export const SelectionSystemSection: React.FC = () => {
   return (
     <section className="space-y-6">
-      <div className="text-center">
-        <H2 className="text-3xl font-semibold text-primary mb-2">Selection System</H2>
-        <div className="w-16 h-1 bg-accent mx-auto mb-4"></div>
-      </div>
+      <SectionHeader 
+        title="Selection System"
+        className="mb-6"
+      />
       
       <div className="space-y-4">
         <BodyText className="text-lg leading-relaxed text-primary text-center max-w-4xl mx-auto">
@@ -32,7 +31,7 @@ export const SelectionSystemSection: React.FC = () => {
               </svg>
             </div>
             <div>
-              <H3 className="text-accent font-bold text-lg mb-2">SELECTION CRITERIA</H3>
+              <h3 className="text-accent font-bold text-lg mb-2">SELECTION CRITERIA</h3>
               <BodyText className="text-base leading-relaxed text-primary">
                 This is a filtering mechanism designed to identify serious candidates who understand the commitment and constraints of the program. We select for aptitude, commitment, and alignment with institutional expectations.
               </BodyText>

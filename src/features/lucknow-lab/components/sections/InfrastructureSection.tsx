@@ -1,10 +1,12 @@
 /**
  * Infrastructure Section
+ * 
+ * Enhanced with better visual organization and InfoBox components
  */
 
 import React from 'react';
-import { H2, H3 } from '@/src/shared/components/typography';
-import { BodyText } from '@/src/shared/components/typography';
+import { H2, H3, BodyText } from '@/src/shared/components/typography';
+import { InfoBox } from '@/src/shared/components/content';
 
 const infrastructureAreas = [
   {
@@ -55,47 +57,43 @@ const infrastructureAreas = [
 
 export const InfrastructureSection: React.FC = () => {
   return (
-    <section className="space-y-8">
-      <H2>Infrastructure Specification</H2>
+    <section className="space-y-6">
+      <H2 className="text-3xl font-light text-primary mb-4">Infrastructure Specification</H2>
       
-      <div className="space-y-6">
-        <BodyText>
+      <div className="space-y-4">
+        <BodyText className="text-primary/80 leading-relaxed">
           The Lucknow Lab infrastructure operates through systematic facility 
           design with functional workspace allocation, technical resource provision, 
           and operational support systems that enable effective competency 
           development without marketing facility emphasis.
         </BodyText>
         
-        <div className="space-y-12">
-          <div className="space-y-4">
-            <H3 className="font-mono">FACILITY INFRASTRUCTURE</H3>
-            <div className="pl-6 space-y-8">
-              {infrastructureAreas.map((area) => (
-                <div key={area.number} className="space-y-4">
-                  <BodyText><strong>{area.number}. {area.title}</strong></BodyText>
-                  <div className="pl-4 space-y-3">
-                    <BodyText>{area.description}</BodyText>
-                    <ul className="list-disc pl-6 space-y-2">
-                      {area.items.map((item, index) => (
-                        <li key={index}><BodyText>{item}</BodyText></li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {infrastructureAreas.map((area) => (
+            <div key={area.number} className="bg-accent/5 border-l-4 border-accent p-4">
+              <div className="flex items-start gap-2 mb-3">
+                <span className="text-xs text-accent font-mono font-medium">{area.number}</span>
+                <H3 className="text-sm font-medium text-primary">{area.title}</H3>
+              </div>
+              <BodyText className="text-xs text-primary/80 leading-relaxed mb-3">
+                {area.description}
+              </BodyText>
+              <ul className="space-y-1">
+                {area.items.map((item, index) => (
+                  <li key={index} className="text-xs text-primary/70 pl-3 border-l-2 border-accent/30">
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
+          ))}
         </div>
         
-        <div className="bg-accent/10 border-l-4 border-accent p-6 space-y-4">
-          <H3 className="text-accent font-mono">INFRASTRUCTURE STANDARD</H3>
-          <BodyText className="font-mono text-sm">
-            Infrastructure operates through systematic functionality and operational 
-            efficiency rather than marketing facility emphasis or comfort optimization. 
-            All facility elements support competency development and institutional 
-            protocol requirements.
-          </BodyText>
-        </div>
+        <InfoBox
+          variant="accent"
+          title="INFRASTRUCTURE STANDARD"
+          description="Infrastructure operates through systematic functionality and operational efficiency rather than marketing facility emphasis or comfort optimization. All facility elements support competency development and institutional protocol requirements."
+        />
       </div>
     </section>
   );

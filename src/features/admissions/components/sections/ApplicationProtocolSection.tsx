@@ -5,13 +5,16 @@
  */
 
 import React from 'react';
-import { H2, H3 } from '@/src/shared/components/typography';
+import { H3 } from '@/src/shared/components/typography';
 import { BodyText } from '@/src/shared/components/typography';
+import { SectionHeader } from '@/src/shared/components/content';
 
 export const ApplicationProtocolSection: React.FC = () => {
   return (
     <section className="space-y-6">
-      <H2 className="text-4xl font-bold text-primary">Application Protocol</H2>
+      <SectionHeader 
+        title="Application Protocol"
+      />
       
       <div className="space-y-4">
         <BodyText className="text-lg leading-relaxed text-primary">

@@ -5,7 +5,6 @@
  */
 
 export interface NavigationProps {
-  currentPath: string;
   className?: string;
 }
 
@@ -17,5 +16,16 @@ export interface NavigationItem {
 }
 
 export interface FooterProps {
+  className?: string;
+}
+
+export interface HeroSectionProps {
+  title: string;
+  description?: string;
+  backgroundType?: 'image' | 'video';
+  backgroundSrc?: string;
+  overlayColor?: string;
+  height?: string;
+  textColor?: string;
   className?: string;
 }

@@ -2,9 +2,10 @@
 
 import { useState, useEffect } from 'react';
 import { heroSlides } from './data';
+import { PageContainer } from '@/src/shared/components/layout';
 import {
   HeroCarouselSection,
-  TwoColumnSection,
+  ProgramsInfoSection,
   DiscoverSection,
   WhatIsIsNotSection,
   QuickAccessSection,
@@ -26,21 +27,19 @@ export default function HomePage() {
   const selectSlide = (index: number) => setCurrentSlide(index);
 
   return (
-    <div className="w-full min-h-screen bg-page-background">
-      <div className="max-w-[1600px] mx-auto bg-background">
-        <IntroductionSection />
-        <HeroCarouselSection
-          slides={heroSlides}
-          currentSlide={currentSlide}
-          onNext={nextSlide}
-          onPrev={prevSlide}
-          onSelectSlide={selectSlide}
-        />
-        <TwoColumnSection />
-        <DiscoverSection />
-        <WhatIsIsNotSection />
-        <QuickAccessSection />
-      </div>
-    </div>
+    <PageContainer>
+      <IntroductionSection />
+      <HeroCarouselSection
+        slides={heroSlides}
+        currentSlide={currentSlide}
+        onNext={nextSlide}
+        onPrev={prevSlide}
+        onSelectSlide={selectSlide}
+      />
+      <ProgramsInfoSection />
+      <DiscoverSection />
+      <WhatIsIsNotSection />
+      <QuickAccessSection />
+    </PageContainer>
   );
 }

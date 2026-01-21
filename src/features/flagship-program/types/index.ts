@@ -1,4 +1,2 @@
 
-export type {
-  TermSectionProps,
-} from './components.types';
+// No exports currently needed - all components use shared types or inline interfaces
