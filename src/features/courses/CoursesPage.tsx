@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { PageContainer } from '@/src/shared/components/layout';
 import {
   ProgramBoundariesSection,
@@ -11,14 +12,17 @@ import {
 export default function CoursesPage() {
   return (
     <PageContainer>
-      {/* Subtle Background Pattern */}
+      {/* Optimized Background Pattern with Next.js Image */}
       <div className="absolute inset-0 opacity-[0.02]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url('/images/hero-engineering-lab.jpg')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-        }}></div>
+        <Image
+          src="/images/hero-engineering-lab.jpg"
+          alt="Engineering Lab Background"
+          fill
+          className="object-cover"
+          quality={60} // Lower quality for background
+          priority={false} // Lazy load background
+          sizes="100vw"
+        />
       </div>
       
       {/* Clean Header Section */}

@@ -54,6 +54,27 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${ibmPlexSans.variable} ${ibmPlexMono.variable}`}>
+      <head>
+        {/* Preload critical images for better performance */}
+        <link
+          rel="preload"
+          as="image"
+          href="/images/hero-engineering-lab.jpg"
+          type="image/jpeg"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/images/hero-production-system.jpg"
+          type="image/jpeg"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/images/hero-engineering-career.jpg"
+          type="image/jpeg"
+        />
+      </head>
       <body className="antialiased bg-background text-primary font-sans" suppressHydrationWarning={true}>
         <div className="min-h-screen flex flex-col">
           {/* Primary Navigation - appears on all pages */}

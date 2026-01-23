@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { NavigationProps, NavigationItem } from '@/src/shared/types';
 
 // Primary navigation structure - exactly eight sections as per requirements
@@ -21,20 +21,48 @@ export default function Navigation({ className = '' }: NavigationProps) {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
-  const closeMobileMenu = () => {
+  // Reset mobile menu when route changes (fixes state persistence issue)
+  useEffect(() => {
     setIsMobileMenuOpen(false);
-  };
+  }, [pathname]);
+
+  // Memoized handlers to prevent recreation on every render
+  const toggleMobileMenu = useCallback(() => {
+    setIsMobileMenuOpen(prev => !prev);
+  }, []);
+
+  const closeMobileMenu = useCallback(() => {
+    setIsMobileMenuOpen(false);
+  }, []);
+
+  // Handle escape key to close mobile menu
+  useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    if (isMobileMenuOpen) {
+      document.addEventListener('keydown', handleEscape);
+      // Prevent body scroll when mobile menu is open
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
   
   return (
-    <div className="w-full bg-page-background">
+    <div className="w-full bg-page-background relative z-50">
       <div className="max-w-[1600px] mx-auto bg-oxford-blue">
         <nav 
           id="navigation"
-          className={`w-full ${className}`}
+          className={`w-full relative z-50 ${className}`}
           role="navigation"
           aria-label="Primary navigation"
         >
@@ -43,7 +71,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
               {/* Logo/Brand - responsive sizing */}
               <Link 
                 href="/" 
-                className="text-white font-bold text-lg md:text-xl tracking-tight hover:text-gray-200 transition-colors duration-200 focus-institutional"
+                className="text-white font-bold text-lg md:text-xl tracking-tight hover:text-gray-200 transition-colors duration-200 focus-institutional relative z-50"
                 aria-label="HI Labs home"
                 onClick={closeMobileMenu}
               >
@@ -51,7 +79,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
               </Link>
               
               {/* Desktop Navigation - hidden on mobile */}
-              <div className="hidden md:flex items-center space-x-8">
+              <div className="hidden md:flex items-center space-x-8 relative z-50">
                 {navigationItems.map((item) => {
                   const isActive = pathname === item.href;
                   
@@ -60,13 +88,14 @@ export default function Navigation({ className = '' }: NavigationProps) {
                       key={item.href}
                       href={item.href}
                       className={`
-                        font-medium text-sm tracking-wide transition-colors duration-200 focus-institutional uppercase
+                        font-medium text-sm tracking-wide transition-colors duration-200 focus-institutional uppercase relative
                         ${isActive 
                           ? 'text-white border-b-2 border-white pb-1' 
                           : 'text-gray-200 hover:text-white'
                         }
                       `}
                       aria-current={isActive ? 'page' : undefined}
+                      prefetch={true}
                     >
                       {item.label}
                     </Link>
@@ -76,7 +105,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
               
               {/* Mobile Menu Button - visible only on mobile */}
               <button
-                className="md:hidden p-2 text-gray-200 hover:text-white transition-colors duration-200 focus-institutional"
+                className="md:hidden p-2 text-gray-200 hover:text-white transition-colors duration-200 focus-institutional relative z-50"
                 aria-label="Toggle navigation menu"
                 aria-expanded={isMobileMenuOpen}
                 aria-controls="mobile-navigation"
@@ -113,7 +142,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
             <div 
               id="mobile-navigation"
               className={`
-                md:hidden border-t border-oxford-blue-hover transition-all duration-300 ease-in-out overflow-hidden
+                md:hidden border-t border-oxford-blue-hover transition-all duration-300 ease-in-out overflow-hidden relative z-40
                 ${isMobileMenuOpen 
                   ? 'max-h-96 opacity-100' 
                   : 'max-h-0 opacity-0'
@@ -139,6 +168,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
                       aria-current={isActive ? 'page' : undefined}
                       onClick={closeMobileMenu}
                       tabIndex={isMobileMenuOpen ? 0 : -1}
+                      prefetch={true}
                     >
                       {item.label}
                     </Link>
