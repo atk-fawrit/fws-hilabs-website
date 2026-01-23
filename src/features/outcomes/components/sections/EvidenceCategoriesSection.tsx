@@ -1,136 +1,113 @@
-import { H2, H3, BodyText } from '@/src/shared/components/typography';
+'use client';
+
+import { useState } from 'react';
+import { H2, BodyText } from '@/src/shared/components/typography';
+import { ExpandableSection } from '@/src/shared/components/content';
+
+const evidenceCategories = [
+  {
+    id: 1,
+    number: "01",
+    title: "Evaluation Rubrics",
+    description: "Systematic assessment frameworks used throughout program delivery to measure participant competency development and performance progression.",
+    components: [
+      "Technical competency assessment criteria and scoring methodologies",
+      "Performance progression tracking across program phases",
+      "Elimination criteria and threshold documentation",
+      "Comparative analysis of cohort performance distributions"
+    ],
+    value: "Provides systematic measurement of competency development and enables comparison across cohorts and time periods for program effectiveness assessment."
+  },
+  {
+    id: 2,
+    number: "02",
+    title: "Performance Summaries",
+    description: "Aggregated performance data documenting participant achievement levels, completion rates, and competency attainment across program components.",
+    components: [
+      "Cohort completion rates and elimination stage analysis",
+      "Competency achievement distributions by skill domain",
+      "Performance trajectory analysis throughout program phases",
+      "Comparative effectiveness across different program iterations"
+    ],
+    value: "Demonstrates program effectiveness in developing technical competencies and provides data for continuous program improvement and stakeholder assessment."
+  },
+  {
+    id: 3,
+    number: "03",
+    title: "Project Artifacts",
+    description: "Tangible outputs produced by participants during program delivery, demonstrating practical application of developed competencies and real-world problem-solving capabilities.",
+    components: [
+      "Code repositories and technical implementations with complexity analysis",
+      "System design documentation and architectural decisions",
+      "Problem-solving approaches and solution methodologies",
+      "Collaborative work products and team contribution evidence"
+    ],
+    value: "Provides concrete demonstration of participant capabilities and enables technical assessment by potential employers and industry stakeholders."
+  },
+  {
+    id: 4,
+    number: "04",
+    title: "Deployment Feedback",
+    description: "Systematic feedback from employer partners during supervised deployment phases, documenting participant performance in real work environments and deployment effectiveness.",
+    components: [
+      "Employer assessment of participant technical competency and work readiness",
+      "Deployment integration success rates and adaptation timelines",
+      "Supervision requirements and support intervention documentation",
+      "Long-term performance tracking and retention analysis"
+    ],
+    value: "Validates program effectiveness in producing deployment-ready engineers and provides feedback for program refinement and employer partnership development."
+  }
+];
 
 export function EvidenceCategoriesSection() {
+  const [expandedCategory, setExpandedCategory] = useState<number | null>(null);
+
+  const handleToggle = (id: string | number) => {
+    const numericId = typeof id === 'string' ? parseInt(id, 10) : id;
+    setExpandedCategory(expandedCategory === numericId ? null : numericId);
+  };
+
   return (
-    <section className="space-y-8">
-      <H2>Evidence Categories</H2>
-      
-      <div className="space-y-6">
-        <BodyText>
-          Evidence documentation encompasses four primary categories that provide 
-          comprehensive assessment of program effectiveness and participant development. 
-          Each category serves specific stakeholder information requirements.
+    <section className="mb-20">
+      <div className="max-w-4xl mb-12">
+        <H2 className="text-3xl font-light text-primary mb-4">Evidence Categories</H2>
+        <BodyText className="text-primary/80 leading-relaxed">
+          Evidence documentation encompasses four primary categories that provide comprehensive assessment 
+          of program effectiveness and participant development.
         </BodyText>
-        
-        <div className="space-y-12">
-          {/* Evaluation Rubrics */}
-          <div className="space-y-4">
-            <H3 className="font-mono">01. EVALUATION RUBRICS</H3>
-            <div className="pl-6 space-y-4">
-              <BodyText>
-                Systematic assessment frameworks used throughout program delivery to 
-                measure participant competency development and performance progression.
-              </BodyText>
-              
-              <div className="space-y-3">
-                <BodyText><strong>Documentation Components:</strong></BodyText>
-                <ul className="list-disc pl-6 space-y-2">
-                  <li><BodyText>Technical competency assessment criteria and scoring methodologies</BodyText></li>
-                  <li><BodyText>Performance progression tracking across program phases</BodyText></li>
-                  <li><BodyText>Elimination criteria and threshold documentation</BodyText></li>
-                  <li><BodyText>Comparative analysis of cohort performance distributions</BodyText></li>
-                </ul>
-              </div>
-              
-              <div className="bg-gray-50 p-4 border-l-2 border-secondary">
-                <BodyText className="font-mono text-sm">
-                  EVIDENCE VALUE: Provides systematic measurement of competency development 
-                  and enables comparison across cohorts and time periods for program 
-                  effectiveness assessment.
-                </BodyText>
-              </div>
-            </div>
-          </div>
+      </div>
 
-          {/* Performance Summaries */}
-          <div className="space-y-4">
-            <H3 className="font-mono">02. PERFORMANCE SUMMARIES</H3>
-            <div className="pl-6 space-y-4">
-              <BodyText>
-                Aggregated performance data documenting participant achievement levels, 
-                completion rates, and competency attainment across program components.
-              </BodyText>
-              
-              <div className="space-y-3">
-                <BodyText><strong>Documentation Components:</strong></BodyText>
-                <ul className="list-disc pl-6 space-y-2">
-                  <li><BodyText>Cohort completion rates and elimination stage analysis</BodyText></li>
-                  <li><BodyText>Competency achievement distributions by skill domain</BodyText></li>
-                  <li><BodyText>Performance trajectory analysis throughout program phases</BodyText></li>
-                  <li><BodyText>Comparative effectiveness across different program iterations</BodyText></li>
-                </ul>
-              </div>
-              
-              <div className="bg-gray-50 p-4 border-l-2 border-secondary">
-                <BodyText className="font-mono text-sm">
-                  EVIDENCE VALUE: Demonstrates program effectiveness in developing 
-                  technical competencies and provides data for continuous program 
-                  improvement and stakeholder assessment.
-                </BodyText>
-              </div>
+      <div className="space-y-1 max-w-5xl">
+        {evidenceCategories.map((category) => (
+          <ExpandableSection
+            key={category.id}
+            id={category.id}
+            number={category.number}
+            title={category.title}
+            description={category.description}
+            expandedId={expandedCategory}
+            onToggle={handleToggle}
+          >
+            <div className="text-sm uppercase tracking-wide text-primary/60 mb-4 font-medium">
+              Documentation Components
             </div>
-          </div>
-
-          {/* Project Artifacts */}
-          <div className="space-y-4">
-            <H3 className="font-mono">03. PROJECT ARTIFACTS</H3>
-            <div className="pl-6 space-y-4">
-              <BodyText>
-                Tangible outputs produced by participants during program delivery, 
-                demonstrating practical application of developed competencies and 
-                real-world problem-solving capabilities.
+            <ul className="space-y-3 mb-8">
+              {category.components.map((component, idx) => (
+                <li key={idx} className="text-primary/80 leading-relaxed pl-4 border-l-2 border-accent">
+                  <BodyText className="text-sm">{component}</BodyText>
+                </li>
+              ))}
+            </ul>
+            <div className="bg-background border-l-4 border-primary p-6">
+              <BodyText className="text-xs uppercase tracking-wide text-primary/60 mb-2 font-medium">
+                Evidence Value
               </BodyText>
-              
-              <div className="space-y-3">
-                <BodyText><strong>Documentation Components:</strong></BodyText>
-                <ul className="list-disc pl-6 space-y-2">
-                  <li><BodyText>Code repositories and technical implementations with complexity analysis</BodyText></li>
-                  <li><BodyText>System design documentation and architectural decisions</BodyText></li>
-                  <li><BodyText>Problem-solving approaches and solution methodologies</BodyText></li>
-                  <li><BodyText>Collaborative work products and team contribution evidence</BodyText></li>
-                </ul>
-              </div>
-              
-              <div className="bg-gray-50 p-4 border-l-2 border-secondary">
-                <BodyText className="font-mono text-sm">
-                  EVIDENCE VALUE: Provides concrete demonstration of participant 
-                  capabilities and enables technical assessment by potential employers 
-                  and industry stakeholders.
-                </BodyText>
-              </div>
-            </div>
-          </div>
-
-          {/* Deployment Feedback */}
-          <div className="space-y-4">
-            <H3 className="font-mono">04. DEPLOYMENT FEEDBACK</H3>
-            <div className="pl-6 space-y-4">
-              <BodyText>
-                Systematic feedback from employer partners during supervised deployment 
-                phases, documenting participant performance in real work environments 
-                and deployment effectiveness.
+              <BodyText className="text-primary/80 leading-relaxed text-sm">
+                {category.value}
               </BodyText>
-              
-              <div className="space-y-3">
-                <BodyText><strong>Documentation Components:</strong></BodyText>
-                <ul className="list-disc pl-6 space-y-2">
-                  <li><BodyText>Employer assessment of participant technical competency and work readiness</BodyText></li>
-                  <li><BodyText>Deployment integration success rates and adaptation timelines</BodyText></li>
-                  <li><BodyText>Supervision requirements and support intervention documentation</BodyText></li>
-                  <li><BodyText>Long-term performance tracking and retention analysis</BodyText></li>
-                </ul>
-              </div>
-              
-              <div className="bg-gray-50 p-4 border-l-2 border-secondary">
-                <BodyText className="font-mono text-sm">
-                  EVIDENCE VALUE: Validates program effectiveness in producing 
-                  deployment-ready engineers and provides feedback for program 
-                  refinement and employer partnership development.
-                </BodyText>
-              </div>
             </div>
-          </div>
-        </div>
+          </ExpandableSection>
+        ))}
       </div>
     </section>
   );

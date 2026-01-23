@@ -1,13 +1,12 @@
 /**
  * Operating Principles Section
  * 
- * Displays the systematic operating principles of HI Labs
+ * Enhanced display of the systematic operating principles of HI Labs
  */
 
 import React from 'react';
-import { H2, H3 } from '@/src/shared/components/typography';
-import { BodyText } from '@/src/shared/components/typography';
-import { PrincipleItem } from '../ui';
+import { H2, H3, BodyText } from '@/src/shared/components/typography';
+import { InfoBox } from '@/src/shared/components/content';
 
 const principles = [
   {
@@ -45,26 +44,37 @@ const principles = [
 export const OperatingPrinciplesSection: React.FC = () => {
   return (
     <section className="space-y-8">
-      <H2>Operating Principles</H2>
+      <H2 className="text-3xl font-light text-primary mb-4">Operating Principles</H2>
       
       <div className="space-y-6">
-        <BodyText>
+        <BodyText className="text-primary/80 leading-relaxed">
           HI Labs operates according to systematic principles that govern 
           institutional decision-making, competency development protocols, 
           and organizational accountability without prose elaboration or 
           interpretive commentary.
         </BodyText>
         
-        <div className="space-y-8">
-          <div className="space-y-4">
-            <H3 className="font-mono">SYSTEMATIC PRINCIPLES</H3>
-            <div className="pl-6 space-y-4">
-              {principles.map((principle) => (
-                <PrincipleItem key={principle.number} {...principle} />
-              ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {principles.map((principle) => (
+            <div key={principle.number} className="bg-accent/5 border-l-4 border-accent p-6">
+              <div className="flex items-start gap-4 mb-4">
+                <div className="w-10 h-10 bg-accent text-white flex items-center justify-center font-mono font-medium text-sm">
+                  {principle.number}
+                </div>
+                <H3 className="text-lg font-medium text-primary flex-1">{principle.title}</H3>
+              </div>
+              <BodyText className="text-sm text-primary/80 leading-relaxed">
+                {principle.description}
+              </BodyText>
             </div>
-          </div>
+          ))}
         </div>
+
+        <InfoBox
+          variant="neutral"
+          title="PRINCIPLE APPLICATION"
+          description="These principles operate as systematic constraints on institutional decision-making and operational protocols, ensuring consistent application across all domains without exception or modification based on individual circumstances."
+        />
       </div>
     </section>
   );

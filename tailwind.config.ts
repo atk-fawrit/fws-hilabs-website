@@ -10,16 +10,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // HI Labs institutional color palette
-        background: '#F4F4F2',
+        // HI Labs institutional color palette - Oxford inspired
+        background: '#FFFFFF',
+        'page-background': '#2C3E50',
         primary: '#1C1C1C',
         secondary: '#5F6A7A',
         accent: '#2F4A6D',
+        'oxford-blue': '#002147',
+        'oxford-blue-hover': '#003366',
         warning: '#8A2E2E',
         // Forbidden colors are explicitly excluded
       },
       fontFamily: {
-        sans: ['IBM Plex Sans', 'Inter', 'system-ui', 'sans-serif'],
+        sans: ['Georgia', 'Times New Roman', 'serif'],
         mono: ['IBM Plex Mono', 'Menlo', 'Monaco', 'monospace'],
       },
       fontWeight: {

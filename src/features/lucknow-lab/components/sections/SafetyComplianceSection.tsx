@@ -55,41 +55,36 @@ const safetyProtocols = [
 
 export const SafetyComplianceSection: React.FC = () => {
   return (
-    <section className="space-y-8">
-      <H2>Safety and Compliance Boundaries</H2>
+    <section className="space-y-6">
+      <H2 className="text-3xl font-light text-primary mb-4">Safety and Compliance Boundaries</H2>
       
-      <div className="space-y-6">
-        <BodyText>
+      <div className="space-y-4">
+        <BodyText className="text-primary/80 leading-relaxed">
           The Lucknow Lab maintains systematic safety protocols and compliance 
           boundaries with documented procedures, emergency response systems, 
           and regulatory adherence that ensure operational safety and institutional 
           integrity throughout all facility operations.
         </BodyText>
         
-        <div className="space-y-12">
-          <div className="space-y-4">
-            <H3 className="font-mono">SAFETY PROTOCOL FRAMEWORK</H3>
-            <div className="pl-6 space-y-8">
-              {safetyProtocols.map((protocol) => (
-                <div key={protocol.number} className="space-y-4">
-                  <BodyText><strong>{protocol.number}. {protocol.title}</strong></BodyText>
-                  <div className="pl-4 space-y-3">
-                    <BodyText>{protocol.description}</BodyText>
-                    <ul className="list-disc pl-6 space-y-2">
-                      {protocol.items.map((item, index) => (
-                        <li key={index}><BodyText>{item}</BodyText></li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {safetyProtocols.map((protocol) => (
+            <div key={protocol.number} className="bg-primary/5 border-l-4 border-primary p-4">
+              <BodyText className="font-medium text-primary mb-2 text-sm">{protocol.number}. {protocol.title}</BodyText>
+              <BodyText className="text-xs text-primary/80 leading-relaxed mb-3">{protocol.description}</BodyText>
+              <ul className="space-y-1">
+                {protocol.items.map((item, index) => (
+                  <li key={index} className="text-xs text-primary/70 pl-3 border-l-2 border-primary/30">
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
+          ))}
         </div>
         
-        <div className="bg-warning/10 border-l-4 border-warning p-6 space-y-4">
-          <H3 className="text-warning font-mono">OPERATIONAL BOUNDARIES</H3>
-          <BodyText className="font-mono text-sm">
+        <div className="bg-warning/10 border-l-4 border-warning p-4">
+          <H3 className="text-warning text-sm font-medium mb-2">OPERATIONAL BOUNDARIES</H3>
+          <BodyText className="text-xs text-primary/80">
             Safety and compliance protocols exclude facility photography, comfort 
             emphasis, and marketing facility representation. All safety measures 
             operate through systematic functionality and regulatory compliance 

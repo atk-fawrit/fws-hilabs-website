@@ -1,70 +1,46 @@
-import Image from 'next/image';
+import { ImageCard } from '@/src/shared/components/content';
+import { H2 } from '@/src/shared/components/typography';
 
 export function DiscoverSection() {
+  const discoverCards = [
+    {
+      title: "12-Month System Overview",
+      description: "Structured 12-month engineering talent production pipeline with two distinct phases",
+      image: "/images/flagship-program-students.jpg",
+      href: "/flagship-program"
+    },
+    {
+      title: "Documented Evidence", 
+      description: "Systematic documentation of program outcomes through evaluation rubrics and performance summaries",
+      image: "/images/short-programs-professionals.jpg",
+      href: "/outcomes"
+    },
+    {
+      title: "Employer Partnerships",
+      description: "Partner with HI Labs to access deployable junior engineers with verified capabilities", 
+      image: "/images/hero-engineering-career.jpg",
+      href: "/employers"
+    }
+  ];
+
   return (
-    <section className="bg-[#E8E8E6] py-4 md:py-6">
-      <div className="bg-[#FAFAF9] py-20 container-content">
-        <h2 className="text-3xl font-light text-primary mb-12 tracking-tight">Discover</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          <a href="/flagship-program" className="group bg-white border border-secondary/20 hover:border-accent/60 transition-all overflow-hidden hover:shadow-sm">
-            <div className="relative w-full h-52 bg-secondary/10 overflow-hidden">
-              <Image
-                src="/images/flagship-program-students.jpg"
-                alt="Program Structure"
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
-                sizes="(max-width: 768px) 100vw, 33vw"
+    <section className="w-full">
+      <div className="bg-gray-50 py-16">
+        <div className="px-8 md:px-12">
+          <H2 className="text-primary mb-12">Discover</H2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {discoverCards.map((card, index) => (
+              <ImageCard
+                key={index}
+                title={card.title}
+                description={card.description}
+                image={card.image}
+                href={card.href}
+                imageHeight="h-52"
+                className="hover:border-accent/60 hover:shadow-sm"
               />
-            </div>
-            <div className="p-7">
-              <h3 className="font-normal text-primary mb-3 text-lg leading-snug group-hover:text-accent transition-colors">
-                12-Month System Overview
-              </h3>
-              <p className="text-secondary text-sm leading-relaxed font-light">
-                Structured 12-month engineering talent production pipeline with two distinct phases
-              </p>
-            </div>
-          </a>
-
-          <a href="/outcomes" className="group bg-white border border-secondary/20 hover:border-accent/60 transition-all overflow-hidden hover:shadow-sm">
-            <div className="relative w-full h-52 bg-secondary/10 overflow-hidden">
-              <Image
-                src="/images/short-programs-professionals.png"
-                alt="Documented Evidence"
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
-                sizes="(max-width: 768px) 100vw, 33vw"
-              />
-            </div>
-            <div className="p-7">
-              <h3 className="font-normal text-primary mb-3 text-lg leading-snug group-hover:text-accent transition-colors">
-                Documented Evidence
-              </h3>
-              <p className="text-secondary text-sm leading-relaxed font-light">
-                Systematic documentation of program outcomes through evaluation rubrics and performance summaries
-              </p>
-            </div>
-          </a>
-
-          <a href="/employers" className="group bg-white border border-secondary/20 hover:border-accent/60 transition-all overflow-hidden hover:shadow-sm">
-            <div className="relative w-full h-52 bg-secondary/10 overflow-hidden">
-              <Image
-                src="/images/hero-engineering-career.jpg"
-                alt="Employer Partnerships"
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
-                sizes="(max-width: 768px) 100vw, 33vw"
-              />
-            </div>
-            <div className="p-7">
-              <h3 className="font-normal text-primary mb-3 text-lg leading-snug group-hover:text-accent transition-colors">
-                Employer Partnerships
-              </h3>
-              <p className="text-secondary text-sm leading-relaxed font-light">
-                Partner with HI Labs to access deployable junior engineers with verified capabilities
-              </p>
-            </div>
-          </a>
+            ))}
+          </div>
         </div>
       </div>
     </section>

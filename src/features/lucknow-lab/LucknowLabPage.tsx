@@ -1,5 +1,4 @@
-import { H1 } from '@/src/shared/components/typography';
-import { SectionDivider } from '@/src/shared/components/content';
+import { PageContainer, DocumentHeader } from '@/src/shared/components/layout';
 import {
   LocationRationaleSection,
   CatchmentAreaSection,
@@ -11,25 +10,23 @@ import {
 
 export default function LucknowLabPage() {
   return (
-    <div className="container-institutional">
-      <H1>Lucknow Lab</H1>
-      
-      <LocationRationaleSection />
-      <SectionDivider />
-      
-      <CatchmentAreaSection />
-      <SectionDivider />
-      
-      <DailyOperatingModelSection />
-      <SectionDivider />
-      
-      <InfrastructureSection />
-      <SectionDivider />
-      
-      <AccessRulesSection />
-      <SectionDivider />
-      
-      <SafetyComplianceSection />
-    </div>
+    <PageContainer>
+      <DocumentHeader
+        title="Lucknow Lab Facility"
+        description="Operational specifications, infrastructure details, and facility protocols for the HI Labs Lucknow location as a systematic engineering talent production facility with defined access controls and safety compliance frameworks."
+        subtitle="Facility Specification"
+      />
+
+      <main className="w-full px-6 md:px-8 py-8">
+        <div className="w-full space-y-8">
+          <LocationRationaleSection />
+          <CatchmentAreaSection />
+          <DailyOperatingModelSection />
+          <InfrastructureSection />
+          <AccessRulesSection />
+          <SafetyComplianceSection />
+        </div>
+      </main>
+    </PageContainer>
   );
 }

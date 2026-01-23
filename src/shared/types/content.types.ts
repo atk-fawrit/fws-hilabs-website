@@ -14,17 +14,6 @@ export interface CTAButtonProps {
   external?: boolean;
 }
 
-export interface DetailSectionProps {
-  number: string;
-  title: string;
-  description: string;
-  listTitle?: string;
-  items?: string[];
-  footerLabel?: string;
-  footerContent: string;
-  className?: string;
-}
-
 export interface InfoBoxProps {
   title: string;
   description: string;
@@ -32,28 +21,50 @@ export interface InfoBoxProps {
   className?: string;
 }
 
-export interface NumberedItemProps {
-  number: string;
+export interface SectionHeaderProps {
+  title: string;
+  subtitle?: string;
+  className?: string;
+  centered?: boolean;
+}
+
+export interface InteractiveCardProps {
+  title: string;
+  icon?: React.ReactNode;
+  colorTheme?: 'accent' | 'warning' | 'primary';
+  isCollapsible?: boolean;
+  isExpanded?: boolean;
+  onToggle?: () => void;
+  children?: React.ReactNode;
+  className?: string;
+  description?: string;
+  footer?: string;
+  items?: string[];
+}
+
+export interface ImageCardProps {
   title: string;
   description: string;
-  items?: string[];
+  image: string;
+  href?: string;
+  onClick?: () => void;
+  imageHeight?: string;
   className?: string;
+  imageAlt?: string;
 }
 
-export interface ProcessDiagramProps {
-  stages: string[];
-  connector?: string;
-  className?: string;
-}
-
-export interface SectionDividerProps {
-  className?: string;
-  spacing?: 'tight' | 'normal' | 'loose';
-}
-
-export interface TwoColumnSectionProps {
-  leftContent: React.ReactNode;
-  rightContent: React.ReactNode;
-  divider?: boolean;
+export interface ProcessCardProps {
+  stepNumber: string;
+  title: string;
+  duration?: string;
+  subtitle?: string;
+  sections: {
+    title: string;
+    items: string[];
+  }[];
+  warningSection?: {
+    title: string;
+    content: string;
+  };
   className?: string;
 }

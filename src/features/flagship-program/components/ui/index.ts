@@ -1,3 +1,0 @@
-
-
-export { TermSection } from './TermSection';

@@ -2,12 +2,14 @@
 
 import { useState, useEffect } from 'react';
 import { heroSlides } from './data';
+import { PageContainer } from '@/src/shared/components/layout';
 import {
   HeroCarouselSection,
-  TwoColumnSection,
+  ProgramsInfoSection,
   DiscoverSection,
   WhatIsIsNotSection,
   QuickAccessSection,
+  IntroductionSection,
 } from './components';
 
 export default function HomePage() {
@@ -25,7 +27,8 @@ export default function HomePage() {
   const selectSlide = (index: number) => setCurrentSlide(index);
 
   return (
-    <div className="w-full bg-[#E8E8E6]">
+    <PageContainer>
+      <IntroductionSection />
       <HeroCarouselSection
         slides={heroSlides}
         currentSlide={currentSlide}
@@ -33,11 +36,10 @@ export default function HomePage() {
         onPrev={prevSlide}
         onSelectSlide={selectSlide}
       />
-      
-      <TwoColumnSection />
+      <ProgramsInfoSection />
       <DiscoverSection />
       <WhatIsIsNotSection />
       <QuickAccessSection />
-    </div>
+    </PageContainer>
   );
 }

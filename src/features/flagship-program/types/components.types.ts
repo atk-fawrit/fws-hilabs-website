@@ -4,11 +4,5 @@
  * Type definitions for all flagship program page components
  */
 
-export interface TermSectionProps {
-  termNumber: string;
-  title: string;
-  duration: string;
-  eliminationGate: string;
-  constraints: string[];
-  eliminationCriteria: string;
-}
+// No component-specific types needed currently
+// All components use shared types or inline interfaces
