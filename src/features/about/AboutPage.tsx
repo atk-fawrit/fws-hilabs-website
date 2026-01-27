@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { H2, BodyText } from '@/src/shared/components/typography';
 import { PageContainer, DocumentHeader } from '@/src/shared/components/layout';
-import { ImageCard, InfoBox } from '@/src/shared/components/content';
+import { ImageCard, InfoBox, BackButton } from '@/src/shared/components/content';
 import { institutionalSections, quickReferenceData } from './data';
 import {
   InstitutionalCharterSection,
@@ -35,16 +35,10 @@ export default function AboutPage() {
     return (
       <PageContainer>
         <div className="px-6 md:px-8 py-8">
-          {/* Back Button */}
-          <button
+          <BackButton 
             onClick={() => setActiveSection(null)}
-            className="flex items-center gap-2 text-accent hover:text-primary transition-colors mb-6"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            Back to About Overview
-          </button>
+            text="Back to About Overview"
+          />
           
           {/* Full width content without max-width constraints */}
           <div className="w-full">

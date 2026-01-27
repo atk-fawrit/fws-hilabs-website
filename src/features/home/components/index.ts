@@ -1,6 +1,6 @@
-export { HeroCarouselSection } from './HeroCarouselSection';
-export { ProgramsInfoSection } from './ProgramsInfoSection';
-export { DiscoverSection } from './DiscoverSection';
-export { WhatIsIsNotSection } from './WhatIsIsNotSection';
-export { QuickAccessSection } from './QuickAccessSection';
-export { IntroductionSection } from './IntroductionSection';
+export { HeroSection } from './sections/HeroSection';
+export { PipelineSection } from './sections/PipelineSection';
+export { ProgramsSection } from './sections/ProgramsSection';
+export { ExploreSection } from './sections/ExploreSection';
+export { IdentitySection } from './sections/IdentitySection';
+export { CTASection } from './sections/CTASection';

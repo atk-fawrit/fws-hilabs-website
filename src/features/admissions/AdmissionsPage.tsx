@@ -1,6 +1,7 @@
 'use client';
 
 import { HeroSection, PageContainer } from '@/src/shared/components/layout';
+import { BackButton } from '@/src/shared/components/content';
 import { useState } from 'react';
 import {
   MainContentSection,
@@ -27,16 +28,11 @@ export default function AdmissionsPage() {
     return (
       <PageContainer>
         <div className="px-6 md:px-8 pt-4 pb-2">
-          {/* Back Button */}
-          <button
+          <BackButton 
             onClick={() => setActiveSection(null)}
-            className="flex items-center gap-2 text-accent hover:text-primary transition-colors mb-4"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            Back to Admissions Overview
-          </button>
+            text="Back to Admissions Overview"
+            className="mb-4"
+          />
           
           {/* Content without wrapper */}
           {component}

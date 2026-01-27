@@ -11,3 +11,5 @@ export { ImageCard } from './ImageCard';
 export { ProcessCard } from './ProcessCard';
 export { ExpandableSection } from './ExpandableSection';
 export { SectionHeader } from './SectionHeader';
+export { LinkCard } from './LinkCard';
+export { BackButton } from './BackButton';

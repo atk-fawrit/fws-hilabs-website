@@ -1,102 +1,80 @@
 import Link from 'next/link';
-import { NavigationItem, FooterProps } from '@/src/shared/types';
+import { FooterProps } from '@/src/shared/types';
 
-// Primary footer navigation links
-const primaryLinks: NavigationItem[] = [
-  { label: 'Flagship Program', href: '/flagship-program', primary: true },
-  { label: 'Admissions', href: '/admissions', primary: true },
-  { label: 'Courses', href: '/courses', primary: true },
-  { label: 'Outcomes', href: '/outcomes', primary: true },
-  { label: 'Employers', href: '/employers', primary: true },
-  { label: 'About', href: '/about', primary: true },
+// Footer sections data
+const footerSections = [
+  {
+    title: 'Programs',
+    links: [
+      { label: 'Flagship Program', href: '/flagship-program' },
+      { label: 'Courses', href: '/courses' },
+      { label: 'Outcomes', href: '/outcomes' },
+      { label: 'Employers', href: '/employers' },
+    ]
+  },
+  {
+    title: 'Information',
+    links: [
+      { label: 'Admissions', href: '/admissions' },
+      { label: 'About', href: '/about' },
+      { label: 'Lucknow Lab', href: '/lucknow-lab' },
+      { label: 'Contact', href: '/contact' },
+    ]
+  }
 ];
 
-// Policy and legal links
-const policyLinks: NavigationItem[] = [
-  { label: 'Privacy Policy', href: '/privacy', primary: false },
-  { label: 'Terms of Service', href: '/terms', primary: false },
-  { label: 'Code of Conduct', href: '/conduct', primary: false },
-  { label: 'Contact', href: '/contact', primary: false },
-];
+const companyInfo = {
+  title: 'HI LABS',
+  description: 'Human Intelligence Laboratories Private Limited. Engineering talent production through enforced evaluation and supervised deployment.'
+};
 
 export default function Footer({ className = '' }: FooterProps) {
   const currentYear = new Date().getFullYear();
   
   return (
-    <div className="w-full bg-page-background">
-      <div className="max-w-[1600px] mx-auto bg-oxford-blue">
-        <footer 
-          className={`w-full text-white ${className}`}
-          role="contentinfo"
-          aria-label="Site footer"
-        >
-          <div className="px-4 md:px-8">
-            {/* Main Footer Content */}
-            <div className="py-8 md:py-12">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {/* Brand and Description */}
-                <div className="space-y-4">
-                  <h3 className="text-white font-bold text-lg">HI Labs</h3>
-                  <p className="text-gray-300 text-sm leading-relaxed max-w-sm">
-                    Human Intelligence Laboratories Private Limited. 
-                    Engineering talent production through enforced evaluation and supervised deployment.
-                  </p>
-                  <address className="text-gray-400 text-xs not-italic">
-                    Lucknow, Uttar Pradesh, India
-                  </address>
-                </div>
-                
-                {/* Primary Navigation Links */}
-                <div className="space-y-4">
-                  <h4 className="text-white font-semibold text-base">Programs</h4>
-                  <nav className="space-y-2" aria-label="Footer programs navigation">
-                    {primaryLinks.map((link) => (
-                      <Link
-                        key={link.href}
-                        href={link.href}
-                        className="block text-gray-300 text-sm hover:text-white focus-institutional transition-colors duration-200"
-                      >
-                        {link.label}
-                      </Link>
-                    ))}
-                  </nav>
-                </div>
-                
-                {/* Policy Links */}
-                <div className="space-y-4">
-                  <h4 className="text-white font-semibold text-base">Information</h4>
-                  <nav className="space-y-2" aria-label="Footer policy navigation">
-                    {policyLinks.map((link) => (
-                      <Link
-                        key={link.href}
-                        href={link.href}
-                        className="block text-gray-300 text-sm hover:text-white focus-institutional transition-colors duration-200"
-                      >
-                        {link.label}
-                      </Link>
-                    ))}
-                  </nav>
-                </div>
-              </div>
-            </div>
-            
-            {/* Footer Bottom */}
-            <div className="border-t border-oxford-blue-hover py-4">
-              <div className="flex flex-col md:flex-row justify-between items-start md:items-center space-y-2 md:space-y-0">
-                {/* Copyright */}
-                <div className="text-gray-400 text-xs">
-                  © {currentYear} Human Intelligence Laboratories Private Limited. All rights reserved.
-                </div>
-                
-                {/* Legal Notice */}
-                <div className="text-gray-400 text-xs max-w-md text-left md:text-right">
-                  Registered in India. CIN: [Company Identification Number]
-                </div>
-              </div>
-            </div>
+    <footer className={`bg-white border-t border-black/8 py-16 pb-8 ${className}`}>
+      <div className="w-full mx-auto px-8">
+        {/* Footer Content */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 mb-16 text-center justify-items-center">
+          {/* Company Info */}
+          <div className="text-center max-w-sm">
+            <h3 className="font-mono text-2xl font-bold mb-5 text-gray-900">
+              {companyInfo.title}
+            </h3>
+            <p className="text-base leading-relaxed text-black/60">
+              {companyInfo.description}
+            </p>
           </div>
-        </footer>
+
+          {/* Footer Sections */}
+          {footerSections.map((section, index) => (
+            <div key={index} className="text-center max-w-sm">
+              <h4 className="text-lg font-semibold mb-7 text-gray-900">
+                {section.title}
+              </h4>
+              <ul className="flex flex-col gap-4 items-center">
+                {section.links.map((link, linkIndex) => (
+                  <li key={linkIndex}>
+                    <Link 
+                      href={link.href}
+                      className="text-base text-black/60 transition-colors duration-300 hover:text-black/90"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        {/* Footer Bottom */}
+        <div className="text-center pt-10 border-t border-black/8">
+          <p className="text-sm text-black/50">
+            © {currentYear} Human Intelligence Laboratories Private Limited. All rights reserved.
+          </p>
+        </div>
       </div>
-    </div>
+    </footer>
   );
 }

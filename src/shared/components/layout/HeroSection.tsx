@@ -50,11 +50,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       {/* Content */}
       <div className="relative h-full flex items-center px-6 md:px-8">
         <div className={`max-w-4xl ${textColor === 'text-white' ? 'hero-text-white' : ''}`}>
-          <H1 className={`text-4xl md:text-5xl font-light ${textColor} mb-4`}>
+          <H1 className={`text-4xl md:text-5xl font-light ${textColor} mb-4 font-sans`}>
             {title}
           </H1>
           {description && (
-            <BodyText className={`text-lg md:text-xl ${textColor} leading-relaxed`}>
+            <BodyText className={`text-lg md:text-xl ${textColor} leading-relaxed font-sans`}>
               {description}
             </BodyText>
           )}

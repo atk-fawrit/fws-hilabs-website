@@ -9,11 +9,11 @@ import { H3 } from '@/src/shared/components/typography';
 import { BodyText } from '@/src/shared/components/typography';
 import { InfoBoxProps } from '@/src/shared/types';
 
-export function InfoBox({ 
-  title, 
-  description, 
+export function InfoBox({
+  title,
+  description,
   variant = 'accent',
-  className = '' 
+  className = ''
 }: InfoBoxProps) {
   const styles = {
     accent: {
@@ -27,14 +27,14 @@ export function InfoBox({
       text: 'text-warning',
     },
     neutral: {
-      bg: 'bg-gray-50',
+      bg: 'bg-neutral-bg',
       border: 'border-accent',
       text: 'text-accent',
     },
   };
 
   const style = styles[variant];
-  
+
   return (
     <div className={`${style.bg} border-l-4 ${style.border} p-6 space-y-4 ${className}`}>
       <H3 className={`${style.text} font-mono`}>{title}</H3>
