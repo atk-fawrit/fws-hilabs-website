@@ -1,19 +1,19 @@
 import type { Metadata, Viewport } from "next";
-import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
-import { Navigation, Footer } from "@/src/shared/components/layout";
+import { Inter, JetBrains_Mono } from "next/font/google";
+import Navigation from "@/src/shared/components/layout/Navigation";
 import "./globals.css";
 
-// HI Labs institutional typography - IBM Plex Sans and Mono
-const ibmPlexSans = IBM_Plex_Sans({
-  variable: "--font-ibm-plex-sans",
+// Modern typography - Inter and JetBrains Mono
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["300", "400", "500", "600", "700"],
   display: 'swap',
   preload: true,
 });
 
-const ibmPlexMono = IBM_Plex_Mono({
-  variable: "--font-ibm-plex-mono", 
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono", 
   subsets: ["latin"],
   weight: ["400", "500", "600"],
   display: 'swap',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#F4F4F2",
+  themeColor: "#000000",
 };
 
 export default function RootLayout({
@@ -53,29 +53,31 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${ibmPlexSans.variable} ${ibmPlexMono.variable}`}>
-      <body className="antialiased bg-background text-primary font-sans" suppressHydrationWarning={true}>
-        <div className="min-h-screen flex flex-col">
-          {/* Primary Navigation - appears on all pages */}
-          <header role="banner">
-            <Navigation />
-          </header>
-          
-          {/* Main Content Area */}
-          <main 
-            id="main-content" 
-            className="flex-1 w-full" 
-            role="main"
-            tabIndex={-1}
-          >
-            {children}
-          </main>
-          
-          {/* Footer - appears on all pages */}
-          <footer role="contentinfo">
-            <Footer />
-          </footer>
-        </div>
+    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
+      <head>
+        {/* Preload critical images for better performance */}
+        <link
+          rel="preload"
+          as="image"
+          href="/images/Image-R.png"
+          type="image/png"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/images/Image-Right.png"
+          type="image/png"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/images/Bg-Transform.jpg"
+          type="image/jpeg"
+        />
+      </head>
+      <body className="antialiased bg-black text-white font-sans" suppressHydrationWarning={true}>
+        <Navigation />
+        {children}
       </body>
     </html>
   );

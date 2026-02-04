@@ -1,45 +1,62 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { heroSlides } from './data';
-import { PageContainer } from '@/src/shared/components/layout';
+import { useEffect } from 'react';
 import {
-  HeroCarouselSection,
-  ProgramsInfoSection,
-  DiscoverSection,
-  WhatIsIsNotSection,
-  QuickAccessSection,
-  IntroductionSection,
+  HeroSection,
+  PipelineSection,
+  ProgramsSection,
+  ExploreSection,
+  IdentitySection,
+  CTASection,
 } from './components';
+import Footer from '@/src/shared/components/layout/Footer';
+import { homeData } from './data';
 
 export default function HomePage() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 5000);
-    return () => clearInterval(timer);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const sections = document.querySelectorAll('.reveal-on-scroll, [class*="visible"]');
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
   }, []);
 
-  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
-  const selectSlide = (index: number) => setCurrentSlide(index);
-
   return (
-    <PageContainer>
-      <IntroductionSection />
-      <HeroCarouselSection
-        slides={heroSlides}
-        currentSlide={currentSlide}
-        onNext={nextSlide}
-        onPrev={prevSlide}
-        onSelectSlide={selectSlide}
+    <div className="min-h-screen font-sans text-white">
+      <HeroSection images={homeData.hero.images} />
+      
+      <PipelineSection stages={homeData.pipeline.stages} />
+      
+      <ProgramsSection 
+        programs={homeData.programs.main}
+        backgroundImage={homeData.programs.backgroundImage}
       />
-      <ProgramsInfoSection />
-      <DiscoverSection />
-      <WhatIsIsNotSection />
-      <QuickAccessSection />
-    </PageContainer>
+      
+      <ExploreSection cards={homeData.explore.cards} />
+      
+      <IdentitySection 
+        positiveItems={homeData.identity.positive}
+        negativeItems={homeData.identity.negative}
+      />
+      
+      <CTASection 
+        title={homeData.cta.title}
+        description={homeData.cta.description}
+        buttonText={homeData.cta.buttonText}
+        buttonHref={homeData.cta.buttonHref}
+      />
+      
+      <Footer />
+    </div>
   );
 }

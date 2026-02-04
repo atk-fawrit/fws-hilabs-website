@@ -10,82 +10,58 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // HI Labs institutional color palette - Oxford inspired
+        // Modern premium color palette
         background: '#FFFFFF',
-        'page-background': '#2C3E50',
-        primary: '#1C1C1C',
-        secondary: '#5F6A7A',
-        accent: '#2F4A6D',
-        'oxford-blue': '#002147',
-        'oxford-blue-hover': '#003366',
-        warning: '#8A2E2E',
-        // Forbidden colors are explicitly excluded
+        'page-background': '#000000',
+        primary: '#FFFFFF',
+        secondary: 'rgba(255, 255, 255, 0.7)',
+        accent: '#3b82f6',
+        'accent-secondary': '#8b5cf6',
+        'accent-tertiary': '#ec4899',
+        dark: '#000000',
+        'dark-secondary': '#1a1a1a',
+        'neutral-bg': '#2c3e50',
       },
       fontFamily: {
-        sans: ['Georgia', 'Times New Roman', 'serif'],
-        mono: ['IBM Plex Mono', 'Menlo', 'Monaco', 'monospace'],
+        sans: ['Inter', 'sans-serif'],
+        mono: ['JetBrains Mono', 'monospace'],
       },
-      fontWeight: {
-        regular: '400',
-        medium: '500',
-        semibold: '600',
-      },
-      spacing: {
-        'section': '4rem',
-        'subsection': '2rem',
-        'element': '1rem',
-        'tight': '0.5rem',
-        'loose': '6rem',
-      },
-      gridTemplateColumns: {
-        '12': 'repeat(12, minmax(0, 1fr))',
-      },
-      // Responsive breakpoints for institutional design
-      screens: {
-        'xs': '475px',
-        'sm': '640px',
-        'md': '768px',
-        'lg': '1024px',
-        'xl': '1280px',
-        '2xl': '1536px',
-      },
-      // Responsive typography scaling
-      fontSize: {
-        'xs': ['0.75rem', { lineHeight: '1rem' }],
-        'sm': ['0.875rem', { lineHeight: '1.25rem' }],
-        'base': ['1rem', { lineHeight: '1.5rem' }],
-        'lg': ['1.125rem', { lineHeight: '1.75rem' }],
-        'xl': ['1.25rem', { lineHeight: '1.75rem' }],
-        '2xl': ['1.5rem', { lineHeight: '2rem' }],
-        '3xl': ['1.875rem', { lineHeight: '2.25rem' }],
-        '4xl': ['2.25rem', { lineHeight: '2.5rem' }],
-        '5xl': ['3rem', { lineHeight: '1' }],
-      },
-      // Responsive spacing
-      margin: {
-        'mobile': '1rem',
-        'tablet': '1.5rem',
-        'desktop': '2rem',
-      },
-      padding: {
-        'mobile': '1rem',
-        'tablet': '1.5rem',
-        'desktop': '2rem',
-      },
-      maxWidth: {
-        'institutional': '1200px',
-      },
-      // Disable rounded corners, shadows, and gradients per design constraints
       borderRadius: {
         'none': '0',
-        DEFAULT: '0',
+        'sm': '0.5rem',
+        DEFAULT: '1rem',
+        'lg': '1.5rem',
+        'xl': '2rem',
+        'full': '9999px',
       },
       boxShadow: {
         'none': 'none',
-        DEFAULT: 'none',
+        'sm': '0 4px 12px rgba(0, 0, 0, 0.15)',
+        DEFAULT: '0 10px 30px rgba(0, 0, 0, 0.3)',
+        'lg': '0 20px 50px rgba(0, 0, 0, 0.4)',
+        'glow': '0 0 20px rgba(59, 130, 246, 0.3)',
       },
       backgroundImage: {
-        'none': 'none',
+        'gradient-radial': 'radial-gradient(ellipse at center, var(--tw-gradient-stops))',
+      },
+      animation: {
+        'fade-in': 'fadeIn 0.5s ease-out',
+        'slide-up': 'slideUp 0.6s ease-out',
+        'pulse-ring': 'pulseRing 2s ease-in-out infinite',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        slideUp: {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        pulseRing: {
+          '0%, 100%': { boxShadow: '0 0 0 0 rgba(59, 130, 246, 0.4)' },
+          '50%': { boxShadow: '0 0 0 15px rgba(59, 130, 246, 0)' },
+        },
       },
     },
   },

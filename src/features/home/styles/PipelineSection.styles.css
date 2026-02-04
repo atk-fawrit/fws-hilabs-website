@@ -1,0 +1,250 @@
+/* PipelineSection Animations */
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes expandWidth {
+  to { 
+    width: 100%; 
+  }
+}
+
+@keyframes flowRight {
+  0%, 100% { 
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% { 
+    opacity: 1;
+  }
+  100% { 
+    transform: translateX(200%);
+  }
+}
+
+@keyframes flowDown {
+  0%, 100% { 
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  50% { 
+    opacity: 1;
+  }
+  100% { 
+    transform: translateY(200%);
+  }
+}
+
+@keyframes shimmerProgress {
+  0% { 
+    transform: translateX(-100%);
+  }
+  100% { 
+    transform: translateX(200%);
+  }
+}
+
+@keyframes borderFlow {
+  0% { 
+    transform: translateX(-100%) rotate(0deg);
+  }
+  100% { 
+    transform: translateX(100%) rotate(0deg);
+  }
+}
+
+@keyframes scanLine {
+  0% { 
+    transform: translateY(0);
+  }
+  100% { 
+    transform: translateY(400px);
+  }
+}
+
+@keyframes floatParticle1 {
+  0%, 100% { 
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  50% { 
+    transform: translate(20px, -30px);
+    opacity: 0.8;
+  }
+  75% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes floatParticle2 {
+  0%, 100% { 
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.8;
+  }
+  50% { 
+    transform: translate(-25px, -25px);
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.4;
+  }
+}
+
+@keyframes floatParticle3 {
+  0%, 100% { 
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.9;
+  }
+  50% { 
+    transform: translate(15px, -35px);
+    opacity: 0.7;
+  }
+  75% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes floatParticle4 {
+  0%, 100% { 
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  50% { 
+    transform: translate(-18px, -28px);
+    opacity: 0.9;
+  }
+  80% {
+    opacity: 0.2;
+  }
+}
+
+@keyframes floatParticle5 {
+  0%, 100% { 
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.7;
+  }
+  50% { 
+    transform: translate(22px, -32px);
+    opacity: 0.6;
+  }
+  85% {
+    opacity: 0.1;
+  }
+}
+
+@keyframes flowParticle1 {
+  0% { 
+    left: -10%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% { 
+    left: 110%;
+    opacity: 0;
+  }
+}
+
+@keyframes flowParticle2 {
+  0% { 
+    left: -10%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.9;
+  }
+  90% {
+    opacity: 0.9;
+  }
+  100% { 
+    left: 110%;
+    opacity: 0;
+  }
+}
+
+@keyframes flowParticle3 {
+  0% { 
+    left: -10%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% { 
+    left: 110%;
+    opacity: 0;
+  }
+}
+
+/* Animation Classes */
+.animate-flowParticle1 {
+  animation: flowParticle1 3s ease-in-out infinite;
+}
+
+.animate-flowParticle2 {
+  animation: flowParticle2 3.5s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.animate-flowParticle3 {
+  animation: flowParticle3 3.2s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.animate-floatParticle1 {
+  animation: floatParticle1 3s ease-in-out infinite;
+}
+
+.animate-floatParticle2 {
+  animation: floatParticle2 3.5s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+.animate-floatParticle3 {
+  animation: floatParticle3 3.2s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.animate-floatParticle4 {
+  animation: floatParticle4 2.8s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+.animate-floatParticle5 {
+  animation: floatParticle5 3.3s ease-in-out infinite;
+  animation-delay: 0.8s;
+}
+
+.animate-scanLine {
+  animation: scanLine 3s ease-in-out infinite;
+}
