@@ -7,7 +7,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { H2, H3, BodyText } from '@/src/shared/components/typography';
+import { H2, BodyText } from '@/src/shared/components/typography';
 import { ExpandableSection } from '@/src/shared/components/content';
 
 const domains = [

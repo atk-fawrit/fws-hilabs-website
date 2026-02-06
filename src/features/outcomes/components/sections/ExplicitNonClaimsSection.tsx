@@ -32,7 +32,7 @@ export function ExplicitNonClaimsSection() {
           </BodyText>
           <BodyText className="text-primary/60 text-xs leading-relaxed">
             Compensation arrangements are determined by employer partners based on organizational policies, market conditions, and individual performance. 
-            These arrangements are outside HI Labs' scope and control.
+            These arrangements are outside HI Labs&apos; scope and control.
           </BodyText>
         </div>
         

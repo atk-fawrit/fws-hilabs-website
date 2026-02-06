@@ -72,7 +72,7 @@ export default function AboutPage() {
           <div className="text-center mb-12">
             <H2 className="text-3xl font-light text-primary mb-4">Institutional Framework</H2>
             <BodyText className="text-lg text-secondary max-w-4xl mx-auto">
-              Explore detailed documentation of HI Labs' institutional structure, operating principles, 
+              Explore detailed documentation of HI Labs&apos; institutional structure, operating principles, 
               and governance mechanisms through systematic domain specifications
             </BodyText>
           </div>

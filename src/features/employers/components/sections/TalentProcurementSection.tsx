@@ -34,7 +34,7 @@ export const TalentProcurementSection: React.FC = () => {
           Procurement Document
         </H3>
         <BodyText className="text-primary/80 leading-relaxed">
-          This document specifies HI Labs' talent supply capabilities, deployment models, and partnership 
+          This document specifies HI Labs&apos; talent supply capabilities, deployment models, and partnership 
           protocols for organizations evaluating engineering talent procurement through systematic production 
           rather than traditional recruitment channels.
         </BodyText>

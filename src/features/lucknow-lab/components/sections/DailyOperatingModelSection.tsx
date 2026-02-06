@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import { H2, H3 } from '@/src/shared/components/typography';
+import { H2 } from '@/src/shared/components/typography';
 import { BodyText } from '@/src/shared/components/typography';
 
 const operationalFramework = [

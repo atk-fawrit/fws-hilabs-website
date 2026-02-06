@@ -1,148 +1,138 @@
 /**
  * Application Protocol Section
  * 
- * Displays application timeline, response protocols, and confirmation requirements
+ * Modern timeline-based design for application process
  */
 
 import React from 'react';
-import { H3 } from '@/src/shared/components/typography';
-import { BodyText } from '@/src/shared/components/typography';
-import { SectionHeader } from '@/src/shared/components/content';
 
 export const ApplicationProtocolSection: React.FC = () => {
+  const timelineStages = [
+    {
+      stage: 'Application Submission',
+      items: [
+        'Submit complete application',
+        'Response within 5 business days',
+        'Screening invitation or rejection'
+      ]
+    },
+    {
+      stage: 'Screening Assessment',
+      items: [
+        'Schedule within 10 business days',
+        'Complete 3-hour assessment',
+        'Results within 3 business days'
+      ]
+    },
+    {
+      stage: 'Technical Interview',
+      items: [
+        'Schedule within 7 business days',
+        '90-minute interview session',
+        'Feedback within 2 business days'
+      ]
+    },
+    {
+      stage: 'Admission Decision',
+      items: [
+        'Final decision within 7 business days',
+        'Written notification with details',
+        'Program placement or waitlist status'
+      ]
+    }
+  ];
+
+  const protocols = [
+    'All communications conducted via email with documented timestamps',
+    'Candidates must respond to scheduling requests within 48 hours',
+    'Missed deadlines or non-responses result in automatic rejection',
+    'No extensions or special accommodations for timeline requirements',
+    'Questions directed to admissions@hilabs.in with 24-hour response commitment'
+  ];
+
   return (
-    <section className="space-y-6">
-      <SectionHeader 
-        title="Application Protocol"
-      />
-      
-      <div className="space-y-4">
-        <BodyText className="text-lg leading-relaxed text-primary">
-          The application process operates on a structured timeline with specific 
-          response protocols. Candidates must follow the prescribed sequence and 
-          meet all deadlines for consideration.
-        </BodyText>
+    <section className="w-full bg-gray-50 py-20 px-8 md:px-16 lg:px-24">
+      <div className="space-y-16">
+        {/* Header */}
+        <div className="space-y-4">
+          <h2 className="text-4xl md:text-5xl font-light text-gray-900 tracking-tight">
+            Application Protocol
+          </h2>
+          <p className="text-xl text-gray-700 leading-relaxed font-light">
+            The application process operates on a structured timeline with specific 
+            response protocols. Candidates must follow the prescribed sequence and 
+            meet all deadlines for consideration.
+          </p>
+        </div>
         
-        <div className="space-y-6">
-          {/* Application Timeline */}
-          <div className="bg-white border-2 border-accent p-6">
-            <H3 className="text-accent font-bold text-2xl mb-4">APPLICATION TIMELINE</H3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <BodyText className="font-semibold text-primary">Application Submission:</BodyText>
-                <ul className="space-y-1">
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2 mt-1 text-sm">•</span>
-                    <BodyText className="text-sm">Submit complete application</BodyText>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2 mt-1 text-sm">•</span>
-                    <BodyText className="text-sm">Response within 5 business days</BodyText>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2 mt-1 text-sm">•</span>
-                    <BodyText className="text-sm">Screening invitation or rejection</BodyText>
-                  </li>
-                </ul>
-              </div>
-              
-              <div className="space-y-2">
-                <BodyText className="font-semibold text-primary">Screening Assessment:</BodyText>
-                <ul className="space-y-1">
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2 mt-1 text-sm">•</span>
-                    <BodyText className="text-sm">Schedule within 10 business days</BodyText>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2 mt-1 text-sm">•</span>
-                    <BodyText className="text-sm">Complete 3-hour assessment</BodyText>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2 mt-1 text-sm">•</span>
-                    <BodyText className="text-sm">Results within 3 business days</BodyText>
-                  </li>
-                </ul>
-              </div>
-              
-              <div className="space-y-2">
-                <BodyText className="font-semibold text-primary">Technical Interview:</BodyText>
-                <ul className="space-y-1">
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2 mt-1 text-sm">•</span>
-                    <BodyText className="text-sm">Schedule within 7 business days</BodyText>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2 mt-1 text-sm">•</span>
-                    <BodyText className="text-sm">90-minute interview session</BodyText>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2 mt-1 text-sm">•</span>
-                    <BodyText className="text-sm">Feedback within 2 business days</BodyText>
-                  </li>
-                </ul>
-              </div>
-              
-              <div className="space-y-2">
-                <BodyText className="font-semibold text-primary">Admission Decision:</BodyText>
-                <ul className="space-y-1">
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2 mt-1 text-sm">•</span>
-                    <BodyText className="text-sm">Final decision within 7 business days</BodyText>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2 mt-1 text-sm">•</span>
-                    <BodyText className="text-sm">Written notification with details</BodyText>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2 mt-1 text-sm">•</span>
-                    <BodyText className="text-sm">Program placement or waitlist status</BodyText>
-                  </li>
-                </ul>
-              </div>
+        {/* Timeline Section */}
+        <div>
+          <h3 className="text-2xl font-light text-gray-900 mb-8">Application Timeline</h3>
+          
+          <div className="relative">
+            {/* Vertical line */}
+            <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gray-300"></div>
+            
+            <div className="space-y-8">
+              {timelineStages.map((stage, index) => (
+                <div key={index} className="relative pl-16">
+                  {/* Circle marker */}
+                  <div className="absolute left-0 top-0 w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center text-white font-medium">
+                    {index + 1}
+                  </div>
+                  
+                  {/* Content card */}
+                  <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 className="text-lg font-medium text-gray-900 mb-4">
+                      {stage.stage}
+                    </h4>
+                    <ul className="space-y-2">
+                      {stage.items.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-3">
+                          <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                          <span className="text-gray-700 font-light">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-          
-          {/* Response Protocols */}
-          <div className="bg-secondary/5 border-2 border-secondary p-6">
-            <H3 className="text-secondary font-bold text-2xl mb-4">RESPONSE PROTOCOLS</H3>
-            <ul className="space-y-2">
-              <li className="flex items-start">
-                <span className="text-secondary mr-3 mt-1">•</span>
-                <BodyText className="text-base">All communications conducted via email with documented timestamps</BodyText>
-              </li>
-              <li className="flex items-start">
-                <span className="text-secondary mr-3 mt-1">•</span>
-                <BodyText className="text-base">Candidates must respond to scheduling requests within 48 hours</BodyText>
-              </li>
-              <li className="flex items-start">
-                <span className="text-secondary mr-3 mt-1">•</span>
-                <BodyText className="text-base">Missed deadlines or non-responses result in automatic rejection</BodyText>
-              </li>
-              <li className="flex items-start">
-                <span className="text-secondary mr-3 mt-1">•</span>
-                <BodyText className="text-base">No extensions or special accommodations for timeline requirements</BodyText>
-              </li>
-              <li className="flex items-start">
-                <span className="text-secondary mr-3 mt-1">•</span>
-                <BodyText className="text-base">Questions directed to admissions@hilabs.in with 24-hour response commitment</BodyText>
-              </li>
-            </ul>
+        </div>
+
+        {/* Response Protocols */}
+        <div className="bg-white border border-gray-200 rounded-lg p-8">
+          <h3 className="text-2xl font-light text-gray-900 mb-6">Response Protocols</h3>
+          <div className="space-y-4">
+            {protocols.map((protocol, idx) => (
+              <div key={idx} className="flex items-start gap-4 p-4 hover:bg-gray-50 rounded-lg transition-colors">
+                <div className="flex-shrink-0 w-8 h-8 bg-gray-900 rounded-full flex items-center justify-center">
+                  <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <p className="text-gray-700 font-light leading-relaxed flex-1">{protocol}</p>
+              </div>
+            ))}
           </div>
-          
-          {/* Admission Confirmation */}
-          <div className="bg-accent/5 border-2 border-accent p-6">
-            <H3 className="text-accent font-bold text-2xl mb-4">ADMISSION CONFIRMATION</H3>
-            <BodyText className="text-base leading-relaxed text-primary mb-4">
-              Admitted candidates receive written confirmation with program details, 
-              start date, and pre-program requirements. Confirmation must be returned 
-              within 72 hours to secure program placement.
-            </BodyText>
-            <div className="bg-accent/10 border-l-4 border-accent p-4">
-              <BodyText className="text-sm text-primary">
-                <strong>CONFIRMATION REQUIREMENTS:</strong> Signed commitment agreement, financial verification, 
-                relocation timeline, emergency contact information, medical clearance documentation.
-              </BodyText>
-            </div>
+        </div>
+        
+        {/* Admission Confirmation */}
+        <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-lg p-8 text-white">
+          <h3 className="text-2xl font-light mb-6">Admission Confirmation</h3>
+          <p className="text-lg text-white/90 leading-relaxed font-light mb-6">
+            Admitted candidates receive written confirmation with program details, 
+            start date, and pre-program requirements. Confirmation must be returned 
+            within 72 hours to secure program placement.
+          </p>
+          <div className="bg-white/10 backdrop-blur-sm border-l-4 border-white p-6 rounded-r-lg">
+            <p className="text-sm text-white/90 font-light leading-relaxed">
+              <span className="font-medium text-white">CONFIRMATION REQUIREMENTS:</span> Signed commitment agreement, financial verification, 
+              relocation timeline, emergency contact information, medical clearance documentation.
+            </p>
           </div>
         </div>
       </div>

@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import { PageContainer, DocumentHeader } from '@/src/shared/components/layout';
 import {
   EvidenceDocumentationSection,

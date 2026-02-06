@@ -108,6 +108,7 @@ export const ProgramCategoriesSection: React.FC = () => {
           >
             {/* Image Header */}
             <div className="relative h-48 overflow-hidden">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img 
                 src={program.image} 
                 alt={program.title}
@@ -182,6 +183,7 @@ export const ProgramCategoriesSection: React.FC = () => {
           <div className="relative w-full max-w-4xl max-h-[90vh] overflow-hidden bg-white rounded-2xl shadow-2xl animate-scale-in">
             {/* Header Section with Image */}
             <div className="relative h-32 overflow-hidden bg-gradient-to-r from-oxford-blue to-accent">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img 
                 src={selectedProgramData.image} 
                 alt={selectedProgramData.title}

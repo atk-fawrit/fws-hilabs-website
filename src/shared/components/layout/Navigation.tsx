@@ -34,7 +34,10 @@ export default function Navigation({ className = '' }: NavigationProps) {
 
   // Reset mobile menu when route changes
   useEffect(() => {
-    setIsMobileMenuOpen(false);
+    // Use a microtask to avoid synchronous setState
+    Promise.resolve().then(() => {
+      setIsMobileMenuOpen(false);
+    });
   }, [pathname]);
 
   const toggleMobileMenu = useCallback(() => {

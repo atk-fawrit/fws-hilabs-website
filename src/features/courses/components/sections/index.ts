@@ -1,4 +1,4 @@
-
+export { HeroSection } from './HeroSection';
 export { ProgramBoundariesSection } from './ProgramBoundariesSection';
 export { OperatingFormatSection } from './OperatingFormatSection';
 export { ProgramCategoriesSection } from './ProgramCategoriesSection';

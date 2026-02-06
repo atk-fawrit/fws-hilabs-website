@@ -13,7 +13,7 @@ export default function EmployersPage() {
   const headerDescription = (
     <>
       <BodyText className="text-lg text-primary/80 leading-relaxed mb-6">
-        This document specifies HI Labs' talent supply capabilities, deployment models, and partnership 
+        This document specifies HI Labs&apos; talent supply capabilities, deployment models, and partnership 
         protocols for organizations evaluating engineering talent procurement through systematic production 
         rather than traditional recruitment channels.
       </BodyText>

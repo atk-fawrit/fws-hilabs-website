@@ -12,7 +12,6 @@ import { InteractiveCardProps } from '@/src/shared/types/content.types';
 
 export const InteractiveCard: React.FC<InteractiveCardProps> = ({
   title,
-  icon,
   colorTheme = 'accent',
   isCollapsible = false,
   isExpanded = false,
