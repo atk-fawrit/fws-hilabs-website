@@ -1,16 +1,12 @@
 /**
  * Faculty Model Section
- * 
  * Displays faculty role specifications and collaboration protocols
  */
 
 import React from 'react';
-import { H2, H3 } from '@/src/shared/components/typography';
-import { BodyText } from '@/src/shared/components/typography';
-import { RoleSpecification } from '../ui';
 
 const instructorRole = {
-  title: 'INSTRUCTOR ROLE SPECIFICATION',
+  title: 'Instructor Role Specification',
   description: 'Instructors operate systematic competency development protocols with assessment authority, elimination decision responsibility, and performance tracking accountability within defined domain areas.',
   responsibilities: [
     'Systematic competency development protocol implementation and maintenance',
@@ -25,14 +21,11 @@ const instructorRole = {
     'Technical domain expertise appropriate for assigned competency areas',
     'Institutional discipline commitment and protocol compliance capability',
   ],
-  note: {
-    type: 'authority' as const,
-    content: 'INSTRUCTOR AUTHORITY: Instructors maintain authority for competency assessment, elimination decisions, and performance intervention within assigned domain responsibilities.',
-  },
+  authority: 'Instructors maintain authority for competency assessment, elimination decisions, and performance intervention within assigned domain responsibilities.',
 };
 
 const trainerRole = {
-  title: 'TRAINER ROLE SPECIFICATION',
+  title: 'Trainer Role Specification',
   description: 'Trainers operate systematic skill development protocols with performance support responsibility, competency reinforcement accountability, and specialized technical domain expertise.',
   responsibilities: [
     'Systematic skill development protocol implementation and technical support',
@@ -47,73 +40,177 @@ const trainerRole = {
     'Competency reinforcement protocol expertise and optimization capability',
     'Collaborative protocol participation and institutional standard compliance',
   ],
-  note: {
-    type: 'scope' as const,
-    content: 'TRAINER SCOPE: Trainers operate under instructor authority with specialized technical support responsibility rather than independent assessment or elimination decision authority.',
-  },
+  scope: 'Trainers operate under instructor authority with specialized technical support responsibility rather than independent assessment or elimination decision authority.',
 };
 
 export const FacultyModelSection: React.FC = () => {
   return (
-    <section className="space-y-8">
-      <H2>Faculty Model</H2>
-      
-      <div className="space-y-6">
-        <BodyText>
-          HI Labs operates through systematic faculty roles with distinct 
-          responsibilities, accountability structures, and performance requirements 
-          that distinguish instructional and training functions within the 
-          institutional framework.
-        </BodyText>
+    <section className="w-full bg-white py-20 px-8 md:px-16 lg:px-24">
+      <div className="space-y-12">
+        {/* Header */}
+        <div className="space-y-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-black tracking-tight">
+            Faculty Model
+          </h2>
+          <p className="text-xl text-gray-700 leading-relaxed font-light">
+            HI Labs operates through systematic faculty roles with distinct responsibilities, 
+            accountability structures, and performance requirements that distinguish instructional 
+            and training functions within the institutional framework.
+          </p>
+        </div>
         
-        <div className="space-y-12">
-          <RoleSpecification {...instructorRole} />
-          <RoleSpecification {...trainerRole} />
+        {/* Roles Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Instructor Role Card */}
+          <div className="bg-gray-50 border border-gray-200 rounded-lg overflow-hidden">
+            <div className="bg-gray-900 text-white p-6">
+              <h3 className="text-xl font-medium text-white uppercase tracking-wider">
+                {instructorRole.title}
+              </h3>
+            </div>
+            <div className="p-6 space-y-6">
+              <p className="text-gray-700 leading-relaxed font-light">
+                {instructorRole.description}
+              </p>
+              
+              <div>
+                <h4 className="font-medium text-sm mb-3 text-black uppercase tracking-wider">
+                  Responsibilities
+                </h4>
+                <ul className="space-y-2">
+                  {instructorRole.responsibilities.map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
+                      <svg className="w-4 h-4 flex-shrink-0 mt-0.5 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                      <span className="font-light">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              
+              <div>
+                <h4 className="font-medium text-sm mb-3 text-black uppercase tracking-wider">
+                  Qualifications
+                </h4>
+                <ul className="space-y-2">
+                  {instructorRole.qualifications.map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
+                      <svg className="w-4 h-4 flex-shrink-0 mt-0.5 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                      <span className="font-light">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              
+              <div className="bg-white border-l-4 border-gray-900 p-4">
+                <h5 className="font-medium text-xs uppercase mb-2 text-black tracking-wider">
+                  Instructor Authority
+                </h5>
+                <p className="text-sm text-gray-700 font-light">{instructorRole.authority}</p>
+              </div>
+            </div>
+          </div>
+          
+          {/* Trainer Role Card */}
+          <div className="bg-gray-50 border border-gray-200 rounded-lg overflow-hidden">
+            <div className="bg-gray-900 text-white p-6">
+              <h3 className="text-xl font-medium text-white uppercase tracking-wider">
+                {trainerRole.title}
+              </h3>
+            </div>
+            <div className="p-6 space-y-6">
+              <p className="text-gray-700 leading-relaxed font-light">
+                {trainerRole.description}
+              </p>
+              
+              <div>
+                <h4 className="font-medium text-sm mb-3 text-black uppercase tracking-wider">
+                  Responsibilities
+                </h4>
+                <ul className="space-y-2">
+                  {trainerRole.responsibilities.map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
+                      <svg className="w-4 h-4 flex-shrink-0 mt-0.5 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                      <span className="font-light">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              
+              <div>
+                <h4 className="font-medium text-sm mb-3 text-black uppercase tracking-wider">
+                  Qualifications
+                </h4>
+                <ul className="space-y-2">
+                  {trainerRole.qualifications.map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
+                      <svg className="w-4 h-4 flex-shrink-0 mt-0.5 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                      <span className="font-light">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              
+              <div className="bg-white border-l-4 border-gray-900 p-4">
+                <h5 className="font-medium text-xs uppercase mb-2 text-black tracking-wider">
+                  Trainer Scope
+                </h5>
+                <p className="text-sm text-gray-700 font-light">{trainerRole.scope}</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-          <div className="space-y-4">
-            <H3 className="font-mono">ROLE DISTINCTION AND COLLABORATION</H3>
-            <div className="pl-6 space-y-4">
-              <BodyText>
-                Instructor and trainer roles operate through systematic collaboration 
-                with clear authority boundaries, responsibility allocation, and 
-                performance accountability that prevents role confusion or authority conflicts.
-              </BodyText>
-              
-              <div className="space-y-8">
-                <div className="space-y-4">
-                  <BodyText><strong>Authority Boundaries:</strong></BodyText>
-                  <div className="pl-4 space-y-3">
-                    <BodyText>
-                      <strong>Instructor Authority:</strong> Assessment decisions, elimination 
-                      authority, competency development protocol modification, performance 
-                      intervention activation.
-                    </BodyText>
-                    <BodyText>
-                      <strong>Trainer Authority:</strong> Technical support provision, skill 
-                      development optimization, specialized domain guidance, performance 
-                      support documentation.
-                    </BodyText>
-                  </div>
+        {/* Collaboration Section */}
+        <div className="bg-gray-100 border-l-4 border-gray-900 p-8 rounded-r-lg">
+          <h3 className="text-lg font-medium text-black mb-6 uppercase tracking-wider">
+            Role Distinction and Collaboration
+          </h3>
+          <p className="text-gray-700 leading-relaxed font-light mb-6">
+            Instructor and trainer roles operate through systematic collaboration with clear 
+            authority boundaries, responsibility allocation, and performance accountability that 
+            prevents role confusion or authority conflicts.
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h4 className="font-medium text-black mb-3">Authority Boundaries</h4>
+              <div className="space-y-3 text-sm text-gray-700">
+                <div>
+                  <span className="font-medium">Instructor Authority:</span>
+                  <span className="font-light"> Assessment decisions, elimination authority, competency development protocol modification, performance intervention activation.</span>
                 </div>
-                
-                <div className="space-y-4">
-                  <BodyText><strong>Collaboration Protocols:</strong></BodyText>
-                  <ul className="list-disc pl-6 space-y-2">
-                    <li><BodyText>Systematic communication protocols for performance data sharing and assessment coordination</BodyText></li>
-                    <li><BodyText>Competency development collaboration with instructor oversight and trainer technical support</BodyText></li>
-                    <li><BodyText>Performance intervention coordination with instructor decision authority and trainer implementation support</BodyText></li>
-                    <li><BodyText>Quality assurance participation with shared responsibility for institutional standard maintenance</BodyText></li>
-                  </ul>
+                <div>
+                  <span className="font-medium">Trainer Authority:</span>
+                  <span className="font-light"> Technical support provision, skill development optimization, specialized domain guidance, performance support documentation.</span>
                 </div>
               </div>
-              
-              <div className="bg-warning/10 border-l-4 border-warning p-4 space-y-3">
-                <BodyText className="font-mono text-sm">
-                  ROLE CLARITY: Clear role distinction prevents authority conflicts 
-                  and ensures systematic collaboration effectiveness within institutional 
-                  accountability frameworks.
-                </BodyText>
-              </div>
+            </div>
+            
+            <div>
+              <h4 className="font-medium text-black mb-3">Collaboration Protocols</h4>
+              <ul className="space-y-2">
+                {[
+                  'Systematic communication protocols for performance data sharing',
+                  'Competency development collaboration with instructor oversight',
+                  'Performance intervention coordination with clear decision authority',
+                  'Quality assurance participation with shared responsibility'
+                ].map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
+                    <svg className="w-4 h-4 flex-shrink-0 mt-0.5 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                    <span className="font-light">{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>

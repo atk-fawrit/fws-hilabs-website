@@ -9,8 +9,5 @@ export type {
   ExploreSectionProps,
   IdentityItem,
   IdentitySectionProps,
-  CTASectionProps,
-  FooterLink,
-  FooterSection,
-  FooterSectionProps
+  CTASectionProps
 } from './components.types';

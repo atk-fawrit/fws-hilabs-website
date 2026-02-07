@@ -1,14 +1,9 @@
 /**
  * Integrity Standards Section
- * 
  * Displays integrity framework and compliance protocols
  */
 
 import React from 'react';
-import { H2, H3 } from '@/src/shared/components/typography';
-import { BodyText } from '@/src/shared/components/typography';
-import { InfoBox } from '@/src/shared/components/content';
-import { IntegritySection } from '../ui';
 
 const integritySections = [
   {
@@ -59,32 +54,70 @@ const integritySections = [
 
 export const IntegrityStandardsSection: React.FC = () => {
   return (
-    <section className="space-y-8">
-      <H2>Integrity Standards</H2>
-      
-      <div className="space-y-6">
-        <BodyText>
-          HI Labs maintains systematic integrity standards with documented 
-          compliance protocols, ethical boundaries, and accountability mechanisms 
-          that govern all institutional operations and stakeholder interactions.
-        </BodyText>
-        
-        <div className="space-y-12">
-          <div className="space-y-4">
-            <H3 className="font-mono">INTEGRITY FRAMEWORK</H3>
-            <div className="pl-6 space-y-8">
-              {integritySections.map((section) => (
-                <IntegritySection key={section.number} {...section} />
-              ))}
-            </div>
-          </div>
+    <section className="w-full bg-white py-20 px-8 md:px-16 lg:px-24">
+      <div className="space-y-12">
+        {/* Header */}
+        <div className="space-y-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-black tracking-tight">
+            Integrity Standards
+          </h2>
+          <p className="text-xl text-gray-700 leading-relaxed font-light">
+            HI Labs maintains systematic integrity standards with documented compliance protocols, 
+            ethical boundaries, and accountability mechanisms that govern all institutional operations 
+            and stakeholder interactions.
+          </p>
         </div>
         
-        <InfoBox
-          variant="accent"
-          title="INTEGRITY COMMITMENT"
-          description="HI Labs maintains systematic integrity standards through documented protocols, regular compliance verification, and accountability mechanisms that ensure ethical operation and stakeholder trust maintenance across all institutional activities and external relationships."
-        />
+        {/* Integrity Sections Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {integritySections.map((section) => (
+            <div key={section.number} className="bg-gray-50 border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+              {/* Header */}
+              <div className="bg-gray-900 text-white p-6">
+                <div className="flex items-start gap-4">
+                  <span className="text-3xl font-light text-white">{section.number}</span>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-medium text-white mb-2 leading-tight">
+                      {section.title}
+                    </h3>
+                    <p className="text-sm text-gray-300 font-light">
+                      {section.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Content */}
+              <div className="p-6">
+                <h4 className="font-medium text-sm mb-3 text-black uppercase tracking-wider">
+                  Compliance Requirements
+                </h4>
+                <ul className="space-y-2">
+                  {section.items.map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
+                      <svg className="w-4 h-4 flex-shrink-0 mt-0.5 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                      <span className="font-light">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Bottom Note */}
+        <div className="bg-gray-100 border-l-4 border-gray-900 p-6 rounded-r-lg">
+          <h4 className="font-medium text-xs uppercase mb-2 text-black tracking-wider">
+            Integrity Commitment
+          </h4>
+          <p className="text-lg text-gray-700 leading-relaxed font-light">
+            HI Labs maintains systematic integrity standards through documented protocols, regular 
+            compliance verification, and accountability mechanisms that ensure ethical operation and 
+            stakeholder trust maintenance across all institutional activities and external relationships.
+          </p>
+        </div>
       </div>
     </section>
   );

@@ -1,5 +1,7 @@
-import { PageContainer, DocumentHeader } from '@/src/shared/components/layout';
+import Navigation from '@/src/shared/components/layout/Navigation';
+import Footer from '@/src/shared/components/layout/Footer';
 import {
+  HeroSection,
   LocationRationaleSection,
   CatchmentAreaSection,
   DailyOperatingModelSection,
@@ -10,23 +12,21 @@ import {
 
 export default function LucknowLabPage() {
   return (
-    <PageContainer>
-      <DocumentHeader
-        title="Lucknow Lab Facility"
-        description="Operational specifications, infrastructure details, and facility protocols for the HI Labs Lucknow location as a systematic engineering talent production facility with defined access controls and safety compliance frameworks."
-        subtitle="Facility Specification"
-      />
-
-      <main className="w-full px-6 md:px-8 py-8">
-        <div className="w-full space-y-8">
-          <LocationRationaleSection />
-          <CatchmentAreaSection />
-          <DailyOperatingModelSection />
-          <InfrastructureSection />
-          <AccessRulesSection />
-          <SafetyComplianceSection />
-        </div>
+    <div className="min-h-screen font-sans bg-white text-gray-900">
+      <Navigation />
+      
+      <HeroSection />
+      
+      <main>
+        <LocationRationaleSection />
+        <CatchmentAreaSection />
+        <DailyOperatingModelSection />
+        <InfrastructureSection />
+        <AccessRulesSection />
+        <SafetyComplianceSection />
       </main>
-    </PageContainer>
+      
+      <Footer />
+    </div>
   );
 }

@@ -1,5 +1,4 @@
-
-
+export { HeroSection } from './HeroSection';
 export { LocationRationaleSection } from './LocationRationaleSection';
 export { CatchmentAreaSection } from './CatchmentAreaSection';
 export { DailyOperatingModelSection } from './DailyOperatingModelSection';

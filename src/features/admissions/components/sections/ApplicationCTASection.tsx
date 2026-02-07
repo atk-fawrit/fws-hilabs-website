@@ -26,7 +26,7 @@ export const ApplicationCTASection: React.FC = () => {
       <div className="space-y-12">
         {/* Header */}
         <div className="space-y-4">
-          <h2 className="text-4xl md:text-5xl font-light text-gray-900 tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-bold text-black tracking-tight">
             Begin Application Process
           </h2>
           <p className="text-xl text-gray-700 leading-relaxed font-light">
@@ -37,7 +37,7 @@ export const ApplicationCTASection: React.FC = () => {
         
         {/* Checklist Card */}
         <div className="bg-gray-50 border border-gray-200 rounded-lg p-8 md:p-10">
-          <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-6">
+          <h3 className="text-sm font-semibold text-black uppercase tracking-wider mb-6">
             Application Checklist
           </h3>
           
@@ -76,7 +76,7 @@ export const ApplicationCTASection: React.FC = () => {
                   : 'bg-gray-300 text-gray-500 cursor-not-allowed'
               }`}
             >
-              Submit Application
+              Submit Application for Review
             </button>
             
             {!allChecked && (

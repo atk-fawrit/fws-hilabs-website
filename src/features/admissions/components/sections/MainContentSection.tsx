@@ -53,7 +53,7 @@ export const MainContentSection: React.FC = () => {
             <div className="inline-block mb-2">
               <div className="h-px w-12 bg-white/30 mb-4"></div>
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-4 tracking-tight leading-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight leading-tight">
               Selection System
             </h2>
             <p className="text-lg md:text-xl text-white/70 font-light leading-relaxed">
@@ -93,7 +93,7 @@ export const MainContentSection: React.FC = () => {
             <div className="inline-block mb-2">
               <div className="h-px w-12 bg-white/30 mb-4"></div>
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-4 tracking-tight leading-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight leading-tight">
               Eligibility Requirements
             </h2>
           </div>

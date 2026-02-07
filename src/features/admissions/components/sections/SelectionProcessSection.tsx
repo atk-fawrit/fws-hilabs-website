@@ -7,7 +7,7 @@ export const SelectionProcessSection: React.FC = () => {
       <div className="space-y-12">
         {/* Header */}
         <div className="space-y-4">
-          <h2 className="text-4xl md:text-5xl font-light text-gray-900 tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-bold text-black tracking-tight">
             Selection Process
           </h2>
           <p className="text-xl text-gray-700 leading-relaxed font-light">
@@ -41,7 +41,7 @@ export const SelectionProcessSection: React.FC = () => {
               
               {/* Content */}
               <div className="p-6">
-                <h4 className="font-medium text-sm mb-3 text-gray-900 uppercase tracking-wider">Assessment Components:</h4>
+                <h4 className="font-medium text-sm mb-3 text-black uppercase tracking-wider">Assessment Components:</h4>
                 <ul className="space-y-2 mb-4">
                   {(stage.components || stage.structure || stage.factors || []).map((comp, i) => (
                     <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
@@ -54,7 +54,7 @@ export const SelectionProcessSection: React.FC = () => {
                 </ul>
                 
                 <div className="bg-gray-50 border-l-4 border-gray-900 p-4">
-                  <h5 className="font-medium text-xs uppercase mb-2 text-gray-900 tracking-wider">Evaluation Signals</h5>
+                  <h5 className="font-medium text-xs uppercase mb-2 text-black tracking-wider">Evaluation Signals</h5>
                   <p className="text-sm text-gray-700 font-light">{stage.evaluationSignals}</p>
                 </div>
               </div>

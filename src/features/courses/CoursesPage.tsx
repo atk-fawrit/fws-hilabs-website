@@ -17,7 +17,9 @@ export default function CoursesPage() {
       
       <HeroSection />
       
-      <main className="px-8 md:px-16 lg:px-24 py-16 space-y-16">
+      {/* <BoundaryNoticeSection /> */}
+      
+      <main className="px-8 md:px-16 lg:px-24 py-8 space-y-12">
         <ProgramCategoriesSection />
         <ProgramBoundariesSection />
         <OperatingFormatSection />

@@ -55,7 +55,7 @@ export const ApplicationProtocolSection: React.FC = () => {
       <div className="space-y-16">
         {/* Header */}
         <div className="space-y-4">
-          <h2 className="text-4xl md:text-5xl font-light text-gray-900 tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-bold text-black tracking-tight">
             Application Protocol
           </h2>
           <p className="text-xl text-gray-700 leading-relaxed font-light">
@@ -67,7 +67,7 @@ export const ApplicationProtocolSection: React.FC = () => {
         
         {/* Timeline Section */}
         <div>
-          <h3 className="text-2xl font-light text-gray-900 mb-8">Application Timeline</h3>
+          <h3 className="text-2xl font-bold text-black mb-8">Application Timeline</h3>
           
           <div className="relative">
             {/* Vertical line */}
@@ -83,7 +83,7 @@ export const ApplicationProtocolSection: React.FC = () => {
                   
                   {/* Content card */}
                   <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-                    <h4 className="text-lg font-medium text-gray-900 mb-4">
+                    <h4 className="text-lg font-medium text-black mb-4">
                       {stage.stage}
                     </h4>
                     <ul className="space-y-2">
@@ -105,7 +105,7 @@ export const ApplicationProtocolSection: React.FC = () => {
 
         {/* Response Protocols */}
         <div className="bg-white border border-gray-200 rounded-lg p-8">
-          <h3 className="text-2xl font-light text-gray-900 mb-6">Response Protocols</h3>
+          <h3 className="text-2xl font-bold text-black mb-6">Response Protocols</h3>
           <div className="space-y-4">
             {protocols.map((protocol, idx) => (
               <div key={idx} className="flex items-start gap-4 p-4 hover:bg-gray-50 rounded-lg transition-colors">
@@ -122,7 +122,7 @@ export const ApplicationProtocolSection: React.FC = () => {
         
         {/* Admission Confirmation */}
         <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-lg p-8 text-white">
-          <h3 className="text-2xl font-light mb-6">Admission Confirmation</h3>
+          <h3 className="text-2xl font-bold mb-6">Admission Confirmation</h3>
           <p className="text-lg text-white/90 leading-relaxed font-light mb-6">
             Admitted candidates receive written confirmation with program details, 
             start date, and pre-program requirements. Confirmation must be returned 

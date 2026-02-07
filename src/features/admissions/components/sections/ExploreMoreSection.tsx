@@ -38,7 +38,7 @@ export const ExploreMoreSection: React.FC<ExploreMoreSectionProps> = ({ onCardCl
       {/* Dark background container */}
       <div className="bg-gradient-to-br from-slate-800 via-slate-900 to-slate-950 p-12 rounded-2xl">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-light text-white mb-3">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
             Explore More
           </h2>
           <p className="text-lg text-white/80 max-w-3xl mx-auto">
@@ -66,7 +66,7 @@ export const ExploreMoreSection: React.FC<ExploreMoreSectionProps> = ({ onCardCl
               
               {/* Content */}
               <div className="p-6">
-                <h3 className="text-lg font-bold text-gray-900 mb-2 leading-tight">
+                <h3 className="text-lg font-bold text-black mb-2 leading-tight">
                   {section.title}
                 </h3>
                 <p className="text-sm text-gray-600 leading-relaxed mb-3">

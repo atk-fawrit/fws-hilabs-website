@@ -90,7 +90,7 @@ export const homeData = {
       {
         title: "Employer Partnerships",
         description: "Partner with HI Labs to access deployable junior engineers",
-        image: '/images/Bg-Transform.jpg',
+        image: '/images/hero-production-system.jpg',
         href: "/employers",
       }
     ]

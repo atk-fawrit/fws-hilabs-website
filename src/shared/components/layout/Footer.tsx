@@ -7,7 +7,7 @@ const footerSections = [
     title: 'Programs',
     links: [
       { label: 'Flagship Program', href: '/flagship-program' },
-      { label: 'Courses', href: '/courses' },
+      { label: 'Short Programs', href: '/courses' },
       { label: 'Outcomes', href: '/outcomes' },
       { label: 'Employers', href: '/employers' },
     ]

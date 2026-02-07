@@ -21,7 +21,7 @@ export const HeroSection: React.FC = () => {
       
       <div className="relative h-full flex items-center px-6 md:px-8">
         <div className="max-w-4xl text-white">
-          <h1 className="text-4xl md:text-5xl font-light text-white mb-4 tracking-tight">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
             Admissions
           </h1>
           <p className="text-lg md:text-xl text-white/90 leading-relaxed">

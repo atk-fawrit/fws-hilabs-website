@@ -2,30 +2,35 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { NavigationProps, NavigationItem } from '@/src/shared/types';
 
-// Primary navigation structure - exactly eight sections as per requirements
-const navigationItems: NavigationItem[] = [
-  { label: 'Home', href: '/', primary: true },
+// Primary navigation items - visible in main nav
+const primaryNavItems: NavigationItem[] = [
   { label: 'Flagship Program', href: '/flagship-program', primary: true },
   { label: 'Admissions', href: '/admissions', primary: true },
   { label: 'Courses', href: '/courses', primary: true },
-  { label: 'Outcomes', href: '/outcomes', primary: true },
-  { label: 'Employers', href: '/employers', primary: true },
   { label: 'About', href: '/about', primary: true },
-  { label: 'Lucknow Lab', href: '/lucknow-lab', primary: true },
+];
+
+// Secondary navigation items - in "More" dropdown
+const secondaryNavItems: NavigationItem[] = [
+  { label: 'Outcomes', href: '/outcomes', primary: false },
+  { label: 'Employers', href: '/employers', primary: false },
+  { label: 'Lucknow Lab', href: '/lucknow-lab', primary: false },
 ];
 
 export default function Navigation({ className = '' }: NavigationProps) {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMoreDropdownOpen, setIsMoreDropdownOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   
   // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 20);
     };
     
     window.addEventListener('scroll', handleScroll);
@@ -34,11 +39,28 @@ export default function Navigation({ className = '' }: NavigationProps) {
 
   // Reset mobile menu when route changes
   useEffect(() => {
-    // Use a microtask to avoid synchronous setState
     Promise.resolve().then(() => {
       setIsMobileMenuOpen(false);
+      setIsMoreDropdownOpen(false);
     });
   }, [pathname]);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsMoreDropdownOpen(false);
+      }
+    };
+
+    if (isMoreDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isMoreDropdownOpen]);
 
   const toggleMobileMenu = useCallback(() => {
     setIsMobileMenuOpen(prev => !prev);
@@ -48,50 +70,69 @@ export default function Navigation({ className = '' }: NavigationProps) {
     setIsMobileMenuOpen(false);
   }, []);
 
-  // Handle escape key to close mobile menu
+  const toggleMoreDropdown = useCallback(() => {
+    setIsMoreDropdownOpen(prev => !prev);
+  }, []);
+
+  // Handle escape key
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape' && isMobileMenuOpen) {
-        setIsMobileMenuOpen(false);
+      if (event.key === 'Escape') {
+        if (isMobileMenuOpen) setIsMobileMenuOpen(false);
+        if (isMoreDropdownOpen) setIsMoreDropdownOpen(false);
       }
     };
 
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [isMobileMenuOpen, isMoreDropdownOpen]);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
     if (isMobileMenuOpen) {
-      document.addEventListener('keydown', handleEscape);
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
     }
 
     return () => {
-      document.removeEventListener('keydown', handleEscape);
       document.body.style.overflow = '';
     };
   }, [isMobileMenuOpen]);
+
+  // Check if any secondary item is active
+  const isSecondaryActive = secondaryNavItems.some(item => pathname === item.href);
   
   return (
     <div className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled ? 'bg-black/80 backdrop-blur-md border-b border-white/10' : 'bg-transparent'
+      scrolled 
+        ? 'bg-black/95 backdrop-blur-xl border-b border-white/10 shadow-lg' 
+        : 'bg-black/80 backdrop-blur-md'
     }`}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <nav 
-          className={`flex items-center justify-between py-4 ${className}`}
+          className={`flex items-center justify-between py-3 ${className}`}
           role="navigation"
           aria-label="Primary navigation"
         >
-          {/* Logo/Brand - Left aligned */}
+          {/* Logo/Brand */}
           <Link 
             href="/" 
-            className="font-mono text-xl font-bold text-white hover:text-blue-300 transition-colors duration-300 tracking-tight"
+            className="flex items-center hover:opacity-80 transition-opacity duration-300 -my-4 focus:outline-none"
             aria-label="HI Labs home"
             onClick={closeMobileMenu}
           >
-            HI LABS
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/logo.png"
+              alt="HI Labs"
+              className="h-20 w-auto select-none"
+            />
           </Link>
           
-          {/* Desktop Navigation - Far right aligned */}
-          <div className="hidden lg:flex items-center space-x-10 ml-auto">
-            {navigationItems.slice(1).map((item) => { // Skip Home since it's in the logo
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center gap-2 ml-auto">
+            {primaryNavItems.map((item) => {
               const isActive = pathname === item.href;
               
               return (
@@ -99,13 +140,11 @@ export default function Navigation({ className = '' }: NavigationProps) {
                   key={item.href}
                   href={item.href}
                   className={`
-                    relative font-medium text-base tracking-wide transition-all duration-300 hover:text-blue-300
+                    relative px-6 py-2.5 text-[15px] font-semibold tracking-wide transition-all duration-300 rounded-lg
                     ${isActive 
-                      ? 'text-blue-400' 
-                      : 'text-white'
+                      ? 'text-white bg-white/10' 
+                      : 'text-gray-300 hover:text-white hover:bg-white/5'
                     }
-                    after:content-[''] after:absolute after:bottom-[-6px] after:left-0 after:w-0 after:h-0.5 after:bg-blue-400 after:transition-all after:duration-300
-                    ${isActive ? 'after:w-full' : 'hover:after:w-full'}
                   `}
                   aria-current={isActive ? 'page' : undefined}
                   prefetch={true}
@@ -114,11 +153,70 @@ export default function Navigation({ className = '' }: NavigationProps) {
                 </Link>
               );
             })}
+
+            {/* More Dropdown */}
+            <div className="relative" ref={dropdownRef}>
+              <button
+                onClick={toggleMoreDropdown}
+                className={`
+                  flex items-center gap-2 px-6 py-2.5 text-[15px] font-semibold tracking-wide transition-all duration-300 rounded-lg
+                  ${isSecondaryActive || isMoreDropdownOpen
+                    ? 'text-white bg-white/10' 
+                    : 'text-gray-300 hover:text-white hover:bg-white/5'
+                  }
+                `}
+                aria-expanded={isMoreDropdownOpen}
+                aria-haspopup="true"
+              >
+                <span>More</span>
+                <svg 
+                  className={`w-4 h-4 transition-transform duration-300 ${
+                    isMoreDropdownOpen ? 'rotate-180' : ''
+                  }`}
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                  strokeWidth={2.5}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+
+              {/* Dropdown Menu */}
+              {isMoreDropdownOpen && (
+                <div className="absolute right-0 mt-2 w-64 bg-black/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl overflow-hidden animate-fade-in">
+                  <div className="py-2">
+                    {secondaryNavItems.map((item) => {
+                      const isActive = pathname === item.href;
+                      
+                      return (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className={`
+                            block px-6 py-3.5 text-[15px] font-semibold tracking-wide transition-all duration-200
+                            ${isActive 
+                              ? 'text-white bg-white/10' 
+                              : 'text-gray-300 hover:text-white hover:bg-white/5'
+                            }
+                          `}
+                          aria-current={isActive ? 'page' : undefined}
+                          onClick={() => setIsMoreDropdownOpen(false)}
+                          prefetch={true}
+                        >
+                          {item.label}
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
           
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 text-white hover:text-blue-300 transition-colors duration-300"
+            className="lg:hidden p-2 text-white hover:text-gray-300 transition-colors duration-300"
             aria-label="Toggle navigation menu"
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-navigation"
@@ -131,19 +229,18 @@ export default function Navigation({ className = '' }: NavigationProps) {
               stroke="currentColor" 
               viewBox="0 0 24 24"
               aria-hidden="true"
+              strokeWidth={2}
             >
               {isMobileMenuOpen ? (
                 <path 
                   strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  strokeWidth={2} 
+                  strokeLinejoin="round"
                   d="M6 18L18 6M6 6l12 12" 
                 />
               ) : (
                 <path 
                   strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  strokeWidth={2} 
+                  strokeLinejoin="round"
                   d="M4 6h16M4 12h16M4 18h16" 
                 />
               )}
@@ -152,44 +249,87 @@ export default function Navigation({ className = '' }: NavigationProps) {
         </nav>
         
         {/* Mobile Navigation Menu */}
-        <div 
-          id="mobile-navigation"
-          className={`
-            lg:hidden transition-all duration-300 ease-in-out overflow-hidden
-            ${isMobileMenuOpen 
-              ? 'max-h-96 opacity-100 pb-6' 
-              : 'max-h-0 opacity-0'
-            }
-          `}
-          aria-hidden={!isMobileMenuOpen}
-        >
-          <div className="bg-black/90 backdrop-blur-md rounded-2xl border border-white/10 p-6 space-y-3">
-            {navigationItems.slice(1).map((item) => { // Skip Home
-              const isActive = pathname === item.href;
-              
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`
-                    block py-4 px-5 rounded-xl font-medium text-lg transition-all duration-300
-                    ${isActive 
-                      ? 'text-blue-400 bg-white/10' 
-                      : 'text-white hover:text-white hover:bg-white/5'
-                    }
-                  `}
-                  aria-current={isActive ? 'page' : undefined}
-                  onClick={closeMobileMenu}
-                  tabIndex={isMobileMenuOpen ? 0 : -1}
-                  prefetch={true}
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
+        {isMobileMenuOpen && (
+          <div 
+            id="mobile-navigation"
+            className="lg:hidden pb-6 animate-fade-in"
+          >
+            <div className="bg-black/95 backdrop-blur-xl rounded-2xl border border-white/10 overflow-hidden shadow-2xl">
+              <div className="p-4 space-y-1">
+                {/* Primary Items */}
+                {primaryNavItems.map((item) => {
+                  const isActive = pathname === item.href;
+                  
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={`
+                        block py-3.5 px-5 rounded-lg text-[15px] font-semibold tracking-wide transition-all duration-200
+                        ${isActive 
+                          ? 'text-white bg-white/10' 
+                          : 'text-gray-300 hover:text-white hover:bg-white/5'
+                        }
+                      `}
+                      aria-current={isActive ? 'page' : undefined}
+                      onClick={closeMobileMenu}
+                      prefetch={true}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                })}
+
+                {/* Divider */}
+                <div className="py-2">
+                  <div className="h-px bg-white/10"></div>
+                </div>
+
+                {/* Secondary Items */}
+                {secondaryNavItems.map((item) => {
+                  const isActive = pathname === item.href;
+                  
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={`
+                        block py-3.5 px-5 rounded-lg text-[15px] font-semibold tracking-wide transition-all duration-200
+                        ${isActive 
+                          ? 'text-white bg-white/10' 
+                          : 'text-gray-300 hover:text-white hover:bg-white/5'
+                        }
+                      `}
+                      aria-current={isActive ? 'page' : undefined}
+                      onClick={closeMobileMenu}
+                      prefetch={true}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
           </div>
-        </div>
+        )}
       </div>
+
+      <style jsx>{`
+        @keyframes fade-in {
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        .animate-fade-in {
+          animation: fade-in 0.2s ease-out;
+        }
+      `}</style>
     </div>
   );
 }

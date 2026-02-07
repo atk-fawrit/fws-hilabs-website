@@ -1,3 +1,0 @@
-
-
-export { FacilitySection } from './FacilitySection';

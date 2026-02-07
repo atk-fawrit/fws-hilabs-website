@@ -8,14 +8,14 @@ import React from 'react';
 
 export const OperatingFormatSection: React.FC = () => {
   return (
-    <section className="w-full bg-white py-20 px-8 md:px-16 lg:px-24">
-      <div className="max-w-6xl mx-auto space-y-12">
+    <section className="w-full bg-white py-12 px-8 md:px-12">
+      <div className="space-y-8">
         {/* Header */}
         <div>
-          <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-6 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-black mb-4 tracking-tight">
             Operating Format and Rules
           </h2>
-          <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-light">
+          <p className="text-base md:text-lg text-gray-700 leading-relaxed font-light text-justify">
             Short Programs operate on weekend schedules to accommodate working professionals. 
             Sessions are conducted in-person at the Lucknow facility with structured timelines 
             and specific deliverable requirements.
@@ -23,11 +23,11 @@ export const OperatingFormatSection: React.FC = () => {
         </div>
         
         {/* Schedule Structure Card */}
-        <div className="bg-gray-50 border border-gray-200 rounded-lg p-8 md:p-10">
-          <h3 className="text-sm font-medium text-gray-900 uppercase tracking-wider mb-8">
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 md:p-8">
+          <h3 className="text-sm font-medium text-black uppercase tracking-wider mb-6">
             Schedule Structure
           </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
               { label: 'Days', value: 'Saturday & Sunday' },
               { label: 'Hours', value: '0900-1700 hours' },
@@ -35,19 +35,19 @@ export const OperatingFormatSection: React.FC = () => {
               { label: 'Capacity', value: 'Max 20 participants' }
             ].map((item, idx) => (
               <div key={idx} className="text-center">
-                <div className="text-sm text-gray-500 mb-3 font-medium uppercase tracking-wider">{item.label}</div>
-                <div className="text-lg text-gray-900 font-light">{item.value}</div>
+                <div className="text-xs text-gray-500 mb-2 font-medium uppercase tracking-wider">{item.label}</div>
+                <div className="text-base text-gray-900 font-light">{item.value}</div>
               </div>
             ))}
           </div>
         </div>
 
         {/* Program Rules */}
-        <div className="bg-gray-900 text-white p-8 md:p-10 rounded-lg">
-          <h3 className="text-sm font-medium uppercase tracking-wider mb-6">
+        <div className="bg-gray-900 text-white p-6 md:p-8 rounded-lg">
+          <h3 className="text-sm font-medium uppercase tracking-wider mb-4">
             Program Rules
           </h3>
-          <p className="text-lg text-white/90 leading-relaxed font-light">
+          <p className="text-base text-white/90 leading-relaxed font-light text-justify">
             No make-up sessions are provided for missed attendance. 
             Completion requires attendance at a minimum of 80% of sessions. No refunds are available 
             after program commencement. Professional conduct standards apply to all interactions 

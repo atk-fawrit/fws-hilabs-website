@@ -12,7 +12,7 @@ export const CommitmentAndRiskSection: React.FC = () => {
       <div className="space-y-12">
         {/* Header */}
         <div className="space-y-4">
-          <h2 className="text-4xl md:text-5xl font-light text-gray-900 tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-bold text-black tracking-tight">
             Commitment and Risk Disclosure
           </h2>
           <p className="text-xl text-gray-700 leading-relaxed font-light">
@@ -24,7 +24,7 @@ export const CommitmentAndRiskSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Commitment Requirements Card */}
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-8">
-            <h3 className="text-gray-900 font-medium text-lg mb-6 uppercase tracking-wider">Commitment Requirements</h3>
+            <h3 className="text-black font-medium text-lg mb-6 uppercase tracking-wider">Commitment Requirements</h3>
             <ul className="space-y-4">
               {[
                 'Full-time participation for 12 consecutive months',
@@ -48,7 +48,7 @@ export const CommitmentAndRiskSection: React.FC = () => {
           
           {/* Risk Acknowledgment Card */}
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-8">
-            <h3 className="text-gray-900 font-medium text-lg mb-6 uppercase tracking-wider">Risk Acknowledgment</h3>
+            <h3 className="text-black font-medium text-lg mb-6 uppercase tracking-wider">Risk Acknowledgment</h3>
             <ul className="space-y-4">
               {[
                 'No guarantee of program completion or employment outcomes',

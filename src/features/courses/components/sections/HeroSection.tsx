@@ -28,7 +28,7 @@ export const HeroSection: React.FC = () => {
             Weekend Programs Available
           </div>
           
-          <h1 className="text-4xl md:text-5xl font-light text-white mb-4 tracking-tight">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
             Short Programs
           </h1>
           
