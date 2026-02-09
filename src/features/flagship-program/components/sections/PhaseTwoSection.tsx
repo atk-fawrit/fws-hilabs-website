@@ -1,12 +1,11 @@
 /**
  * Phase Two Section
  * 
- * Displays supervised deployment phase (Months 10-12)
+ * Displays supervised deployment phase (Months 10-12) with premium design
  */
 
 import React from 'react';
-import { BodyText } from '@/src/shared/components/typography';
-import { InteractiveCard, SectionHeader } from '@/src/shared/components/content';
+import Image from 'next/image';
 
 export const PhaseTwoSection: React.FC = () => {
   const supervisionItems = [
@@ -23,49 +22,57 @@ export const PhaseTwoSection: React.FC = () => {
     'Professional conduct and communication standards'
   ];
 
-  const supervisionIcon = (
-    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
-    </svg>
-  );
-
-  const constraintIcon = (
-    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-    </svg>
-  );
-
   return (
-    <div className="space-y-3">
-      <SectionHeader 
-        title="Phase II: Supervised Deployment"
-        subtitle="Months 10-12: Real-world engineering deployment"
-      />
-      
-      <div className="bg-accent/5 p-3 border-l-[4px] border-accent">
-        <BodyText className="text-base leading-relaxed text-primary">
-          Phase II operates as supervised deployment within partner organizations or client projects. 
-          Participants work as junior engineers under direct supervision while maintaining 
-          accountability to HI Labs evaluation protocols.
-        </BodyText>
+    <div className="w-full relative py-24">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <Image
+          src="/images/Explore-bg.jpg"
+          alt="Phase II Background"
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black/60"></div>
       </div>
-      
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
-        {/* Supervision Model Card */}
-        <InteractiveCard
-          title="SUPERVISION MODEL"
-          icon={supervisionIcon}
-          items={supervisionItems}
-          colorTheme="accent"
-        />
-        
-        {/* Deployment Constraints Card */}
-        <InteractiveCard
-          title="DEPLOYMENT CONSTRAINTS"
-          icon={constraintIcon}
-          items={constraintItems}
-          colorTheme="accent"
-        />
+
+      {/* Content */}
+      <div className="relative max-w-7xl mx-auto px-6 md:px-8">
+        <div className="max-w-4xl space-y-8">
+          <div>
+            <h2 className="font-sans text-4xl md:text-5xl font-light mb-4 text-white tracking-tight">
+              Phase II: Supervised Deployment
+            </h2>
+            <p className="text-xl text-white/90 font-light leading-relaxed">
+              Real-world engineering deployment (Months 10-12) with systematic supervision, performance tracking, and professional development protocols
+            </p>
+          </div>
+
+          {/* Supervision Model */}
+          <div className="space-y-4">
+            <h3 className="text-2xl font-light text-white tracking-tight">Supervision Model</h3>
+            <ul className="space-y-3">
+              {supervisionItems.map((item, idx) => (
+                <li key={idx} className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-1.5 h-1.5 mt-2.5 bg-blue-400 rounded-full"></div>
+                  <span className="text-white/90 leading-relaxed font-light">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Deployment Constraints */}
+          <div className="space-y-4">
+            <h3 className="text-2xl font-light text-white tracking-tight">Deployment Constraints</h3>
+            <ul className="space-y-3">
+              {constraintItems.map((item, idx) => (
+                <li key={idx} className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-1.5 h-1.5 mt-2.5 bg-blue-400 rounded-full"></div>
+                  <span className="text-white/90 leading-relaxed font-light">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   );

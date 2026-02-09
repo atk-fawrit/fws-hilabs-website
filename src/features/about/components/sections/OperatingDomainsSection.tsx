@@ -1,14 +1,11 @@
 /**
  * Operating Domains Section
- * 
  * Displays the six systematic operating domains of HI Labs with expandable details
  */
 
 'use client';
 
 import React, { useState } from 'react';
-import { H2, H3, BodyText } from '@/src/shared/components/typography';
-import { ExpandableSection } from '@/src/shared/components/content';
 
 const domains = [
   {
@@ -58,42 +55,63 @@ const domains = [
 export const OperatingDomainsSection: React.FC = () => {
   const [expandedDomain, setExpandedDomain] = useState<number | null>(null);
 
-  const handleToggle = (id: string | number) => {
-    const numericId = typeof id === 'string' ? parseInt(id, 10) : id;
-    setExpandedDomain(expandedDomain === numericId ? null : numericId);
+  const handleToggle = (id: number) => {
+    setExpandedDomain(expandedDomain === id ? null : id);
   };
 
   return (
-    <section className="space-y-8">
-      <H2 className="text-3xl font-light text-primary mb-4">Operating Domains</H2>
-      
-      <div className="space-y-6">
-        <BodyText className="text-primary/80 leading-relaxed">
-          HI Labs operates across six systematic domains with defined accountability 
-          structures and performance measurement protocols that govern institutional 
-          effectiveness and operational integrity.
-        </BodyText>
+    <section className="w-full bg-gray-50 py-20 px-8 md:px-16 lg:px-24">
+      <div className="space-y-12">
+        {/* Header */}
+        <div className="space-y-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-black tracking-tight">
+            Operating Domains
+          </h2>
+          <p className="text-xl text-gray-700 leading-relaxed font-light">
+            HI Labs operates across six systematic domains with defined accountability structures 
+            and performance measurement protocols that govern institutional effectiveness and 
+            operational integrity.
+          </p>
+        </div>
         
-        <div className="space-y-1">
+        {/* Domains List */}
+        <div className="space-y-3">
           {domains.map((domain) => (
-            <ExpandableSection
-              key={domain.id}
-              id={domain.id}
-              number={domain.number}
-              title={domain.title}
-              description={domain.description}
-              expandedId={expandedDomain}
-              onToggle={handleToggle}
-            >
-              <div className="bg-background border-l-4 border-primary p-6">
-                <BodyText className="text-xs uppercase tracking-wide text-primary/60 mb-2 font-medium">
-                  Accountability Framework
-                </BodyText>
-                <BodyText className="text-sm text-primary/80 leading-relaxed">
-                  {domain.accountability}
-                </BodyText>
-              </div>
-            </ExpandableSection>
+            <div key={domain.id} className="bg-white border border-gray-200 rounded-lg overflow-hidden">
+              {/* Domain Header - Clickable */}
+              <button
+                onClick={() => handleToggle(domain.id)}
+                className="w-full p-6 flex items-center justify-between hover:bg-gray-50 transition-colors"
+              >
+                <div className="flex items-center gap-4 flex-1 text-left">
+                  <span className="text-2xl font-light text-gray-900">{domain.number}</span>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-medium text-black mb-1">{domain.title}</h3>
+                    <p className="text-sm text-gray-600 font-light">{domain.description}</p>
+                  </div>
+                </div>
+                <svg 
+                  className={`w-6 h-6 text-gray-900 transition-transform flex-shrink-0 ml-4 ${expandedDomain === domain.id ? 'rotate-180' : ''}`}
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              {/* Expanded Content */}
+              {expandedDomain === domain.id && (
+                <div className="border-t border-gray-200 bg-gray-50 p-6">
+                  <h4 className="font-medium text-xs uppercase mb-2 text-black tracking-wider">
+                    Accountability Framework
+                  </h4>
+                  <p className="text-sm text-gray-700 leading-relaxed font-light">
+                    {domain.accountability}
+                  </p>
+                </div>
+              )}
+            </div>
           ))}
         </div>
       </div>

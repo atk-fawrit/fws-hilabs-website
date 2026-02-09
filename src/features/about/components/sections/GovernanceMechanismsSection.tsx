@@ -1,12 +1,9 @@
 /**
  * Governance Mechanisms Section
- * 
  * Enhanced display of governance framework and decision-making protocols
  */
 
 import React from 'react';
-import { H2, H3, BodyText } from '@/src/shared/components/typography';
-import { InfoBox } from '@/src/shared/components/content';
 
 const governanceItems = [
   {
@@ -37,48 +34,64 @@ const governanceItems = [
 
 export const GovernanceMechanismsSection: React.FC = () => {
   return (
-    <section className="space-y-8">
-      <H2 className="text-3xl font-light text-primary mb-4">Governance Mechanisms</H2>
-      
-      <div className="space-y-6">
-        <BodyText className="text-primary/80 leading-relaxed">
-          HI Labs operates through systematic governance mechanisms with 
-          documented decision-making protocols, accountability structures, 
-          and integrity standards that ensure institutional effectiveness 
-          and operational transparency.
-        </BodyText>
+    <section className="w-full bg-gray-50 py-20 px-8 md:px-16 lg:px-24">
+      <div className="space-y-12">
+        {/* Header */}
+        <div className="space-y-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-black tracking-tight">
+            Governance Mechanisms
+          </h2>
+          <p className="text-xl text-gray-700 leading-relaxed font-light">
+            HI Labs operates through systematic governance mechanisms with documented decision-making 
+            protocols, accountability structures, and integrity standards that ensure institutional 
+            effectiveness and operational transparency.
+          </p>
+        </div>
         
+        {/* Governance Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {governanceItems.map((item) => (
-            <div key={item.number} className="border border-primary/10 p-6 hover:border-primary/20 transition-colors">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 flex items-center justify-center">
-                  <span className="text-sm font-mono font-medium text-primary">{item.number}</span>
+            <div key={item.number} className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+              {/* Header */}
+              <div className="bg-gray-900 text-white p-6">
+                <div className="flex items-start gap-4">
+                  <span className="text-3xl font-light text-white">{item.number}</span>
+                  <h3 className="text-lg font-medium text-white flex-1 leading-tight">
+                    {item.title}
+                  </h3>
                 </div>
-                <div className="flex-1">
-                  <H3 className="text-xl font-light text-primary mb-3">{item.title}</H3>
-                  <BodyText className="text-primary/80 leading-relaxed mb-4">
-                    {item.description}
-                  </BodyText>
-                  <div className="bg-primary/5 border-l-4 border-primary p-4">
-                    <BodyText className="text-xs uppercase tracking-wide text-primary/60 mb-1 font-medium">
-                      Protocol Standard
-                    </BodyText>
-                    <BodyText className="text-sm text-primary/80">
-                      {item.standard}
-                    </BodyText>
-                  </div>
+              </div>
+              
+              {/* Content */}
+              <div className="p-6 space-y-4">
+                <p className="text-sm text-gray-700 leading-relaxed font-light">
+                  {item.description}
+                </p>
+                
+                <div className="bg-gray-50 border-l-4 border-gray-900 p-4">
+                  <h4 className="font-medium text-xs uppercase mb-2 text-black tracking-wider">
+                    Protocol Standard
+                  </h4>
+                  <p className="text-sm text-gray-700 font-light">
+                    {item.standard}
+                  </p>
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        <InfoBox
-          variant="accent"
-          title="GOVERNANCE FRAMEWORK"
-          description="Governance mechanisms operate through systematic implementation with documented protocols, measurable outcomes, and continuous improvement processes ensuring institutional effectiveness and stakeholder accountability."
-        />
+        {/* Bottom Note */}
+        <div className="bg-gray-100 border-l-4 border-gray-900 p-6 rounded-r-lg">
+          <h4 className="font-medium text-xs uppercase mb-2 text-black tracking-wider">
+            Governance Framework
+          </h4>
+          <p className="text-lg text-gray-700 leading-relaxed font-light">
+            Governance mechanisms operate through systematic implementation with documented protocols, 
+            measurable outcomes, and continuous improvement processes ensuring institutional effectiveness 
+            and stakeholder accountability.
+          </p>
+        </div>
       </div>
     </section>
   );

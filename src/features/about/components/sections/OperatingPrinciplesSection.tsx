@@ -1,12 +1,9 @@
 /**
  * Operating Principles Section
- * 
  * Enhanced display of the systematic operating principles of HI Labs
  */
 
 import React from 'react';
-import { H2, H3, BodyText } from '@/src/shared/components/typography';
-import { InfoBox } from '@/src/shared/components/content';
 
 const principles = [
   {
@@ -43,38 +40,55 @@ const principles = [
 
 export const OperatingPrinciplesSection: React.FC = () => {
   return (
-    <section className="space-y-8">
-      <H2 className="text-3xl font-light text-primary mb-4">Operating Principles</H2>
-      
-      <div className="space-y-6">
-        <BodyText className="text-primary/80 leading-relaxed">
-          HI Labs operates according to systematic principles that govern 
-          institutional decision-making, competency development protocols, 
-          and organizational accountability without prose elaboration or 
-          interpretive commentary.
-        </BodyText>
+    <section className="w-full bg-white py-20 px-8 md:px-16 lg:px-24">
+      <div className="space-y-12">
+        {/* Header */}
+        <div className="space-y-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-black tracking-tight">
+            Operating Principles
+          </h2>
+          <p className="text-xl text-gray-700 leading-relaxed font-light">
+            HI Labs operates according to six systematic principles that govern institutional 
+            decision-making, competency development protocols, and organizational accountability 
+            without prose elaboration or interpretive commentary.
+          </p>
+        </div>
         
+        {/* Principles Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {principles.map((principle) => (
-            <div key={principle.number} className="bg-accent/5 border-l-4 border-accent p-6">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="w-10 h-10 bg-accent text-white flex items-center justify-center font-mono font-medium text-sm">
-                  {principle.number}
+            <div key={principle.number} className="bg-gray-50 border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+              {/* Header */}
+              <div className="bg-gray-900 text-white p-6">
+                <div className="flex items-start gap-4">
+                  <span className="text-3xl font-light text-white">{principle.number}</span>
+                  <h3 className="text-lg font-medium text-white flex-1 leading-tight">
+                    {principle.title}
+                  </h3>
                 </div>
-                <H3 className="text-lg font-medium text-primary flex-1">{principle.title}</H3>
               </div>
-              <BodyText className="text-sm text-primary/80 leading-relaxed">
-                {principle.description}
-              </BodyText>
+              
+              {/* Content */}
+              <div className="p-6">
+                <p className="text-sm text-gray-700 leading-relaxed font-light">
+                  {principle.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
 
-        <InfoBox
-          variant="neutral"
-          title="PRINCIPLE APPLICATION"
-          description="These principles operate as systematic constraints on institutional decision-making and operational protocols, ensuring consistent application across all domains without exception or modification based on individual circumstances."
-        />
+        {/* Bottom Note */}
+        <div className="bg-gray-100 border-l-4 border-gray-900 p-6 rounded-r-lg">
+          <h4 className="font-medium text-xs uppercase mb-2 text-black tracking-wider">
+            Principle Application
+          </h4>
+          <p className="text-lg text-gray-700 leading-relaxed font-light">
+            These principles operate as systematic constraints on institutional decision-making 
+            and operational protocols, ensuring consistent application across all domains without 
+            exception or modification based on individual circumstances.
+          </p>
+        </div>
       </div>
     </section>
   );

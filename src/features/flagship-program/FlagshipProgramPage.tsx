@@ -1,8 +1,8 @@
 'use client';
 
-import { useState } from 'react';
-import { PageContainer } from '@/src/shared/components/layout';
-import { BackButton } from '@/src/shared/components/content';
+import { useState, useRef } from 'react';
+import Navigation from '@/src/shared/components/layout/Navigation';
+import Footer from '@/src/shared/components/layout/Footer';
 import {
   HeroVideoSection,
   ProgramOverviewSection,
@@ -15,9 +15,10 @@ import {
 } from './components/sections';
 
 export default function FlagshipProgramPage() {
-  const [activeSection, setActiveSection] = useState<string | null>(null);
+  const [activeSections, setActiveSections] = useState<string[]>([]);
+  const phaseOneRef = useRef<HTMLDivElement>(null);
 
-  // Map section IDs to components - for cards
+  // Map section IDs to components
   const sectionComponents = {
     'phase-one': <PhaseOneSection />,
     'phase-two': <PhaseTwoSection />,
@@ -25,34 +26,67 @@ export default function FlagshipProgramPage() {
     application: <ApplicationProcessSection />,
   };
 
-  if (activeSection) {
-    const component = sectionComponents[activeSection as keyof typeof sectionComponents];
+  // Toggle section - add if not present, remove if already present
+  const handleCardClick = (sectionId: string) => {
+    setActiveSections(prev => {
+      if (prev.includes(sectionId)) {
+        return prev.filter(id => id !== sectionId);
+      } else {
+        return [...prev, sectionId];
+      }
+    });
+  };
 
-    return (
-      <PageContainer>
-        <div className="w-full px-6 md:px-8 pt-4 pb-2">
-          <BackButton
-            onClick={() => setActiveSection(null)}
-            text="Back to Program Overview"
-            className="mb-4"
-          />
+  // Handle Learn More click - open Phase One and scroll to it
+  const handleLearnMoreClick = () => {
+    // Add phase-one to active sections if not already present
+    setActiveSections(prev => {
+      if (!prev.includes('phase-one')) {
+        return [...prev, 'phase-one'];
+      }
+      return prev;
+    });
 
-          {/* Content with minimal wrapper */}
-          {component}
-        </div>
-      </PageContainer>
-    );
-  }
+    // Scroll to phase one section after a short delay to allow rendering
+    setTimeout(() => {
+      phaseOneRef.current?.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start' 
+      });
+    }, 100);
+  };
 
   return (
-    <PageContainer>
+    <div className="min-h-screen font-sans bg-white text-gray-900">
+      <Navigation />
+      
       <HeroVideoSection />
 
-      <main className="w-full px-6 md:px-8 py-4 space-y-4">
-        <ProgramOverviewSection />
-        <ProgramCardsSection onCardClick={setActiveSection} />
-        <ProgramSpecificationSection />
+      <main className="w-full">
+        <ProgramOverviewSection onLearnMoreClick={handleLearnMoreClick} />
+        
+        <div className="px-8 py-12 space-y-12">
+          <ProgramCardsSection onCardClick={handleCardClick} />
+          
+          {/* Show expanded sections inline - multiple can be open */}
+          {activeSections.length > 0 && (
+            <div className="space-y-12">
+              {activeSections.map((sectionId) => (
+                <div 
+                  key={sectionId}
+                  ref={sectionId === 'phase-one' ? phaseOneRef : null}
+                >
+                  {sectionComponents[sectionId as keyof typeof sectionComponents]}
+                </div>
+              ))}
+            </div>
+          )}
+          
+          <ProgramSpecificationSection />
+        </div>
       </main>
-    </PageContainer>
+      
+      <Footer />
+    </div>
   );
 }

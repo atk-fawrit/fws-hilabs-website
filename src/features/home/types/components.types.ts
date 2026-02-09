@@ -66,23 +66,3 @@ export interface CTASectionProps {
   buttonText: string;
   buttonHref: string;
 }
-
-// Footer Section Types
-export interface FooterLink {
-  href: string;
-  label: string;
-}
-
-export interface FooterSection {
-  title: string;
-  links: FooterLink[];
-}
-
-export interface FooterSectionProps {
-  sections: FooterSection[];
-  companyInfo: {
-    title: string;
-    description: string;
-  };
-  copyright: string;
-}

@@ -1,78 +1,61 @@
 /**
  * Deployment Discussion Section
- * 
- * CTA for deployment discussion access with clean paragraph layout
+ * Premium CTA section with qualification criteria
  */
 
 import React from 'react';
-import { H2, H3 } from '@/src/shared/components/typography';
-import { BodyText } from '@/src/shared/components/typography';
-import { CTAButton } from '@/src/shared/components/content';
 
 export const DeploymentDiscussionSection: React.FC = () => {
   return (
-    <section className="border-t border-primary/20 pt-12">
-      <div className="max-w-6xl">
-        <H2 className="text-3xl font-light text-primary mb-6">Deployment Discussion Access</H2>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Main content - takes 2 columns */}
-          <div className="lg:col-span-2 space-y-6">
-            <BodyText className="text-primary/80 leading-relaxed">
-              Organizations interested in evaluating HI Labs as a talent pipeline component can access detailed deployment 
-              discussion including partnership assessment, model selection, and engagement protocol initiation.
-            </BodyText>
-
-            <div>
-              <H3 className="text-xl font-light text-primary mb-3">Deployment Framework Access</H3>
-              <BodyText className="text-primary/80 leading-relaxed mb-4">
-                Deployment discussion provides comprehensive access to partnership evaluation frameworks, deployment model 
-                specifications, and engagement protocol documentation for informed decision-making. Discussion components 
-                include organizational readiness assessment and deployment model recommendation, detailed supervision protocol 
-                review and partnership requirement clarification, risk allocation discussion and accountability boundary 
-                establishment, performance evaluation framework explanation and feedback mechanism design, and engagement 
-                timeline planning and capacity allocation discussion.
-              </BodyText>
-              <BodyText className="text-sm text-primary/60 italic">
-                Access restricted to organizations with documented talent acquisition requirements and technical leadership 
-                capacity for partnership evaluation.
-              </BodyText>
-            </div>
-          </div>
-
-          {/* Sidebar content - takes 1 column */}
-          <div className="lg:col-span-1 space-y-6">
-            <div>
-              <H3 className="text-xl font-light text-primary mb-3">Partnership Qualification</H3>
-              <BodyText className="text-primary/80 leading-relaxed mb-4">
-                Partnership qualification ensures deployment discussion efficiency by focusing on organizations with appropriate 
-                technical environments, supervision capacity, and partnership commitment capability.
-              </BodyText>
-              <BodyText className="text-sm text-primary/70 leading-relaxed">
-                Qualification criteria include established technical development environment suitable for junior engineer integration, 
-                technical leadership with capacity for supervision protocol collaboration, organizational commitment to systematic 
-                talent development and performance tracking, and documented talent acquisition requirements with specific 
-                competency needs.
-              </BodyText>
-            </div>
-
-            <div className="pt-4">
-              <CTAButton 
-                variant="primary" 
-                href="/employers/deployment-discussion"
-              >
-                Initiate Deployment Discussion
-              </CTAButton>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-6 pt-6 border-t border-primary/20">
-          <BodyText className="text-sm text-primary/70 leading-relaxed">
+    <section className="py-24 px-8 md:px-16 bg-black text-white">
+      <div className="max-w-5xl mx-auto text-center space-y-12">
+        <div className="space-y-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white">
+            Initiate Deployment Discussion
+          </h2>
+          <p className="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
             Deployment discussion access is provided to qualified organizations following initial assessment and partnership 
             qualification verification. Discussion includes comprehensive partnership evaluation and engagement protocol design.
-          </BodyText>
+          </p>
         </div>
+
+        {/* Qualification Info */}
+        <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-white/20">
+          <h3 className="text-2xl font-bold mb-6 text-white">Partnership Qualification Criteria</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
+            {[
+              'Established technical development environment suitable for junior engineer integration',
+              'Technical leadership with capacity for supervision protocol collaboration',
+              'Organizational commitment to systematic talent development and performance tracking',
+              'Documented talent acquisition requirements with specific competency needs'
+            ].map((criterion, index) => (
+              <div key={index} className="flex items-start gap-3">
+                <div className="w-6 h-6 bg-white rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg className="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <p className="text-gray-200 text-sm leading-relaxed">{criterion}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* CTA Button */}
+        <div className="pt-8">
+          <button className="group inline-flex items-center gap-4 bg-white text-black px-12 py-5 rounded-2xl font-bold text-lg transition-all duration-300 hover:gap-6 hover:shadow-2xl hover:shadow-white/20">
+            <span>Begin Partnership Discussion</span>
+            <svg className="w-6 h-6 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </button>
+        </div>
+
+        {/* Access Note */}
+        <p className="text-sm text-gray-400 max-w-2xl mx-auto">
+          Access restricted to organizations with documented talent acquisition requirements and technical leadership 
+          capacity for partnership evaluation.
+        </p>
       </div>
     </section>
   );

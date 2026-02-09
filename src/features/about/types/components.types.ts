@@ -4,8 +4,6 @@
  * Type definitions for all about page components
  */
 
-import React from 'react';
-
 export interface PrincipleItemProps {
   number: string;
   title: string;

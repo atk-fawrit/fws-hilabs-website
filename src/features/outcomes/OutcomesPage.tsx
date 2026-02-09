@@ -1,9 +1,7 @@
-'use client';
-
-import { useState } from 'react';
-import { PageContainer, DocumentHeader } from '@/src/shared/components/layout';
+import Navigation from '@/src/shared/components/layout/Navigation';
+import Footer from '@/src/shared/components/layout/Footer';
 import {
-  EvidenceDocumentationSection,
+  HeroSection,
   EvidenceCategoriesSection,
   ExplicitNonClaimsSection,
   PublicationScheduleSection,
@@ -14,20 +12,19 @@ export { metadata } from './metadata';
 
 export default function OutcomesPage() {
   return (
-    <PageContainer>
-      <DocumentHeader
-        title="Outcomes & Evidence"
-        description="HI Labs outcomes are documented evidence of program effectiveness, not marketing metrics or promotional claims. Evidence is collected systematically and published transparently to enable informed evaluation by stakeholders."
-      />
-
-      {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-6 md:px-8 py-16">
-        <EvidenceDocumentationSection />
+    <div className="min-h-screen font-sans bg-white text-gray-900">
+      <Navigation />
+      
+      <HeroSection />
+      
+      <main>
         <EvidenceCategoriesSection />
         <ExplicitNonClaimsSection />
         <PublicationScheduleSection />
         <EmployerAccessSection />
       </main>
-    </PageContainer>
+      
+      <Footer />
+    </div>
   );
 }

@@ -1,9 +1,12 @@
+/**
+ * About HI Labs Page
+ * Clean, premium design with only actual content
+ */
+
 'use client';
 
-import { useState } from 'react';
-import { H2, BodyText } from '@/src/shared/components/typography';
-import { PageContainer, DocumentHeader } from '@/src/shared/components/layout';
-import { ImageCard, InfoBox, BackButton } from '@/src/shared/components/content';
+import { useState, useRef, useEffect } from 'react';
+import { Navigation, Footer } from '@/src/shared/components/layout';
 import { institutionalSections, quickReferenceData } from './data';
 import {
   InstitutionalCharterSection,
@@ -17,122 +20,244 @@ import {
 
 export default function AboutPage() {
   const [activeSection, setActiveSection] = useState<string | null>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   // Map section IDs to components
   const sectionComponents = {
-    charter: <InstitutionalCharterSection />,
-    principles: <OperatingPrinciplesSection />,
-    domains: <OperatingDomainsSection />,
-    faculty: <FacultyModelSection />,
-    governance: <GovernanceMechanismsSection />,
-    integrity: <IntegrityStandardsSection />,
-    structure: <InstitutionalStructureSection />,
+    'charter': <InstitutionalCharterSection />,
+    'principles': <OperatingPrinciplesSection />,
+    'domains': <OperatingDomainsSection />,
+    'faculty': <FacultyModelSection />,
+    'governance': <GovernanceMechanismsSection />,
+    'integrity': <IntegrityStandardsSection />,
+    'structure': <InstitutionalStructureSection />,
   };
 
-  if (activeSection) {
-    const component = sectionComponents[activeSection as keyof typeof sectionComponents];
-    
-    return (
-      <PageContainer>
-        <div className="px-6 md:px-8 py-8">
-          <BackButton 
-            onClick={() => setActiveSection(null)}
-            text="Back to About Overview"
-          />
-          
-          {/* Full width content without max-width constraints */}
-          <div className="w-full">
-            {component}
-          </div>
-        </div>
-      </PageContainer>
-    );
-  }
+  // Show only one section at a time and scroll to it
+  const handleCardClick = (sectionId: string) => {
+    setActiveSection(sectionId);
+  };
+
+  // Scroll to content when section changes
+  useEffect(() => {
+    if (activeSection && contentRef.current) {
+      setTimeout(() => {
+        contentRef.current?.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'start' 
+        });
+      }, 100);
+    }
+  }, [activeSection]);
 
   return (
-    <PageContainer>
-      <DocumentHeader
-        title="About HI Labs"
-        description="Institutional charter, operating principles, and governance framework defining HI Labs as a systematic engineering talent production facility with documented accountability structures and operational boundaries."
-        subtitle="Institutional Document"
-      />
+    <div className="min-h-screen font-sans bg-white text-gray-900">
+      <Navigation />
+      
+      <HeroSection />
 
-      <main className="w-full px-6 md:px-8 py-16">
-        {/* Overview Section - Full Width */}
-        <div className="w-full mb-16">
-          <InfoBox
-            variant="accent"
-            title="INSTITUTIONAL OVERVIEW"
-            description="HI Labs operates as an institutional engineering talent production system with systematic competency development, enforced evaluation protocols, and supervised deployment mechanisms. This documentation provides comprehensive institutional specifications across seven key areas."
-          />
+      <main className="w-full">
+        <div className="px-6 md:px-8 py-12 space-y-12">
+          <InstitutionalFrameworkSection onCardClick={handleCardClick} />
+          
+          {/* Show only one section at a time */}
+          {activeSection && (
+            <div ref={contentRef}>
+              {sectionComponents[activeSection as keyof typeof sectionComponents]}
+            </div>
+          )}
+          
+          <QuickReferenceSection />
+        </div>
+      </main>
+      
+      <Footer />
+    </div>
+  );
+}
+
+// ============================================================
+// HERO SECTION
+// ============================================================
+function HeroSection() {
+  return (
+    <section className="relative bg-white overflow-hidden">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[85vh]">
+          {/* Left Column */}
+          <div className="flex items-center px-8 md:px-16 lg:px-20 py-20 lg:py-24">
+            <div className="max-w-xl space-y-10">
+              <div className="space-y-8">
+                <div className="text-xs uppercase tracking-widest text-gray-500 font-semibold">
+                  Institutional Document
+                </div>
+                <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] text-black">
+                  About HI Labs
+                </h1>
+                <div className="w-20 h-0.5 bg-black"></div>
+                <p className="text-xl md:text-2xl text-gray-700 leading-relaxed font-light">
+                  Institutional charter, operating principles, and governance framework defining HI Labs 
+                  as a systematic engineering talent production facility with documented accountability 
+                  structures and operational boundaries.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column */}
+          <div className="relative bg-gray-50 px-8 md:px-16 lg:px-20 py-32 lg:py-24 flex items-center border-l border-gray-200">
+            <div className="max-w-xl space-y-8">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-bold text-black mb-6 tracking-tight">
+                  Institutional Overview
+                </h2>
+              </div>
+              
+              <div className="text-lg text-gray-700 leading-relaxed font-light">
+                <p>
+                  HI Labs operates as an institutional engineering talent production system with 
+                  systematic competency development, enforced evaluation protocols, and supervised 
+                  deployment mechanisms. This documentation provides comprehensive institutional 
+                  specifications across seven key areas.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
+    </section>
+  );
+}
+
+// ============================================================
+// INSTITUTIONAL FRAMEWORK SECTION
+// ============================================================
+interface InstitutionalFrameworkSectionProps {
+  onCardClick: (sectionId: string) => void;
+}
+
+function InstitutionalFrameworkSection({ onCardClick }: InstitutionalFrameworkSectionProps) {
+  return (
+    <section className="py-16 px-8 md:px-16 bg-white">
+      <div className="max-w-7xl mx-auto">
+        {/* Section Header */}
+        <div className="mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold text-black mb-6 tracking-tight">
+            Institutional Framework
+          </h2>
+          <p className="text-xl text-gray-700 leading-relaxed font-light max-w-3xl">
+            Explore detailed documentation of HI Labs&apos; institutional structure, operating principles, 
+            and governance mechanisms through systematic domain specifications
+          </p>
         </div>
 
-        {/* Institutional Framework Section - Full Width */}
-        <section className="w-full mb-16">
-          <div className="text-center mb-12">
-            <H2 className="text-3xl font-light text-primary mb-4">Institutional Framework</H2>
-            <BodyText className="text-lg text-secondary max-w-4xl mx-auto">
-              Explore detailed documentation of HI Labs' institutional structure, operating principles, 
-              and governance mechanisms through systematic domain specifications
-            </BodyText>
-          </div>
+        {/* Framework Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {institutionalSections.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => onCardClick(item.id)}
+              className="group bg-white rounded-lg overflow-hidden border border-gray-200 hover:border-gray-900 hover:shadow-lg transition-all duration-300 text-left"
+            >
+              {/* Image */}
+              <div className="relative h-48 bg-gray-100 overflow-hidden">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img 
+                  src={item.image} 
+                  alt={item.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+              </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 max-w-none">
-            {institutionalSections.map((section) => (
-              <ImageCard
-                key={section.id}
-                title={section.title}
-                description={section.description}
-                image={section.image}
-                onClick={() => setActiveSection(section.id)}
-                imageHeight="h-48"
-                className="hover:border-accent/60 hover:shadow-lg"
-              />
-            ))}
-          </div>
-        </section>
+              {/* Content */}
+              <div className="p-6">
+                <h3 className="text-lg font-medium text-black mb-3 leading-tight">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-gray-600 leading-relaxed font-light">
+                  {item.description}
+                </p>
+              </div>
+            </button>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
-        {/* Quick Reference - Full Width */}
-        <section className="w-full bg-accent/5 border-l-4 border-accent p-8">
-          <H2 className="text-xl font-light text-primary mb-4">Quick Reference</H2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
-            <div>
-              <BodyText className="font-medium text-primary mb-2">Core Framework:</BodyText>
-              <ul className="space-y-1 text-primary/70">
-                {quickReferenceData.coreFramework.map((item, index) => (
-                  <li key={index}>• {item}</li>
+// ============================================================
+// QUICK REFERENCE SECTION
+// ============================================================
+function QuickReferenceSection() {
+  const referenceData = [
+    {
+      title: 'Core Framework',
+      items: quickReferenceData.coreFramework
+    },
+    {
+      title: 'Documentation Areas',
+      items: quickReferenceData.documentationAreas
+    },
+    {
+      title: 'Systematic Approach',
+      items: [
+        'Evidence-based operations',
+        'Documented protocols',
+        'Measurable outcomes',
+        'Transparent boundaries'
+      ]
+    },
+    {
+      title: 'Quality Standards',
+      items: [
+        'Systematic assessment',
+        'Performance tracking',
+        'Continuous improvement',
+        'Compliance verification'
+      ]
+    }
+  ];
+
+  return (
+    <section className="py-16 px-8 md:px-16 bg-gray-50 rounded-lg">
+      <div className="max-w-7xl mx-auto">
+        {/* Section Header */}
+        <div className="mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold text-black mb-6 tracking-tight">
+            Quick Reference
+          </h2>
+        </div>
+
+        {/* Reference Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {referenceData.map((section, index) => (
+            <div 
+              key={index} 
+              className="bg-white rounded-lg p-6 border border-gray-200"
+            >
+              <h3 className="text-base font-medium text-black mb-4 uppercase tracking-wider">
+                {section.title}
+              </h3>
+              <ul className="space-y-2">
+                {section.items.map((item, itemIndex) => (
+                  <li key={itemIndex} className="flex items-start gap-2">
+                    <svg className="w-4 h-4 flex-shrink-0 mt-0.5 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                    <span className="text-gray-700 leading-relaxed text-sm font-light">
+                      {item}
+                    </span>
+                  </li>
                 ))}
               </ul>
             </div>
-            <div>
-              <BodyText className="font-medium text-primary mb-2">Documentation Areas:</BodyText>
-              <ul className="space-y-1 text-primary/70">
-                {quickReferenceData.documentationAreas.map((item, index) => (
-                  <li key={index}>• {item}</li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <BodyText className="font-medium text-primary mb-2">Systematic Approach:</BodyText>
-              <ul className="space-y-1 text-primary/70">
-                <li>• Evidence-based operations</li>
-                <li>• Documented protocols</li>
-                <li>• Measurable outcomes</li>
-                <li>• Transparent boundaries</li>
-              </ul>
-            </div>
-            <div>
-              <BodyText className="font-medium text-primary mb-2">Quality Standards:</BodyText>
-              <ul className="space-y-1 text-primary/70">
-                <li>• Systematic assessment</li>
-                <li>• Performance tracking</li>
-                <li>• Continuous improvement</li>
-                <li>• Compliance verification</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-      </main>
-    </PageContainer>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

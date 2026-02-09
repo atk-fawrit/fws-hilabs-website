@@ -7,33 +7,17 @@ import Link from 'next/link';
 import type { HeroSectionProps } from '../../types';
 
 export function HeroSection({ images }: HeroSectionProps) {
-  const [scrollY, setScrollY] = useState(0);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
     const imageInterval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 5000);
 
-    window.addEventListener('scroll', handleScroll);
-
     return () => {
-      window.removeEventListener('scroll', handleScroll);
       clearInterval(imageInterval);
     };
   }, [images.length]);
-
-  const getContentAlignment = (position: string) => {
-    switch (position) {
-      case 'left':
-        return 'mr-auto ml-[8%] text-left';
-      case 'far-left':
-        return 'mr-auto ml-[4%] text-left';
-      default:
-        return 'text-center';
-    }
-  };
 
   return (
     <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">

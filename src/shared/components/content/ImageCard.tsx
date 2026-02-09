@@ -18,9 +18,19 @@ export const ImageCard: React.FC<ImageCardProps> = ({
   onClick,
   imageHeight = 'h-48',
   className = '',
-  imageAlt = '',
 }) => {
-  const CardContent = () => (
+  const baseClasses = `
+    bg-gradient-to-br from-white to-gray-50/50
+    border-2 border-secondary/10 hover:border-accent/30
+    shadow-lg shadow-black/5 hover:shadow-2xl hover:shadow-accent/10
+    transition-all duration-300 ease-out
+    cursor-pointer group overflow-hidden
+    hover:-translate-y-2 hover:scale-[1.02]
+    backdrop-blur-sm
+    ${className}
+  `;
+
+  const content = (
     <>
       <div className={`
         relative w-full ${imageHeight} bg-cover bg-center overflow-hidden
@@ -51,28 +61,17 @@ export const ImageCard: React.FC<ImageCardProps> = ({
     </>
   );
 
-  const baseClasses = `
-    bg-gradient-to-br from-white to-gray-50/50
-    border-2 border-secondary/10 hover:border-accent/30
-    shadow-lg shadow-black/5 hover:shadow-2xl hover:shadow-accent/10
-    transition-all duration-300 ease-out
-    cursor-pointer group overflow-hidden
-    hover:-translate-y-2 hover:scale-[1.02]
-    backdrop-blur-sm
-    ${className}
-  `;
-
   if (href) {
     return (
       <a href={href} className={baseClasses}>
-        <CardContent />
+        {content}
       </a>
     );
   }
 
   return (
     <div onClick={onClick} className={baseClasses}>
-      <CardContent />
+      {content}
     </div>
   );
 };

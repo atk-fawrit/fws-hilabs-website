@@ -1,146 +1,99 @@
 /**
  * Deployment Models Section
- * 
- * Defines the three deployment models with expandable details using shared ExpandableSection
+ * Premium card-based design with icons
  */
 
 'use client';
 
-import React, { useState } from 'react';
-import { H2, BodyText } from '@/src/shared/components/typography';
-import { ExpandableSection } from '@/src/shared/components/content';
-
-const deploymentModels = [
-  {
-    id: 1,
-    number: "01",
-    title: "Internal Teams Model",
-    description: "Engineers are deployed directly within partner organization teams under joint supervision between HI Labs instructors and organizational technical leadership with shared performance accountability.",
-    characteristics: [
-      "Direct integration into existing organizational development teams",
-      "Joint supervision between HI Labs instructors and organizational leads",
-      "Shared performance accountability and competency development responsibility",
-      "Organizational access to HI Labs supervision protocols and assessment methods",
-      "Gradual supervision transition from HI Labs to organizational management"
-    ],
-    protocol: "HI Labs maintains primary supervision for initial 90 days with gradual transition to organizational supervision based on performance milestones and integration success.",
-    requirements: [
-      "Designated technical lead with capacity for joint supervision participation",
-      "Existing development team structure with integration capacity",
-      "Commitment to HI Labs supervision protocols during transition period",
-      "Performance feedback participation and assessment collaboration"
-    ]
-  },
-  {
-    id: 2,
-    number: "02",
-    title: "Partner Companies Model",
-    description: "Engineers are deployed to established partner companies with structured supervision agreements and performance tracking protocols maintained by HI Labs throughout the deployment period.",
-    characteristics: [
-      "Deployment to pre-qualified partner organizations with established protocols",
-      "HI Labs maintains primary supervision responsibility throughout deployment",
-      "Structured performance tracking and regular assessment intervals",
-      "Partner company integration support and conflict resolution protocols",
-      "Defined deployment duration with extension or transition options"
-    ],
-    protocol: "Partner companies undergo qualification process including supervision capacity assessment, technical environment evaluation, and protocol compliance verification.",
-    requirements: [
-      "Demonstrated technical environment suitable for junior engineer development",
-      "Commitment to HI Labs supervision protocols and performance tracking",
-      "Established development processes compatible with supervised deployment",
-      "Technical leadership capacity for collaboration with HI Labs supervision"
-    ]
-  },
-  {
-    id: 3,
-    number: "03",
-    title: "Client Projects Model",
-    description: "Engineers work on specific client projects under direct HI Labs supervision with client organizations providing project requirements and acceptance criteria while HI Labs maintains full supervision responsibility.",
-    characteristics: [
-      "Project-based engagement with defined scope and deliverable requirements",
-      "HI Labs maintains complete supervision and performance accountability",
-      "Client provides project specifications and acceptance criteria",
-      "Structured project delivery with milestone-based progress tracking",
-      "Limited client interaction with engineers during project execution"
-    ],
-    protocol: "Client projects are limited to well-defined technical deliverables suitable for junior engineer capabilities under structured supervision protocols.",
-    requirements: [
-      "Clear project specifications with defined technical requirements",
-      "Realistic scope appropriate for junior engineer capabilities",
-      "Structured acceptance criteria and milestone definitions",
-      "Limited direct supervision expectations with HI Labs protocol acceptance"
-    ]
-  }
-];
+import React from 'react';
 
 export const DeploymentModelsSection: React.FC = () => {
-  const [expandedSection, setExpandedSection] = useState<number | null>(null);
-
-  const handleToggle = (id: string | number) => {
-    const numericId = typeof id === 'string' ? parseInt(id, 10) : id;
-    setExpandedSection(expandedSection === numericId ? null : numericId);
-  };
+  const models = [
+    {
+      number: '01',
+      title: 'Internal Teams Model',
+      description: 'Engineers are deployed directly within partner organization teams under joint supervision between HI Labs instructors and organizational technical leadership with shared performance accountability.',
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+        </svg>
+      )
+    },
+    {
+      number: '02',
+      title: 'Partner Companies Model',
+      description: 'Engineers are deployed to established partner companies with structured supervision agreements and performance tracking protocols maintained by HI Labs throughout the deployment period.',
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      )
+    },
+    {
+      number: '03',
+      title: 'Client Projects Model',
+      description: 'Engineers work on specific client projects under direct HI Labs supervision with client organizations providing project requirements and acceptance criteria while HI Labs maintains full supervision responsibility.',
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        </svg>
+      )
+    }
+  ];
 
   return (
-    <section className="mb-16">
-      <div className="max-w-4xl mb-12">
-        <H2 className="text-3xl font-light text-primary mb-4">Deployment Models</H2>
-        <BodyText className="text-primary/70 leading-relaxed">
-          HI Labs operates three distinct deployment models that define the relationship structure, supervision protocols, 
-          and risk allocation between HI Labs, participating engineers, and partner organizations.
-        </BodyText>
-      </div>
+    <section className="py-24 px-8 md:px-16 bg-white">
+      <div className="max-w-7xl mx-auto">
+        {/* Section Header */}
+        <div className="text-center max-w-4xl mx-auto mb-20">
+          <h2 className="text-5xl md:text-6xl font-bold text-black mb-6 tracking-tight">
+            Deployment Models
+          </h2>
+          <p className="text-xl text-gray-700 leading-relaxed">
+            HI Labs operates three distinct deployment models that define the relationship structure, supervision protocols, 
+            and risk allocation between HI Labs, participating engineers, and partner organizations.
+          </p>
+        </div>
 
-      <div className="space-y-1">
-        {deploymentModels.map((model) => (
-          <ExpandableSection
-            key={model.id}
-            id={model.id}
-            number={model.number}
-            title={model.title}
-            description={model.description}
-            expandedId={expandedSection}
-            onToggle={handleToggle}
-          >
-            {/* Model Characteristics */}
-            <div className="mb-6">
-              <div className="text-sm uppercase tracking-wide text-primary/60 mb-3 font-medium">
-                Model Characteristics
+        {/* Models Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {models.map((model, index) => (
+            <div key={index} className="group relative">
+              {/* Card */}
+              <div className="bg-white rounded-3xl p-8 border-2 border-gray-200 hover:border-black transition-all duration-500 h-full flex flex-col">
+                {/* Number Badge */}
+                <div className="flex items-start justify-between mb-6">
+                  <div className="w-16 h-16 bg-black text-white rounded-2xl flex items-center justify-center">
+                    <span className="text-2xl font-bold">{model.number}</span>
+                  </div>
+                  <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center text-black group-hover:bg-black group-hover:text-white transition-all duration-300">
+                    {model.icon}
+                  </div>
+                </div>
+
+                {/* Title */}
+                <h3 className="text-2xl font-bold text-black mb-4 leading-tight">
+                  {model.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-gray-700 leading-relaxed flex-grow">
+                  {model.description}
+                </p>
+
+                {/* Bottom Accent */}
+                <div className="mt-6 pt-6 border-t-2 border-gray-100 group-hover:border-black transition-all duration-300">
+                  <div className="flex items-center gap-2 text-sm font-semibold text-black">
+                    <span>Learn More</span>
+                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </div>
               </div>
-              <ul className="space-y-2">
-                {model.characteristics.map((char, idx) => (
-                  <li key={idx} className="text-sm text-primary/80 leading-relaxed pl-4 border-l-2 border-accent">
-                    <BodyText className="text-sm">{char}</BodyText>
-                  </li>
-                ))}
-              </ul>
             </div>
-
-            {/* Protocol */}
-            <div className="bg-background border-l-4 border-primary p-4 mb-6">
-              <BodyText className="text-xs uppercase tracking-wide text-primary/60 mb-2 font-medium">
-                {model.id === 1 ? 'Supervision Protocol' : model.id === 2 ? 'Partnership Requirement' : 'Project Scope'}
-              </BodyText>
-              <BodyText className="text-sm text-primary/80 leading-relaxed">
-                {model.protocol}
-              </BodyText>
-            </div>
-
-            {/* Requirements */}
-            <div>
-              <div className="text-sm uppercase tracking-wide text-primary/60 mb-3 font-medium">
-                {model.id === 1 ? 'Organizational Requirements' : model.id === 2 ? 'Partner Qualifications' : 'Client Requirements'}
-              </div>
-              <ul className="space-y-2">
-                {model.requirements.map((req, idx) => (
-                  <li key={idx} className="text-sm text-primary/80 leading-relaxed pl-4 border-l-2 border-accent">
-                    <BodyText className="text-sm">{req}</BodyText>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </ExpandableSection>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

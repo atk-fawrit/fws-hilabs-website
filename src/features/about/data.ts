@@ -8,43 +8,43 @@ export const institutionalSections = [
   {
     id: 'charter',
     title: 'Institutional Charter',
-    description: 'Foundational identity, operating principles, and governance framework establishing HI Labs as a systematic engineering talent production facility',
+    description: 'Foundational identity and governance framework establishing HI Labs as a systematic engineering talent production facility with documented accountability structures and operational boundaries',
     image: '/images/selection-process-meeting.jpg',
   },
   {
     id: 'principles',
     title: 'Operating Principles',
-    description: 'Six systematic principles governing institutional decision-making, competency development, and organizational accountability',
+    description: 'Six systematic principles governing institutional decision-making, competency development protocols, and organizational accountability without exception or modification',
     image: '/images/hero-engineering-lab.jpg',
   },
   {
     id: 'domains',
     title: 'Operating Domains',
-    description: 'Six systematic domains with defined accountability structures and performance measurement protocols',
+    description: 'Six systematic operational domains with defined accountability structures, performance measurement protocols, and institutional effectiveness standards',
     image: '/images/operating-domains.jpg',
   },
   {
     id: 'faculty',
     title: 'Faculty Model',
-    description: 'Systematic faculty roles with distinct responsibilities, authority boundaries, and collaboration protocols',
+    description: 'Systematic faculty roles distinguishing instructor and trainer responsibilities with clear authority boundaries, qualification requirements, and collaboration protocols',
     image: '/images/short-programs.jpg',
   },
   {
     id: 'governance',
     title: 'Governance Mechanisms',
-    description: 'Decision-making protocols, accountability systems, and quality assurance frameworks ensuring institutional effectiveness',
+    description: 'Decision-making protocols, performance accountability systems, quality assurance frameworks, and transparency requirements ensuring institutional effectiveness',
     image: '/images/governance-mechanisms.jpg',
   },
   {
     id: 'integrity',
     title: 'Integrity Standards',
-    description: 'Systematic integrity protocols and ethical standards governing institutional operations and stakeholder interactions',
+    description: 'Systematic integrity protocols covering ethical compliance, assessment integrity, partnership accountability, and institutional representation standards',
     image: '/images/data-analysis-python.jpg',
   },
   {
     id: 'structure',
     title: 'Institutional Structure',
-    description: 'Organizational structure, reporting relationships, and operational hierarchy defining institutional management',
+    description: 'Organizational coordination structure, performance management integration, and operational efficiency systems defining institutional management framework',
     image: '/images/institutional-structure.jpg',
   }
 ];

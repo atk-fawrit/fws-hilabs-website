@@ -1,9 +1,10 @@
 'use client';
 
-import { HeroSection, PageContainer } from '@/src/shared/components/layout';
-import { BackButton } from '@/src/shared/components/content';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import Navigation from '@/src/shared/components/layout/Navigation';
+import Footer from '@/src/shared/components/layout/Footer';
 import {
+  HeroSection,
   MainContentSection,
   ExploreMoreSection,
   SelectionProcessSection,
@@ -14,50 +15,56 @@ import {
 
 export default function AdmissionsPage() {
   const [activeSection, setActiveSection] = useState<string | null>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
 
-  // Map section IDs to components - for cards
+  // Map section IDs to components
   const sectionComponents = {
     'process': <SelectionProcessSection />,
     'commitment': <CommitmentAndRiskSection />,
     'protocol': <ApplicationProtocolSection />,
   };
 
-  if (activeSection) {
-    const component = sectionComponents[activeSection as keyof typeof sectionComponents];
-    
-    return (
-      <PageContainer>
-        <div className="px-6 md:px-8 pt-4 pb-2">
-          <BackButton 
-            onClick={() => setActiveSection(null)}
-            text="Back to Admissions Overview"
-            className="mb-4"
-          />
-          
-          {/* Content without wrapper */}
-          {component}
-        </div>
-      </PageContainer>
-    );
-  }
+  // Show only one section at a time and scroll to it
+  const handleCardClick = (sectionId: string) => {
+    setActiveSection(sectionId);
+  };
+
+  // Scroll to content when section changes
+  useEffect(() => {
+    if (activeSection && contentRef.current) {
+      setTimeout(() => {
+        contentRef.current?.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'start' 
+        });
+      }, 100);
+    }
+  }, [activeSection]);
 
   return (
-    <PageContainer>
-      {/* Hero Section */}
-      <HeroSection
-        title="Admissions"
-        description="A rigorous selection system designed to identify candidates capable of completing our 12-month engineering talent production program"
-        backgroundType="image"
-        backgroundSrc="/images/admissions-process.jpg"
-        overlayColor="bg-black/40"
-        height="h-[300px]"
-      />
+    <div className="min-h-screen font-sans bg-white text-gray-900">
+      <Navigation />
+      
+      <HeroSection />
 
-      <main className="px-6 md:px-8 py-4 space-y-6">
+      <main className="w-full">
         <MainContentSection />
-        <ExploreMoreSection onCardClick={setActiveSection} />
-        <ApplicationCTASection />
+        
+        <div className="px-6 md:px-8 py-12 space-y-12">
+          <ExploreMoreSection onCardClick={handleCardClick} />
+          
+          {/* Show only one section at a time */}
+          {activeSection && (
+            <div ref={contentRef}>
+              {sectionComponents[activeSection as keyof typeof sectionComponents]}
+            </div>
+          )}
+          
+          <ApplicationCTASection />
+        </div>
       </main>
-    </PageContainer>
+      
+      <Footer />
+    </div>
   );
 }
