@@ -118,7 +118,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
           {/* Logo/Brand */}
           <Link 
             href="/" 
-            className="flex items-center hover:opacity-80 transition-opacity duration-300 -my-4 focus:outline-none"
+            className="flex items-center hover:opacity-80 transition-opacity duration-300 -my-4 -ml-24 focus:outline-none"
             aria-label="HI Labs home"
             onClick={closeMobileMenu}
           >

@@ -73,9 +73,6 @@ export function PipelineSection({ stages }: PipelineSectionProps) {
       <div className="relative z-10 max-w-7xl mx-auto px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <span className="inline-block px-5 py-2 bg-white/10 backdrop-blur-sm border border-white/30 rounded-full text-xs font-medium tracking-[0.2em] uppercase mb-6 text-white/90">
-            THE SYSTEM
-          </span>
           <h2 className="font-light text-4xl md:text-5xl lg:text-6xl mb-4 text-white tracking-tight">
             12-Month Engineering Pipeline
           </h2>
@@ -101,12 +98,12 @@ export function PipelineSection({ stages }: PipelineSectionProps) {
             )}
           </div>
           
-          {/* Pipeline Grid */}
-          <div className="flex flex-col lg:flex-row justify-between items-stretch gap-6 lg:gap-4 relative z-10">
+          {/* Pipeline - Single Row Flex Container */}
+          <div className="flex flex-col lg:flex-row items-stretch gap-6 lg:gap-3 relative z-10">
             {stages.map((stage, index) => (
               <div 
                 key={stage.id} 
-                className="flex flex-col lg:flex-row items-center flex-1"
+                className={`flex flex-col lg:flex-row items-center flex-1 lg:basis-0 ${index === stages.length - 1 ? 'lg:max-w-[200px]' : ''}`}
                 style={{
                   animation: isVisible ? `slideInRight 0.8s ease forwards` : 'none',
                   animationDelay: `${index * 0.15}s`,
@@ -117,7 +114,7 @@ export function PipelineSection({ stages }: PipelineSectionProps) {
                 {/* Pipeline Card */}
                 <div
                   ref={(el) => { cardRefs.current[index] = el; }}
-                  className={`relative w-full h-full min-h-[280px] p-8 bg-black/50 backdrop-blur-md border border-white/30 transition-all duration-300 group ${
+                  className={`relative w-full h-full min-h-[280px] p-6 bg-black/50 backdrop-blur-md border border-white/30 transition-all duration-300 group ${
                     hoveredStage === stage.id ? 'border-white/60 bg-black/70' : ''
                   }`}
                   onMouseEnter={() => setHoveredStage(stage.id)}
@@ -167,25 +164,25 @@ export function PipelineSection({ stages }: PipelineSectionProps) {
                   </div>
                   
                   {/* Stage Number with Glow */}
-                  <div className="mb-6 relative" style={{ transform: 'translateZ(20px)' }}>
-                    <span className="inline-block text-sm font-light tracking-[0.3em] text-white/80 uppercase relative z-10 group-hover:text-white transition-all duration-300">
+                  <div className="mb-4 relative" style={{ transform: 'translateZ(20px)' }}>
+                    <span className="inline-block text-xs font-light tracking-[0.3em] text-white/80 uppercase relative z-10 group-hover:text-white transition-all duration-300">
                       Stage {stage.number}
                     </span>
                     <div className="absolute inset-0 blur-lg bg-white/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-150"></div>
                   </div>
                   
                   {/* Content with 3D depth */}
-                  <div className="space-y-3 mb-6 relative z-10" style={{ transform: 'translateZ(30px)' }}>
-                    <h3 className="text-2xl font-light text-white tracking-tight transition-all duration-300 group-hover:text-white group-hover:translate-x-1">
+                  <div className="space-y-2 mb-4 relative z-10" style={{ transform: 'translateZ(30px)' }}>
+                    <h3 className="text-xl font-light text-white tracking-tight transition-all duration-300 group-hover:text-white group-hover:translate-x-1">
                       {stage.title}
                     </h3>
-                    <p className="text-sm font-light tracking-wider uppercase text-white/90 group-hover:text-white transition-all duration-300 delay-75">
+                    <p className="text-xs font-light tracking-wider uppercase text-white/90 group-hover:text-white transition-all duration-300 delay-75">
                       {stage.subtitle}
                     </p>
                   </div>
                   
                   {/* Duration */}
-                  <div className="mt-auto pt-4 relative z-10" style={{ transform: 'translateZ(20px)' }}>
+                  <div className="mt-auto pt-3 relative z-10" style={{ transform: 'translateZ(20px)' }}>
                     <p className="text-xs font-light text-white/70 tracking-wide group-hover:text-white/90 transition-colors duration-300">
                       {stage.duration}
                     </p>
@@ -235,7 +232,7 @@ export function PipelineSection({ stages }: PipelineSectionProps) {
                 {index < stages.length - 1 && (
                   <div className="flex-shrink-0 relative my-3 lg:my-0 lg:mx-2">
                     {/* Desktop Arrow */}
-                    <div className="hidden lg:flex items-center justify-center w-12 h-px">
+                    <div className="hidden lg:flex items-center justify-center w-10 h-px">
                       <div className="relative w-full h-full">
                         <div className="absolute inset-0 bg-white/30"></div>
                         {isVisible && (
@@ -248,10 +245,10 @@ export function PipelineSection({ stages }: PipelineSectionProps) {
                           ></div>
                         )}
                       </div>
-                      <div className="w-0 h-0 border-l-[10px] border-l-white/80 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent ml-1"></div>
+                      <div className="w-0 h-0 border-l-[8px] border-l-white/80 border-t-[5px] border-t-transparent border-b-[5px] border-b-transparent ml-1"></div>
                     </div>
                     {/* Mobile Arrow */}
-                    <div className="lg:hidden flex flex-col items-center justify-center h-8 w-px">
+                    <div className="lg:hidden flex flex-col items-center justify-center h-8 w-px mx-auto">
                       <div className="relative w-full h-full">
                         <div className="absolute inset-0 bg-white/30"></div>
                         {isVisible && (

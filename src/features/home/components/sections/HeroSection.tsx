@@ -1,13 +1,22 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { ArrowRight, ChevronDown } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { HeroSectionProps } from '../../types';
 
 export function HeroSection({ images }: HeroSectionProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [titleText, setTitleText] = useState('');
+  const [subtitleText, setSubtitleText] = useState('');
+  const [descriptionText, setDescriptionText] = useState('');
+  const [showCursor, setShowCursor] = useState(true);
+  const [showButton, setShowButton] = useState(false);
+
+  const fullTitle = 'HI LABS';
+  const fullSubtitle = 'Engineering talent production and deployment';
+  const fullDescription = 'Do you consistently demonstrate technical aptitude?\nAre you seeking rigorous engineering training?';
 
   useEffect(() => {
     const imageInterval = setInterval(() => {
@@ -18,6 +27,59 @@ export function HeroSection({ images }: HeroSectionProps) {
       clearInterval(imageInterval);
     };
   }, [images.length]);
+
+  // Typing animation effect
+  useEffect(() => {
+    let titleIndex = 0;
+    let subtitleIndex = 0;
+    let descriptionIndex = 0;
+
+    // Type title
+    const titleInterval = setInterval(() => {
+      if (titleIndex < fullTitle.length) {
+        setTitleText(fullTitle.slice(0, titleIndex + 1));
+        titleIndex++;
+      } else {
+        clearInterval(titleInterval);
+        
+        // Start subtitle after title is complete
+        setTimeout(() => {
+          const subtitleInterval = setInterval(() => {
+            if (subtitleIndex < fullSubtitle.length) {
+              setSubtitleText(fullSubtitle.slice(0, subtitleIndex + 1));
+              subtitleIndex++;
+            } else {
+              clearInterval(subtitleInterval);
+              
+              // Start description after subtitle is complete
+              setTimeout(() => {
+                const descriptionInterval = setInterval(() => {
+                  if (descriptionIndex < fullDescription.length) {
+                    setDescriptionText(fullDescription.slice(0, descriptionIndex + 1));
+                    descriptionIndex++;
+                  } else {
+                    clearInterval(descriptionInterval);
+                    setShowCursor(false);
+                    setShowButton(true);
+                  }
+                }, 30); // Speed for description
+              }, 200);
+            }
+          }, 50); // Speed for subtitle
+        }, 300);
+      }
+    }, 100); // Speed for title
+
+    // Cursor blink
+    const cursorInterval = setInterval(() => {
+      setShowCursor((prev) => !prev);
+    }, 500);
+
+    return () => {
+      clearInterval(titleInterval);
+      clearInterval(cursorInterval);
+    };
+  }, []);
 
   return (
     <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
@@ -50,39 +112,44 @@ export function HeroSection({ images }: HeroSectionProps) {
           Engineering Talent Production Lab
         </div>
 
-        {/* Title */}
+        {/* Title with Typing Effect */}
         <h1 className="font-mono text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-[0.9] mb-6 text-white drop-shadow-lg">
-          HI LABS
+          {titleText}
+          {titleText.length < fullTitle.length && showCursor && (
+            <span className="animate-pulse">|</span>
+          )}
         </h1>
 
-        {/* Subtitle */}
-        <p className="font-sans text-xl md:text-2xl lg:text-3xl font-light leading-relaxed mb-8 text-white/95 drop-shadow-md">
-          Engineering talent production and deployment
+        {/* Subtitle with Typing Effect */}
+        <p className="font-sans text-xl md:text-2xl lg:text-3xl font-light leading-relaxed mb-8 text-white/95 drop-shadow-md min-h-[2.5rem]">
+          {subtitleText}
+          {subtitleText.length > 0 && subtitleText.length < fullSubtitle.length && showCursor && (
+            <span className="animate-pulse">|</span>
+          )}
         </p>
 
-        {/* Description */}
-        <p className="font-sans text-base md:text-lg lg:text-xl font-normal leading-relaxed mb-12 text-white/90 max-w-3xl drop-shadow-sm">
-          Do you consistently demonstrate technical aptitude?<br />
-          Are you seeking rigorous engineering training?
+        {/* Description with Typing Effect */}
+        <p className="font-sans text-base md:text-lg lg:text-xl font-normal leading-relaxed mb-12 text-white/90 max-w-3xl drop-shadow-sm min-h-[4rem] whitespace-pre-line">
+          {descriptionText}
+          {descriptionText.length > 0 && descriptionText.length < fullDescription.length && showCursor && (
+            <span className="animate-pulse">|</span>
+          )}
         </p>
 
-        {/* CTA Button */}
-        <Link 
-          href="/admissions" 
-          className="inline-flex items-center gap-4 px-8 py-4 bg-white text-black text-base font-semibold rounded-full transition-all duration-300 hover:-translate-y-1 hover:shadow-xl shadow-lg font-sans"
-        >
-          <span>Submit Application for Review</span>
-          <ArrowRight className="w-5 h-5" />
-        </Link>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 opacity-50 animate-bounce">
-        <ChevronDown className="w-8 h-8 text-white" />
+        {/* CTA Button with Fade In */}
+        <div className={`transition-opacity duration-700 ${showButton ? 'opacity-100' : 'opacity-0'}`}>
+          <Link 
+            href="/admissions" 
+            className="inline-flex items-center gap-4 px-8 py-4 bg-white text-black text-base font-semibold rounded-full transition-all duration-300 hover:-translate-y-1 hover:shadow-xl shadow-lg font-sans"
+          >
+            <span>Submit Application for Review</span>
+            <ArrowRight className="w-5 h-5" />
+          </Link>
+        </div>
       </div>
 
       {/* Image Indicators */}
-      <div className="absolute bottom-24 left-1/2 -translate-x-1/2 flex gap-4 z-20">
+      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-4 z-20">
         {images.map((_, index) => (
           <button
             key={index}

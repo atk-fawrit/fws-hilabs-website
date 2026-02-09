@@ -10,21 +10,3 @@ export type {
   NavigationItem,
   FooterProps,
 } from './layout.types';
-
-// Content component types
-export type {
-  CTAButtonProps,
-  InfoBoxProps,
-  InteractiveCardProps,
-  ImageCardProps,
-  ProcessCardProps,
-} from './content.types';
-
-// Common types
-export type {
-  BaseSection,
-  ExpandableSection,
-  PageContainerProps,
-  DocumentHeaderProps,
-  ExpandableSectionProps,
-} from './common.types';
