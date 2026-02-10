@@ -5,6 +5,7 @@
  */
 
 import React, { useState } from 'react';
+import { ApplicationModal } from '@/src/shared/components/content/ApplicationModal';
 
 export const ApplicationCTASection: React.FC = () => {
   const [checklist, setChecklist] = useState({
@@ -14,12 +15,19 @@ export const ApplicationCTASection: React.FC = () => {
     costs: false,
     policies: false
   });
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleCheckbox = (key: keyof typeof checklist) => {
     setChecklist(prev => ({ ...prev, [key]: !prev[key] }));
   };
 
   const allChecked = Object.values(checklist).every(v => v);
+
+  const handleSubmit = () => {
+    if (allChecked) {
+      setIsModalOpen(true);
+    }
+  };
 
   return (
     <section className="w-full bg-white py-20 px-8 md:px-16 lg:px-24">
@@ -69,6 +77,7 @@ export const ApplicationCTASection: React.FC = () => {
           {/* Submit Button */}
           <div className="space-y-4">
             <button
+              onClick={handleSubmit}
               disabled={!allChecked}
               className={`w-full py-4 px-8 font-medium text-base rounded-lg transition-all ${
                 allChecked
@@ -92,6 +101,12 @@ export const ApplicationCTASection: React.FC = () => {
           </p>
         </div>
       </div>
+
+      {/* Application Modal */}
+      <ApplicationModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
     </section>
   );
 };

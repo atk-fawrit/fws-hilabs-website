@@ -1,10 +1,8 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import Navigation from '@/src/shared/components/layout/Navigation';
-import Footer from '@/src/shared/components/layout/Footer';
+import { PageLayout, SimpleHero } from '@/src/shared/components/layout';
 import {
-  HeroSection,
   MainContentSection,
   ExploreMoreSection,
   SelectionProcessSection,
@@ -42,10 +40,14 @@ export default function AdmissionsPage() {
   }, [activeSection]);
 
   return (
-    <div className="min-h-screen font-sans bg-white text-gray-900">
-      <Navigation />
-      
-      <HeroSection />
+    <PageLayout>
+      <SimpleHero
+        image="/images/commitment-risk-discussion.jpg"
+        imageAlt="Admissions Process"
+        title="Admissions"
+        description="A rigorous selection system designed to identify candidates capable of completing our 12-month engineering talent production program"
+        overlayOpacity="dark"
+      />
 
       <main className="w-full">
         <MainContentSection />
@@ -63,8 +65,6 @@ export default function AdmissionsPage() {
           <ApplicationCTASection />
         </div>
       </main>
-      
-      <Footer />
-    </div>
+    </PageLayout>
   );
 }

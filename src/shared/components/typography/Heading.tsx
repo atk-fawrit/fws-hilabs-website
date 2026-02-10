@@ -13,26 +13,6 @@ interface HeadingProps {
   id?: string;
 }
 
-// H1 - Primary page headings with modern bold styling
-export const H1: React.FC<HeadingProps> = ({ children, className = '', id }) => (
-  <h1 
-    id={id}
-    className={`text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight ${className}`}
-  >
-    {children}
-  </h1>
-);
-
-// H2 - Section headings with modern bold styling
-export const H2: React.FC<HeadingProps> = ({ children, className = '', id }) => (
-  <h2 
-    id={id}
-    className={`text-2xl md:text-3xl font-bold text-gray-900 tracking-tight ${className}`}
-  >
-    {children}
-  </h2>
-);
-
 // H3 - Subsection headings with modern semibold styling
 export const H3: React.FC<HeadingProps> = ({ children, className = '', id }) => (
   <h3 
@@ -43,22 +23,4 @@ export const H3: React.FC<HeadingProps> = ({ children, className = '', id }) => 
   </h3>
 );
 
-// Generic Heading component with level prop
-interface GenericHeadingProps extends HeadingProps {
-  level: 1 | 2 | 3;
-}
-
-export const Heading: React.FC<GenericHeadingProps> = ({ level, ...props }) => {
-  switch (level) {
-    case 1:
-      return <H1 {...props} />;
-    case 2:
-      return <H2 {...props} />;
-    case 3:
-      return <H3 {...props} />;
-    default:
-      return <H2 {...props} />;
-  }
-};
-
-export default Heading;
+export default H3;

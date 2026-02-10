@@ -39,7 +39,7 @@ export function ProgramsSection({ programs, backgroundImage }: ProgramsSectionPr
         <div className="max-w-[1300px] mx-auto px-8">
           {/* Header */}
           <div className="text-center mb-16 relative z-[15] pt-8">
-            <span className="inline-block px-6 py-2.5 bg-white/90 border border-black/10 rounded-full text-xs font-semibold tracking-wider uppercase mb-4 text-black backdrop-blur-sm">
+            <span className="inline-block px-6 py-2.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg text-xs font-medium tracking-[0.2em] uppercase mb-4 text-white/90">
               Our Programs
             </span>
             <h2 className="font-mono text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900">

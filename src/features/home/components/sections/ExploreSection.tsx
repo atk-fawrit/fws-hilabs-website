@@ -14,9 +14,9 @@ export function ExploreSection({ cards }: ExploreSectionProps) {
       <div className="w-full mx-auto px-8">
         {/* Header */}
         <div className="text-center mb-8 max-w-6xl mx-auto">
-          <span className="inline-block px-6 py-2.5 bg-white/90 border border-black/10 rounded-full text-xs font-semibold tracking-widest uppercase mb-4 text-gray-900">
+          <div className="inline-block px-6 py-2.5 bg-white/90 border border-black/10 rounded-full text-xs font-semibold tracking-widest uppercase mb-4 text-gray-900">
             Explore More
-          </span>
+          </div>
           <h2 className="font-mono text-4xl md:text-5xl lg:text-6xl font-bold mb-3 text-gray-900">
             Discover Excellence
           </h2>
