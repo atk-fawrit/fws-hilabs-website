@@ -126,7 +126,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
             <img
               src="/images/logo.png"
               alt="HI Labs"
-              className="h-20 w-auto select-none"
+              className="h-24 w-auto select-none"
             />
           </Link>
           
