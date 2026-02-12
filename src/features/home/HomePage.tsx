@@ -1,9 +1,9 @@
 'use client';
 
 import { useEffect } from 'react';
+import Navigation from '@/src/shared/components/layout/Navigation';
 import {
   HeroSection,
-  PipelineSection,
   ProgramsSection,
   ExploreSection,
   IdentitySection,
@@ -33,9 +33,9 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen font-sans text-white">
-      <HeroSection images={homeData.hero.images} />
+      <Navigation />
       
-      <PipelineSection stages={homeData.pipeline.stages} />
+      <HeroSection stages={homeData.pipeline.stages} />
       
       <ProgramsSection 
         programs={homeData.programs.main}

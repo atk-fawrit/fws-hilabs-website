@@ -106,8 +106,8 @@ export default function Navigation({ className = '' }: NavigationProps) {
   return (
     <div className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       scrolled 
-        ? 'bg-black/95 backdrop-blur-xl border-b border-white/10 shadow-lg' 
-        : 'bg-black/80 backdrop-blur-md'
+        ? 'bg-white/10 backdrop-blur-xl border-b border-black/10 shadow-lg' 
+        : 'bg-transparent backdrop-blur-sm'
     }`}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <nav 
@@ -142,8 +142,8 @@ export default function Navigation({ className = '' }: NavigationProps) {
                   className={`
                     relative px-6 py-2.5 text-[15px] font-semibold tracking-wide transition-all duration-300 rounded-lg
                     ${isActive 
-                      ? 'text-white bg-white/10' 
-                      : 'text-gray-300 hover:text-white hover:bg-white/5'
+                      ? 'text-black bg-black/10' 
+                      : 'text-gray-700 hover:text-black hover:bg-black/5'
                     }
                   `}
                   aria-current={isActive ? 'page' : undefined}
@@ -161,8 +161,8 @@ export default function Navigation({ className = '' }: NavigationProps) {
                 className={`
                   flex items-center gap-2 px-6 py-2.5 text-[15px] font-semibold tracking-wide transition-all duration-300 rounded-lg
                   ${isSecondaryActive || isMoreDropdownOpen
-                    ? 'text-white bg-white/10' 
-                    : 'text-gray-300 hover:text-white hover:bg-white/5'
+                    ? 'text-black bg-black/10' 
+                    : 'text-gray-700 hover:text-black hover:bg-black/5'
                   }
                 `}
                 aria-expanded={isMoreDropdownOpen}
@@ -184,7 +184,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
 
               {/* Dropdown Menu */}
               {isMoreDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-64 bg-black/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl overflow-hidden animate-fade-in">
+                <div className="absolute right-0 mt-2 w-64 bg-white/95 backdrop-blur-xl border border-gray-200 rounded-xl shadow-2xl overflow-hidden animate-fade-in">
                   <div className="py-2">
                     {secondaryNavItems.map((item) => {
                       const isActive = pathname === item.href;
@@ -196,8 +196,8 @@ export default function Navigation({ className = '' }: NavigationProps) {
                           className={`
                             block px-6 py-3.5 text-[15px] font-semibold tracking-wide transition-all duration-200
                             ${isActive 
-                              ? 'text-white bg-white/10' 
-                              : 'text-gray-300 hover:text-white hover:bg-white/5'
+                              ? 'text-black bg-black/10' 
+                              : 'text-gray-700 hover:text-black hover:bg-black/5'
                             }
                           `}
                           aria-current={isActive ? 'page' : undefined}
@@ -216,7 +216,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
           
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 text-white hover:text-gray-300 transition-colors duration-300"
+            className="lg:hidden p-2 text-black hover:text-gray-700 transition-colors duration-300"
             aria-label="Toggle navigation menu"
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-navigation"
@@ -254,7 +254,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
             id="mobile-navigation"
             className="lg:hidden pb-6 animate-fade-in"
           >
-            <div className="bg-black/95 backdrop-blur-xl rounded-2xl border border-white/10 overflow-hidden shadow-2xl">
+            <div className="bg-white/95 backdrop-blur-xl rounded-2xl border border-gray-200 overflow-hidden shadow-2xl">
               <div className="p-4 space-y-1">
                 {/* Primary Items */}
                 {primaryNavItems.map((item) => {
@@ -267,8 +267,8 @@ export default function Navigation({ className = '' }: NavigationProps) {
                       className={`
                         block py-3.5 px-5 rounded-lg text-[15px] font-semibold tracking-wide transition-all duration-200
                         ${isActive 
-                          ? 'text-white bg-white/10' 
-                          : 'text-gray-300 hover:text-white hover:bg-white/5'
+                          ? 'text-black bg-black/10' 
+                          : 'text-gray-700 hover:text-black hover:bg-black/5'
                         }
                       `}
                       aria-current={isActive ? 'page' : undefined}
@@ -282,7 +282,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
 
                 {/* Divider */}
                 <div className="py-2">
-                  <div className="h-px bg-white/10"></div>
+                  <div className="h-px bg-gray-200"></div>
                 </div>
 
                 {/* Secondary Items */}
@@ -296,8 +296,8 @@ export default function Navigation({ className = '' }: NavigationProps) {
                       className={`
                         block py-3.5 px-5 rounded-lg text-[15px] font-semibold tracking-wide transition-all duration-200
                         ${isActive 
-                          ? 'text-white bg-white/10' 
-                          : 'text-gray-300 hover:text-white hover:bg-white/5'
+                          ? 'text-black bg-black/10' 
+                          : 'text-gray-700 hover:text-black hover:bg-black/5'
                         }
                       `}
                       aria-current={isActive ? 'page' : undefined}
