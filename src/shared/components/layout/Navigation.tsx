@@ -109,16 +109,16 @@ export default function Navigation({ className = '' }: NavigationProps) {
         ? 'bg-white/10 backdrop-blur-xl border-b border-black/10 shadow-lg' 
         : 'bg-transparent backdrop-blur-sm'
     }`}>
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <nav 
-          className={`flex items-center justify-between py-3 ${className}`}
+          className={`flex items-center justify-between py-2 ${className}`}
           role="navigation"
           aria-label="Primary navigation"
         >
           {/* Logo/Brand */}
           <Link 
             href="/" 
-            className="flex items-center hover:opacity-80 transition-opacity duration-300 -my-4 -ml-24 focus:outline-none"
+            className="flex items-center hover:opacity-80 transition-opacity duration-300 -my-2 focus:outline-none flex-shrink-0"
             aria-label="HI Labs home"
             onClick={closeMobileMenu}
           >
@@ -126,7 +126,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
             <img
               src="/images/logo.png"
               alt="HI Labs"
-              className="h-24 w-auto select-none"
+              className="h-14 sm:h-16 md:h-18 lg:h-20 w-auto select-none"
             />
           </Link>
           

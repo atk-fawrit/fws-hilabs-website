@@ -28,6 +28,16 @@ export const metadata: Metadata = {
   creator: "HI Labs",
   publisher: "Human Intelligence Laboratories Private Limited",
   robots: "index, follow",
+  icons: {
+    icon: [
+      { url: '/images/favicon.png', sizes: '32x32', type: 'image/png' },
+      { url: '/images/favicon.png', sizes: '192x192', type: 'image/png' },
+    ],
+    shortcut: '/images/favicon.png',
+    apple: [
+      { url: '/images/favicon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
   openGraph: {
     title: "HI Labs - Engineering Talent Production Lab",
     description: "HI Labs is an in-person Engineering lab. We produce deployable junior engineers through enforced evaluation and supervised deployment.",
@@ -55,24 +65,18 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <head>
-        {/* Preload critical images for better performance */}
+        {/* Preload critical videos for better performance */}
         <link
           rel="preload"
-          as="image"
-          href="/images/Image-R.png"
-          type="image/png"
+          as="video"
+          href="/images/Mbgvideo.mp4"
+          type="video/mp4"
         />
         <link
           rel="preload"
-          as="image"
-          href="/images/Image-Right.png"
-          type="image/png"
-        />
-        <link
-          rel="preload"
-          as="image"
-          href="/images/Bg-Transform.jpg"
-          type="image/jpeg"
+          as="video"
+          href="/images/bg-video.mp4"
+          type="video/mp4"
         />
       </head>
       <body className="antialiased bg-black text-white font-sans" suppressHydrationWarning={true}>
