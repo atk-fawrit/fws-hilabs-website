@@ -36,17 +36,17 @@ export const ExploreMoreSection: React.FC<ExploreMoreSectionProps> = ({ onCardCl
   return (
     <section className="w-full">
       {/* Dark background container */}
-      <div className="bg-gradient-to-br from-slate-800 via-slate-900 to-slate-950 p-12 rounded-2xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+      <div className="bg-gradient-to-br from-slate-800 via-slate-900 to-slate-950 p-4 sm:p-6 md:p-8 lg:p-12 rounded-xl sm:rounded-2xl">
+        <div className="text-center mb-6 sm:mb-8 md:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 sm:mb-3">
             Explore More
           </h2>
-          <p className="text-lg text-white/80 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-white/80 max-w-3xl mx-auto">
             Click on any section below to learn more about specific aspects of our admissions process
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {cardSections.map((section) => (
             <button
               key={section.id}

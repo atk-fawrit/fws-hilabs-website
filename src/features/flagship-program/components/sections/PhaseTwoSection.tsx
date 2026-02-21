@@ -23,7 +23,7 @@ export const PhaseTwoSection: React.FC = () => {
   ];
 
   return (
-    <div className="w-full relative py-24">
+    <div className="w-full relative py-12 sm:py-16 md:py-24">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
@@ -36,13 +36,13 @@ export const PhaseTwoSection: React.FC = () => {
       </div>
 
       {/* Content */}
-      <div className="relative max-w-7xl mx-auto px-6 md:px-8">
-        <div className="max-w-4xl space-y-8">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        <div className="max-w-4xl space-y-6 sm:space-y-8">
           <div>
-            <h2 className="font-sans text-4xl md:text-5xl font-light mb-4 text-white tracking-tight">
+            <h2 className="font-sans text-3xl sm:text-4xl md:text-5xl font-light mb-3 sm:mb-4 text-white tracking-tight">
               Phase II: Supervised Deployment
             </h2>
-            <p className="text-xl text-white/90 font-light leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-white/90 font-light leading-relaxed">
               Real-world engineering deployment (Months 10-12) with systematic supervision, performance tracking, and professional development protocols
             </p>
           </div>

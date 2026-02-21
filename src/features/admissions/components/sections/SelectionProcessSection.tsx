@@ -3,14 +3,14 @@ import { selectionStages } from '../../data';
 
 export const SelectionProcessSection: React.FC = () => {
   return (
-    <section className="w-full bg-gray-50 py-20 px-8 md:px-16 lg:px-24">
-      <div className="space-y-12">
+    <section className="w-full bg-gray-50 py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
+      <div className="space-y-8 sm:space-y-10 md:space-y-12">
         {/* Header */}
-        <div className="space-y-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-black tracking-tight">
+        <div className="space-y-3 sm:space-y-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black tracking-tight">
             Selection Process
           </h2>
-          <p className="text-xl text-gray-700 leading-relaxed font-light">
+          <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed font-light">
             The selection process consists of four transparent stages designed to evaluate 
             technical aptitude, commitment capacity, and program alignment. Each stage 
             eliminates candidates who do not meet the requirements for advancement.

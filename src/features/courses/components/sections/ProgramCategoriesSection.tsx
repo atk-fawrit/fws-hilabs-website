@@ -112,7 +112,7 @@ export const ProgramCategoriesSection: React.FC = () => {
             style={{ animationDelay: `${index * 100}ms` }}
           >
             {/* Image Header with Overlay */}
-            <div className="relative h-64 overflow-hidden bg-gradient-to-br from-gray-900 to-black">
+            <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden bg-gradient-to-br from-gray-900 to-black">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img 
                 src={program.image} 
@@ -124,7 +124,7 @@ export const ProgramCategoriesSection: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
               
               {/* Course Number - Top Left */}
-              <div className="absolute top-6 left-6">
+              <div className="absolute top-4 left-4 sm:top-6 sm:left-6">
                 <div className="relative">
                   <div className="absolute inset-0 bg-white blur-md opacity-50"></div>
                   <div className="relative bg-white rounded-2xl w-14 h-14 flex items-center justify-center shadow-2xl">
@@ -134,7 +134,7 @@ export const ProgramCategoriesSection: React.FC = () => {
               </div>
               
               {/* Category Badge - Top Right */}
-              <div className="absolute top-6 right-6">
+              <div className="absolute top-4 right-4 sm:top-6 sm:right-6">
                 <div className="relative">
                   <div className="absolute inset-0 bg-white blur-sm opacity-30"></div>
                   <span className="relative block bg-white/90 backdrop-blur-md px-4 py-2 rounded-full text-[10px] font-bold text-black tracking-widest shadow-lg">
@@ -144,15 +144,15 @@ export const ProgramCategoriesSection: React.FC = () => {
               </div>
               
               {/* Title - Bottom */}
-              <div className="absolute bottom-6 left-6 right-6">
-                <h3 className="text-white font-bold text-2xl leading-tight drop-shadow-2xl">
+              <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6">
+                <h3 className="text-white font-bold text-xl sm:text-2xl leading-tight drop-shadow-2xl">
                   {program.title}
                 </h3>
               </div>
             </div>
             
             {/* Content Area */}
-            <div className="p-8 space-y-6">
+            <div className="p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-6">
               {/* Description */}
               <BodyText className="text-gray-700 leading-relaxed text-sm">
                 {program.description}
@@ -204,11 +204,11 @@ export const ProgramCategoriesSection: React.FC = () => {
           
           {/* Modal Container */}
           <div 
-            className="relative w-full max-w-5xl max-h-[90vh] overflow-hidden bg-white rounded-3xl shadow-2xl animate-scale-in"
+            className="relative w-full max-w-full sm:max-w-lg md:max-w-3xl lg:max-w-5xl max-h-[90vh] overflow-hidden bg-white rounded-xl sm:rounded-2xl lg:rounded-3xl shadow-2xl animate-scale-in"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header Section */}
-            <div className="relative h-40 overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-800">
+            <div className="relative h-24 sm:h-32 md:h-40 overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-800">
               {/* Background Image */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img 
@@ -221,7 +221,7 @@ export const ProgramCategoriesSection: React.FC = () => {
               {/* Close Button */}
               <button 
                 onClick={() => setSelectedProgram(null)}
-                className="absolute top-6 right-6 text-white/70 hover:text-white transition-all duration-300 p-3 hover:bg-white/10 rounded-2xl backdrop-blur-sm group"
+                className="absolute top-3 right-3 sm:top-6 sm:right-6 text-white/70 hover:text-white transition-all duration-300 p-2 sm:p-3 hover:bg-white/10 rounded-xl sm:rounded-2xl backdrop-blur-sm group z-10"
               >
                 <svg className="w-6 h-6 group-hover:rotate-90 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -229,7 +229,7 @@ export const ProgramCategoriesSection: React.FC = () => {
               </button>
               
               {/* Number Badge */}
-              <div className="absolute top-6 left-8">
+              <div className="absolute top-3 left-3 sm:top-6 sm:left-8">
                 <div className="relative">
                   <div className="absolute inset-0 bg-white blur-lg opacity-40"></div>
                   <div className="relative w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-2xl">
@@ -239,7 +239,7 @@ export const ProgramCategoriesSection: React.FC = () => {
               </div>
               
               {/* Category Badge */}
-              <div className="absolute top-8 left-28">
+              <div className="absolute top-4 left-16 sm:top-8 sm:left-28">
                 <div className="relative">
                   <div className="absolute inset-0 bg-white blur-md opacity-30"></div>
                   <span className="relative block bg-white/90 backdrop-blur-md px-5 py-2.5 rounded-full text-xs font-bold text-black tracking-widest shadow-xl">

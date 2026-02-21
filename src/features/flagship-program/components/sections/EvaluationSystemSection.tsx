@@ -31,16 +31,16 @@ export const EvaluationSystemSection: React.FC = () => {
   ];
 
   return (
-    <div className="w-full py-16 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-6 md:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+    <div className="w-full py-10 sm:py-12 md:py-16 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 items-start">
           {/* Content - 2 columns */}
-          <div className="lg:col-span-2 space-y-8">
+          <div className="lg:col-span-2 space-y-6 sm:space-y-8">
             <div>
-              <h2 className="font-sans text-4xl md:text-5xl font-light mb-4 text-gray-900 tracking-tight">
+              <h2 className="font-sans text-3xl sm:text-4xl md:text-5xl font-light mb-3 sm:mb-4 text-gray-900 tracking-tight">
                 Evaluation and Elimination System
               </h2>
-              <p className="text-xl text-gray-600 font-light leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 font-light leading-relaxed">
                 Systematic evaluation protocols with documented criteria, elimination thresholds, and performance measurement frameworks ensuring consistent assessment
               </p>
             </div>

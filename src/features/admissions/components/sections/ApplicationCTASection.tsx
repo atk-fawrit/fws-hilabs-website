@@ -30,21 +30,21 @@ export const ApplicationCTASection: React.FC = () => {
   };
 
   return (
-    <section className="w-full bg-white py-20 px-8 md:px-16 lg:px-24">
-      <div className="space-y-12">
+    <section className="w-full bg-white py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
+      <div className="space-y-8 sm:space-y-10 md:space-y-12">
         {/* Header */}
-        <div className="space-y-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-black tracking-tight">
+        <div className="space-y-3 sm:space-y-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black tracking-tight">
             Begin Application Process
           </h2>
-          <p className="text-xl text-gray-700 leading-relaxed font-light">
+          <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed font-light">
             Candidates who understand the program constraints, selection process, and 
             commitment requirements may proceed with the application.
           </p>
         </div>
         
         {/* Checklist Card */}
-        <div className="bg-gray-50 border border-gray-200 rounded-lg p-8 md:p-10">
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 sm:p-6 md:p-8 lg:p-10">
           <h3 className="text-sm font-semibold text-black uppercase tracking-wider mb-6">
             Application Checklist
           </h3>

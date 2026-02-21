@@ -13,10 +13,10 @@ interface ProgramOverviewSectionProps {
 
 export const ProgramOverviewSection: React.FC<ProgramOverviewSectionProps> = ({ onLearnMoreClick }) => {
   return (
-    <div className="relative -mt-48 px-8 pb-8">
+    <div className="relative -mt-32 sm:-mt-40 md:-mt-48 px-4 sm:px-6 md:px-8 pb-6 sm:pb-8">
       <div className="max-w-6xl mx-auto">
         {/* White Content Card */}
-        <div className="bg-white rounded-lg shadow-2xl p-8 md:p-12">
+        <div className="bg-white rounded-lg shadow-2xl p-5 sm:p-6 md:p-8 lg:p-12">
           {/* Two Column Grid - col-5 col-3 layout */}
           <div className="grid grid-cols-1 lg:grid-cols-8 gap-8 items-start">
             {/* Left Column - Text Content (col-5) */}

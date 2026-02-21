@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import Navigation from '@/src/shared/components/layout/Navigation';
 import Footer from '@/src/shared/components/layout/Footer';
 import {
   HeroVideoSection,
@@ -58,14 +57,12 @@ export default function FlagshipProgramPage() {
 
   return (
     <div className="min-h-screen font-sans bg-white text-gray-900">
-      <Navigation />
-      
       <HeroVideoSection />
 
       <main className="w-full">
         <ProgramOverviewSection onLearnMoreClick={handleLearnMoreClick} />
         
-        <div className="px-8 py-12 space-y-12">
+        <div className="px-4 sm:px-6 md:px-8 py-8 sm:py-10 md:py-12 space-y-8 sm:space-y-10 md:space-y-12">
           <ProgramCardsSection onCardClick={handleCardClick} />
           
           {/* Show expanded sections inline - multiple can be open */}

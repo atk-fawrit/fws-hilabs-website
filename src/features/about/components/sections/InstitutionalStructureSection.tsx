@@ -28,14 +28,14 @@ const structureItems = [
 
 export const InstitutionalStructureSection: React.FC = () => {
   return (
-    <section className="w-full bg-gray-50 py-20 px-8 md:px-16 lg:px-24">
-      <div className="space-y-12">
+    <section className="w-full bg-gray-50 py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
+      <div className="space-y-8 sm:space-y-10 md:space-y-12">
         {/* Header */}
-        <div className="space-y-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-black tracking-tight">
+        <div className="space-y-3 sm:space-y-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black tracking-tight">
             Institutional Structure
           </h2>
-          <p className="text-xl text-gray-700 leading-relaxed font-light">
+          <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed font-light">
             HI Labs operates through systematic institutional structure with defined organizational 
             hierarchy, operational coordination mechanisms, and performance accountability systems 
             that ensure effective institutional management and operational efficiency.
@@ -43,7 +43,7 @@ export const InstitutionalStructureSection: React.FC = () => {
         </div>
         
         {/* Structure Items */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
           {structureItems.map((item) => (
             <div key={item.number} className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
               {/* Header */}
@@ -76,7 +76,7 @@ export const InstitutionalStructureSection: React.FC = () => {
         </div>
 
         {/* Institutional Boundaries */}
-        <div className="bg-gray-100 border-l-4 border-gray-900 p-8 rounded-r-lg">
+        <div className="bg-gray-100 border-l-4 border-gray-900 p-4 sm:p-6 md:p-8 rounded-r-lg">
           <h3 className="text-lg font-medium text-black mb-4 uppercase tracking-wider">
             Institutional Boundaries
           </h3>

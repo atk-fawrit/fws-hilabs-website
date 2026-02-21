@@ -35,7 +35,7 @@ export const MainContentSection: React.FC = () => {
   ];
 
   return (
-    <section className="relative w-full py-16">
+    <section className="relative w-full py-10 sm:py-12 md:py-16">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
@@ -48,7 +48,7 @@ export const MainContentSection: React.FC = () => {
       </div>
 
       {/* Content */}
-      <div className="relative max-w-7xl mx-auto px-8 md:px-16 lg:px-24 space-y-16">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 space-y-10 sm:space-y-12 md:space-y-16">
         
         {/* Admission Header */}
         <div className="space-y-6">
@@ -69,7 +69,7 @@ export const MainContentSection: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
           <button
             onClick={() => setActiveCategory('flagship')}
-            className={`group text-left p-8 border transition-all duration-400 ${
+            className={`group text-left p-5 sm:p-6 md:p-8 border transition-all duration-400 ${
               activeCategory === 'flagship'
                 ? 'bg-white/10 border-white/40 backdrop-blur-sm'
                 : 'bg-white/02 border-white/10 hover:bg-white/05 hover:border-white/20'
@@ -97,7 +97,7 @@ export const MainContentSection: React.FC = () => {
 
           <button
             onClick={() => setActiveCategory('short-courses')}
-            className={`group text-left p-8 border transition-all duration-400 ${
+            className={`group text-left p-5 sm:p-6 md:p-8 border transition-all duration-400 ${
               activeCategory === 'short-courses'
                 ? 'bg-white/10 border-white/40 backdrop-blur-sm'
                 : 'bg-white/02 border-white/10 hover:bg-white/05 hover:border-white/20'

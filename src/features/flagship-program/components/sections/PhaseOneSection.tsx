@@ -53,7 +53,7 @@ export const PhaseOneSection: React.FC = () => {
   return (
     <div className="w-full space-y-12">
       {/* Hero Image with Title Overlay */}
-      <div className="relative h-80 rounded-2xl overflow-hidden">
+      <div className="relative h-48 sm:h-64 md:h-80 rounded-xl sm:rounded-2xl overflow-hidden">
         <Image
           src="/images/phase-one-foundation.jpg"
           alt="Phase I Foundation"
@@ -61,12 +61,12 @@ export const PhaseOneSection: React.FC = () => {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-black/50"></div>
-        <div className="absolute inset-0 flex items-center px-12">
+        <div className="absolute inset-0 flex items-center px-4 sm:px-6 md:px-12">
           <div>
-            <h2 className="font-sans text-5xl md:text-6xl font-light mb-4 text-white tracking-tight">
+            <h2 className="font-sans text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-2 sm:mb-4 text-white tracking-tight">
               Phase I: Foundation Terms
             </h2>
-            <p className="text-xl md:text-2xl text-white/80 font-light">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/80 font-light">
               Months 1-9: Building core engineering competencies
             </p>
           </div>
@@ -74,25 +74,25 @@ export const PhaseOneSection: React.FC = () => {
       </div>
       
       {/* Terms List */}
-      <div className="space-y-16 px-4">
+      <div className="space-y-10 sm:space-y-16 px-0 sm:px-4">
         {terms.map((term) => (
-          <div key={term.stepNumber} className="relative pl-20">
+          <div key={term.stepNumber} className="relative pl-14 sm:pl-20">
             {/* Vertical Line */}
-            <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-blue-600 via-blue-400 to-transparent"></div>
+            <div className="absolute left-5 sm:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-blue-600 via-blue-400 to-transparent"></div>
             
             {/* Term Number Circle */}
-            <div className="absolute left-0 top-0 w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center shadow-lg">
-              <span className="text-white font-mono font-bold text-xl">{term.stepNumber}</span>
+            <div className="absolute left-0 top-0 w-10 h-10 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center shadow-lg">
+              <span className="text-white font-mono font-bold text-sm sm:text-xl">{term.stepNumber}</span>
             </div>
             
             {/* Term Content */}
             <div className="space-y-6">
               {/* Term Header */}
               <div>
-                <h3 className="text-3xl md:text-4xl font-light text-gray-900 mb-2 tracking-tight">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-light text-gray-900 mb-2 tracking-tight">
                   {term.title}
                 </h3>
-                <div className="flex items-center gap-4 text-base text-gray-500">
+                <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-sm sm:text-base text-gray-500">
                   <span className="font-medium">{term.duration}</span>
                   <span className="w-1 h-1 bg-gray-400 rounded-full"></span>
                   <span className="font-light">{term.subtitle}</span>

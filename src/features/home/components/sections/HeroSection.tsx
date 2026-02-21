@@ -158,7 +158,7 @@ export function HeroSection({ stages }: PipelineSectionProps) {
       {/* Content Container */}
       <div className="relative z-10 flex flex-col min-h-screen">
         {/* Hero Text with Typing Effect */}
-        <div className="flex-shrink-0 flex items-center justify-center py-12 md:py-16 lg:py-20 px-4 md:px-6 lg:px-8">
+        <div className="flex-shrink-0 flex items-center justify-center pt-20 sm:pt-24 pb-6 sm:pb-8 md:pb-12 lg:pb-16 px-4 md:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light tracking-tight leading-[1.15] text-black drop-shadow-sm">
               {typedText}
@@ -181,7 +181,7 @@ export function HeroSection({ stages }: PipelineSectionProps) {
         </div>
 
         <div className="text-center">
-          <h2 className="font-light text-4xl md:text-5xl lg:text-4xl mb-5 text-black tracking-tight">
+          <h2 className="font-light text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-3 sm:mb-5 text-black tracking-tight px-4">
             AI-Enriched Software Engineering{" "}
           </h2>
           <p className="text-base md:text-lg font-light leading-relaxed max-w-2xl mx-auto text-black/70">

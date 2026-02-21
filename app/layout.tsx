@@ -79,7 +79,7 @@ export default function RootLayout({
           type="video/mp4"
         />
       </head>
-      <body className="antialiased bg-black text-white font-sans" suppressHydrationWarning={true}>
+      <body className="antialiased bg-black text-white font-sans overflow-x-hidden" suppressHydrationWarning={true}>
         <Navigation />
         {children}
       </body>

@@ -49,19 +49,19 @@ export const SimpleHero: React.FC<SimpleHeroProps> = ({
       />
       <div className={`absolute inset-0 ${overlayClasses[overlayOpacity]}`}></div>
       
-      <div className="relative h-full flex items-center px-6 md:px-8">
+      <div className="relative h-full flex items-end sm:items-center pt-20 pb-8 sm:pt-24 sm:pb-0 px-4 sm:px-6 md:px-8">
         <div className={`${contentMaxWidth} text-white`}>
           {badge && (
-            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium mb-4 sm:mb-6">
               {badge.icon}
               {badge.text}
             </div>
           )}
           
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 sm:mb-4 tracking-tight">
             {title}
           </h1>
-          <p className="text-lg md:text-xl text-white/90 leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-white/90 leading-relaxed">
             {description}
           </p>
         </div>
