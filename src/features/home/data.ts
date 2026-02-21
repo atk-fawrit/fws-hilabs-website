@@ -133,7 +133,7 @@ export const homeData = {
         links: [
           { href: "/employers", label: "Employers" },
           { href: "/about", label: "About" }          { href: "/contact", label: "Contact" }
-          { href: "/#", label: "Contact" }
+          { href: "/", label: "Contact" }
         ]
       }
     ],
