@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   keywords: ["engineering", "talent", "training", "deployment", "evaluation", "lucknow"],
   authors: [{ name: "HI Labs" }],
   creator: "HI Labs",
-  publisher: "Human Intelligence Laboratories Private Limited",
+  publisher: "Human Intelligence Labs Private Limited",
   robots: "index, follow",
   icons: {
     icon: [

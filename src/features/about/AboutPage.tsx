@@ -228,8 +228,7 @@ function QuickReferenceSection() {
         {/* Section Header */}
         <div className="mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-black mb-6 tracking-tight">
-            Quick Reference
-          </h2>
+Our Team          </h2>
         </div>
 
         {/* Reference Grid */}

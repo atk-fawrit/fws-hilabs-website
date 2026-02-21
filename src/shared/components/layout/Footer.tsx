@@ -25,7 +25,7 @@ const footerSections = [
 
 const companyInfo = {
   title: 'HI LABS',
-  description: 'Human Intelligence Laboratories Private Limited. Engineering talent production through enforced evaluation and supervised deployment.'
+  description: 'Human Intelligence Labs Private Limited. Engineering talent production through enforced evaluation and supervised deployment.'
 };
 
 export default function Footer({ className = '' }: FooterProps) {
@@ -71,7 +71,7 @@ export default function Footer({ className = '' }: FooterProps) {
         {/* Footer Bottom */}
         <div className="text-center pt-8 sm:pt-10 border-t border-black/8">
           <p className="text-xs sm:text-sm text-black/50 px-4">
-            © {currentYear} Human Intelligence Laboratories Private Limited. All rights reserved.
+            © {currentYear} Human Intelligence Labs Private Limited. All rights reserved.
           </p>
         </div>
       </div>
