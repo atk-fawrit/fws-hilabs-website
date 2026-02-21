@@ -114,13 +114,12 @@ function HeroSection() {
             <div
               className="absolute inset-0 bg-cover bg-center"
               style={{
-                backgroundImage: 'url(https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=800&fit=crop)',
-                opacity: 0.15
+                backgroundImage: 'url(/images/institutional-overview-bg.jpg)',
               }}
             ></div>
 
             {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-50/95 via-blue-50/85 to-indigo-50/85"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/75 to-blue-900/60"></div>
 
             <div className="relative max-w-xl space-y-8 z-10">
               <div>
