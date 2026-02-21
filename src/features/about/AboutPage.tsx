@@ -205,26 +205,29 @@ Our Team          </h2>
         </div>
 
         {/* Team Members Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {teamMembers.map((member) => (
             <div
               key={member.id}
-              className="bg-white rounded-lg overflow-hidden border border-gray-200"
+              className="bg-white rounded-lg overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300"
             >
-              <div className="relative h-48 bg-gray-100 overflow-hidden">
+              <div className="relative h-72 bg-gray-100 overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <div className="p-6">
-                <h3 className="text-lg font-medium text-black mb-2">
+              <div className="p-8">
+                <h3 className="text-2xl font-bold text-black mb-1">
                   {member.name}
                 </h3>
-                <p className="text-sm text-gray-600 font-light">
+                <p className="text-base font-semibold text-gray-700 mb-4">
                   {member.role}
+                </p>
+                <p className="text-base text-gray-600 leading-relaxed font-light">
+                  {member.description}
                 </p>
               </div>
             </div>
