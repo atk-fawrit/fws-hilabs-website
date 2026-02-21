@@ -81,13 +81,21 @@ export default function AboutPage() {
 // ============================================================
 function HeroSection() {
   return (
-    <section className="relative bg-white overflow-hidden">
-      {/* Subtle background pattern */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl -z-10"></div>
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-indigo-100/30 rounded-full blur-3xl -z-10"></div>
+    <section className="relative overflow-hidden min-h-[85vh]">
+      {/* Full-bleed Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: 'url(/images/institutional-overview-bg.jpg)',
+        }}
+      ></div>
 
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[85vh]">
+      {/* Full overlay to ensure readability */}
+      <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/90 to-white/70"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-transparent to-white/60"></div>
+
+      <div className="relative z-10 max-w-7xl mx-auto pt-28 lg:pt-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[calc(85vh-8rem)]">
           {/* Left Column */}
           <div className="flex items-center px-8 md:px-16 lg:px-20 py-20 lg:py-24">
             <div className="max-w-xl space-y-10">
@@ -109,18 +117,7 @@ function HeroSection() {
           </div>
 
           {/* Right Column */}
-          <div className="relative px-8 md:px-16 lg:px-20 py-32 lg:py-24 flex items-center overflow-hidden border-l border-blue-200">
-            {/* Background Image */}
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{
-                backgroundImage: 'url(/images/institutional-overview-bg.jpg)',
-              }}
-            ></div>
-
-            {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/75 to-blue-900/60"></div>
-
+          <div className="relative px-8 md:px-16 lg:px-20 py-32 lg:py-24 flex items-center">
             <div className="relative max-w-xl space-y-8 z-10">
               <div>
                 <h2 className="text-3xl md:text-4xl font-bold text-black mb-6 tracking-tight">
