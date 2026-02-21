@@ -195,10 +195,6 @@ function InstitutionalFrameworkSection({ onCardClick }: InstitutionalFrameworkSe
 function QuickReferenceSection() {
   const referenceData = [
     {
-      title: 'Core Framework',
-      items: quickReferenceData.coreFramework
-    },
-    {
       title: 'Documentation Areas',
       items: quickReferenceData.documentationAreas
     },
