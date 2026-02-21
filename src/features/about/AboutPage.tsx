@@ -203,7 +203,7 @@ function InstitutionalFrameworkSection({ onCardClick }: InstitutionalFrameworkSe
 // QUICK REFERENCE SECTION
 // ============================================================
 function QuickReferenceSection() {
-  const referenceData = [];
+  const referenceData: Array<{ title: string; items: string[] }> = [];
 
   return (
     <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 lg:px-16 bg-white">
