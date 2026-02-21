@@ -193,21 +193,7 @@ function InstitutionalFrameworkSection({ onCardClick }: InstitutionalFrameworkSe
 // QUICK REFERENCE SECTION
 // ============================================================
 function QuickReferenceSection() {
-  const referenceData = [
-    {
-      title: 'Documentation Areas',
-      items: quickReferenceData.documentationAreas
-    },
-    {
-      title: 'Systematic Approach',
-      items: [
-        'Evidence-based operations',
-        'Documented protocols',
-        'Measurable outcomes',
-        'Transparent boundaries'
-      ]
-    }
-  ];
+  const referenceData = [];
 
   return (
     <section className="py-16 px-8 md:px-16 bg-gray-50 rounded-lg">
