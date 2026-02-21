@@ -187,22 +187,22 @@ export function HeroSection({ stages }: PipelineSectionProps) {
       {/* Content Container */}
       <div className="relative z-10 flex flex-col min-h-screen">
         {/* Hero Text with Typing Effect */}
-        <div className="flex-shrink-0 flex items-center justify-center py-20 px-8">
+        <div className="flex-shrink-0 flex items-center justify-center py-12 md:py-16 lg:py-20 px-4 md:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light tracking-tight leading-[1.15] text-black drop-shadow-sm">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light tracking-tight leading-[1.15] text-black drop-shadow-sm">
               {typedText}
               {typedText.length < mainText.length && (
-                <span className="inline-block w-[3px] h-[0.9em] bg-black ml-1 align-middle animate-blink"></span>
+                <span className="inline-block w-[2px] sm:w-[3px] h-[0.9em] bg-black ml-1 align-middle animate-blink"></span>
               )}
             </h1>
             {typedText.length === mainText.length && (
-              <div className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light mt-6 opacity-0 animate-fadeIn text-black drop-shadow-sm">
+              <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-light mt-4 md:mt-6 opacity-0 animate-fadeIn text-black drop-shadow-sm px-4">
                 {typedSubtext}
                 {showCursor && typedSubtext.length === subText.length && (
-                  <span className="inline-block w-[2px] h-[0.8em] bg-black/90 ml-1 align-middle"></span>
+                  <span className="inline-block w-[1.5px] sm:w-[2px] h-[0.8em] bg-black/90 ml-1 align-middle"></span>
                 )}
                 {typedSubtext.length < subText.length && (
-                  <span className="inline-block w-[2px] h-[0.8em] bg-black/90 ml-1 align-middle animate-blink"></span>
+                  <span className="inline-block w-[1.5px] sm:w-[2px] h-[0.8em] bg-black/90 ml-1 align-middle animate-blink"></span>
                 )}
               </div>
             )}
@@ -219,13 +219,14 @@ export function HeroSection({ stages }: PipelineSectionProps) {
         </div>
 
         {/* Pipeline Section */}
-        <div className="flex-1 px-4 md:px-8 lg:px-12 pb-16 -mt-20">
+        <div className="flex-1 px-2 sm:px-4 md:px-6 lg:px-12 pb-8 md:pb-12 lg:pb-16">
           <div className="relative max-w-[1600px] mx-auto">
-            <div className="relative z-10 py-10 px-6 md:px-10 lg:px-12">
+            <div className="relative z-10 py-6 md:py-8 lg:py-10 px-2 sm:px-4 md:px-6 lg:px-12">
+              
               {/* Pipeline Cards */}
-              <div className="relative py-8 mb-16">
-                {/* Enhanced Flow Line with gradient */}
-                <div className="absolute top-1/2 left-0 right-0 h-[2px] -translate-y-1/2 z-[1] hidden lg:block overflow-hidden">
+              <div className="relative py-4 md:py-6 lg:py-8 mb-8 md:mb-12 lg:mb-16">
+                {/* Enhanced Flow Line with gradient - Hidden on mobile */}
+                <div className="absolute top-1/2 left-0 right-0 h-[2px] -translate-y-1/2 z-[1] hidden xl:block overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/25 to-transparent"></div>
                   {isVisible && (
                     <div className="absolute inset-0">
@@ -237,8 +238,162 @@ export function HeroSection({ stages }: PipelineSectionProps) {
                 </div>
 
                 {/* Pipeline Cards Container */}
-                <div className="relative flex items-center justify-center min-h-[340px]">
-                  <div className="relative w-full">
+                <div className="relative flex items-center justify-center min-h-[280px] sm:min-h-[300px] md:min-h-[320px] lg:min-h-[340px]">
+                  {/* Mobile/Tablet: Vertical Stack */}
+                  <div className="xl:hidden w-full max-w-sm sm:max-w-md mx-auto space-y-4 sm:space-y-6 px-2 sm:px-4">
+                    {stages.map((stage, index) => {
+                      const cardAnim = getCardAnimation(index);
+                      
+                      return (
+                        <div 
+                          key={stage.id}
+                          className="w-full"
+                          style={{
+                            opacity: isVisible ? 1 : 0,
+                            transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+                            transition: `all 1s cubic-bezier(0.16, 1, 0.3, 1) ${index * 0.15}s`,
+                          }}
+                        >
+                          {/* Mobile Pipeline Card */}
+                          <div
+                            ref={(el) => { cardRefs.current[index] = el; }}
+                            className={`relative w-full p-5 sm:p-6 backdrop-blur-xl border-2 rounded-xl sm:rounded-2xl group overflow-hidden ${
+                              hoveredStage === stage.id 
+                                ? 'bg-gradient-to-br from-black/95 via-black/92 to-black/88 border-white/60 shadow-2xl shadow-black/50' 
+                                : 'bg-gradient-to-br from-black/92 via-black/88 to-black/85 border-white/35 hover:border-white/45 shadow-xl shadow-black/30'
+                            } ${
+                              highlightedCard === index
+                                ? 'ring-4 ring-white/30 ring-offset-0 shadow-2xl shadow-black/60 border-white/65'
+                                : ''
+                            }`}
+                            onMouseEnter={() => setHoveredStage(stage.id)}
+                            onMouseLeave={() => {
+                              setHoveredStage(null);
+                              handleMouseLeave(index);
+                            }}
+                            onMouseMove={(e) => handleMouseMove(e, stage.id, index)}
+                            style={{
+                              transformStyle: 'preserve-3d',
+                              transition: highlightedCard === index 
+                                ? 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)' 
+                                : 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
+                              transform: highlightedCard === index ? 'scale(1.03) translateZ(5px)' : undefined,
+                            }}
+                          >
+                            {/* Refined Inner Glow */}
+                            <div className="absolute inset-[1px] bg-gradient-to-br from-white/8 to-transparent rounded-xl sm:rounded-2xl pointer-events-none opacity-70"></div>
+
+                            {/* Magnetic Spotlight */}
+                            {hoveredStage === stage.id && mousePos[stage.id] && (
+                              <div 
+                                className="absolute inset-0 pointer-events-none transition-opacity duration-500 rounded-xl sm:rounded-2xl overflow-hidden"
+                                style={{
+                                  opacity: 0.9,
+                                  background: `radial-gradient(circle 150px at ${mousePos[stage.id].x}px ${mousePos[stage.id].y}px, rgba(255,255,255,0.15), transparent 70%)`,
+                                }}
+                              ></div>
+                            )}
+
+                            {/* Pulse Ring for Highlights */}
+                            {highlightedCard === index && (
+                              <>
+                                <div className="absolute -inset-2 rounded-xl sm:rounded-2xl bg-white/20 animate-pulse-ring-1 pointer-events-none"></div>
+                                <div className="absolute -inset-1 rounded-xl sm:rounded-2xl bg-white/30 animate-pulse-ring-2 pointer-events-none"></div>
+                              </>
+                            )}
+
+                            {/* Border Shimmer */}
+                            <div className="absolute -inset-[1px] rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 overflow-hidden pointer-events-none">
+                              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer-slow"></div>
+                            </div>
+
+                            {/* Corner Accents */}
+                            <div className="absolute top-0 left-0 w-10 h-10 opacity-0 group-hover:opacity-100 transition-all duration-500 overflow-hidden rounded-tl-xl sm:rounded-tl-2xl">
+                              <div className="absolute top-0 left-0 w-full h-[1.5px] bg-gradient-to-r from-white/80 to-transparent"></div>
+                              <div className="absolute top-0 left-0 h-full w-[1.5px] bg-gradient-to-b from-white/80 to-transparent"></div>
+                            </div>
+                            <div className="absolute bottom-0 right-0 w-10 h-10 opacity-0 group-hover:opacity-100 transition-all duration-500 overflow-hidden rounded-br-xl sm:rounded-br-2xl">
+                              <div className="absolute bottom-0 right-0 w-full h-[1.5px] bg-gradient-to-l from-white/80 to-transparent"></div>
+                              <div className="absolute bottom-0 right-0 h-full w-[1.5px] bg-gradient-to-t from-white/80 to-transparent"></div>
+                            </div>
+                            
+                            {/* Stage Number */}
+                            <div className="mb-2 sm:mb-3 relative z-10">
+                              <span className="inline-block text-[8px] sm:text-[9px] font-bold tracking-[0.3em] text-white/75 uppercase">
+                                STAGE {stage.number}
+                              </span>
+                            </div>
+                            
+                            {/* Content */}
+                            <div className="space-y-1.5 sm:space-y-2 mb-3 sm:mb-4 relative z-10">
+                              <h3 className="text-base sm:text-lg font-semibold text-white tracking-tight leading-tight drop-shadow-lg">
+                                {stage.title}
+                              </h3>
+                              <p className="text-[8px] sm:text-[9px] font-semibold tracking-[0.15em] uppercase text-white/90">
+                                {stage.subtitle}
+                              </p>
+                            </div>
+                            
+                            {/* Duration */}
+                            <div className="mt-auto pt-2.5 sm:pt-3 border-t border-white/25 relative z-10">
+                              <p className="text-[11px] sm:text-xs font-normal text-white/85">
+                                {stage.duration}
+                              </p>
+                            </div>
+                            
+                            {/* Bottom Progress Indicator */}
+                            <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-white/15 overflow-hidden rounded-b-xl sm:rounded-b-2xl">
+                              {isVisible && (
+                                <div 
+                                  className="h-full bg-gradient-to-r from-white/50 via-white/90 to-white/50 shadow-lg shadow-white/50"
+                                  style={{
+                                    animation: `expandWidth 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards`,
+                                    animationDelay: `${index * 0.15 + 0.8}s`,
+                                    width: 0
+                                  }}
+                                ></div>
+                              )}
+                            </div>
+
+                            {/* Ambient Glow on Hover */}
+                            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none rounded-xl sm:rounded-2xl">
+                              <div className="absolute inset-0 bg-gradient-to-t from-white/8 to-transparent"></div>
+                            </div>
+
+                            {/* Particle Effects */}
+                            {hoveredStage === stage.id && (
+                              <>
+                                <div className="absolute top-5 sm:top-6 left-5 sm:left-6 w-1.5 h-1.5 bg-white/90 rounded-full animate-floatParticle1 shadow-sm shadow-white/50"></div>
+                                <div className="absolute top-6 sm:top-8 right-6 sm:right-8 w-1 h-1 bg-white/80 rounded-full animate-floatParticle2 shadow-sm shadow-white/40"></div>
+                                <div className="absolute bottom-8 sm:bottom-10 left-6 sm:left-8 w-1.5 h-1.5 bg-white/75 rounded-full animate-floatParticle3 shadow-sm shadow-white/30"></div>
+                              </>
+                            )}
+                          </div>
+
+                          {/* Mobile Connector Arrow */}
+                          {index < stages.length - 1 && (
+                            <div 
+                              className="flex items-center justify-center py-1.5 sm:py-2"
+                              style={{
+                                opacity: isVisible ? 1 : 0,
+                                transition: `opacity 1s cubic-bezier(0.16, 1, 0.3, 1) ${index * 0.15 + 0.5}s`,
+                              }}
+                            >
+                              <div className="flex flex-col items-center gap-0.5 sm:gap-1 opacity-50">
+                                <div className="h-3 sm:h-4 w-[2px] bg-gradient-to-b from-black/60 to-black/40"></div>
+                                <svg width="12" height="8" viewBox="0 0 12 8" fill="none" className="text-black/60">
+                                  <path d="M1 1L6 6.5L11 1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                </svg>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  {/* Desktop: Horizontal Layout */}
+                  <div className="hidden xl:block relative w-full">
                     {stages.map((stage, index) => {
                       const cardAnim = getCardAnimation(index);
                       const centerIndex = 2;
@@ -426,12 +581,12 @@ export function HeroSection({ stages }: PipelineSectionProps) {
               </div>
 
               {/* Header */}
-              <div className="text-center">
-                <h2 className="font-light text-4xl md:text-5xl lg:text-4xl mb-5 text-black tracking-tight">
+              <div className="text-center px-4">
+                <h2 className="font-light text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-4xl mb-3 md:mb-5 text-black tracking-tight">
                   6 month Training + 6 month Internship
                 </h2>
-                <p className="text-base md:text-lg font-light leading-relaxed max-w-2xl mx-auto text-black/70">
-                  Systematic talent development through structured stages
+                <p className="text-sm sm:text-base md:text-lg font-light leading-relaxed max-w-2xl mx-auto text-black/70">
+                  Systematic talent development through structured phases
                 </p>
               </div>
             </div>
