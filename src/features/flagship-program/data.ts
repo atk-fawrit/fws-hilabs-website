@@ -38,7 +38,7 @@ export const programSections = [
 ];
 
 export const programOverview = {
-  duration: '12 Months',
+  duration: '6+6 Months',
   format: 'Full-time, In-person',
   phases: '2 Systematic Phases',
   evaluation: 'Continuous Assessment with Elimination Gates'

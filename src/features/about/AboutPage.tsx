@@ -7,7 +7,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { Navigation, Footer } from '@/src/shared/components/layout';
-import { institutionalSections, quickReferenceData } from './data';
+import { institutionalSections, quickReferenceData, teamMembers } from './data';
 import {
   InstitutionalCharterSection,
   OperatingPrinciplesSection,
@@ -231,11 +231,38 @@ function QuickReferenceSection() {
 Our Team          </h2>
         </div>
 
+        {/* Team Members Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          {teamMembers.map((member) => (
+            <div
+              key={member.id}
+              className="bg-white rounded-lg overflow-hidden border border-gray-200"
+            >
+              <div className="relative h-48 bg-gray-100 overflow-hidden">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-lg font-medium text-black mb-2">
+                  {member.name}
+                </h3>
+                <p className="text-sm text-gray-600 font-light">
+                  {member.role}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
         {/* Reference Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {referenceData.map((section, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="bg-white rounded-lg p-6 border border-gray-200"
             >
               <h3 className="text-base font-medium text-black mb-4 uppercase tracking-wider">

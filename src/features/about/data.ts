@@ -63,3 +63,24 @@ export const quickReferenceData = {
     'Quality Assurance Standards'
   ]
 };
+
+export const teamMembers = [
+  {
+    id: 1,
+    name: 'Alex Johnson',
+    role: 'Faculty Lead',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop'
+  },
+  {
+    id: 2,
+    name: 'Sarah Chen',
+    role: 'Program Director',
+    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop'
+  },
+  {
+    id: 3,
+    name: 'Michael Patel',
+    role: 'Operations Manager',
+    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop'
+  }
+];
