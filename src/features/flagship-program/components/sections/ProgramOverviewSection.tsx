@@ -1,17 +1,19 @@
 /**
  * Program Overview Section
- * 
+ *
  * White card with text and image - overlaps the video section above
  */
 
-import React from 'react';
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
 
 interface ProgramOverviewSectionProps {
   onLearnMoreClick: () => void;
 }
 
-export const ProgramOverviewSection: React.FC<ProgramOverviewSectionProps> = ({ onLearnMoreClick }) => {
+export const ProgramOverviewSection: React.FC<ProgramOverviewSectionProps> = ({
+  onLearnMoreClick,
+}) => {
   return (
     <div className="relative -mt-32 sm:-mt-40 md:-mt-48 px-4 sm:px-6 md:px-8 pb-6 sm:pb-8">
       <div className="max-w-6xl mx-auto">
@@ -25,15 +27,30 @@ export const ProgramOverviewSection: React.FC<ProgramOverviewSectionProps> = ({ 
                 FLAGSHIP PROGRAM OVERVIEW
               </h2>
               <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-6">
-                Systematic 12-month engineering talent production program with structured competency development, elimination protocols, and supervised deployment phases designed to produce deployable junior engineers through documented assessment and accountability frameworks.
+                A high-intensity transformation program designed to build elite
+                developers for the AI era. We prioritize "Mental Muscle" by
+                enforcing a No-AI environment during the foundational phases,
+                ensuring you master the logic before you automate it. This is a
+                6-month rigorous training journey followed by a guaranteed
+                6-month internship.{" "}
               </p>
-              <button 
+              <button
                 onClick={onLearnMoreClick}
                 className="inline-flex items-center gap-2 text-red-600 font-semibold text-sm hover:text-red-700 transition-colors"
               >
                 <span>LEARN MORE</span>
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
                 </svg>
               </button>
             </div>

@@ -28,11 +28,10 @@ export const HeroVideoSection: React.FC = () => {
       <div className="relative h-full flex items-end sm:items-start justify-start px-4 sm:px-6 md:px-8 pt-20 sm:pt-24 pb-8 sm:pb-0">
         <div className="max-w-2xl">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-light mb-3 sm:mb-4 text-white leading-tight">
-            12-Month Engineering Production System
+            AI Native Software Engineer Fellowship
           </h1>
           <p className="text-base sm:text-lg text-white/90 leading-relaxed">
-            Structured talent development through enforced evaluation and supervised deployment protocols
-          </p>
+A structured, high-performance engineering program designed to produce AI-native software engineers through rigorous evaluation, disciplined fundamentals, and real-world deployment.          </p>
         </div>
       </div>
     </section>
