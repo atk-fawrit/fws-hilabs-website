@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect } from 'react';
-import Navigation from '@/src/shared/components/layout/Navigation';
 import {
   HeroSection,
   ProgramsSection,
@@ -33,8 +32,6 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen font-sans text-white">
-      <Navigation />
-      
       <HeroSection stages={homeData.pipeline.stages} />
       
       <ProgramsSection 

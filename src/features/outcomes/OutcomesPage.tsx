@@ -1,4 +1,3 @@
-import Navigation from '@/src/shared/components/layout/Navigation';
 import Footer from '@/src/shared/components/layout/Footer';
 import {
   HeroSection,
@@ -13,8 +12,6 @@ export { metadata } from './metadata';
 export default function OutcomesPage() {
   return (
     <div className="min-h-screen font-sans bg-white text-gray-900">
-      <Navigation />
-      
       <HeroSection />
       
       <main>

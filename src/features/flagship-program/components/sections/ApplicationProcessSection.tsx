@@ -10,16 +10,16 @@ import Link from 'next/link';
 
 export const ApplicationProcessSection: React.FC = () => {
   return (
-    <div className="w-full py-16">
-      <div className="max-w-7xl mx-auto px-6 md:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-9 gap-12 items-start">
+    <div className="w-full py-10 sm:py-12 md:py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-9 gap-8 md:gap-12 items-start">
           {/* Content - 7 columns */}
-          <div className="lg:col-span-7 space-y-8">
+          <div className="lg:col-span-7 space-y-6 sm:space-y-8">
             <div>
-              <h2 className="font-sans text-4xl md:text-5xl font-light mb-4 text-gray-900 tracking-tight">
+              <h2 className="font-sans text-3xl sm:text-4xl md:text-5xl font-light mb-3 sm:mb-4 text-gray-900 tracking-tight">
                 Application Process
               </h2>
-              <p className="text-xl text-gray-600 font-light leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 font-light leading-relaxed">
                 Structured application and selection protocols with systematic assessment criteria and enrollment procedures for program participation
               </p>
             </div>

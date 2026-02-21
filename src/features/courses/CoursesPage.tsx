@@ -27,7 +27,7 @@ export default function CoursesPage() {
         }}
       />
       
-      <main className="px-8 md:px-16 lg:px-24 py-8 space-y-12">
+      <main className="px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 py-6 sm:py-8 space-y-8 sm:space-y-10 md:space-y-12">
         <ProgramCategoriesSection />
         <ProgramBoundariesSection />
         <OperatingFormatSection />

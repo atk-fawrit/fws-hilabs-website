@@ -6,7 +6,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { Navigation, Footer } from '@/src/shared/components/layout';
+import { Footer } from '@/src/shared/components/layout';
 import { institutionalSections, quickReferenceData, teamMembers } from './data';
 import {
   InstitutionalCharterSection,
@@ -52,12 +52,10 @@ export default function AboutPage() {
 
   return (
     <div className="min-h-screen font-sans bg-white text-gray-900">
-      <Navigation />
-      
       <HeroSection />
 
       <main className="w-full">
-        <div className="px-6 md:px-8 py-12 space-y-12">
+        <div className="px-4 sm:px-6 md:px-8 py-8 sm:py-10 md:py-12 space-y-8 sm:space-y-10 md:space-y-12">
           <InstitutionalFrameworkSection onCardClick={handleCardClick} />
           
           {/* Show only one section at a time */}
@@ -81,25 +79,33 @@ export default function AboutPage() {
 // ============================================================
 function HeroSection() {
   return (
-    <section className="relative bg-white overflow-hidden">
-      {/* Subtle background pattern */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl -z-10"></div>
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-indigo-100/30 rounded-full blur-3xl -z-10"></div>
+    <section className="relative overflow-hidden min-h-[85vh]">
+      {/* Full-bleed Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: 'url(/images/institutional-overview-bg.jpg)',
+        }}
+      ></div>
 
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[85vh]">
+      {/* Full overlay to ensure readability */}
+      <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/90 to-white/70"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-transparent to-white/60"></div>
+
+      <div className="relative z-10 max-w-7xl mx-auto pt-20 sm:pt-24 lg:pt-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[calc(85vh-8rem)]">
           {/* Left Column */}
-          <div className="flex items-center px-8 md:px-16 lg:px-20 py-20 lg:py-24">
-            <div className="max-w-xl space-y-10">
-              <div className="space-y-8">
+          <div className="flex items-center px-4 sm:px-6 md:px-8 lg:px-16 xl:px-20 py-12 sm:py-16 lg:py-24">
+            <div className="max-w-xl space-y-6 sm:space-y-8 lg:space-y-10">
+              <div className="space-y-5 sm:space-y-6 lg:space-y-8">
                 <div className="text-xs uppercase tracking-widest text-blue-600 font-semibold">
                   Institutional Document
                 </div>
-                <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] text-black">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-[0.95] text-black">
                   About HI Labs
                 </h1>
-                <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-blue-600"></div>
-                <p className="text-xl md:text-2xl text-gray-700 leading-relaxed font-light">
+                <div className="w-16 sm:w-20 h-1 bg-gradient-to-r from-blue-500 to-blue-600"></div>
+                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 leading-relaxed font-light">
                   Institutional charter, operating principles, and governance framework defining HI Labs
                   as a systematic engineering talent production facility with documented accountability
                   structures and operational boundaries.
@@ -109,27 +115,15 @@ function HeroSection() {
           </div>
 
           {/* Right Column */}
-          <div className="relative px-8 md:px-16 lg:px-20 py-32 lg:py-24 flex items-center overflow-hidden border-l border-blue-200">
-            {/* Background Image */}
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{
-                backgroundImage: 'url(https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=800&fit=crop)',
-                opacity: 0.15
-              }}
-            ></div>
-
-            {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-50/95 via-blue-50/85 to-indigo-50/85"></div>
-
-            <div className="relative max-w-xl space-y-8 z-10">
+          <div className="relative px-4 sm:px-6 md:px-8 lg:px-16 xl:px-20 py-12 sm:py-16 lg:py-24 flex items-center">
+            <div className="relative max-w-xl space-y-5 sm:space-y-6 lg:space-y-8 z-10">
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-black mb-6 tracking-tight">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-4 sm:mb-6 tracking-tight">
                   Institutional Overview
                 </h2>
               </div>
 
-              <div className="text-lg text-gray-700 leading-relaxed font-light">
+              <div className="text-base sm:text-lg text-gray-700 leading-relaxed font-light">
                 <p>
                   HI Labs operates as an institutional engineering talent production system with
                   systematic competency development, enforced evaluation protocols, and supervised
@@ -156,21 +150,21 @@ interface InstitutionalFrameworkSectionProps {
 
 function InstitutionalFrameworkSection({ onCardClick }: InstitutionalFrameworkSectionProps) {
   return (
-    <section className="py-20 px-8 md:px-16 bg-gradient-to-b from-gray-50 to-white">
+    <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 lg:px-16 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-black mb-6 tracking-tight">
+        <div className="mb-8 sm:mb-12 md:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black mb-4 sm:mb-6 tracking-tight">
             Institutional Framework
           </h2>
-          <p className="text-xl text-gray-700 leading-relaxed font-light max-w-3xl">
+          <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed font-light max-w-3xl">
             Explore detailed documentation of HI Labs&apos; institutional structure, operating principles,
             and governance mechanisms through systematic domain specifications
           </p>
         </div>
 
         {/* Framework Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {institutionalSections.map((item) => (
             <button
               key={item.id}
@@ -212,26 +206,26 @@ function QuickReferenceSection() {
   const referenceData = [];
 
   return (
-    <section className="py-20 px-8 md:px-16 bg-white">
+    <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 lg:px-16 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-black mb-6 tracking-tight">
+        <div className="mb-8 sm:mb-12 md:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black mb-4 sm:mb-6 tracking-tight">
             Our Team
           </h2>
-          <p className="text-xl text-gray-600 leading-relaxed font-light max-w-2xl">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed font-light max-w-2xl">
             Meet the visionary leaders driving HI Labs&apos; mission to produce deployment-ready engineers through systematic excellence and institutional integrity.
           </p>
         </div>
 
         {/* Team Members Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12 md:mb-16">
           {teamMembers.map((member) => (
             <div
               key={member.id}
               className="group bg-white rounded-xl overflow-hidden border border-gray-200 hover:border-blue-500 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="relative h-80 bg-gradient-to-br from-gray-100 to-gray-50 overflow-hidden">
+              <div className="relative h-56 sm:h-64 md:h-80 bg-gradient-to-br from-gray-100 to-gray-50 overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={member.image}
@@ -240,8 +234,8 @@ function QuickReferenceSection() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
-              <div className="p-8">
-                <h3 className="text-2xl font-bold text-black mb-2">
+              <div className="p-4 sm:p-5 md:p-8">
+                <h3 className="text-xl sm:text-2xl font-bold text-black mb-2">
                   {member.name}
                 </h3>
                 <p className="text-base font-semibold text-blue-600 mb-4">

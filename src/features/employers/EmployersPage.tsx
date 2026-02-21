@@ -1,4 +1,3 @@
-import Navigation from '@/src/shared/components/layout/Navigation';
 import Footer from '@/src/shared/components/layout/Footer';
 import {
   HeroSection,
@@ -11,11 +10,9 @@ import {
 export default function EmployersPage() {
   return (
     <div className="min-h-screen font-sans bg-white text-gray-900">
-      <Navigation />
-      
       <HeroSection />
       
-      <main className="px-8 md:px-16 lg:px-24 py-12 space-y-12">
+      <main className="px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 py-8 sm:py-10 md:py-12 space-y-8 sm:space-y-10 md:space-y-12">
         <SupplySpecificationSection />
         <DeploymentModelsSection />
         <EngagementProtocolSection />

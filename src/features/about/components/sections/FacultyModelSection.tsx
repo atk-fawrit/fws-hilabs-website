@@ -45,14 +45,14 @@ const trainerRole = {
 
 export const FacultyModelSection: React.FC = () => {
   return (
-    <section className="w-full bg-white py-20 px-8 md:px-16 lg:px-24">
-      <div className="space-y-12">
+    <section className="w-full bg-white py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
+      <div className="space-y-8 sm:space-y-10 md:space-y-12">
         {/* Header */}
-        <div className="space-y-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-black tracking-tight">
+        <div className="space-y-3 sm:space-y-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black tracking-tight">
             Faculty Model
           </h2>
-          <p className="text-xl text-gray-700 leading-relaxed font-light">
+          <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed font-light">
             HI Labs operates through systematic faculty roles with distinct responsibilities, 
             accountability structures, and performance requirements that distinguish instructional 
             and training functions within the institutional framework.
@@ -60,7 +60,7 @@ export const FacultyModelSection: React.FC = () => {
         </div>
         
         {/* Roles Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
           {/* Instructor Role Card */}
           <div className="bg-gray-50 border border-gray-200 rounded-lg overflow-hidden">
             <div className="bg-gray-900 text-white p-6">
@@ -169,7 +169,7 @@ export const FacultyModelSection: React.FC = () => {
         </div>
 
         {/* Collaboration Section */}
-        <div className="bg-gray-100 border-l-4 border-gray-900 p-8 rounded-r-lg">
+        <div className="bg-gray-100 border-l-4 border-gray-900 p-4 sm:p-6 md:p-8 rounded-r-lg">
           <h3 className="text-lg font-medium text-black mb-6 uppercase tracking-wider">
             Role Distinction and Collaboration
           </h3>
