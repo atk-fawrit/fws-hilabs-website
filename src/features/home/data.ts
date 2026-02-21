@@ -132,7 +132,8 @@ export const homeData = {
         title: "Information",
         links: [
           { href: "/employers", label: "Employers" },
-          { href: "/about", label: "About" }
+          { href: "/about", label: "About" }          { href: "/contact", label: "Contact" }
+          { href: "/#", label: "Contact" }
         ]
       }
     ],
