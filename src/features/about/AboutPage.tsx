@@ -81,23 +81,32 @@ export default function AboutPage() {
 // ============================================================
 function HeroSection() {
   return (
-    <section className="relative bg-white overflow-hidden">
+    <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl -z-10"></div>
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl -z-10"></div>
+      <div className="absolute top-1/2 left-1/2 w-full h-full -z-10 opacity-30">
+        <div className="absolute top-10 left-10 w-2 h-2 bg-white/20 rounded-full"></div>
+        <div className="absolute top-32 right-20 w-1 h-1 bg-white/30 rounded-full"></div>
+        <div className="absolute bottom-32 left-1/3 w-1.5 h-1.5 bg-white/20 rounded-full"></div>
+      </div>
+
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[85vh]">
           {/* Left Column */}
           <div className="flex items-center px-8 md:px-16 lg:px-20 py-20 lg:py-24">
             <div className="max-w-xl space-y-10">
               <div className="space-y-8">
-                <div className="text-xs uppercase tracking-widest text-gray-500 font-semibold">
+                <div className="text-xs uppercase tracking-widest text-blue-400 font-semibold">
                   Institutional Document
                 </div>
-                <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] text-black">
+                <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] text-white">
                   About HI Labs
                 </h1>
-                <div className="w-20 h-0.5 bg-black"></div>
-                <p className="text-xl md:text-2xl text-gray-700 leading-relaxed font-light">
-                  Institutional charter, operating principles, and governance framework defining HI Labs 
-                  as a systematic engineering talent production facility with documented accountability 
+                <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-indigo-600"></div>
+                <p className="text-xl md:text-2xl text-gray-300 leading-relaxed font-light">
+                  Institutional charter, operating principles, and governance framework defining HI Labs
+                  as a systematic engineering talent production facility with documented accountability
                   structures and operational boundaries.
                 </p>
               </div>
@@ -105,19 +114,22 @@ function HeroSection() {
           </div>
 
           {/* Right Column */}
-          <div className="relative bg-gray-50 px-8 md:px-16 lg:px-20 py-32 lg:py-24 flex items-center border-l border-gray-200">
+          <div className="relative px-8 md:px-16 lg:px-20 py-32 lg:py-24 flex items-center">
+            {/* Card Background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-white/5 border border-white/20 rounded-2xl backdrop-blur-sm -z-10"></div>
+
             <div className="max-w-xl space-y-8">
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-black mb-6 tracking-tight">
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight">
                   Institutional Overview
                 </h2>
               </div>
-              
-              <div className="text-lg text-gray-700 leading-relaxed font-light">
+
+              <div className="text-lg text-gray-200 leading-relaxed font-light">
                 <p>
-                  HI Labs operates as an institutional engineering talent production system with 
-                  systematic competency development, enforced evaluation protocols, and supervised 
-                  deployment mechanisms. This documentation provides comprehensive institutional 
+                  HI Labs operates as an institutional engineering talent production system with
+                  systematic competency development, enforced evaluation protocols, and supervised
+                  deployment mechanisms. This documentation provides comprehensive institutional
                   specifications across seven key areas.
                 </p>
               </div>
@@ -125,8 +137,8 @@ function HeroSection() {
           </div>
         </div>
       </div>
-      
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
+
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
     </section>
   );
 }
@@ -140,26 +152,26 @@ interface InstitutionalFrameworkSectionProps {
 
 function InstitutionalFrameworkSection({ onCardClick }: InstitutionalFrameworkSectionProps) {
   return (
-    <section className="py-16 px-8 md:px-16 bg-white">
+    <section className="py-20 px-8 md:px-16 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="mb-12">
+        <div className="mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-black mb-6 tracking-tight">
             Institutional Framework
           </h2>
           <p className="text-xl text-gray-700 leading-relaxed font-light max-w-3xl">
-            Explore detailed documentation of HI Labs&apos; institutional structure, operating principles, 
+            Explore detailed documentation of HI Labs&apos; institutional structure, operating principles,
             and governance mechanisms through systematic domain specifications
           </p>
         </div>
 
         {/* Framework Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {institutionalSections.map((item) => (
             <button
               key={item.id}
               onClick={() => onCardClick(item.id)}
-              className="group bg-white rounded-lg overflow-hidden border border-gray-200 hover:border-gray-900 hover:shadow-lg transition-all duration-300 text-left"
+              className="group bg-white rounded-xl overflow-hidden border border-gray-200 hover:border-blue-500 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-left"
             >
               {/* Image */}
               <div className="relative h-48 bg-gray-100 overflow-hidden">
@@ -196,12 +208,16 @@ function QuickReferenceSection() {
   const referenceData = [];
 
   return (
-    <section className="py-16 px-8 md:px-16 bg-gray-50 rounded-lg">
+    <section className="py-20 px-8 md:px-16 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="mb-12">
+        <div className="mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-black mb-6 tracking-tight">
-Our Team          </h2>
+            Our Team
+          </h2>
+          <p className="text-xl text-gray-600 leading-relaxed font-light max-w-2xl">
+            Meet the visionary leaders driving HI Labs&apos; mission to produce deployment-ready engineers through systematic excellence and institutional integrity.
+          </p>
         </div>
 
         {/* Team Members Grid */}
@@ -209,21 +225,22 @@ Our Team          </h2>
           {teamMembers.map((member) => (
             <div
               key={member.id}
-              className="bg-white rounded-lg overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300"
+              className="group bg-white rounded-xl overflow-hidden border border-gray-200 hover:border-blue-500 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="relative h-72 bg-gray-100 overflow-hidden">
+              <div className="relative h-80 bg-gradient-to-br from-gray-100 to-gray-50 overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               <div className="p-8">
-                <h3 className="text-2xl font-bold text-black mb-1">
+                <h3 className="text-2xl font-bold text-black mb-2">
                   {member.name}
                 </h3>
-                <p className="text-base font-semibold text-gray-700 mb-4">
+                <p className="text-base font-semibold text-blue-600 mb-4">
                   {member.role}
                 </p>
                 <p className="text-base text-gray-600 leading-relaxed font-light">
