@@ -63,3 +63,27 @@ export const quickReferenceData = {
     'Quality Assurance Standards'
   ]
 };
+
+export const teamMembers = [
+  {
+    id: 1,
+    name: 'Alex Johnson',
+    role: 'Faculty Lead',
+    description: 'With over 15 years of engineering experience, Alex leads curriculum development and instructor excellence. Expert in systematic competency assessment and elimination protocol design.',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop'
+  },
+  {
+    id: 2,
+    name: 'Sarah Chen',
+    role: 'Program Director',
+    description: 'Strategic leader driving program operations and student outcomes. Sarah brings expertise in talent evaluation systems and deployment mechanisms with focus on measurable impact.',
+    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop'
+  },
+  {
+    id: 3,
+    name: 'Michael Patel',
+    role: 'Operations Manager',
+    description: 'Ensures systematic excellence across all institutional domains. Michael manages assessment integrity, partnership accountability, and operational efficiency protocols.',
+    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop'
+  }
+];

@@ -54,8 +54,8 @@ export const ScheduleCTASection: React.FC = () => {
             and availability are updated monthly.
           </p>
           
-                <a 
-            href="/schedule"
+                <a
+            href="/courses"
             className="inline-block bg-white text-black px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors text-base"
           >
             View Current Schedule
