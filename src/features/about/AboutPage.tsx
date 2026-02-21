@@ -109,8 +109,20 @@ function HeroSection() {
           </div>
 
           {/* Right Column */}
-          <div className="relative px-8 md:px-16 lg:px-20 py-32 lg:py-24 flex items-center bg-gradient-to-br from-blue-50 to-indigo-50 border-l border-blue-200">
-            <div className="max-w-xl space-y-8">
+          <div className="relative px-8 md:px-16 lg:px-20 py-32 lg:py-24 flex items-center overflow-hidden border-l border-blue-200">
+            {/* Background Image */}
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{
+                backgroundImage: 'url(https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=800&fit=crop)',
+                opacity: 0.15
+              }}
+            ></div>
+
+            {/* Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-50/95 via-blue-50/85 to-indigo-50/85"></div>
+
+            <div className="relative max-w-xl space-y-8 z-10">
               <div>
                 <h2 className="text-3xl md:text-4xl font-bold text-black mb-6 tracking-tight">
                   Institutional Overview
