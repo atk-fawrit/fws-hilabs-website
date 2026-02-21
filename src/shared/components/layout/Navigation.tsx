@@ -105,9 +105,9 @@ export default function Navigation({ className = '' }: NavigationProps) {
   
   return (
     <div className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled 
-        ? 'bg-white/10 backdrop-blur-xl border-b border-black/10 shadow-lg' 
-        : 'bg-transparent backdrop-blur-sm'
+      scrolled
+        ? 'bg-white/95 backdrop-blur-xl border-b border-black/10 shadow-lg'
+        : 'bg-white/90 backdrop-blur-sm border-b border-white/20'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <nav 
@@ -141,9 +141,9 @@ export default function Navigation({ className = '' }: NavigationProps) {
                   href={item.href}
                   className={`
                     relative px-6 py-2.5 text-[15px] font-semibold tracking-wide transition-all duration-300 rounded-lg
-                    ${isActive 
-                      ? 'text-black bg-black/10' 
-                      : 'text-gray-700 hover:text-black hover:bg-black/5'
+                    ${isActive
+                      ? 'text-black bg-black/15'
+                      : 'text-gray-800 hover:text-black hover:bg-black/10'
                     }
                   `}
                   aria-current={isActive ? 'page' : undefined}
@@ -161,8 +161,8 @@ export default function Navigation({ className = '' }: NavigationProps) {
                 className={`
                   flex items-center gap-2 px-6 py-2.5 text-[15px] font-semibold tracking-wide transition-all duration-300 rounded-lg
                   ${isSecondaryActive || isMoreDropdownOpen
-                    ? 'text-black bg-black/10' 
-                    : 'text-gray-700 hover:text-black hover:bg-black/5'
+                    ? 'text-black bg-black/15'
+                    : 'text-gray-800 hover:text-black hover:bg-black/10'
                   }
                 `}
                 aria-expanded={isMoreDropdownOpen}
@@ -195,9 +195,9 @@ export default function Navigation({ className = '' }: NavigationProps) {
                           href={item.href}
                           className={`
                             block px-6 py-3.5 text-[15px] font-semibold tracking-wide transition-all duration-200
-                            ${isActive 
-                              ? 'text-black bg-black/10' 
-                              : 'text-gray-700 hover:text-black hover:bg-black/5'
+                            ${isActive
+                              ? 'text-black bg-black/15'
+                              : 'text-gray-800 hover:text-black hover:bg-black/10'
                             }
                           `}
                           aria-current={isActive ? 'page' : undefined}
@@ -266,9 +266,9 @@ export default function Navigation({ className = '' }: NavigationProps) {
                       href={item.href}
                       className={`
                         block py-3.5 px-5 rounded-lg text-[15px] font-semibold tracking-wide transition-all duration-200
-                        ${isActive 
-                          ? 'text-black bg-black/10' 
-                          : 'text-gray-700 hover:text-black hover:bg-black/5'
+                        ${isActive
+                          ? 'text-black bg-black/15'
+                          : 'text-gray-800 hover:text-black hover:bg-black/10'
                         }
                       `}
                       aria-current={isActive ? 'page' : undefined}
@@ -288,16 +288,16 @@ export default function Navigation({ className = '' }: NavigationProps) {
                 {/* Secondary Items */}
                 {secondaryNavItems.map((item) => {
                   const isActive = pathname === item.href;
-                  
+
                   return (
                     <Link
                       key={item.href}
                       href={item.href}
                       className={`
                         block py-3.5 px-5 rounded-lg text-[15px] font-semibold tracking-wide transition-all duration-200
-                        ${isActive 
-                          ? 'text-black bg-black/10' 
-                          : 'text-gray-700 hover:text-black hover:bg-black/5'
+                        ${isActive
+                          ? 'text-black bg-black/15'
+                          : 'text-gray-800 hover:text-black hover:bg-black/10'
                         }
                       `}
                       aria-current={isActive ? 'page' : undefined}
