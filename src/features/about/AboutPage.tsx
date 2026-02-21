@@ -81,15 +81,10 @@ export default function AboutPage() {
 // ============================================================
 function HeroSection() {
   return (
-    <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl -z-10"></div>
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl -z-10"></div>
-      <div className="absolute top-1/2 left-1/2 w-full h-full -z-10 opacity-30">
-        <div className="absolute top-10 left-10 w-2 h-2 bg-white/20 rounded-full"></div>
-        <div className="absolute top-32 right-20 w-1 h-1 bg-white/30 rounded-full"></div>
-        <div className="absolute bottom-32 left-1/3 w-1.5 h-1.5 bg-white/20 rounded-full"></div>
-      </div>
+    <section className="relative bg-white overflow-hidden">
+      {/* Subtle background pattern */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl -z-10"></div>
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-indigo-100/30 rounded-full blur-3xl -z-10"></div>
 
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[85vh]">
@@ -97,14 +92,14 @@ function HeroSection() {
           <div className="flex items-center px-8 md:px-16 lg:px-20 py-20 lg:py-24">
             <div className="max-w-xl space-y-10">
               <div className="space-y-8">
-                <div className="text-xs uppercase tracking-widest text-blue-400 font-semibold">
+                <div className="text-xs uppercase tracking-widest text-blue-600 font-semibold">
                   Institutional Document
                 </div>
-                <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] text-white">
+                <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] text-black">
                   About HI Labs
                 </h1>
-                <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-indigo-600"></div>
-                <p className="text-xl md:text-2xl text-gray-300 leading-relaxed font-light">
+                <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-blue-600"></div>
+                <p className="text-xl md:text-2xl text-gray-700 leading-relaxed font-light">
                   Institutional charter, operating principles, and governance framework defining HI Labs
                   as a systematic engineering talent production facility with documented accountability
                   structures and operational boundaries.
@@ -114,18 +109,15 @@ function HeroSection() {
           </div>
 
           {/* Right Column */}
-          <div className="relative px-8 md:px-16 lg:px-20 py-32 lg:py-24 flex items-center">
-            {/* Card Background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-white/5 border border-white/20 rounded-2xl backdrop-blur-sm -z-10"></div>
-
+          <div className="relative px-8 md:px-16 lg:px-20 py-32 lg:py-24 flex items-center bg-gradient-to-br from-blue-50 to-indigo-50 border-l border-blue-200">
             <div className="max-w-xl space-y-8">
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight">
+                <h2 className="text-3xl md:text-4xl font-bold text-black mb-6 tracking-tight">
                   Institutional Overview
                 </h2>
               </div>
 
-              <div className="text-lg text-gray-200 leading-relaxed font-light">
+              <div className="text-lg text-gray-700 leading-relaxed font-light">
                 <p>
                   HI Labs operates as an institutional engineering talent production system with
                   systematic competency development, enforced evaluation protocols, and supervised
@@ -138,7 +130,7 @@ function HeroSection() {
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-300 to-transparent"></div>
     </section>
   );
 }
