@@ -210,15 +210,6 @@ function QuickReferenceSection() {
         'Measurable outcomes',
         'Transparent boundaries'
       ]
-    },
-    {
-      title: 'Quality Standards',
-      items: [
-        'Systematic assessment',
-        'Performance tracking',
-        'Continuous improvement',
-        'Compliance verification'
-      ]
     }
   ];
 
