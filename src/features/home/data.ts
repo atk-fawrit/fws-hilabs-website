@@ -16,28 +16,28 @@ export const homeData = {
       },
       {
         id: 'phase-one',
-        title: 'Phase I',
-        subtitle: 'Training',
+        title: 'Training',
+        subtitle: 'full time workshop',
         duration: 'Month 1-6',
         number: '02'
       },
       {
         id: 'evaluation',
-        title: 'Evaluation Gates',
+        title: 'Evaluation',
         subtitle: 'Assessment',
         duration: 'Month 6-7',
         number: '03'
       },
       {
         id: 'phase-two',
-        title: 'Phase II',
-        subtitle: 'Deployment',
+        title: 'Internship',
+        subtitle: 'external company',
         duration: 'Month 7-12',
         number: '04'
       },
       {
         id: 'exit',
-        title: 'Exit',
+        title: 'Graduation',
         subtitle: 'Deployment Ready',
         duration: 'Month 12',
         number: '05'
@@ -97,14 +97,14 @@ export const homeData = {
   },
   identity: {
     positive: [
-      { text: "An engineering talent production system with enforced evaluation gates" },
-      { text: "A 12-month in-person program with structured elimination criteria" },
-      { text: "A laboratory environment focused on producing deployable junior engineers" }
+      { text: "Engineering talent production system tailered for the AI Era" },
+      { text: "AI-enriched and evolved software engineering programs" },
+      { text: "Real work environment focused on producing deployable junior engineers" }
     ],
     negative: [
-      { text: "Not a traditional educational institution with degree programs" },
-      { text: "Not a placement agency with guaranteed job outcomes" },
-      { text: "Not compatible with parallel employment or remote participation" }
+      { text: "Traditional educational institution missing hands-on experiences" },
+      { text: "Placement agency with guaranteed job outcomes" },
+      { text: "Training/coaching institute that values certifcates over skills" }
     ]
   },
   cta: {
@@ -116,7 +116,7 @@ export const homeData = {
   footer: {
     companyInfo: {
       title: "HI Labs",
-      description: "Human Intelligence Laboratories Private Limited.\nEngineering talent production through structured evaluation\nand supervised deployment."
+      description: "Human Intelligence Labs Private Limited.\nEngineering talent production through structured evaluation\nand supervised deployment."
     },
     sections: [
       {
@@ -137,6 +137,6 @@ export const homeData = {
         ]
       }
     ],
-    copyright: "© 2024 Human Intelligence Laboratories Private Limited. All rights reserved."
+    copyright: "© 2024 Human Intelligence Labs Private Limited. All rights reserved."
   }
 };

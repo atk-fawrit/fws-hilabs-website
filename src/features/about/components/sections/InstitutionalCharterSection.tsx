@@ -16,7 +16,7 @@ export const InstitutionalCharterSection: React.FC = () => {
           </h2>
           <p className="text-xl text-gray-700 leading-relaxed font-light">
             This document establishes the institutional identity, operating principles, and governance 
-            framework of Human Intelligence Laboratories Private Limited as a systematic engineering 
+            framework of Human Intelligence Labs Private Limited as a systematic engineering 
             talent production facility.
           </p>
         </div>

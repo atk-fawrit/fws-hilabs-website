@@ -46,7 +46,7 @@ export function ProgramsSection({ programs, backgroundImage }: ProgramsSectionPr
               Transform Your Future
             </h2>
             <p className="text-lg md:text-xl font-light leading-relaxed max-w-[600px] mx-auto text-gray-900">
-              Choose your pathway to engineering excellence
+              Choose your pathway to job security
             </p>
           </div>
 
