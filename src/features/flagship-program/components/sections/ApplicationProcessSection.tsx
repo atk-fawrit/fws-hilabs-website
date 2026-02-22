@@ -1,7 +1,7 @@
 /**
  * Application Process Section
  * 
- * CTA for beginning the admissions process with premium design
+ * Elite intake protocol for admissions with premium design
  */
 
 import React from 'react';
@@ -9,34 +9,55 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export const ApplicationProcessSection: React.FC = () => {
+  const assessmentSteps = [
+    "Aptitude & Logic Assessment",
+    "Personality & Resilience Test",
+    "1-on-1 Technical Interview"
+  ];
+
   return (
     <div className="w-full py-10 sm:py-12 md:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-9 gap-8 md:gap-12 items-start">
           {/* Content - 7 columns */}
-          <div className="lg:col-span-7 space-y-6 sm:space-y-8">
+          <div className="lg:col-span-7 space-y-8 sm:space-y-10">
             <div>
-              <h2 className="font-sans text-3xl sm:text-4xl md:text-5xl font-light mb-3 sm:mb-4 text-gray-900 tracking-tight">
+              <h2 className="font-sans text-3xl sm:text-4xl md:text-5xl font-light mb-4 sm:mb-6 text-gray-900 tracking-tight">
                 Application Process
               </h2>
               <p className="text-base sm:text-lg md:text-xl text-gray-600 font-light leading-relaxed">
-                Structured application and selection protocols with systematic assessment criteria and enrollment procedures for program participation
+                Elite Intake Protocol
               </p>
             </div>
 
             <div className="space-y-6">
-              <p className="text-gray-700 leading-relaxed font-light text-lg">
-                Candidates who understand and accept these constraints may proceed to the admissions 
-                selection process. The application requires demonstration of technical aptitude and 
-                commitment to the full 12-month program.
+              <p className="text-lg text-gray-700 leading-relaxed font-light">
+                Admission to the Fellowship is highly selective. We look for high cognitive load capacity, logical reasoning, and "grit."
               </p>
 
-              <div className="pt-4">
+              {/* Assessment Steps */}
+              <div className="space-y-4">
+                <h3 className="text-2xl font-light text-gray-900 tracking-tight mb-6">Assessment Process</h3>
+                <ul className="space-y-4">
+                  {assessmentSteps.map((step, idx) => (
+                    <li key={idx} className="flex items-start gap-4">
+                      <div className="flex-shrink-0">
+                        <div className="flex items-center justify-center h-8 w-8 rounded-full bg-blue-600 text-white text-sm font-semibold">
+                          {idx + 1}
+                        </div>
+                      </div>
+                      <span className="text-gray-700 leading-relaxed font-light text-lg pt-1">{step}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="pt-8">
                 <Link 
                   href="/admissions"
                   className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-medium transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
                 >
-                  Begin Admissions Process
+                  Begin Application
                 </Link>
               </div>
             </div>

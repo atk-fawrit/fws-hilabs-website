@@ -1,7 +1,7 @@
 /**
  * Phase One Section
  * 
- * Displays the three foundation terms (Months 1-9) with premium design
+ * Displays the training phase (Months 1-6) with premium design
  */
 
 import React from 'react';
@@ -10,42 +10,39 @@ import Image from 'next/image';
 const terms = [
   {
     stepNumber: '01',
-    title: 'Systems Fundamentals',
-    duration: '3 months',
-    subtitle: 'Elimination Gate: Month 3',
-    constraints: [
-      'Daily attendance mandatory 0800-1800 hours',
-      'Weekly evaluation protocols with documented performance',
-      'No external commitments permitted during program hours',
-      'Minimum 80% evaluation threshold for continuation',
-    ],
-    elimination: 'Failure to meet evaluation threshold, attendance violations, or inability to demonstrate foundational competency results in immediate program termination.'
+    title: 'Foundation (No-AI)',
+    subtitle: 'Mastering Data Structures, Algorithms, and System Design',
+    duration: '2 months',
+    description: 'Build your "Mental Muscle" with core computer science fundamentals. Master the foundational concepts that all great engineers know.',
   },
   {
     stepNumber: '02',
-    title: 'Applied Engineering',
-    duration: '3 months',
-    subtitle: 'Elimination Gate: Month 6',
-    constraints: [
-      'Project-based evaluation with measurable deliverables',
-      'Peer collaboration requirements with individual accountability',
-      'Technical documentation and presentation obligations',
-      'Minimum 85% evaluation threshold for continuation',
-    ],
-    elimination: 'Inability to complete projects to specification, failure to collaborate effectively, or falling below evaluation threshold results in termination.'
+    title: 'Advanced (No-AI)',
+    subtitle: 'Deep dive into the MERN Stack and PostgreSQL',
+    duration: '2 months',
+    description: 'Level up with production-ready full-stack development. Learn MongoDB, Express, React, Node.js, and PostgreSQL through real-world projects.',
   },
   {
     stepNumber: '03',
-    title: 'Production Systems',
-    duration: '3 months',
-    subtitle: 'Elimination Gate: Month 9',
-    constraints: [
-      'Real-world system development under supervision',
-      'Client interaction and requirement management',
-      'Code review and quality assurance protocols',
-      'Minimum 90% evaluation threshold for Phase II eligibility',
-    ],
-    elimination: 'Failure to meet production standards, inability to work with clients, or falling below evaluation threshold prevents Phase II advancement.'
+    title: 'Application (AI-Augmented)',
+    subtitle: 'Vibe Coding, Agentic workflows, and the Live Industry Project',
+    duration: '2 months',
+    description: 'Apply AI tools naturally in development workflows. Work on a live industry project, combining classical engineering with AI-native practices.',
+  },
+];
+
+const evaluationPoints = [
+  {
+    title: 'Bi-Monthly Sprints',
+    description: 'Each term is split into two 1-month parts, ending with a comprehensive class test.'
+  },
+  {
+    title: 'Merit-Based Leveling',
+    description: 'We apply a Gaussian (Normal) Distribution to categorize performance into 5 levels. This ensures transparency in skill velocity and helps match you with the right internship.'
+  },
+  {
+    title: 'Graded Excellence',
+    description: 'Both individual coding challenges and group projects are graded to measure technical proficiency and collaborative ability.'
   },
 ];
 
@@ -56,7 +53,7 @@ export const PhaseOneSection: React.FC = () => {
       <div className="relative h-48 sm:h-64 md:h-80 rounded-xl sm:rounded-2xl overflow-hidden">
         <Image
           src="/images/phase-one-foundation.jpg"
-          alt="Phase I Foundation"
+          alt="Phase I Training Phase"
           fill
           className="object-cover"
         />
@@ -64,13 +61,20 @@ export const PhaseOneSection: React.FC = () => {
         <div className="absolute inset-0 flex items-center px-4 sm:px-6 md:px-12">
           <div>
             <h2 className="font-sans text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-2 sm:mb-4 text-white tracking-tight">
-              Phase I: Foundation Terms
+              Phase I: The Training Phase
             </h2>
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/80 font-light">
-              Months 1-9: Building core engineering competencies
+              Months 1-6: High-Intensity Mastery & Performance Tracking
             </p>
           </div>
         </div>
+      </div>
+
+      {/* Introduction */}
+      <div className="max-w-4xl">
+        <p className="text-lg text-gray-700 leading-relaxed font-light mb-6">
+          This phase is divided into three rigorous terms designed to build your "Mental Muscle" before introducing AI augmentation. Your progress is documented through our Evaluation & Leveling System to ensure you are industry-ready.
+        </p>
       </div>
       
       {/* Terms List */}
@@ -86,59 +90,50 @@ export const PhaseOneSection: React.FC = () => {
             </div>
             
             {/* Term Content */}
-            <div className="space-y-6">
+            <div className="space-y-4">
               {/* Term Header */}
               <div>
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-light text-gray-900 mb-2 tracking-tight">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-light text-gray-900 mb-1 tracking-tight">
                   {term.title}
                 </h3>
-                <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-sm sm:text-base text-gray-500">
-                  <span className="font-medium">{term.duration}</span>
-                  <span className="w-1 h-1 bg-gray-400 rounded-full"></span>
-                  <span className="font-light">{term.subtitle}</span>
+                <p className="text-lg text-gray-600 font-light mb-3">
+                  {term.subtitle}
+                </p>
+                <div className="text-sm sm:text-base text-gray-500 font-medium">
+                  {term.duration}
                 </div>
               </div>
               
-              {/* Core Constraints */}
-              <div>
-                <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">
-                  Core Constraints
-                </h4>
-                <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {term.constraints.map((constraint, idx) => (
-                    <li key={idx} className="flex items-start gap-3 group">
-                      <div className="flex-shrink-0 w-5 h-5 mt-0.5">
-                        <div className="w-full h-full border-2 border-blue-600 rounded-full flex items-center justify-center group-hover:bg-blue-600 transition-colors duration-200">
-                          <div className="w-2 h-2 bg-blue-600 rounded-full group-hover:bg-white transition-colors duration-200"></div>
-                        </div>
-                      </div>
-                      <span className="text-gray-700 leading-relaxed font-light">{constraint}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              
-              {/* Elimination Warning */}
-              <div className="bg-gradient-to-r from-red-50 to-red-50/50 border-l-4 border-red-600 rounded-r-lg p-6">
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-6 h-6 mt-1">
-                    <svg className="w-full h-full text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-semibold text-red-900 uppercase tracking-widest mb-2">
-                      Elimination Criteria
-                    </h4>
-                    <p className="text-red-800 leading-relaxed font-light">
-                      {term.elimination}
-                    </p>
-                  </div>
-                </div>
-              </div>
+              {/* Description */}
+              <p className="text-gray-700 leading-relaxed font-light">
+                {term.description}
+              </p>
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Evaluation System Section */}
+      <div className="mt-16 pt-12 border-t border-gray-200">
+        <h3 className="text-3xl sm:text-4xl md:text-5xl font-light text-gray-900 mb-8 tracking-tight">
+          The Evaluation System
+        </h3>
+        <p className="text-lg text-gray-700 leading-relaxed font-light mb-8">
+          To maintain elite standards, we utilize a data-driven assessment framework:
+        </p>
+        
+        <div className="space-y-6">
+          {evaluationPoints.map((point, idx) => (
+            <div key={idx} className="bg-gradient-to-r from-blue-50 to-blue-50/50 border-l-4 border-blue-600 rounded-r-lg p-6">
+              <h4 className="text-xl font-semibold text-gray-900 mb-2">
+                {point.title}
+              </h4>
+              <p className="text-gray-700 leading-relaxed font-light">
+                {point.description}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

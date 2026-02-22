@@ -13,26 +13,26 @@ export const programSections = [
   },
   {
     id: 'phase-one',
-    title: 'Phase I: Foundation Terms',
-    description: 'Three systematic foundation terms (Months 1-9) building core engineering competencies through structured evaluation and elimination protocols',
+    title: 'Phase I: The Training Phase (Months 1-6)',
+    description: 'High-Intensity Mastery & Performance Tracking: Three rigorous terms designed to build your "Mental Muscle" before introducing AI augmentation.',
     image: '/images/phase-one-foundation.jpg',
   },
   {
     id: 'phase-two',
-    title: 'Phase II: Supervised Deployment',
-    description: 'Real-world engineering deployment (Months 10-12) with systematic supervision, performance tracking, and professional development protocols',
+    title: 'Phase II: The Professional Internship (Months 7-12)',
+    description: 'Supervised Industry Immersion: Apply your "AI Native" skills to real-world codebases under professional supervision in established engineering teams.',
     image: '/images/phase-two-deployment.jpg',
   },
   {
     id: 'evaluation',
-    title: 'Evaluation System',
-    description: 'Systematic evaluation protocols with documented criteria, elimination thresholds, and performance measurement frameworks ensuring consistent assessment',
+    title: 'Placement Support',
+    description: 'Our Commitment to Your Career: Guaranteed internship placement, career coaching, and employer matching built on accountability and results.',
     image: '/images/evaluation-system.jpg',
   },
   {
     id: 'application',
     title: 'Application Process',
-    description: 'Structured application and selection protocols with systematic assessment criteria and enrollment procedures for program participation',
+    description: 'Elite Intake Protocol: Highly selective admission process assessing cognitive load capacity, logical reasoning, and grit.',
     image: '/images/application-process.jpg',
   }
 ];
