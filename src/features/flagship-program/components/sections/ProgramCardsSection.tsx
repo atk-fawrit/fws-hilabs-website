@@ -116,13 +116,14 @@ export const ProgramCardsSection: React.FC<ProgramCardsSectionProps> = ({ onCard
               {/* Card content wrapper */}
               <div className="card-content-wrapper flex flex-col h-full">
                 {/* Image with parallax effect */}
-                <div className="relative h-48 overflow-hidden flex-shrink-0">
-                  <div className="image-wrapper">
+                <div className="relative h-48 overflow-hidden flex-shrink-0 w-full">
+                  <div className="image-wrapper relative w-full h-full">
                     <Image
                       src={section.image}
                       alt={section.title}
                       fill
                       className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     />
                   </div>
 
