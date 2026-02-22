@@ -24,7 +24,7 @@ export const ProgramOverviewSection: React.FC<ProgramOverviewSectionProps> = ({
             {/* Left Column - Text Content (col-5) */}
             <div className="lg:col-span-5">
               <h2 className="font-mono text-2xl md:text-3xl font-bold mb-4 text-gray-900 leading-tight">
-                FLAGSHIP PROGRAM OVERVIEW
+                ABOUT THE PROGRAM
               </h2>
               <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-6">
                 A high-intensity transformation program designed to build elite

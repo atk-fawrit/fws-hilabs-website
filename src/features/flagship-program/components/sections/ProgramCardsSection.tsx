@@ -87,7 +87,7 @@ export const ProgramCardsSection: React.FC<ProgramCardsSectionProps> = ({ onCard
 
         <div className="relative z-10 mb-6 sm:mb-8 md:mb-12">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-light text-white mb-2 sm:mb-3 slide-up">
-            Program Components
+            Program Phases & Support
           </h2>
           <p className="text-base sm:text-lg text-white/80 max-w-3xl slide-up" style={{ animationDelay: '0.1s' }}>
             Explore detailed documentation for each phase and process of the flagship program
