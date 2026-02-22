@@ -114,9 +114,9 @@ export const ProgramCardsSection: React.FC<ProgramCardsSectionProps> = ({ onCard
               <div className="inner-glow" />
               
               {/* Card content wrapper */}
-              <div className="card-content-wrapper">
+              <div className="card-content-wrapper flex flex-col h-full">
                 {/* Image with parallax effect */}
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-48 overflow-hidden flex-shrink-0">
                   <div className="image-wrapper">
                     <Image
                       src={section.image}
@@ -125,25 +125,25 @@ export const ProgramCardsSection: React.FC<ProgramCardsSectionProps> = ({ onCard
                       className="object-cover"
                     />
                   </div>
-                  
+
                   {/* Shine effect */}
                   <div className="shine-effect" />
-                  
+
                   {/* Color overlay */}
                   <div className={`color-overlay overlay-${index + 1}`} />
                 </div>
-                
+
                 {/* Content */}
-                <div className="p-6 relative bg-white">
+                <div className="p-6 relative bg-white flex flex-col flex-grow">
                   <h3 className="text-lg font-bold text-gray-900 mb-2 leading-tight relative z-10">
                     {section.title}
                   </h3>
-                  <p className="text-sm text-gray-600 leading-relaxed mb-3">
+                  <p className="text-sm text-gray-600 leading-relaxed mb-4 flex-grow">
                     {section.description}
                   </p>
 
                   {/* Animated CTA */}
-                  <div className="flex items-center text-blue-600 font-semibold text-sm cta-arrow">
+                  <div className="flex items-center text-blue-600 font-semibold text-sm cta-arrow mt-auto">
                     <span>View Details</span>
                     <svg className="w-4 h-4 ml-2 arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
