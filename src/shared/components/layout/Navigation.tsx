@@ -110,15 +110,15 @@ export default function Navigation({ className = '' }: NavigationProps) {
         : 'bg-white/90 backdrop-blur-sm border-b border-white/20'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <nav 
+        <nav
           className={`flex items-center justify-between py-2 ${className}`}
           role="navigation"
           aria-label="Primary navigation"
         >
-          {/* Logo/Brand */}
-          <Link 
-            href="/" 
-            className="flex items-center hover:opacity-80 transition-opacity duration-300 -my-2 focus:outline-none flex-shrink-0"
+          {/* Logo/Brand - Top Left Corner */}
+          <Link
+            href="/"
+            className="flex items-center hover:opacity-80 transition-opacity duration-300 focus:outline-none flex-shrink-0 absolute left-4 sm:left-6 lg:left-8 top-2"
             aria-label="HI Labs home"
             onClick={closeMobileMenu}
           >
@@ -129,7 +129,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
               className="h-14 sm:h-16 md:h-18 lg:h-20 w-auto select-none"
             />
           </Link>
-          
+
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-2 ml-auto">
             {primaryNavItems.map((item) => {
