@@ -111,14 +111,14 @@ export default function Navigation({ className = '' }: NavigationProps) {
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <nav
-          className={`relative flex items-center justify-between py-2 ${className}`}
+          className={`relative flex items-center justify-between py-2 pl-20 lg:pl-0 ${className}`}
           role="navigation"
           aria-label="Primary navigation"
         >
-          {/* Logo/Brand - Top Left Corner */}
+          {/* Logo/Brand - Top Left Corner (Absolute) */}
           <Link
             href="/"
-            className="flex items-center hover:opacity-80 transition-opacity duration-300 focus:outline-none flex-shrink-0"
+            className="absolute left-4 sm:left-6 lg:left-0 top-1/2 -translate-y-1/2 lg:relative lg:translate-y-0 flex items-center hover:opacity-80 transition-opacity duration-300 focus:outline-none flex-shrink-0"
             aria-label="HI Labs home"
             onClick={closeMobileMenu}
           >
@@ -216,7 +216,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden ml-auto p-2 text-black hover:text-gray-700 transition-colors duration-300"
+            className="lg:hidden p-2 text-black hover:text-gray-700 transition-colors duration-300 ml-auto"
             aria-label="Toggle navigation menu"
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-navigation"
