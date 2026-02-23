@@ -293,7 +293,7 @@ export function HeroSection({ stages }: PipelineSectionProps) {
                 </div>
 
                 {/* Desktop: Horizontal Flexbox Layout */}
-                <div className="hidden lg:flex items-center justify-center gap-4 xl:gap-6 px-4">
+                <div className="hidden lg:flex items-center justify-center gap-2 lg:gap-3 xl:gap-4 2xl:gap-6 px-4 overflow-x-auto">
                   {stages.map((stage, index) => {
                     const delay = getCardDelay(index);
 
@@ -308,7 +308,7 @@ export function HeroSection({ stages }: PipelineSectionProps) {
                         >
                           <div
                             ref={(el) => { cardRefs.current[index] = el; }}
-                            className={`relative w-[200px] xl:w-[230px] 2xl:w-[250px] h-[260px] xl:h-[280px] p-5 xl:p-7 backdrop-blur-xl border-2 rounded-2xl xl:rounded-3xl group overflow-hidden flex flex-col ${
+                            className={`relative w-[180px] lg:w-[170px] xl:w-[190px] 2xl:w-[220px] h-[260px] lg:h-[250px] xl:h-[270px] p-5 lg:p-4 xl:p-6 backdrop-blur-xl border-2 rounded-2xl group overflow-hidden flex flex-col ${
                               hoveredStage === stage.id
                                 ? "bg-gradient-to-br from-black/95 via-black/92 to-black/88 border-white/60 shadow-2xl shadow-black/50"
                                 : "bg-gradient-to-br from-black/92 via-black/88 to-black/85 border-white/35 hover:border-white/45 shadow-xl shadow-black/30"
@@ -364,25 +364,25 @@ export function HeroSection({ stages }: PipelineSectionProps) {
                             </div>
 
                             {/* Stage Number */}
-                            <div className="mb-3 xl:mb-4 relative z-10">
-                              <span className="inline-block text-[9px] xl:text-[10px] font-bold tracking-[0.3em] text-white/75 uppercase">
+                            <div className="mb-2 lg:mb-2.5 xl:mb-3 relative z-10">
+                              <span className="inline-block text-[8px] lg:text-[8.5px] xl:text-[9px] font-bold tracking-[0.2em] xl:tracking-[0.3em] text-white/75 uppercase">
                                 STAGE {stage.number}
                               </span>
                             </div>
 
                             {/* Content */}
-                            <div className="space-y-2 xl:space-y-3 mb-4 xl:mb-5 relative z-10">
-                              <h3 className="text-lg xl:text-xl font-semibold text-white tracking-tight leading-tight drop-shadow-lg">
+                            <div className="space-y-1.5 lg:space-y-1.5 xl:space-y-2 mb-3 lg:mb-3 xl:mb-4 relative z-10">
+                              <h3 className="text-base lg:text-sm xl:text-lg font-semibold text-white tracking-tight leading-tight drop-shadow-lg">
                                 {stage.title}
                               </h3>
-                              <p className="text-[9px] xl:text-[10px] font-semibold tracking-[0.15em] uppercase text-white/90">
+                              <p className="text-[8px] lg:text-[7.5px] xl:text-[9px] font-semibold tracking-[0.1em] xl:tracking-[0.15em] uppercase text-white/90">
                                 {stage.subtitle}
                               </p>
                             </div>
 
                             {/* Duration */}
-                            <div className="mt-auto pt-3 xl:pt-4 border-t border-white/25 relative z-10">
-                              <p className="text-[11px] xl:text-xs font-normal text-white/85">
+                            <div className="mt-auto pt-2 lg:pt-2.5 xl:pt-3 border-t border-white/25 relative z-10">
+                              <p className="text-[10px] lg:text-[9px] xl:text-[10px] font-normal text-white/85">
                                 {stage.duration}
                               </p>
                             </div>
