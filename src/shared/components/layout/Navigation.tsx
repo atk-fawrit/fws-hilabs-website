@@ -111,14 +111,14 @@ export default function Navigation({ className = '' }: NavigationProps) {
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <nav
-          className={`flex items-center justify-between py-2 ${className}`}
+          className={`relative flex items-center justify-between py-2 ${className}`}
           role="navigation"
           aria-label="Primary navigation"
         >
           {/* Logo/Brand - Top Left Corner */}
           <Link
             href="/"
-            className="flex items-center hover:opacity-80 transition-opacity duration-300 focus:outline-none flex-shrink-0 absolute left-4 sm:left-6 lg:left-8 top-2"
+            className="flex items-center hover:opacity-80 transition-opacity duration-300 focus:outline-none flex-shrink-0"
             aria-label="HI Labs home"
             onClick={closeMobileMenu}
           >
@@ -134,7 +134,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
           <div className="hidden lg:flex items-center gap-2 ml-auto">
             {primaryNavItems.map((item) => {
               const isActive = pathname === item.href;
-              
+
               return (
                 <Link
                   key={item.href}
@@ -169,12 +169,12 @@ export default function Navigation({ className = '' }: NavigationProps) {
                 aria-haspopup="true"
               >
                 <span>More</span>
-                <svg 
+                <svg
                   className={`w-4 h-4 transition-transform duration-300 ${
                     isMoreDropdownOpen ? 'rotate-180' : ''
                   }`}
-                  fill="none" 
-                  stroke="currentColor" 
+                  fill="none"
+                  stroke="currentColor"
                   viewBox="0 0 24 24"
                   strokeWidth={2.5}
                 >
@@ -188,7 +188,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
                   <div className="py-2">
                     {secondaryNavItems.map((item) => {
                       const isActive = pathname === item.href;
-                      
+
                       return (
                         <Link
                           key={item.href}
@@ -213,10 +213,10 @@ export default function Navigation({ className = '' }: NavigationProps) {
               )}
             </div>
           </div>
-          
+
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 text-black hover:text-gray-700 transition-colors duration-300"
+            className="lg:hidden ml-auto p-2 text-black hover:text-gray-700 transition-colors duration-300"
             aria-label="Toggle navigation menu"
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-navigation"
