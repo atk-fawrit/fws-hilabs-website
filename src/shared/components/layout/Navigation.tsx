@@ -109,29 +109,26 @@ export default function Navigation({ className = '' }: NavigationProps) {
         ? 'bg-white/95 backdrop-blur-xl border-b border-black/10 shadow-lg'
         : 'bg-white/90 backdrop-blur-sm border-b border-white/20'
     }`}>
-      {/* Logo/Brand - Top Left Corner (Absolute to viewport) */}
-      <Link
-        href="/"
-        className="absolute left-4 sm:left-6 lg:left-8 top-2 flex items-center hover:opacity-80 transition-opacity duration-300 focus:outline-none flex-shrink-0 z-10"
-        aria-label="HI Labs home"
-        onClick={closeMobileMenu}
-      >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/images/logo.png"
-          alt="HI Labs"
-          className="h-14 sm:h-16 md:h-18 lg:h-20 w-auto select-none"
-        />
-      </Link>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <nav
-          className={`flex items-center justify-between py-2 ${className}`}
+          className={`relative flex items-center justify-between py-2 ${className}`}
           role="navigation"
           aria-label="Primary navigation"
         >
-          {/* Spacer for logo on mobile */}
-          <div className="w-20 lg:hidden"></div>
+          {/* Logo/Brand - Top Left Corner */}
+          <Link
+            href="/"
+            className="flex items-center hover:opacity-80 transition-opacity duration-300 focus:outline-none flex-shrink-0 absolute left-0 lg:relative"
+            aria-label="HI Labs home"
+            onClick={closeMobileMenu}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/logo.png"
+              alt="HI Labs"
+              className="h-14 sm:h-16 md:h-18 lg:h-20 w-auto select-none"
+            />
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-2 ml-auto">
