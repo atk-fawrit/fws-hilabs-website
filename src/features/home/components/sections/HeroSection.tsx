@@ -293,7 +293,7 @@ export function HeroSection({ stages }: PipelineSectionProps) {
                 </div>
 
                 {/* Desktop: Horizontal Flexbox Layout */}
-                <div className="hidden lg:flex items-center justify-center gap-2 lg:gap-3 xl:gap-4 2xl:gap-6 px-4 overflow-x-auto">
+                <div className="hidden lg:flex items-center justify-center gap-2 lg:gap-3 xl:gap-4 2xl:gap-6 px-4">
                   {stages.map((stage, index) => {
                     const delay = getCardDelay(index);
 
