@@ -1,10 +1,21 @@
+export const heroLayoutConfig = {
+  CARD_W: 250,
+  CARD_H: 310,
+  EXP_W: 370,
+  EXP_H: 510,
+  CARD_GAP: 36,
+  PUSH_EXTRA: 60,
+  CENTER_IDX: 2,
+};
+
+export const heroTextContent = {
+  mainText: 'HI LABS',
+  subText: 'Engineering talent production and deployment',
+  aiEnrichedText: 'AI-Enriched Software Engineering',
+  flagshipText: 'HiLabs Flagship Program',
+};
+
 export const homeData = {
-  hero: {
-    images: [
-      { src: '/images/Image-R.png', textPosition: 'far-left' as const },
-      { src: '/images/Image-Right.png', textPosition: 'left' as const }
-    ]
-  },
   pipeline: {
     stages: [
       {
@@ -12,35 +23,80 @@ export const homeData = {
         title: 'Application',
         subtitle: 'Entry Point',
         duration: 'Week 1-2',
-        number: '01'
+        number: '01',
+        details: {
+          description: 'Structured application and selection protocols',
+          highlights: [
+            'Technical aptitude assessment',
+            'Commitment evaluation',
+            'Program orientation',
+            'Enrollment procedures'
+          ]
+        }
       },
       {
         id: 'phase-one',
         title: 'Training',
         subtitle: 'full time workshop',
         duration: 'Month 1-6',
-        number: '02'
+        number: '02',
+        details: {
+          description: 'Intensive full-time engineering training',
+          highlights: [
+            'Systems Fundamentals (3 months)',
+            'Applied Engineering (3 months)',
+            'Daily 0800-1800 hours',
+            'Weekly evaluations'
+          ]
+        }
       },
       {
         id: 'evaluation',
         title: 'Evaluation',
         subtitle: 'Assessment',
         duration: 'Month 6-7',
-        number: '03'
+        number: '03',
+        details: {
+          description: 'Comprehensive performance assessment',
+          highlights: [
+            'Technical assessments',
+            'Project deliverables review',
+            'Peer evaluation',
+            'Elimination consideration'
+          ]
+        }
       },
       {
         id: 'phase-two',
         title: 'Internship',
         subtitle: 'external company',
         duration: 'Month 7-12',
-        number: '04'
+        number: '04',
+        details: {
+          description: 'Supervised deployment at partner companies',
+          highlights: [
+            'Daily technical supervision',
+            'Real-world projects',
+            'Weekly progress reports',
+            'Professional development'
+          ]
+        }
       },
       {
         id: 'exit',
         title: 'Graduation',
         subtitle: 'Deployment Ready',
         duration: 'Month 12',
-        number: '05'
+        number: '05',
+        details: {
+          description: 'Program completion and certification',
+          highlights: [
+            'Deployment-ready status',
+            'Portfolio of work',
+            'Industry connections',
+            'Career placement support'
+          ]
+        }
       }
     ]
   },
@@ -50,7 +106,7 @@ export const homeData = {
       {
         title: 'Flagship Program',
         description: 'Structured pipeline with enforced evaluation gates and supervised deployment',
-        image: '/images/FlagShip.png',
+        image: '/images/Flag-Ship.png',
         href: '/flagship-program',
         badge: 'Flagship',
         duration: '12 Months',
