@@ -1,12 +1,14 @@
 /**
  * Main Content Section
  * 
- * Two admission categories: Flagship Program (selection criteria) and Premium Short Courses (direct admission)
+ * Clean admission categories matching home page style
  */
 
+'use client';
+
 import React, { useState } from 'react';
-import Image from 'next/image';
-import '../../styles/MainContentSection.styles.css';
+import { motion, AnimatePresence } from 'framer-motion';
+import { admissionsData } from '../../data';
 
 type AdmissionCategory = 'flagship' | 'short-courses';
 
@@ -14,190 +16,135 @@ export const MainContentSection: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<AdmissionCategory>('flagship');
   const [activeTab, setActiveTab] = useState<'eligible' | 'not-eligible'>('eligible');
 
-  const eligibilityCriteria = [
-    'Age 18-28 at program commencement',
-    "Bachelor's degree in any discipline or equivalent",
-    'Basic programming exposure (any language)',
-    'English proficiency for technical communication',
-    'Ability to commit full-time for 12 months',
-    'Physical presence in Lucknow',
-    'Financial capacity for living expenses'
-  ];
-
-  const nonEligibility = [
-    'Current employment that cannot be terminated',
-    'Family commitments requiring regular absence',
-    'Expectation of placement guarantees',
-    'Inability to relocate to Lucknow',
-    'Seeking certification-focused training',
-    'Preference for online/hybrid formats',
-    'Unwilling to accept elimination evaluation'
-  ];
-
   return (
-    <section className="relative w-full py-10 sm:py-12 md:py-16">
-      {/* Background Image */}
-      <div className="absolute inset-0">
-        <Image
-          src="/images/A-bgimage.jpg"
-          alt="Background"
-          fill
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/85 to-black/90"></div>
-      </div>
+    <section className="relative w-full bg-white py-12">
+      <div className="max-w-[1400px] mx-auto px-6">
 
-      {/* Content */}
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 space-y-10 sm:space-y-12 md:space-y-16">
-        
-        {/* Admission Header */}
-        <div className="space-y-6">
-          <div className="text-center max-w-4xl mx-auto">
-            <div className="inline-block mb-2">
-              <div className="h-px w-12 bg-white/30 mb-4"></div>
-            </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight leading-tight">
-              Admission Pathways
-            </h2>
-            <p className="text-lg md:text-xl text-white/70 font-light leading-relaxed">
-              Two distinct admission routes based on program type and commitment level.
-            </p>
-          </div>
-        </div>
-
-        {/* Category Selector - Two Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-          <button
-            onClick={() => setActiveCategory('flagship')}
-            className={`group text-left p-5 sm:p-6 md:p-8 border transition-all duration-400 ${
-              activeCategory === 'flagship'
-                ? 'bg-white/10 border-white/40 backdrop-blur-sm'
-                : 'bg-white/02 border-white/10 hover:bg-white/05 hover:border-white/20'
-            }`}
-          >
-            <div className="flex items-start justify-between mb-4">
-              <span className="text-xs font-medium text-white/50 uppercase tracking-widest">Category 01</span>
-              <div className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                activeCategory === 'flagship' ? 'bg-white' : 'bg-white/20'
-              }`}></div>
-            </div>
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 tracking-tight">
-              Flagship Program
-            </h3>
-            <p className="text-base text-white/60 leading-relaxed font-light mb-4">
-              12-month full-time engineering talent production program with rigorous selection criteria.
-            </p>
-            <div className="flex items-center gap-2">
-              <svg className="w-4 h-4 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-              </svg>
-              <span className="text-sm font-medium text-white/70 uppercase tracking-wider">Selection-Based Entry</span>
-            </div>
-          </button>
-
-          <button
-            onClick={() => setActiveCategory('short-courses')}
-            className={`group text-left p-5 sm:p-6 md:p-8 border transition-all duration-400 ${
-              activeCategory === 'short-courses'
-                ? 'bg-white/10 border-white/40 backdrop-blur-sm'
-                : 'bg-white/02 border-white/10 hover:bg-white/05 hover:border-white/20'
-            }`}
-          >
-            <div className="flex items-start justify-between mb-4">
-              <span className="text-xs font-medium text-white/50 uppercase tracking-widest">Category 02</span>
-              <div className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                activeCategory === 'short-courses' ? 'bg-white' : 'bg-white/20'
-              }`}></div>
-            </div>
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 tracking-tight">
-              Premium Short Courses
-            </h3>
-            <p className="text-base text-white/60 leading-relaxed font-light mb-4">
-              Weekend-based professional development courses with direct admission on enrollment.
-            </p>
-            <div className="flex items-center gap-2">
-              <svg className="w-4 h-4 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-              <span className="text-sm font-medium text-white/70 uppercase tracking-wider">Direct Admission</span>
-            </div>
-          </button>
+        {/* Category Cards - Better Visibility */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          {admissionsData.categories.map((category, idx) => (
+            <motion.button
+              key={category.id}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: idx * 0.1 }}
+              onClick={() => setActiveCategory(category.id as AdmissionCategory)}
+              className={`text-left p-8 rounded-2xl transition-all duration-500 relative overflow-hidden group ${
+                activeCategory === category.id
+                  ? 'bg-black text-white shadow-2xl ring-4 ring-black ring-offset-4'
+                  : 'bg-white hover:bg-gray-50 border-2 border-gray-200 hover:border-gray-300 shadow-md hover:shadow-xl'
+              }`}
+            >
+              <div className="relative z-10">
+                <div className="flex items-start justify-between mb-4">
+                  <span className={`text-xs font-bold uppercase tracking-[0.2em] ${
+                    activeCategory === category.id ? 'text-white/70' : 'text-gray-500'
+                  }`}>
+                    Category {category.number}
+                  </span>
+                  <motion.div 
+                    animate={{ 
+                      scale: activeCategory === category.id ? 1.2 : 1,
+                    }}
+                    className={`w-4 h-4 rounded-full ${
+                      activeCategory === category.id ? 'bg-white' : 'bg-gray-400'
+                    }`}
+                  />
+                </div>
+                
+                <h3 className={`text-2xl md:text-3xl font-bold mb-3 tracking-tight ${
+                  activeCategory === category.id ? 'text-white' : 'text-black'
+                }`}>
+                  {category.title}
+                </h3>
+                
+                <p className={`text-sm md:text-base leading-relaxed font-light mb-4 ${
+                  activeCategory === category.id ? 'text-white/90' : 'text-gray-600'
+                }`}>
+                  {category.description}
+                </p>
+                
+                <div className="flex items-center gap-2">
+                  <div className={`w-1.5 h-1.5 rounded-full ${
+                    activeCategory === category.id ? 'bg-white' : 'bg-gray-600'
+                  }`} />
+                  <span className={`text-xs font-bold uppercase tracking-wider ${
+                    activeCategory === category.id ? 'text-white' : 'text-gray-700'
+                  }`}>
+                    {category.badge}
+                  </span>
+                </div>
+              </div>
+            </motion.button>
+          ))}
         </div>
 
         {/* Category Content */}
-        <div className="max-w-5xl mx-auto">
-          
-          {/* ======================== */}
-          {/* FLAGSHIP PROGRAM CONTENT */}
-          {/* ======================== */}
-          <div className={`transition-all duration-500 ${
-            activeCategory === 'flagship'
-              ? 'opacity-100 translate-y-0'
-              : 'opacity-0 translate-y-8 hidden'
-          }`}>
-            <div className="space-y-16">
+        <AnimatePresence mode="wait">
+          {activeCategory === 'flagship' ? (
+            <motion.div
+              key="flagship"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+              className="space-y-12"
+            >
               {/* Selection System */}
               <div className="space-y-6">
-                <div className="space-y-4">
-                  <h3 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
-                    Selection System
-                  </h3>
-                  <p className="text-lg text-white/70 font-light leading-relaxed">
-                    HI Labs admissions operates as a selection system, not a sales funnel.
-                  </p>
-                </div>
+                <h3 className="text-3xl md:text-4xl font-bold text-black tracking-tight">
+                  Selection System
+                </h3>
                 
                 <div className="space-y-4">
-                  <div className="premium-card">
-                    <p className="text-lg md:text-xl text-white/90 leading-relaxed font-light">
+                  <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
+                    <h4 className="text-lg font-bold text-black mb-4">
+                      HI Labs admissions operates as a selection system, not a sales funnel.
+                    </h4>
+                    <p className="text-base text-gray-700 leading-relaxed font-light">
                       The process identifies candidates capable of completing the 12-month engineering production system under enforced evaluation and supervised deployment protocols.
                     </p>
                   </div>
                   
-                  <div className="premium-card-highlight">
-                    <div className="space-y-3">
-                      <h3 className="text-sm font-medium text-white/60 uppercase tracking-widest">
-                        Selection Criteria
-                      </h3>
-                      <p className="text-lg md:text-xl text-white/90 leading-relaxed font-light">
-                        This is a filtering mechanism designed to identify serious candidates who understand the commitment and constraints of the program. We select for aptitude, commitment, and alignment with institutional expectations.
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div className="premium-card-subtle">
-                    <p className="text-base md:text-lg text-white/70 leading-relaxed font-light">
+                  <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 text-white">
+                    <h4 className="text-sm font-bold text-white/60 uppercase tracking-[0.2em] mb-3">
+                      Selection Criteria
+                    </h4>
+                    <p className="text-base text-white/90 leading-relaxed font-light mb-4">
+                      This is a filtering mechanism designed to identify serious candidates who understand the commitment and constraints of the program. We select for aptitude, commitment, and alignment with institutional expectations.
+                    </p>
+                    <p className="text-base text-white/80 leading-relaxed font-light">
                       The admissions process evaluates technical aptitude, commitment capacity, and understanding of program constraints. Candidates must demonstrate readiness for full-time, in-person participation and acceptance of elimination-based evaluation.
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Eligibility Requirements */}
+              {/* Eligibility */}
               <div className="space-y-6">
-                <h3 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+                <h3 className="text-3xl md:text-4xl font-bold text-black tracking-tight text-center">
                   Eligibility Requirements
                 </h3>
 
-                {/* Minimal Toggle */}
+                {/* Toggle */}
                 <div className="flex justify-center">
-                  <div className="inline-flex bg-white/5 backdrop-blur-sm border border-white/10 rounded-full p-1">
+                  <div className="inline-flex bg-gray-100 rounded-full p-1.5">
                     <button
                       onClick={() => setActiveTab('eligible')}
-                      className={`px-8 py-3 rounded-full text-sm font-medium tracking-wide transition-all duration-300 ${
-                        activeTab === 'eligible'
-                          ? 'bg-white text-black'
-                          : 'text-white/60 hover:text-white/90'
+                      className={`px-10 py-3 rounded-full text-sm font-bold tracking-wide transition-all duration-300 ${
+                        activeTab === 'eligible' 
+                          ? 'bg-black text-white shadow-lg' 
+                          : 'text-gray-600 hover:text-black'
                       }`}
                     >
                       Eligible
                     </button>
                     <button
                       onClick={() => setActiveTab('not-eligible')}
-                      className={`px-8 py-3 rounded-full text-sm font-medium tracking-wide transition-all duration-300 ${
-                        activeTab === 'not-eligible'
-                          ? 'bg-white text-black'
-                          : 'text-white/60 hover:text-white/90'
+                      className={`px-10 py-3 rounded-full text-sm font-bold tracking-wide transition-all duration-300 ${
+                        activeTab === 'not-eligible' 
+                          ? 'bg-black text-white shadow-lg' 
+                          : 'text-gray-600 hover:text-black'
                       }`}
                     >
                       Non-Eligible
@@ -206,201 +153,151 @@ export const MainContentSection: React.FC = () => {
                 </div>
 
                 {/* Tab Content */}
-                <div className="relative min-h-[500px]">
-                  
-                  {/* Eligible Criteria */}
-                  <div
-                    className={`transition-all duration-500 ${
-                      activeTab === 'eligible'
-                        ? 'opacity-100 translate-y-0'
-                        : 'opacity-0 translate-y-8 absolute inset-0 pointer-events-none'
-                    }`}
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeTab}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.4 }}
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
                   >
-                    <div className="space-y-3">
-                      {eligibilityCriteria.map((item, idx) => (
-                        <div
-                          key={idx}
-                          className="criteria-item"
-                          style={{ animationDelay: `${idx * 0.1}s` }}
-                        >
-                          <div className="flex items-start gap-6 p-5">
-                            <div className="flex-shrink-0 mt-1">
-                              <div className="w-1.5 h-1.5 rounded-full bg-white"></div>
-                            </div>
-                            <p className="text-lg md:text-xl text-white/90 leading-relaxed font-light flex-1">
-                              {item}
-                            </p>
+                    {(activeTab === 'eligible' ? admissionsData.eligibility.criteria : admissionsData.eligibility.nonEligible).map((item, idx) => (
+                      <motion.div
+                        key={idx}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: idx * 0.05 }}
+                        className="bg-gray-50 rounded-xl p-6 border border-gray-200 hover:border-gray-900 hover:shadow-lg transition-all duration-300"
+                      >
+                        <div className="flex items-start gap-3">
+                          <div className="flex-shrink-0 w-6 h-6 rounded-full bg-black flex items-center justify-center mt-0.5">
+                            <span className="text-white text-xs font-bold">
+                              {activeTab === 'eligible' ? '✓' : '✗'}
+                            </span>
                           </div>
+                          <p className="text-sm text-gray-800 leading-relaxed">
+                            {item}
+                          </p>
                         </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Non-Eligible */}
-                  <div
-                    className={`transition-all duration-500 ${
-                      activeTab === 'not-eligible'
-                        ? 'opacity-100 translate-y-0'
-                        : 'opacity-0 translate-y-8 absolute inset-0 pointer-events-none'
-                    }`}
-                  >
-                    <div className="space-y-3">
-                      {nonEligibility.map((item, idx) => (
-                        <div
-                          key={idx}
-                          className="criteria-item-negative"
-                          style={{ animationDelay: `${idx * 0.1}s` }}
-                        >
-                          <div className="flex items-start gap-6 p-5">
-                            <div className="flex-shrink-0 mt-1">
-                              <div className="w-1.5 h-1.5 rounded-full bg-white/50"></div>
-                            </div>
-                            <p className="text-lg md:text-xl text-white/90 leading-relaxed font-light flex-1">
-                              {item}
-                            </p>
-                          </div>
-                        </div>
-                      ))}
-
-                      <div className="mt-6 p-6 border-l border-white/20">
-                        <p className="text-base text-white/60 font-light italic">
-                          Candidates with these conditions will not be considered for admission.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                      </motion.div>
+                    ))}
+                  </motion.div>
+                </AnimatePresence>
               </div>
-            </div>
-          </div>
-
-          {/* ============================== */}
-          {/* PREMIUM SHORT COURSES CONTENT  */}
-          {/* ============================== */}
-          <div className={`transition-all duration-500 ${
-            activeCategory === 'short-courses'
-              ? 'opacity-100 translate-y-0'
-              : 'opacity-0 translate-y-8 hidden'
-          }`}>
-            <div className="space-y-12">
-              {/* Direct Admission Overview */}
+            </motion.div>
+          ) : (
+            <motion.div
+              key="short-courses"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+              className="space-y-12"
+            >
+              {/* Direct Admission */}
               <div className="space-y-6">
+                <h3 className="text-3xl md:text-4xl font-bold text-black tracking-tight">
+                  {admissionsData.shortCourses.overview.title}
+                </h3>
+                
                 <div className="space-y-4">
-                  <h3 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
-                    Direct Admission
-                  </h3>
-                  <p className="text-lg text-white/70 font-light leading-relaxed">
-                    Premium Short Courses operate on a direct enrollment model with no selection process required.
-                  </p>
-                </div>
-
-                <div className="space-y-4">
-                  <div className="premium-card">
-                    <p className="text-lg md:text-xl text-white/90 leading-relaxed font-light">
-                      Unlike the Flagship Program, Premium Short Courses are open to all professionals who meet the basic prerequisites for their chosen course. There is no competitive selection, screening assessment, or interview process.
+                  <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
+                    <p className="text-lg text-gray-700 leading-relaxed font-light mb-4">
+                      {admissionsData.shortCourses.overview.description}
+                    </p>
+                    <p className="text-base text-gray-600 leading-relaxed font-light">
+                      {admissionsData.shortCourses.overview.details}
                     </p>
                   </div>
-
-                  <div className="premium-card-highlight">
-                    <div className="space-y-3">
-                      <h3 className="text-sm font-medium text-white/60 uppercase tracking-widest">
-                        How It Works
-                      </h3>
-                      <p className="text-lg md:text-xl text-white/90 leading-relaxed font-light">
-                        Choose your course, verify you meet the prerequisites, complete the enrollment form, and confirm your seat. Admission is granted on a first-come, first-served basis subject to available capacity.
-                      </p>
-                    </div>
+                  
+                  <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 text-white">
+                    <h4 className="text-sm font-bold text-white/60 uppercase tracking-[0.2em] mb-3">
+                      How It Works
+                    </h4>
+                    <p className="text-base text-white/90 leading-relaxed font-light">
+                      {admissionsData.shortCourses.overview.process}
+                    </p>
                   </div>
                 </div>
               </div>
 
               {/* Enrollment Steps */}
               <div className="space-y-6">
-                <h3 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+                <h3 className="text-3xl md:text-4xl font-bold text-black tracking-tight text-center">
                   Enrollment Process
                 </h3>
 
-                <div className="space-y-4">
-                  {[
-                    {
-                      step: '01',
-                      title: 'Browse Courses',
-                      description: 'Review available Premium Short Courses and select the one that matches your professional development goals.',
-                    },
-                    {
-                      step: '02',
-                      title: 'Verify Prerequisites',
-                      description: 'Confirm you meet the basic prerequisites listed for your chosen course. These are minimal and skills-based.',
-                    },
-                    {
-                      step: '03',
-                      title: 'Complete Enrollment',
-                      description: 'Fill out the enrollment form with your details and course preference. No essays, assessments, or interviews required.',
-                    },
-                    {
-                      step: '04',
-                      title: 'Confirm Seat',
-                      description: 'Receive your confirmation and course details. Seats are allocated on a first-come, first-served basis.',
-                    },
-                  ].map((item, idx) => (
-                    <div
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {admissionsData.shortCourses.steps.map((item, idx) => (
+                    <motion.div
                       key={idx}
-                      className="criteria-item"
-                      style={{ animationDelay: `${idx * 0.1}s` }}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: idx * 0.1 }}
+                      className="relative bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-gray-900 hover:shadow-lg transition-all duration-300"
                     >
-                      <div className="flex items-start gap-6 p-6">
-                        <div className="flex-shrink-0">
-                          <div className="w-10 h-10 border border-white/30 flex items-center justify-center">
-                            <span className="text-sm font-bold text-white">{item.step}</span>
-                          </div>
-                        </div>
-                        <div className="flex-1 space-y-1">
-                          <h4 className="text-lg font-semibold text-white">{item.title}</h4>
-                          <p className="text-base text-white/70 leading-relaxed font-light">
-                            {item.description}
-                          </p>
-                        </div>
+                      <div className="absolute -top-3 -left-3 w-10 h-10 bg-black rounded-full flex items-center justify-center shadow-lg">
+                        <span className="text-white font-bold">{item.step}</span>
                       </div>
-                    </div>
+                      
+                      <div className="mt-4 space-y-3">
+                        <h4 className="text-lg font-bold text-black">
+                          {item.title}
+                        </h4>
+                        <p className="text-sm text-gray-600 leading-relaxed font-light">
+                          {item.description}
+                        </p>
+                      </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
 
-              {/* Key Differences */}
+              {/* Key Differences - Comparison Table */}
               <div className="space-y-6">
-                <h3 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
-                  Key Differences
+                <h3 className="text-3xl md:text-4xl font-bold text-black tracking-tight text-center">
+                  Flagship vs Premium Short Courses
                 </h3>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {[
-                    { label: 'Selection Process', flagship: 'Multi-stage evaluation', shortCourse: 'None required' },
-                    { label: 'Duration', flagship: '12 months full-time', shortCourse: '4-8 weekends' },
-                    { label: 'Commitment', flagship: 'Full-time, in-person', shortCourse: 'Weekend sessions' },
-                    { label: 'Admission Type', flagship: 'Competitive selection', shortCourse: 'Direct enrollment' },
-                  ].map((row, idx) => (
-                    <div key={idx} className="premium-card">
-                      <div className="space-y-3">
-                        <h4 className="text-xs font-medium text-white/50 uppercase tracking-widest">{row.label}</h4>
-                        <div className="flex items-start justify-between gap-4">
-                          <div className="flex-1">
-                            <p className="text-xs text-white/40 uppercase tracking-wider mb-1">Flagship</p>
-                            <p className="text-sm text-white/80 font-light">{row.flagship}</p>
-                          </div>
-                          <div className="w-px h-10 bg-white/10"></div>
-                          <div className="flex-1">
-                            <p className="text-xs text-white/40 uppercase tracking-wider mb-1">Short Course</p>
-                            <p className="text-sm text-white/80 font-light">{row.shortCourse}</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+                <div className="bg-white rounded-2xl border-2 border-gray-200 overflow-hidden shadow-lg">
+                  <div className="overflow-x-auto">
+                    <table className="w-full">
+                      <thead>
+                        <tr className="bg-gray-900">
+                          <th className="px-6 py-4 text-left text-sm font-bold text-white uppercase tracking-wider">
+                            Aspect
+                          </th>
+                          <th className="px-6 py-4 text-left text-sm font-bold text-white uppercase tracking-wider">
+                            Flagship Program
+                          </th>
+                          <th className="px-6 py-4 text-left text-sm font-bold text-white uppercase tracking-wider">
+                            Premium Short Courses
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-gray-200">
+                        {admissionsData.shortCourses.comparison.map((row, idx) => (
+                          <tr key={idx} className="hover:bg-gray-50 transition-colors">
+                            <td className="px-6 py-4 text-sm font-bold text-gray-900">
+                              {row.label}
+                            </td>
+                            <td className="px-6 py-4 text-sm text-gray-700 font-light">
+                              {row.flagship}
+                            </td>
+                            <td className="px-6 py-4 text-sm text-gray-700 font-light">
+                              {row.shortCourse}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );

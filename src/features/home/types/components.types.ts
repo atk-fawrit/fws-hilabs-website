@@ -15,6 +15,10 @@ export interface Stage {
   subtitle: string;
   duration: string;
   number: string;
+  details?: {
+    description: string;
+    highlights: string[];
+  };
 }
 
 export interface PipelineSectionProps {

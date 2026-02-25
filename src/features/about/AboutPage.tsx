@@ -7,7 +7,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { Footer } from '@/src/shared/components/layout';
-import { institutionalSections, quickReferenceData, teamMembers } from './data';
+import { institutionalSections, teamMembers } from './data';
 import {
   InstitutionalCharterSection,
   OperatingPrinciplesSection,

@@ -13,7 +13,7 @@ const primaryNavItems: NavigationItem[] = [
   { label: 'About', href: '/about', primary: true },
 ];
 
-// Secondary navigation items - in "More" dropdown
+// Secondary navigation items - in "More" dropdown (temporarily disabled)
 const secondaryNavItems: NavigationItem[] = [
   { label: 'Outcomes', href: '/outcomes', primary: false },
   { label: 'Employers', href: '/employers', primary: false },
@@ -26,6 +26,9 @@ export default function Navigation({ className = '' }: NavigationProps) {
   const [isMoreDropdownOpen, setIsMoreDropdownOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  
+  // Temporarily disable "More" dropdown
+  const showMoreDropdown = false;
   
   // Handle scroll effect
   useEffect(() => {
@@ -154,64 +157,66 @@ export default function Navigation({ className = '' }: NavigationProps) {
               );
             })}
 
-            {/* More Dropdown */}
-            <div className="relative" ref={dropdownRef}>
-              <button
-                onClick={toggleMoreDropdown}
-                className={`
-                  flex items-center gap-2 px-6 py-2.5 text-[15px] font-semibold tracking-wide transition-all duration-300 rounded-lg
-                  ${isSecondaryActive || isMoreDropdownOpen
-                    ? 'text-black bg-black/15'
-                    : 'text-gray-800 hover:text-black hover:bg-black/10'
-                  }
-                `}
-                aria-expanded={isMoreDropdownOpen}
-                aria-haspopup="true"
-              >
-                <span>More</span>
-                <svg
-                  className={`w-4 h-4 transition-transform duration-300 ${
-                    isMoreDropdownOpen ? 'rotate-180' : ''
-                  }`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  strokeWidth={2.5}
+            {/* More Dropdown - Temporarily Hidden */}
+            {showMoreDropdown && (
+              <div className="relative" ref={dropdownRef}>
+                <button
+                  onClick={toggleMoreDropdown}
+                  className={`
+                    flex items-center gap-2 px-6 py-2.5 text-[15px] font-semibold tracking-wide transition-all duration-300 rounded-lg
+                    ${isSecondaryActive || isMoreDropdownOpen
+                      ? 'text-black bg-black/15'
+                      : 'text-gray-800 hover:text-black hover:bg-black/10'
+                    }
+                  `}
+                  aria-expanded={isMoreDropdownOpen}
+                  aria-haspopup="true"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
+                  <span>More</span>
+                  <svg
+                    className={`w-4 h-4 transition-transform duration-300 ${
+                      isMoreDropdownOpen ? 'rotate-180' : ''
+                    }`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    strokeWidth={2.5}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
 
-              {/* Dropdown Menu */}
-              {isMoreDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-64 bg-white/95 backdrop-blur-xl border border-gray-200 rounded-xl shadow-2xl overflow-hidden animate-fade-in">
-                  <div className="py-2">
-                    {secondaryNavItems.map((item) => {
-                      const isActive = pathname === item.href;
+                {/* Dropdown Menu */}
+                {isMoreDropdownOpen && (
+                  <div className="absolute right-0 mt-2 w-64 bg-white/95 backdrop-blur-xl border border-gray-200 rounded-xl shadow-2xl overflow-hidden animate-fade-in">
+                    <div className="py-2">
+                      {secondaryNavItems.map((item) => {
+                        const isActive = pathname === item.href;
 
-                      return (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          className={`
-                            block px-6 py-3.5 text-[15px] font-semibold tracking-wide transition-all duration-200
-                            ${isActive
-                              ? 'text-black bg-black/15'
-                              : 'text-gray-800 hover:text-black hover:bg-black/10'
-                            }
-                          `}
-                          aria-current={isActive ? 'page' : undefined}
-                          onClick={() => setIsMoreDropdownOpen(false)}
-                          prefetch={true}
-                        >
-                          {item.label}
-                        </Link>
-                      );
-                    })}
+                        return (
+                          <Link
+                            key={item.href}
+                            href={item.href}
+                            className={`
+                              block px-6 py-3.5 text-[15px] font-semibold tracking-wide transition-all duration-200
+                              ${isActive
+                                ? 'text-black bg-black/15'
+                                : 'text-gray-800 hover:text-black hover:bg-black/10'
+                              }
+                            `}
+                            aria-current={isActive ? 'page' : undefined}
+                            onClick={() => setIsMoreDropdownOpen(false)}
+                            prefetch={true}
+                          >
+                            {item.label}
+                          </Link>
+                        );
+                      })}
+                    </div>
                   </div>
-                </div>
-              )}
-            </div>
+                )}
+              </div>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -280,34 +285,39 @@ export default function Navigation({ className = '' }: NavigationProps) {
                   );
                 })}
 
-                {/* Divider */}
-                <div className="py-2">
-                  <div className="h-px bg-gray-200"></div>
-                </div>
+                {/* Secondary Items - Temporarily Hidden */}
+                {showMoreDropdown && secondaryNavItems.length > 0 && (
+                  <>
+                    {/* Divider */}
+                    <div className="py-2">
+                      <div className="h-px bg-gray-200"></div>
+                    </div>
 
-                {/* Secondary Items */}
-                {secondaryNavItems.map((item) => {
-                  const isActive = pathname === item.href;
+                    {/* Secondary Items */}
+                    {secondaryNavItems.map((item) => {
+                      const isActive = pathname === item.href;
 
-                  return (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className={`
-                        block py-3.5 px-5 rounded-lg text-[15px] font-semibold tracking-wide transition-all duration-200
-                        ${isActive
-                          ? 'text-black bg-black/15'
-                          : 'text-gray-800 hover:text-black hover:bg-black/10'
-                        }
-                      `}
-                      aria-current={isActive ? 'page' : undefined}
-                      onClick={closeMobileMenu}
-                      prefetch={true}
-                    >
-                      {item.label}
-                    </Link>
-                  );
-                })}
+                      return (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className={`
+                            block py-3.5 px-5 rounded-lg text-[15px] font-semibold tracking-wide transition-all duration-200
+                            ${isActive
+                              ? 'text-black bg-black/15'
+                              : 'text-gray-800 hover:text-black hover:bg-black/10'
+                            }
+                          `}
+                          aria-current={isActive ? 'page' : undefined}
+                          onClick={closeMobileMenu}
+                          prefetch={true}
+                        >
+                          {item.label}
+                        </Link>
+                      );
+                    })}
+                  </>
+                )}
               </div>
             </div>
           </div>
