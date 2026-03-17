@@ -10,6 +10,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/', '/_next/'],
     },
-    sitemap: 'https://hilabs.in/sitemap.xml',
+    sitemap: 'https://www.thehilabs.com/sitemap.xml',
   };
 }
