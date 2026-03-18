@@ -11,6 +11,7 @@ const primaryNavItems: NavigationItem[] = [
   { label: 'Admissions', href: '/admissions', primary: true },
   { label: 'Courses', href: '/courses', primary: true },
   { label: 'About', href: '/about', primary: true },
+  { label: 'AI Course', href: '/artificial-intelligence-course-lucknow', primary: true },
 ];
 
 // Secondary navigation items - in "More" dropdown (temporarily disabled)
@@ -26,16 +27,16 @@ export default function Navigation({ className = '' }: NavigationProps) {
   const [isMoreDropdownOpen, setIsMoreDropdownOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  
+
   // Temporarily disable "More" dropdown
   const showMoreDropdown = false;
-  
+
   // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -105,13 +106,12 @@ export default function Navigation({ className = '' }: NavigationProps) {
 
   // Check if any secondary item is active
   const isSecondaryActive = secondaryNavItems.some(item => pathname === item.href);
-  
+
   return (
-    <div className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled
-        ? 'bg-white/95 backdrop-blur-xl border-b border-black/10 shadow-lg'
-        : 'bg-white/90 backdrop-blur-sm border-b border-white/20'
-    }`}>
+    <div className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
+      ? 'bg-white/95 backdrop-blur-xl border-b border-black/10 shadow-lg'
+      : 'bg-white/90 backdrop-blur-sm border-b border-white/20'
+      }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <nav
           className={`relative flex items-center justify-between py-2 ${className}`}
@@ -174,9 +174,8 @@ export default function Navigation({ className = '' }: NavigationProps) {
                 >
                   <span>More</span>
                   <svg
-                    className={`w-4 h-4 transition-transform duration-300 ${
-                      isMoreDropdownOpen ? 'rotate-180' : ''
-                    }`}
+                    className={`w-4 h-4 transition-transform duration-300 ${isMoreDropdownOpen ? 'rotate-180' : ''
+                      }`}
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -228,34 +227,34 @@ export default function Navigation({ className = '' }: NavigationProps) {
             type="button"
             onClick={toggleMobileMenu}
           >
-            <svg 
-              className="w-6 h-6" 
-              fill="none" 
-              stroke="currentColor" 
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
               viewBox="0 0 24 24"
               aria-hidden="true"
               strokeWidth={2}
             >
               {isMobileMenuOpen ? (
-                <path 
-                  strokeLinecap="round" 
+                <path
+                  strokeLinecap="round"
                   strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12" 
+                  d="M6 18L18 6M6 6l12 12"
                 />
               ) : (
-                <path 
-                  strokeLinecap="round" 
+                <path
+                  strokeLinecap="round"
                   strokeLinejoin="round"
-                  d="M4 6h16M4 12h16M4 18h16" 
+                  d="M4 6h16M4 12h16M4 18h16"
                 />
               )}
             </svg>
           </button>
         </nav>
-        
+
         {/* Mobile Navigation Menu */}
         {isMobileMenuOpen && (
-          <div 
+          <div
             id="mobile-navigation"
             className="lg:hidden pb-6 animate-fade-in"
           >
@@ -264,7 +263,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
                 {/* Primary Items */}
                 {primaryNavItems.map((item) => {
                   const isActive = pathname === item.href;
-                  
+
                   return (
                     <Link
                       key={item.href}

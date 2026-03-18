@@ -30,7 +30,7 @@ export function HeroSection({ stages }: PipelineSectionProps) {
     setActiveCard(val);
   }, []);
 
-  const isExpanded = (i: number) => activeCard?.index === i && activeCard.source === 'hover';
+  const isExpanded = (i: number) => activeCard?.index === i;
   const isLoopLit = (_: number) => false;
   const isApplicationCard = (i: number) => stages[i]?.id === 'application';
 
@@ -501,8 +501,7 @@ export function HeroSection({ stages }: PipelineSectionProps) {
                   <div
                     ref={desktopRowRef}
                     className="hidden xl:block relative w-full h-[460px]"
-                    onMouseMove={handleDesktopMouseMove}
-                    onMouseLeave={handleDesktopMouseLeave}
+
                   >
                     {stages.map((stage, index) => {
                       const expanded = isExpanded(index);
@@ -524,24 +523,29 @@ export function HeroSection({ stages }: PipelineSectionProps) {
                           <motion.div
                             ref={el => { cardRefs.current[index] = el; }}
                             className="relative rounded-3xl overflow-hidden cursor-pointer group"
+
+                            // ✅ ADD THIS
+                            onMouseEnter={() => setActive({ index, source: 'hover' })}
+                            onMouseLeave={() => setActive(null)}
+
                             style={{
                               background: 'linear-gradient(145deg,rgba(10,10,12,0.98),rgba(22,22,26,0.96))',
-                              border: expanded ? '1px solid rgba(255,255,255,0.32)'
-                                : loop ? '1px solid rgba(255,255,255,0.26)'
+                              border: expanded
+                                ? '1px solid rgba(255,255,255,0.32)'
+                                : loop
+                                  ? '1px solid rgba(255,255,255,0.26)'
                                   : '1px solid rgba(255,255,255,0.11)',
                               boxShadow: expanded
                                 ? '0 52px 130px rgba(0,0,0,0.92),0 0 0 1px rgba(255,255,255,0.05),inset 0 1px 0 rgba(255,255,255,0.15)'
-
-
                                 : '0 10px 36px rgba(0,0,0,0.50),inset 0 1px 0 rgba(255,255,255,0.07)',
                             }}
+
                             animate={{
                               width: expanded ? EXP_W : CARD_W,
                               height: expanded ? EXP_H : CARD_H,
-                              //y: expanded ? -15 : 0,
                               scale: expanded ? 1.03 : 1,
-
                             }}
+
                             transition={{
                               width: { duration: 0.42, ease: [0.16, 1, 0.3, 1] },
                               height: { duration: 0.42, ease: [0.16, 1, 0.3, 1] },
