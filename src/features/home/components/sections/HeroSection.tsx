@@ -11,17 +11,17 @@ const { CARD_W, CARD_H, EXP_W, EXP_H, CARD_GAP, PUSH_EXTRA, CENTER_IDX } = heroL
 
 export function HeroSection({ stages }: PipelineSectionProps) {
   const [activeCard, setActiveCard] = useState<{ index: number; source: 'hover' | 'loop' } | null>(null);
-  const activeRef   = useRef<typeof activeCard>(null);
+  const activeRef = useRef<typeof activeCard>(null);
   const isUserHovering = useRef(false);
 
-  const [mousePos,    setMousePos]    = useState<Record<string, { x: number; y: number }>>({});
-  const [typedText,   setTypedText]   = useState('');
-  const [typedSub,    setTypedSub]    = useState('');
-  const [showCursor,  setShowCursor]  = useState(true);
+  const [mousePos, setMousePos] = useState<Record<string, { x: number; y: number }>>({});
+  const [typedText, setTypedText] = useState('');
+  const [typedSub, setTypedSub] = useState('');
+  const [showCursor, setShowCursor] = useState(true);
 
-  const sectionRef    = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
   const desktopRowRef = useRef<HTMLDivElement>(null);
-  const cardRefs      = useRef<(HTMLDivElement | null)[]>([]);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const isInView = useInView(sectionRef, { once: false, amount: 0.2 });
 
@@ -30,8 +30,8 @@ export function HeroSection({ stages }: PipelineSectionProps) {
     setActiveCard(val);
   }, []);
 
-  const isExpanded        = (i: number) => activeCard?.index === i && activeCard.source === 'hover';
-  const isLoopLit         = (i: number) => activeCard?.index === i && activeCard.source === 'loop';
+  const isExpanded = (i: number) => activeCard?.index === i && activeCard.source === 'hover';
+  const isLoopLit = (_: number) => false;
   const isApplicationCard = (i: number) => stages[i]?.id === 'application';
 
   const { mainText, subText, aiEnrichedText, flagshipText } = heroTextContent;
@@ -61,42 +61,7 @@ export function HeroSection({ stages }: PipelineSectionProps) {
     return () => clearInterval(t);
   }, [showCursor]);
 
-  // Auto-highlight loop
-  useEffect(() => {
-    if (!isInView) return;
-    let dead = false;
-    const cycle = () => {
-      if (dead) return;
-      const go = setTimeout(() => {
-        if (dead) return;
-        let cur = 0;
-        const tick = setInterval(() => {
-          if (dead) { clearInterval(tick); return; }
-          if (!isUserHovering.current) setActive({ index: cur, source: 'loop' });
-          if (++cur >= stages.length) {
-            clearInterval(tick);
-            setTimeout(() => {
-              if (!dead && !isUserHovering.current) {
-                setActive(null);
-                setTimeout(cycle, 3000);
-              } else if (!dead) {
-                const wait = setInterval(() => {
-                  if (!isUserHovering.current) { clearInterval(wait); if (!dead) setTimeout(cycle, 3000); }
-                }, 200);
-              }
-            }, 1200);
-          }
-        }, 1000);
-      }, 2000);
-      return () => clearTimeout(go);
-    };
-    cycle();
-    return () => {
-      dead = true;
-      if (activeRef.current?.source !== 'hover') setActive(null);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isInView, stages.length]);
+
 
   // Desktop container-level mouse tracking
   const handleDesktopMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
@@ -128,7 +93,7 @@ export function HeroSection({ stages }: PipelineSectionProps) {
 
   const handleCardEnter = useCallback((i: number) => { isUserHovering.current = true; setActive({ index: i, source: 'hover' }); }, [setActive]);
   const handleCardLeave = useCallback(() => { isUserHovering.current = false; if (activeRef.current?.source === 'hover') setActive(null); }, [setActive]);
-  const handleCardMove  = useCallback((e: React.MouseEvent<HTMLDivElement>, stageId: string, i: number) => {
+  const handleCardMove = useCallback((e: React.MouseEvent<HTMLDivElement>, stageId: string, i: number) => {
     const card = cardRefs.current[i];
     if (!card) return;
     const r = card.getBoundingClientRect();
@@ -159,7 +124,7 @@ export function HeroSection({ stages }: PipelineSectionProps) {
     <div className={`flex items-center gap-2.5 ${large ? 'mb-6' : 'mb-3'} ${centerOnMobile ? 'justify-center md:justify-start' : ''}`}>
       <div className={`flex items-center justify-center rounded-full border font-bold shrink-0
         ${large ? 'w-9 h-9 text-[12px] tracking-widest border-white/25 bg-white/10 text-white/80'
-                : 'w-6 h-6 text-[9px]  tracking-widest border-white/18 bg-white/6  text-white/55'}`}>
+          : 'w-6 h-6 text-[9px]  tracking-widest border-white/18 bg-white/6  text-white/55'}`}>
         {number}
       </div>
       <span className={`font-black tracking-[0.38em] uppercase
@@ -260,8 +225,8 @@ export function HeroSection({ stages }: PipelineSectionProps) {
         initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.2, delay: 0.28 }}>
         <div className={`flex items-center gap-2 mb-4 ${centerText ? 'justify-center' : ''}`}>
           <svg width={large ? 13 : 11} height={large ? 13 : 11} viewBox="0 0 13 13" fill="none" className="text-white/40 shrink-0">
-            <circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" strokeWidth="1"/>
-            <path d="M6.5 3.5V6.5L8.5 8" stroke="currentColor" strokeWidth="1" strokeLinecap="round"/>
+            <circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" strokeWidth="1" />
+            <path d="M6.5 3.5V6.5L8.5 8" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
           </svg>
           <p className={`text-white/50 font-medium ${large ? 'text-[12px]' : 'text-[10px]'}`}>{stage.duration}</p>
         </div>
@@ -297,14 +262,9 @@ export function HeroSection({ stages }: PipelineSectionProps) {
       <div className="absolute inset-0 opacity-[0.035] pointer-events-none"
         style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
       <div className={`absolute inset-[1px] ${rounded} pointer-events-none bg-gradient-to-br from-white/8 via-transparent to-transparent`} />
-      {mousePos[stageId] && (expanded || isLoop) && (
-        <div className={`absolute inset-0 pointer-events-none ${rounded} overflow-hidden`}
-          style={{ background: `radial-gradient(circle ${expanded ? 220 : 130}px at ${mousePos[stageId].x}px ${mousePos[stageId].y}px, rgba(255,255,255,${expanded ? 0.10 : 0.055}), transparent 70%)` }} />
-      )}
-      <div className={`absolute -inset-[1px] ${rounded} overflow-hidden pointer-events-none transition-opacity duration-700 ${expanded ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}>
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/16 to-transparent animate-shimmer-slow" />
-      </div>
-      {(['tl','br'] as const).map(c => (
+
+
+      {(['tl', 'br'] as const).map(c => (
         <div key={c} className={`absolute ${c === 'tl' ? 'top-0 left-0' : 'bottom-0 right-0'} w-10 h-10
           pointer-events-none overflow-hidden transition-opacity duration-500
           ${expanded ? 'opacity-75' : 'opacity-0 group-hover:opacity-55'}
@@ -315,38 +275,8 @@ export function HeroSection({ stages }: PipelineSectionProps) {
             ${c === 'tl' ? 'bg-gradient-to-b from-white/60 to-transparent' : 'bg-gradient-to-t from-white/60 to-transparent'}`} />
         </div>
       ))}
-      <AnimatePresence>
-        {isLoop && !expanded && (
-          <>
-            <motion.div className={`absolute -inset-3 ${rounded} border border-white/18 pointer-events-none`}
-              initial={{ opacity: 0.6, scale: 1 }} animate={{ opacity: 0, scale: 1.12 }} exit={{ opacity: 0 }}
-              transition={{ duration: 0.9, ease: 'easeOut' }} />
-            <motion.div className={`absolute -inset-1.5 ${rounded} border border-white/10 pointer-events-none`}
-              initial={{ opacity: 0.4, scale: 1 }} animate={{ opacity: 0, scale: 1.2 }} exit={{ opacity: 0 }}
-              transition={{ duration: 0.9, ease: 'easeOut', delay: 0.15 }} />
-          </>
-        )}
-      </AnimatePresence>
-      <AnimatePresence>
-        {expanded && (
-          <>
-            {[
-              { cls: 'top-8 left-8',       size: 'w-[5px] h-[5px]', delay: 0,   dy: -55 },
-              { cls: 'top-14 right-10',    size: 'w-1 h-1',         delay: 0.5, dy: -42 },
-              { cls: 'bottom-16 left-12',  size: 'w-[5px] h-[5px]', delay: 1.0, dy: -60 },
-              { cls: 'top-1/2 right-8',    size: 'w-1 h-1',         delay: 1.5, dy: -38 },
-              { cls: 'bottom-24 right-10', size: 'w-1 h-1',         delay: 0.8, dy: -50 },
-            ].map((p, i) => (
-              <motion.div key={i}
-                className={`absolute ${p.cls} ${p.size} bg-white/70 rounded-full pointer-events-none`}
-                initial={{ opacity: 0, y: 0, scale: 0 }}
-                animate={{ opacity: [0, 1, 0], y: p.dy, scale: [0, 1, 0.3] }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 2.5, repeat: Infinity, delay: p.delay }} />
-            ))}
-          </>
-        )}
-      </AnimatePresence>
+
+
       {children}
     </>
   );
@@ -365,19 +295,16 @@ export function HeroSection({ stages }: PipelineSectionProps) {
       <div className="relative z-10 flex flex-col min-h-screen">
 
         {/* Hero text */}
-        <div className="flex-shrink-0 flex items-center justify-center pt-14 pb-2 sm:pt-16 md:pt-16 md:pb-3 lg:pt-20 lg:pb-4 px-4 md:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light tracking-tight leading-[1.15] text-black drop-shadow-sm">
+        <div className="flex-shrink-0 flex items-center justify-center pt-10 sm:pt-12 md:pt-16 lg:pt-18 pb-0 px-4 md:px-6 lg:px-8">
+          <div className="text-center min-h-[220px] flex flex-col justify-center">
+            <div className="absolute opacity-0 pointer-events-none">
               {typedText}
-              {typedText.length < mainText.length && (
-                <span className="inline-block w-[6px] sm:w-[7px] md:w-[8px] h-[0.9em] ml-1 align-middle animate-blink" />
-              )}
-            </h1>
+            </div>
             {typedText.length === mainText.length && (
               <>
                 <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                  className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-light mt-4 md:mt-6 text-black drop-shadow-sm px-4">
+                  className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-light mt-0 md:mt-2 text-black drop-shadow-sm px-4">
                   {typedSub}
                   {(typedSub.length < subText.length || showCursor) && (
                     <span className="inline-block w-[4px] sm:w-[5px] md:w-[6px] h-[0.8em] ml-1 align-middle animate-blink" />
@@ -387,12 +314,12 @@ export function HeroSection({ stages }: PipelineSectionProps) {
                   <>
                     <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                      className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light mt-8 md:mt-10 text-black drop-shadow-sm px-4">
+                      className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light mt-12 md:mt-14 text-black drop-shadow-sm px-4">
                       {aiEnrichedText}
                     </motion.div>
                     <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.7, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                      className="text-sm sm:text-base md:text-lg lg:text-xl font-light mt-2 md:mt-3 text-black/60 drop-shadow-sm px-4">
+                      className="text-sm sm:text-base md:text-lg lg:text-xl font-light mt-1 md:mt-2 text-black/60 drop-shadow-sm px-4">
                       {flagshipText}
                     </motion.div>
                   </>
@@ -406,7 +333,7 @@ export function HeroSection({ stages }: PipelineSectionProps) {
         <div className="flex-1 px-3 sm:px-4 md:px-6 lg:px-12 pb-8 md:pb-12 lg:pb-16">
           <div className="relative max-w-[1700px] mx-auto">
             <div className="relative z-10 py-1 sm:py-2 md:py-3 lg:py-4 px-1 sm:px-4 md:px-6 lg:px-12">
-              <div className="relative py-4 md:py-6 lg:py-8 mb-8 md:mb-12 lg:mb-16">
+              <div className="relative py-1 md:py-2 lg:py-3 mb-2 md:mb-4 lg:mb-6">
 
                 {/* Flow line */}
                 <div className="absolute top-1/2 left-0 right-0 h-[2px] -translate-y-1/2 z-[1] hidden md:block overflow-hidden">
@@ -430,7 +357,7 @@ export function HeroSection({ stages }: PipelineSectionProps) {
                   >
                     {stages.map((stage, index) => {
                       const expanded = isExpanded(index);
-                      const loop     = isLoopLit(index);
+                      const loop = isLoopLit(index);
                       return (
                         <motion.div key={stage.id}
                           variants={{ hidden: { opacity: 0, y: 28, scale: 0.95 }, visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] } } }}>
@@ -443,13 +370,12 @@ export function HeroSection({ stages }: PipelineSectionProps) {
                               boxShadow: expanded
                                 ? '0 28px 70px rgba(0,0,0,0.75),inset 0 1px 0 rgba(255,255,255,0.12)'
                                 : loop
-                                ? '0 12px 40px rgba(0,0,0,0.55),inset 0 1px 0 rgba(255,255,255,0.08)'
-                                : '0 4px 16px rgba(0,0,0,0.40),inset 0 1px 0 rgba(255,255,255,0.05)',
+                                  ? '0 12px 40px rgba(0,0,0,0.55),inset 0 1px 0 rgba(255,255,255,0.08)'
+                                  : '0 4px 16px rgba(0,0,0,0.40),inset 0 1px 0 rgba(255,255,255,0.05)',
                             }}
                             animate={
                               expanded ? { scale: 1.02, y: -6, zIndex: 50 }
-                              : loop    ? { scale: [1, 1.03, 1.02], y: [0, -8, -6] }
-                              :           { scale: 1, y: 0, zIndex: 1 }
+                                : { scale: 1, y: 0, zIndex: 1 }
                             }
                             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                             onMouseEnter={() => handleCardEnter(index)}
@@ -503,7 +429,7 @@ export function HeroSection({ stages }: PipelineSectionProps) {
                     <div className="space-y-4">
                       {stages.map((stage, index) => {
                         const expanded = isExpanded(index);
-                        const loop     = isLoopLit(index);
+                        const loop = isLoopLit(index);
                         return (
                           <motion.div key={stage.id}
                             initial={{ opacity: 0, y: 20, scale: 0.95 }}
@@ -518,13 +444,13 @@ export function HeroSection({ stages }: PipelineSectionProps) {
                                 boxShadow: expanded
                                   ? '0 36px 90px rgba(0,0,0,0.80),inset 0 1px 0 rgba(255,255,255,0.13)'
                                   : loop
-                                  ? '0 16px 48px rgba(0,0,0,0.60),inset 0 1px 0 rgba(255,255,255,0.08)'
-                                  : '0 8px 28px rgba(0,0,0,0.45),inset 0 1px 0 rgba(255,255,255,0.06)',
+                                    ? '0 16px 48px rgba(0,0,0,0.60),inset 0 1px 0 rgba(255,255,255,0.08)'
+                                    : '0 8px 28px rgba(0,0,0,0.45),inset 0 1px 0 rgba(255,255,255,0.06)',
                               }}
                               animate={
                                 expanded ? { scale: 1.02, y: -10, zIndex: 50 }
-                                : loop    ? { scale: [1, 1.04, 1.03], y: [0, -14, -11], rotateZ: [0, 1, 0, -1, 0] }
-                                :           { scale: 1, y: 0, rotateZ: 0, zIndex: 1 }
+
+                                  : { scale: 1, y: 0, rotateZ: 0, zIndex: 1 }
                               }
                               transition={{ duration: expanded ? 0.32 : 0.7, ease: [0.34, 1.56, 0.64, 1] }}
                               onMouseEnter={() => handleCardEnter(index)}
@@ -533,20 +459,20 @@ export function HeroSection({ stages }: PipelineSectionProps) {
                             >
                               <CardChrome stageId={stage.id} isLoop={loop} expanded={expanded} rounded="rounded-2xl">
                                 <motion.div className="p-7"
-                                  animate={{ opacity: expanded ? 0 : 1, height: expanded ? 0 : 'auto' }}
-                                  transition={{ duration: 0.16 }}
-                                  style={{ overflow: 'hidden', pointerEvents: expanded ? 'none' : 'auto' }}>
+                                  animate={{ opacity: expanded ? 0 : 1 }}
+                                  transition={{ duration: 0.15 }}
+                                  style={{ pointerEvents: expanded ? 'none' : 'auto' }}>
                                   <CollapsedFace stage={stage} large loopActive={loop} />
                                 </motion.div>
-                                <AnimatePresence>
-                                  {expanded && (
-                                    <motion.div className="p-7 z-10 relative"
-                                      initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }}
-                                      transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }} style={{ overflow: 'hidden' }}>
-                                      <HoverFace stage={stage} large isAppCard={isApplicationCard(index)} />
-                                    </motion.div>
-                                  )}
-                                </AnimatePresence>
+
+                                {expanded && (
+                                  <motion.div className="p-7 z-10 relative"
+                                    initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+                                    transition={{ duration: 0.2 }}>
+                                    <HoverFace stage={stage} large isAppCard={isApplicationCard(index)} />
+                                  </motion.div>
+                                )}
+
                                 <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/6 overflow-hidden rounded-b-2xl">
                                   {isInView && (
                                     <div className="h-full bg-gradient-to-r from-white/30 via-white/70 to-white/30"
@@ -580,9 +506,9 @@ export function HeroSection({ stages }: PipelineSectionProps) {
                   >
                     {stages.map((stage, index) => {
                       const expanded = isExpanded(index);
-                      const loop     = isLoopLit(index);
-                      const delay    = getDelay(index);
-                      const xPos     = isInView ? getCardX(index, expandedIndex) : 'calc(-50%)';
+                      const loop = isLoopLit(index);
+                      const delay = getDelay(index);
+                      const xPos = isInView ? getCardX(index, expandedIndex) : 'calc(-50%)';
 
                       return (
                         <motion.div
@@ -602,26 +528,25 @@ export function HeroSection({ stages }: PipelineSectionProps) {
                               background: 'linear-gradient(145deg,rgba(10,10,12,0.98),rgba(22,22,26,0.96))',
                               border: expanded ? '1px solid rgba(255,255,255,0.32)'
                                 : loop ? '1px solid rgba(255,255,255,0.26)'
-                                : '1px solid rgba(255,255,255,0.11)',
+                                  : '1px solid rgba(255,255,255,0.11)',
                               boxShadow: expanded
                                 ? '0 52px 130px rgba(0,0,0,0.92),0 0 0 1px rgba(255,255,255,0.05),inset 0 1px 0 rgba(255,255,255,0.15)'
-                                : loop
-                                ? '0 22px 65px rgba(0,0,0,0.68),inset 0 1px 0 rgba(255,255,255,0.10)'
+
+
                                 : '0 10px 36px rgba(0,0,0,0.50),inset 0 1px 0 rgba(255,255,255,0.07)',
                             }}
                             animate={{
-                              width:   expanded ? EXP_W : CARD_W,
-                              height:  expanded ? EXP_H : CARD_H,
-                              y:       expanded ? -34 : loop ? [0, -18, -14] : 0,
-                              scale:   loop && !expanded ? [1, 1.07, 1.05] : 1,
-                              rotateZ: loop && !expanded ? [0, 1.8, 0, -1.8, 0] : 0,
-                              rotateY: loop && !expanded ? [0, 3, 0] : 0,
+                              width: expanded ? EXP_W : CARD_W,
+                              height: expanded ? EXP_H : CARD_H,
+                              //y: expanded ? -15 : 0,
+                              scale: expanded ? 1.03 : 1,
+
                             }}
                             transition={{
-                              width:   { duration: 0.42, ease: [0.16, 1, 0.3, 1] },
-                              height:  { duration: 0.42, ease: [0.16, 1, 0.3, 1] },
-                              y:       { duration: expanded ? 0.42 : 1, ease: [0.16, 1, 0.3, 1] },
-                              scale:   { duration: 1, ease: [0.34, 1.56, 0.64, 1] },
+                              width: { duration: 0.42, ease: [0.16, 1, 0.3, 1] },
+                              height: { duration: 0.42, ease: [0.16, 1, 0.3, 1] },
+                              y: { duration: expanded ? 0.42 : 1, ease: [0.16, 1, 0.3, 1] },
+                              scale: { duration: 1, ease: [0.34, 1.56, 0.64, 1] },
                               rotateZ: { duration: 1, times: [0, 0.4, 1], ease: [0.34, 1.56, 0.64, 1] },
                               rotateY: { duration: 1, times: [0, 0.4, 1], ease: [0.34, 1.56, 0.64, 1] },
                             }}
