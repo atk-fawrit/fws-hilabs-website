@@ -1,6 +1,6 @@
-import AICoursePage from '@/src/features/seo-pages/ai-course/AICoursePage';
+import AICoursePage from '@/src/features/ai-course/AICoursePage';
 
-export { metadata } from '@/src/features/seo-pages/ai-course/metadata';
+export { metadata } from '@/src/features/ai-course/metadata';
 
 // Enable static generation
 export const dynamic = 'force-static';

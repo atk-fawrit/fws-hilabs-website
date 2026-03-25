@@ -1,6 +1,6 @@
-import FullStackCoursePage from '@/src/features/seo-pages/full-stack/FullStackCoursePage';
+import FullStackCoursePage from '@/src/features/full-stack/FullStackCoursePage';
 
-export { metadata } from '@/src/features/seo-pages/full-stack/metadata';
+export { metadata } from '@/src/features/full-stack/metadata';
 
 // Enable static generation
 export const dynamic = 'force-static';

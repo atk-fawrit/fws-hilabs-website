@@ -25,7 +25,20 @@ export function HeroSection({ stages }: PipelineSectionProps) {
 
   const isInView = useInView(sectionRef, { once: false, amount: 0.2 });
 
+  const introFinished = useRef(false);
+
+  useEffect(() => {
+    if (isInView) {
+      introFinished.current = false;
+      const timer = setTimeout(() => { introFinished.current = true; }, 1800);
+      return () => clearTimeout(timer);
+    } else {
+      introFinished.current = false;
+    }
+  }, [isInView]);
+
   const setActive = useCallback((val: typeof activeCard) => {
+    if (!introFinished.current) return;
     activeRef.current = val;
     setActiveCard(val);
   }, []);
@@ -160,19 +173,20 @@ export function HeroSection({ stages }: PipelineSectionProps) {
   );
 
   // HoverFace component
-  const HoverFace = ({ stage, large = false, isAppCard = false, centerText = false }: {
-    stage: typeof stages[0]; large?: boolean; isAppCard?: boolean; centerText?: boolean;
+  const HoverFace = ({ stage, large = false, isAppCard = false, centerText = false, expanded = false }: {
+    stage: typeof stages[0]; large?: boolean; isAppCard?: boolean; centerText?: boolean; expanded?: boolean;
   }) => (
-    <motion.div className={`flex flex-col h-full ${centerText ? 'items-center text-center' : ''}`}
-      initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-      transition={{ duration: 0.18, delay: 0.08 }}>
+    <motion.div className={`flex flex-col h-full w-full ${centerText ? 'items-center text-center' : ''}`}
+      initial={false} animate={{ opacity: expanded ? 1 : 0 }}
+      transition={{ duration: 0.18, delay: expanded ? 0.08 : 0 }}
+      style={{ pointerEvents: expanded ? 'auto' : 'none' }}>
       <StageBadge number={stage.number} large={large} centerOnMobile={centerText} />
 
       <motion.h3
         className={`font-black text-white leading-[1.1] tracking-tight
           ${large ? 'text-[28px] mb-2' : 'text-[21px] mb-1.5'}`}
-        initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.22, delay: 0.08 }}
+        initial={false} animate={{ opacity: expanded ? 1 : 0, y: expanded ? 0 : 6 }}
+        transition={{ duration: 0.22, delay: expanded ? 0.08 : 0 }}
         style={{ textShadow: '0 0 40px rgba(255,255,255,0.25),0 2px 8px rgba(0,0,0,0.5)' }}
       >
         {stage.title}
@@ -181,15 +195,15 @@ export function HeroSection({ stages }: PipelineSectionProps) {
       <motion.p
         className={`font-bold tracking-[0.22em] uppercase text-white/60
           ${large ? 'text-[11px] mb-5' : 'text-[9px] mb-4'}`}
-        initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-        transition={{ duration: 0.2, delay: 0.12 }}>
+        initial={false} animate={{ opacity: expanded ? 1 : 0 }}
+        transition={{ duration: 0.2, delay: expanded ? 0.12 : 0 }}>
         {stage.subtitle}
       </motion.p>
 
       {/* Divider */}
-      <motion.div className="w-full mb-5" initial={{ scaleX: 0, opacity: 0 }}
-        animate={{ scaleX: 1, opacity: 1 }}
-        transition={{ duration: 0.35, delay: 0.14, ease: [0.16, 1, 0.3, 1] }}
+      <motion.div className="w-full mb-5"
+        initial={false} animate={{ scaleX: expanded ? 1 : 0, opacity: expanded ? 1 : 0 }}
+        transition={{ duration: 0.35, delay: expanded ? 0.14 : 0, ease: [0.16, 1, 0.3, 1] }}
         style={{ originX: centerText ? 0.5 : 0 }}>
         <div className="h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
         <div className="h-px bg-gradient-to-r from-transparent via-white/15 to-transparent mt-px blur-[1px]" />
@@ -199,8 +213,8 @@ export function HeroSection({ stages }: PipelineSectionProps) {
         <>
           <motion.p className={`text-white/72 leading-relaxed mb-5 font-light
             ${large ? 'text-[14px]' : 'text-[12px]'}`}
-            initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.24, delay: 0.16 }}>
+            initial={false} animate={{ opacity: expanded ? 1 : 0, y: expanded ? 0 : 4 }}
+            transition={{ duration: 0.24, delay: expanded ? 0.16 : 0 }}>
             {stage.details.description}
           </motion.p>
 
@@ -208,8 +222,8 @@ export function HeroSection({ stages }: PipelineSectionProps) {
           <ul className={`space-y-3 flex-1 ${centerText ? 'text-left w-full' : ''}`}>
             {stage.details.highlights.map((h, idx) => (
               <motion.li key={idx} className="flex items-start gap-3"
-                initial={{ opacity: 0, x: -12 }} animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.20 + idx * 0.07, duration: 0.24, ease: [0.16, 1, 0.3, 1] }}>
+                initial={false} animate={{ opacity: expanded ? 1 : 0, x: expanded ? 0 : -12 }}
+                transition={{ delay: expanded ? 0.20 + idx * 0.07 : 0, duration: 0.24, ease: [0.16, 1, 0.3, 1] }}>
                 <div className="relative mt-[6px] shrink-0">
                   <div className={`rounded-full bg-blue-400 ${large ? 'w-[5px] h-[5px]' : 'w-[4px] h-[4px]'}`} />
                   <div className="absolute inset-0 rounded-full bg-blue-300 blur-[4px] opacity-70 scale-150" />
@@ -222,7 +236,7 @@ export function HeroSection({ stages }: PipelineSectionProps) {
       )}
 
       <motion.div className={`mt-auto pt-4 border-t border-white/12 w-full ${centerText ? 'text-center' : ''}`}
-        initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.2, delay: 0.28 }}>
+        initial={false} animate={{ opacity: expanded ? 1 : 0 }} transition={{ duration: 0.2, delay: expanded ? 0.28 : 0 }}>
         <div className={`flex items-center gap-2 mb-4 ${centerText ? 'justify-center' : ''}`}>
           <svg width={large ? 13 : 11} height={large ? 13 : 11} viewBox="0 0 13 13" fill="none" className="text-white/40 shrink-0">
             <circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" strokeWidth="1" />
@@ -232,7 +246,7 @@ export function HeroSection({ stages }: PipelineSectionProps) {
         </div>
 
         {isAppCard && (
-          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3, delay: 0.35 }}>
+          <motion.div initial={false} animate={{ opacity: expanded ? 1 : 0, y: expanded ? 0 : 10 }} transition={{ duration: 0.3, delay: expanded ? 0.35 : 0 }}>
             <Link href="/admissions#application" className="block">
               <motion.button
                 whileHover={{ scale: 1.02, boxShadow: '0 0 25px rgba(96,165,250,0.4)' }}
@@ -295,37 +309,36 @@ export function HeroSection({ stages }: PipelineSectionProps) {
       <div className="relative z-10 flex flex-col min-h-screen">
 
         {/* Hero text */}
-        <div className="flex-shrink-0 flex items-center justify-center pt-10 sm:pt-12 md:pt-16 lg:pt-18 pb-0 px-4 md:px-6 lg:px-8">
+        <div className="flex-shrink-0 flex items-center justify-center pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-0 px-4 md:px-6 lg:px-8">
           <div className="text-center min-h-[220px] flex flex-col justify-center">
             <div className="absolute opacity-0 pointer-events-none">
               {typedText}
             </div>
-            {typedText.length === mainText.length && (
-              <>
+            <div className="relative mt-0 md:mt-2 px-4">
+              {/* Invisible placeholder blocks the correct layout space from frame 1 */}
+              <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-light invisible pointer-events-none select-none" aria-hidden="true">
+                {subText}
+                <span className="inline-block w-[4px] sm:w-[5px] md:w-[6px] h-[0.8em] ml-1 align-middle" />
+              </div>
+
+              {typedText.length === mainText.length && (
                 <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                  className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-light mt-0 md:mt-2 text-black drop-shadow-sm px-4">
+                  className="absolute inset-0 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-light text-black drop-shadow-sm pointer-events-none">
                   {typedSub}
                   {(typedSub.length < subText.length || showCursor) && (
                     <span className="inline-block w-[4px] sm:w-[5px] md:w-[6px] h-[0.8em] ml-1 align-middle animate-blink" />
                   )}
                 </motion.div>
-                {typedSub.length === subText.length && (
-                  <>
-                    <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                      className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light mt-12 md:mt-14 text-black drop-shadow-sm px-4">
-                      {aiEnrichedText}
-                    </motion.div>
-                    <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.7, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                      className="text-sm sm:text-base md:text-lg lg:text-xl font-light mt-1 md:mt-2 text-black/60 drop-shadow-sm px-4">
-                      {flagshipText}
-                    </motion.div>
-                  </>
-                )}
-              </>
-            )}
+              )}
+            </div>
+
+            <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light mt-12 md:mt-14 text-black drop-shadow-sm px-4">
+              {aiEnrichedText}
+            </div>
+            <div className="text-sm sm:text-base md:text-lg lg:text-xl font-light mt-1 md:mt-2 text-black/60 drop-shadow-sm px-4">
+              {flagshipText}
+            </div>
           </div>
         </div>
 
@@ -385,21 +398,18 @@ export function HeroSection({ stages }: PipelineSectionProps) {
                             <CardChrome stageId={stage.id} isLoop={loop} expanded={expanded} rounded="rounded-2xl">
                               {/* Collapsed state */}
                               <motion.div className="px-5 py-6"
+                                initial={false}
                                 animate={{ opacity: expanded ? 0 : 1, height: expanded ? 0 : 'auto' }}
                                 transition={{ duration: 0.16 }}
-                                style={{ overflow: 'hidden', pointerEvents: expanded ? 'none' : 'auto' }}>
+                                style={{ overflow: 'hidden', pointerEvents: expanded ? 'none' : 'auto', backfaceVisibility: 'hidden' }}>
                                 <CollapsedFace stage={stage} loopActive={loop} centerText />
                               </motion.div>
                               {/* Expanded state */}
-                              <AnimatePresence>
-                                {expanded && (
-                                  <motion.div className="px-5 py-6"
-                                    initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }}
-                                    transition={{ duration: 0.32, ease: [0.16, 1, 0.3, 1] }} style={{ overflow: 'hidden' }}>
-                                    <HoverFace stage={stage} isAppCard={isApplicationCard(index)} centerText />
-                                  </motion.div>
-                                )}
-                              </AnimatePresence>
+                              <motion.div className="px-5"
+                                initial={false} animate={{ opacity: expanded ? 1 : 0, height: expanded ? 'auto' : 0, paddingTop: expanded ? '1.5rem' : 0, paddingBottom: expanded ? '1.5rem' : 0 }}
+                                transition={{ duration: 0.32, ease: [0.16, 1, 0.3, 1] }} style={{ overflow: 'hidden', backfaceVisibility: 'hidden' }}>
+                                <HoverFace stage={stage} isAppCard={isApplicationCard(index)} centerText expanded={expanded} />
+                              </motion.div>
                               <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/5 overflow-hidden">
                                 {isInView && (
                                   <div className="h-full bg-gradient-to-r from-white/15 via-white/50 to-white/15"
@@ -459,19 +469,18 @@ export function HeroSection({ stages }: PipelineSectionProps) {
                             >
                               <CardChrome stageId={stage.id} isLoop={loop} expanded={expanded} rounded="rounded-2xl">
                                 <motion.div className="p-7"
+                                  initial={false}
                                   animate={{ opacity: expanded ? 0 : 1 }}
                                   transition={{ duration: 0.15 }}
-                                  style={{ pointerEvents: expanded ? 'none' : 'auto' }}>
+                                  style={{ pointerEvents: expanded ? 'none' : 'auto', backfaceVisibility: 'hidden' }}>
                                   <CollapsedFace stage={stage} large loopActive={loop} />
                                 </motion.div>
 
-                                {expanded && (
-                                  <motion.div className="p-7 z-10 relative"
-                                    initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-                                    transition={{ duration: 0.2 }}>
-                                    <HoverFace stage={stage} large isAppCard={isApplicationCard(index)} />
-                                  </motion.div>
-                                )}
+                                <motion.div className="px-7"
+                                  initial={false} animate={{ opacity: expanded ? 1 : 0, height: expanded ? 'auto' : 0, paddingTop: expanded ? '1.75rem' : 0, paddingBottom: expanded ? '1.75rem' : 0 }}
+                                  transition={{ duration: 0.32, ease: [0.16, 1, 0.3, 1] }} style={{ overflow: 'hidden', backfaceVisibility: 'hidden' }}>
+                                  <HoverFace stage={stage} large isAppCard={isApplicationCard(index)} expanded={expanded} />
+                                </motion.div>
 
                                 <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/6 overflow-hidden rounded-b-2xl">
                                   {isInView && (
@@ -551,26 +560,22 @@ export function HeroSection({ stages }: PipelineSectionProps) {
                               height: { duration: 0.42, ease: [0.16, 1, 0.3, 1] },
                               y: { duration: expanded ? 0.42 : 1, ease: [0.16, 1, 0.3, 1] },
                               scale: { duration: 1, ease: [0.34, 1.56, 0.64, 1] },
-                              rotateZ: { duration: 1, times: [0, 0.4, 1], ease: [0.34, 1.56, 0.64, 1] },
-                              rotateY: { duration: 1, times: [0, 0.4, 1], ease: [0.34, 1.56, 0.64, 1] },
+
                             }}
                           >
                             <CardChrome stageId={stage.id} isLoop={loop} expanded={expanded} rounded="rounded-3xl">
                               <motion.div className="absolute inset-0 p-8 flex flex-col"
+                                initial={false}
                                 animate={{ opacity: expanded ? 0 : 1 }}
                                 transition={{ duration: 0.14 }}
-                                style={{ pointerEvents: expanded ? 'none' : 'auto' }}>
+                                style={{ pointerEvents: expanded ? 'none' : 'auto', backfaceVisibility: 'hidden' }}>
                                 <CollapsedFace stage={stage} large loopActive={loop} />
                               </motion.div>
-                              <AnimatePresence>
-                                {expanded && (
-                                  <motion.div className="absolute inset-0 p-8 flex flex-col"
-                                    initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-                                    transition={{ duration: 0.20, delay: 0.16 }}>
-                                    <HoverFace stage={stage} large isAppCard={isApplicationCard(index)} />
-                                  </motion.div>
-                                )}
-                              </AnimatePresence>
+                              <motion.div className="absolute inset-0 p-8 flex flex-col"
+                                initial={false} animate={{ opacity: expanded ? 1 : 0 }}
+                                transition={{ duration: 0.20, delay: expanded ? 0.16 : 0 }} style={{ pointerEvents: expanded ? 'auto' : 'none', backfaceVisibility: 'hidden' }}>
+                                <HoverFace stage={stage} large isAppCard={isApplicationCard(index)} expanded={expanded} />
+                              </motion.div>
                               <div className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-white/6 overflow-hidden rounded-b-3xl">
                                 {isInView && (
                                   <div className="h-full bg-gradient-to-r from-white/30 via-white/78 to-white/30 shadow-[0_0_8px_rgba(255,255,255,0.32)]"
