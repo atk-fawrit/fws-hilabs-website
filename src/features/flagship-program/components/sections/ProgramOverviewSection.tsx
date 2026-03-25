@@ -134,25 +134,7 @@ export const ProgramOverviewSection: React.FC<ProgramOverviewSectionProps> = ({
                 6-month rigorous training journey followed by a guaranteed
                 6-month internship.
               </p>
-              <button
-                onClick={onLearnMoreClick}
-                className="inline-flex items-center gap-2 text-red-600 font-semibold text-sm hover:text-red-700 transition-colors group"
-              >
-                <span>LEARN MORE</span>
-                <svg
-                  className="w-4 h-4 transition-transform group-hover:translate-x-0.5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </button>
+
             </div>
 
             {/* Right Column - Image */}

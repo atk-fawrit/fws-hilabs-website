@@ -1,6 +1,6 @@
-import CodingClassesPage from '@/src/features/seo-pages/coding-classes/CodingClassesPage';
+import CodingClassesPage from '@/src/features/coding-classes/CodingClassesPage';
 
-export { metadata } from '@/src/features/seo-pages/coding-classes/metadata';
+export { metadata } from '@/src/features/coding-classes/metadata';
 
 // Enable static generation
 export const dynamic = 'force-static';

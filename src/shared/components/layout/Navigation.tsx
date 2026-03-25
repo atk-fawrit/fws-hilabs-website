@@ -11,7 +11,14 @@ const primaryNavItems: NavigationItem[] = [
   { label: 'Admissions', href: '/admissions', primary: true },
   { label: 'Courses', href: '/courses', primary: true },
   { label: 'About', href: '/about', primary: true },
-  { label: 'AI Course', href: '/artificial-intelligence-course-lucknow', primary: true },
+  // { label: 'AI Course', href: '/artificial-intelligence-course-lucknow', primary: true },
+];
+const courseDropdownItems: NavigationItem[] = [
+  { label: 'AI Course', href: '/ai-course', primary: false },
+  { label: 'Coding Classes', href: '/coding-classes', primary: false },
+  { label: 'Data Science', href: '/data-science', primary: false },
+  { label: 'Full Stack', href: '/full-stack', primary: false },
+  { label: 'Web Development', href: '/web-development', primary: false },
 ];
 
 // Secondary navigation items - in "More" dropdown (temporarily disabled)
@@ -27,6 +34,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
   const [isMoreDropdownOpen, setIsMoreDropdownOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const [isCoursesDropdownOpen, setIsCoursesDropdownOpen] = useState(false);
 
   // Temporarily disable "More" dropdown
   const showMoreDropdown = false;
@@ -138,25 +146,64 @@ export default function Navigation({ className = '' }: NavigationProps) {
             {primaryNavItems.map((item) => {
               const isActive = pathname === item.href;
 
+              // ✅ Courses dropdown
+              if (item.label === 'Courses') {
+                return (
+                  <div
+                    key={item.href}
+                    className="relative"
+                    onMouseEnter={() => setIsCoursesDropdownOpen(true)}
+                    onMouseLeave={() => setIsCoursesDropdownOpen(false)}
+                  >
+                    <Link
+                      href="/courses"
+                      className={`
+            relative px-6 py-2.5 text-[15px] font-semibold tracking-wide transition-all duration-300 rounded-lg
+            ${isActive
+                          ? 'text-black bg-black/15'
+                          : 'text-gray-800 hover:text-black hover:bg-black/10'
+                        }
+          `}
+                    >
+                      Courses
+                    </Link>
+
+                    {isCoursesDropdownOpen && (
+                      <div className="absolute left-0 mt-2 w-64 z-50 bg-white border border-gray-200 rounded-xl shadow-2xl">
+                        <div className="py-2">
+                          {courseDropdownItems.map((course) => (
+                            <Link
+                              key={course.href}
+                              href={course.href}
+                              className="block px-6 py-3 text-gray-800 hover:bg-gray-100"
+                            >
+                              {course.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+
+              // ✅ Normal nav items
               return (
                 <Link
                   key={item.href}
                   href={item.href}
                   className={`
-                    relative px-6 py-2.5 text-[15px] font-semibold tracking-wide transition-all duration-300 rounded-lg
-                    ${isActive
+        relative px-6 py-2.5 text-[15px] font-semibold tracking-wide transition-all duration-300 rounded-lg
+        ${isActive
                       ? 'text-black bg-black/15'
                       : 'text-gray-800 hover:text-black hover:bg-black/10'
                     }
-                  `}
-                  aria-current={isActive ? 'page' : undefined}
-                  prefetch={true}
+      `}
                 >
                   {item.label}
                 </Link>
               );
             })}
-
             {/* More Dropdown - Temporarily Hidden */}
             {showMoreDropdown && (
               <div className="relative" ref={dropdownRef}>

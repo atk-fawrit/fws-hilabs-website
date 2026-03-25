@@ -13,26 +13,26 @@ export const programSections = [
   },
   {
     id: 'phase-one',
-    title: 'Phase I: Foundation Terms',
-    description: 'Three systematic foundation terms (Months 1-9) building core engineering competencies through structured evaluation and elimination protocols',
+    title: 'Term 1: Foundation',
+    description: '(1–2 Months) Build core skills in Data Structures, Algorithms, and Database Management. Includes coding practice, System Design basics, and tools like Git, GitHub, and Jira.',
     image: '/images/phase-one-foundation.jpg',
   },
   {
     id: 'phase-two',
-    title: 'Phase II: Supervised Deployment',
-    description: 'Real-world engineering deployment (Months 10-12) with systematic supervision, performance tracking, and professional development protocols',
+    title: 'Term 2: Advanced',
+    description: '(1–2 Months) Build advanced skills using the MERN stack and PostgreSQL, along with coding practice. Includes aptitude training, resume building, and LinkedIn profile development.',
     image: '/images/phase-two-deployment.jpg',
   },
   {
     id: 'evaluation',
-    title: 'Evaluation System',
-    description: 'Systematic evaluation protocols with documented criteria, elimination thresholds, and performance measurement frameworks ensuring consistent assessment',
+    title: 'Term 3: Application',
+    description: '(1–2 Months)Focuses on applying skills through AI-assisted development and live project work. Includes Vibecoding or coding with AI to build real-world experience.',
     image: '/images/evaluation-system.jpg',
   },
   {
     id: 'application',
-    title: 'Application Process',
-    description: 'Structured application and selection protocols with systematic assessment criteria and enrollment procedures for program participation',
+    title: 'Internship',
+    description: '(6 Months) Provides a guaranteed internship at a partnered startup after course completion. Includes hands-on project work to apply skills in a professional environment.',
     image: '/images/application-process.jpg',
   }
 ];

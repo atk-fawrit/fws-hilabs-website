@@ -1,6 +1,6 @@
-import DataScienceCoursePage from '@/src/features/seo-pages/data-science/DataScienceCoursePage';
+import DataScienceCoursePage from '@/src/features/data-science/DataScienceCoursePage';
 
-export { metadata } from '@/src/features/seo-pages/data-science/metadata';
+export { metadata } from '@/src/features/data-science/metadata';
 
 // Enable static generation
 export const dynamic = 'force-static';

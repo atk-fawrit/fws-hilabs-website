@@ -72,19 +72,19 @@ export const PhaseOneSection: React.FC = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Terms List */}
       <div className="space-y-10 sm:space-y-16 px-0 sm:px-4">
         {terms.map((term) => (
           <div key={term.stepNumber} className="relative pl-14 sm:pl-20">
             {/* Vertical Line */}
             <div className="absolute left-5 sm:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-blue-600 via-blue-400 to-transparent"></div>
-            
+
             {/* Term Number Circle */}
             <div className="absolute left-0 top-0 w-10 h-10 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center shadow-lg">
               <span className="text-white font-mono font-bold text-sm sm:text-xl">{term.stepNumber}</span>
             </div>
-            
+
             {/* Term Content */}
             <div className="space-y-6">
               {/* Term Header */}
@@ -98,7 +98,7 @@ export const PhaseOneSection: React.FC = () => {
                   <span className="font-light">{term.subtitle}</span>
                 </div>
               </div>
-              
+
               {/* Core Constraints */}
               <div>
                 <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">
@@ -117,7 +117,7 @@ export const PhaseOneSection: React.FC = () => {
                   ))}
                 </ul>
               </div>
-              
+
               {/* Elimination Warning */}
               <div className="bg-gradient-to-r from-red-50 to-red-50/50 border-l-4 border-red-600 rounded-r-lg p-6">
                 <div className="flex items-start gap-4">
