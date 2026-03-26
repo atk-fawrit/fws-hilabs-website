@@ -73,7 +73,7 @@ export default function CodingClassesPage() {
                 <div className="flex flex-col md:flex-row gap-12 items-start">
                     <div className="md:w-64 flex-shrink-0">
                         <h2 className="text-2xl md:text-3xl font-black text-gray-900 leading-tight mb-3">
-                            What You'll<br />Learn
+                            What You&apos;ll<br />Learn
                         </h2>
                         <p className="text-gray-500 text-sm leading-relaxed">
                             From zero to job-ready — a practical coding curriculum built by HI Labs.

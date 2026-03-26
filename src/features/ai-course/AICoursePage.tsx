@@ -50,7 +50,7 @@ export default function AICoursePage() {
 
             {/* WHAT YOU'LL LEARN */}
             <section className="max-w-5xl mx-auto px-6 py-16">
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">What You'll Learn</h2>
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">What You&apos;ll Learn</h2>
                 <p className="text-gray-500 mb-10 text-sm">A curriculum built for real-world AI roles.</p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">

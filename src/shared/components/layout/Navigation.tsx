@@ -13,13 +13,13 @@ const primaryNavItems: NavigationItem[] = [
   { label: 'About', href: '/about', primary: true },
   // { label: 'AI Course', href: '/artificial-intelligence-course-lucknow', primary: true },
 ];
-const courseDropdownItems: NavigationItem[] = [
-  { label: 'AI Course', href: '/ai-course', primary: false },
-  { label: 'Coding Classes', href: '/coding-classes', primary: false },
-  { label: 'Data Science', href: '/data-science', primary: false },
-  { label: 'Full Stack', href: '/full-stack', primary: false },
-  { label: 'Web Development', href: '/web-development', primary: false },
-];
+// const courseDropdownItems: NavigationItem[] = [
+//   { label: 'AI Course', href: '/ai-course', primary: false },
+//   { label: 'Coding Classes', href: '/coding-classes', primary: false },
+//   { label: 'Data Science', href: '/data-science', primary: false },
+//   { label: 'Full Stack', href: '/full-stack', primary: false },
+//   { label: 'Web Development', href: '/web-development', primary: false },
+// ];
 
 // Secondary navigation items - in "More" dropdown (temporarily disabled)
 const secondaryNavItems: NavigationItem[] = [
@@ -34,7 +34,6 @@ export default function Navigation({ className = '' }: NavigationProps) {
   const [isMoreDropdownOpen, setIsMoreDropdownOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const [isCoursesDropdownOpen, setIsCoursesDropdownOpen] = useState(false);
 
   // Temporarily disable "More" dropdown
   const showMoreDropdown = false;
