@@ -40,7 +40,7 @@ export const PhaseTwoSection: React.FC = () => {
         <div className="max-w-4xl space-y-6 sm:space-y-8">
           <div>
             <h2 className="font-sans text-3xl sm:text-4xl md:text-5xl font-light mb-3 sm:mb-4 text-white tracking-tight">
-              Phase II: Supervised Deployment
+              Term 2: Advanced
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-white/90 font-light leading-relaxed">
               Real-world engineering deployment (Months 10-12) with systematic supervision, performance tracking, and professional development protocols

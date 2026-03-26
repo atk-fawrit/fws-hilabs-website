@@ -64,11 +64,11 @@ export const PhaseOneSection: React.FC = () => {
         <div className="absolute inset-0 flex items-center px-4 sm:px-6 md:px-12">
           <div>
             <h2 className="font-sans text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-2 sm:mb-4 text-white tracking-tight">
-              Phase I: Foundation Terms
+              Term 1: Foundation
             </h2>
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/80 font-light">
               Months 1-9: Building core engineering competencies
-            </p>
+            </p>  
           </div>
         </div>
       </div>

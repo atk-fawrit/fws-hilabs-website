@@ -146,44 +146,22 @@ export default function Navigation({ className = '' }: NavigationProps) {
             {primaryNavItems.map((item) => {
               const isActive = pathname === item.href;
 
-              // ✅ Courses dropdown
+              // ✅ Courses — direct link, no dropdown
               if (item.label === 'Courses') {
                 return (
-                  <div
+                  <Link
                     key={item.href}
-                    className="relative"
-                    onMouseEnter={() => setIsCoursesDropdownOpen(true)}
-                    onMouseLeave={() => setIsCoursesDropdownOpen(false)}
+                    href="/courses"
+                    className={`
+                      relative px-6 py-2.5 text-[15px] font-semibold tracking-wide transition-all duration-300 rounded-lg
+                      ${isActive
+                        ? 'text-black bg-black/15'
+                        : 'text-gray-800 hover:text-black hover:bg-black/10'
+                      }
+                    `}
                   >
-                    <Link
-                      href="/courses"
-                      className={`
-            relative px-6 py-2.5 text-[15px] font-semibold tracking-wide transition-all duration-300 rounded-lg
-            ${isActive
-                          ? 'text-black bg-black/15'
-                          : 'text-gray-800 hover:text-black hover:bg-black/10'
-                        }
-          `}
-                    >
-                      Courses
-                    </Link>
-
-                    {isCoursesDropdownOpen && (
-                      <div className="absolute left-0 mt-2 w-64 z-50 bg-white border border-gray-200 rounded-xl shadow-2xl">
-                        <div className="py-2">
-                          {courseDropdownItems.map((course) => (
-                            <Link
-                              key={course.href}
-                              href={course.href}
-                              className="block px-6 py-3 text-gray-800 hover:bg-gray-100"
-                            >
-                              {course.label}
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </div>
+                    Courses
+                  </Link>
                 );
               }
 

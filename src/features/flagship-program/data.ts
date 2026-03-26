@@ -14,25 +14,25 @@ export const programSections = [
   {
     id: 'phase-one',
     title: 'Term 1: Foundation',
-    description: '(1–2 Months) Build core skills in Data Structures, Algorithms, and Database Management. Includes coding practice, System Design basics, and tools like Git, GitHub, and Jira.',
+    description: '2 Months – Build core skills in Data Structures, Algorithms, and Database Management. Includes coding practice, System Design basics, and tools like Git, GitHub, and Jira.',
     image: '/images/phase-one-foundation.jpg',
   },
   {
     id: 'phase-two',
     title: 'Term 2: Advanced',
-    description: '(1–2 Months) Build advanced skills using the MERN stack and PostgreSQL, along with coding practice. Includes aptitude training, resume building, and LinkedIn profile development.',
+    description: '2 Months – Build advanced skills using the MERN stack and PostgreSQL, along with coding practice. Includes aptitude training, resume building, and LinkedIn profile development.',
     image: '/images/phase-two-deployment.jpg',
   },
   {
     id: 'evaluation',
-    title: 'Term 3: Application',
-    description: '(1–2 Months)Focuses on applying skills through AI-assisted development and live project work. Includes Vibecoding or coding with AI to build real-world experience.',
+    title: 'Term 3: Implementation',
+    description: '2 Months – Focuses on applying skills through AI-assisted development and live project work. Includes Vibecoding or coding with AI to build real-world experience.',
     image: '/images/evaluation-system.jpg',
   },
   {
     id: 'application',
     title: 'Internship',
-    description: '(6 Months) Provides a guaranteed internship at a partnered startup after course completion. Includes hands-on project work to apply skills in a professional environment.',
+    description: 'Provides a 6-month guaranteed internship at a partnered startup after course completion. Includes hands-on project work to apply skills in a professional environment.',
     image: '/images/application-process.jpg',
   }
 ];
