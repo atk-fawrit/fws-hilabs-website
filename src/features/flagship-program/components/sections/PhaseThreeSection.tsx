@@ -108,7 +108,7 @@ export const PhaseThreeSection: React.FC = () => {
             {/* Quote below card */}
             <div className="mt-5 px-5 py-4 rounded-xl bg-gray-900 shadow-md">
               <p className="text-white/90 text-sm italic leading-relaxed font-light">
-                "The final term is where engineers are made — not taught."
+                &ldquo;The final term is where engineers are made — not taught.&rdquo;
               </p>
               <div className="mt-2 flex items-center gap-2">
                 <div className="w-5 h-px bg-white/40"></div>

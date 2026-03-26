@@ -55,7 +55,7 @@ export default function DataScienceCoursePage() {
                 {/* Card 1 */}
                 <div className="bg-gray-900 rounded-2xl p-8 flex flex-col justify-between min-h-[280px]">
                     <div>
-                        <span className="text-xs font-semibold text-violet-400 uppercase tracking-widest mb-4 block">What You'll Learn</span>
+                        <span className="text-xs font-semibold text-violet-400 uppercase tracking-widest mb-4 block">What You&apos;ll Learn</span>
                         <h3 className="text-white text-xl font-bold mb-5 leading-snug">Core Data Science Skills</h3>
                         <ul className="space-y-3">
                             {[

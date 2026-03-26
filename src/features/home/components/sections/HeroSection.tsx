@@ -1,7 +1,8 @@
 'use client';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { motion, AnimatePresence, useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
+// import { AnimatePresence } from 'framer-motion'; // reserved for future use
 import Link from 'next/link';
 import type { PipelineSectionProps } from '../../types';
 import { heroLayoutConfig, heroTextContent } from '../../data';
@@ -14,7 +15,7 @@ export function HeroSection({ stages }: PipelineSectionProps) {
   const activeRef = useRef<typeof activeCard>(null);
   const isUserHovering = useRef(false);
 
-  const [mousePos, setMousePos] = useState<Record<string, { x: number; y: number }>>({});
+  // const [mousePos, setMousePos] = useState<Record<string, { x: number; y: number }>>({});
   const [typedText, setTypedText] = useState('');
   const [typedSub, setTypedSub] = useState('');
   const [showCursor, setShowCursor] = useState(true);
@@ -44,7 +45,7 @@ export function HeroSection({ stages }: PipelineSectionProps) {
   }, []);
 
   const isExpanded = (i: number) => activeCard?.index === i;
-  const isLoopLit = (_: number) => false;
+  const isLoopLit = (_i: number) => false;
   const isApplicationCard = (i: number) => stages[i]?.id === 'application';
 
   const { mainText, subText, aiEnrichedText, flagshipText } = heroTextContent;
@@ -66,6 +67,7 @@ export function HeroSection({ stages }: PipelineSectionProps) {
       }
     }, 100);
     return () => clearInterval(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -76,41 +78,14 @@ export function HeroSection({ stages }: PipelineSectionProps) {
 
 
 
-  // Desktop container-level mouse tracking
-  const handleDesktopMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    const mx = e.clientX, my = e.clientY;
-    let hit: number | null = null;
-    cardRefs.current.forEach((card, i) => {
-      if (!card) return;
-      const r = card.getBoundingClientRect();
-      if (mx >= r.left && mx <= r.right && my >= r.top && my <= r.bottom) hit = i;
-    });
-    if (hit !== null) {
-      isUserHovering.current = true;
-      if (activeRef.current?.index !== hit || activeRef.current?.source !== 'hover') setActive({ index: hit, source: 'hover' });
-      const card = cardRefs.current[hit];
-      if (card) {
-        const r = card.getBoundingClientRect();
-        const stageId = stages[hit]?.id;
-        if (stageId) setMousePos(prev => ({ ...prev, [stageId]: { x: mx - r.left, y: my - r.top } }));
-      }
-    } else {
-      if (activeRef.current?.source === 'hover') { isUserHovering.current = false; setActive(null); }
-    }
-  }, [stages, setActive]);
-
-  const handleDesktopMouseLeave = useCallback(() => {
-    isUserHovering.current = false;
-    if (activeRef.current?.source === 'hover') setActive(null);
-  }, [setActive]);
+  // Desktop container-level mouse tracking (reserved for future use)
+  // const handleDesktopMouseMove = useCallback(...)
+  // const handleDesktopMouseLeave = useCallback(...)
 
   const handleCardEnter = useCallback((i: number) => { isUserHovering.current = true; setActive({ index: i, source: 'hover' }); }, [setActive]);
   const handleCardLeave = useCallback(() => { isUserHovering.current = false; if (activeRef.current?.source === 'hover') setActive(null); }, [setActive]);
-  const handleCardMove = useCallback((e: React.MouseEvent<HTMLDivElement>, stageId: string, i: number) => {
-    const card = cardRefs.current[i];
-    if (!card) return;
-    const r = card.getBoundingClientRect();
-    setMousePos(prev => ({ ...prev, [stageId]: { x: e.clientX - r.left, y: e.clientY - r.top } }));
+  const handleCardMove = useCallback((_e: React.MouseEvent<HTMLDivElement>, _stageId: string, _i: number) => {
+    // mouse position tracking reserved for future use
   }, []);
 
   // Desktop card positions
@@ -267,7 +242,7 @@ export function HeroSection({ stages }: PipelineSectionProps) {
   );
 
   // CardChrome component
-  const CardChrome = ({ stageId, isLoop, expanded, rounded, children }: {
+  const CardChrome = ({ stageId: _stageId, isLoop, expanded, rounded, children }: {
     stageId: string; isLoop: boolean; expanded: boolean; rounded: string; children: React.ReactNode;
   }) => (
     <>

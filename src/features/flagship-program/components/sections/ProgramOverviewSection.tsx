@@ -65,7 +65,7 @@ function Separator() {
 }
 
 export const ProgramOverviewSection: React.FC<ProgramOverviewSectionProps> = ({
-  onLearnMoreClick,
+  onLearnMoreClick: _onLearnMoreClick,
 }) => {
   const BATCH_DATE = "2026-07-06T00:00:00";
   const timeLeft = useCountdown(BATCH_DATE);

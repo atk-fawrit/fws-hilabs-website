@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import Navigation from "@/src/shared/components/layout/Navigation";
-import JsonLd from "@/src/shared/components/JsonLd";
+// import JsonLd from "@/src/shared/components/JsonLd";
 import "./globals.css";
 
 // Modern typography - Inter and JetBrains Mono
