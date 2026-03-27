@@ -1,7 +1,6 @@
 "use client";
 
 import Link from 'next/link';
-import { useState } from 'react';
 import { FooterProps } from '@/src/shared/types';
 
 // Footer sections data
@@ -32,7 +31,6 @@ const companyInfo = {
 
 export default function Footer({ className = '' }: FooterProps) {
   const currentYear = new Date().getFullYear();
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   
   return (
     <footer className={`bg-white border-t border-black/8 flex flex-col ${className}`}>
@@ -82,52 +80,43 @@ export default function Footer({ className = '' }: FooterProps) {
               Contact
             </h4>
             
-            <div className="relative flex flex-col items-center">
-              <button 
-                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                className="flex items-center gap-2 text-sm sm:text-base text-black/60 hover:text-black/90 transition-colors cursor-pointer"
-                aria-expanded={isDropdownOpen}
-              >
+            <div className="flex flex-col items-center">
+              <div className="flex items-center gap-2 text-sm sm:text-base text-black/60 mb-5">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="text-red-500 flex-shrink-0">
                   <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                 </svg>
-                Lucknow <span className="text-[10px] transform transition-transform duration-300">{isDropdownOpen ? '▲' : '▼'}</span>
-              </button>
-              
-              <div 
-                className={`overflow-hidden transition-all duration-300 ease-in-out flex flex-col items-center
-                  ${isDropdownOpen ? 'max-h-[500px] opacity-100 mt-5' : 'max-h-0 opacity-0 mt-0 pointer-events-none'}`}
-              >
-                <div className="bg-[#001c36] text-white text-left text-[13px] sm:text-sm rounded-md p-4 w-[280px] sm:w-[300px] shadow-lg flex flex-col gap-4">
-                  
-                  {/* Map Box */}
-                  <div className="relative rounded overflow-hidden bg-gray-200 w-full h-[160px]">
-                    <iframe 
-                      src="https://maps.google.com/maps?q=Vijyant+Khand,+Gomti+Nagar+Yojna,+Lucknow&t=&z=14&ie=UTF8&iwloc=&output=embed"
-                      width="100%" 
-                      height="100%" 
-                      style={{ border: 0 }} 
-                      allowFullScreen={false} 
-                      loading="lazy"
-                    ></iframe>
-                    
-                    <Link 
-                      href="https://maps.app.goo.gl/Yc2XbMnWt1QHnREy7?g_st=aw" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="absolute top-2 left-2 bg-white text-blue-600 px-2.5 py-1 flex items-center gap-1.5 text-[12px] font-semibold rounded shadow-md hover:bg-gray-50 transition-colors"
-                    >
-                      Open in Maps 
-                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                    </Link>
-                  </div>
+                Lucknow
+              </div>
 
-                  {/* Details */}
-                  <div className="flex flex-col gap-2.5 leading-snug" style={{ color: '#ffffff' }}>
-                    <p style={{ color: '#ffffff' }}><strong className="font-semibold">Address:</strong> 2nd Floor of B-4/1, Vijyant Khand, Gomti Nagar Yojna, Lucknow</p>
-                  </div>
+              <div className="bg-[#001c36] text-white text-left text-[13px] sm:text-sm rounded-md p-4 w-[280px] sm:w-[300px] shadow-lg flex flex-col gap-4">
+                
+                {/* Map Box */}
+                <div className="relative rounded overflow-hidden bg-gray-200 w-full h-[160px]">
+                  <iframe 
+                    src="https://maps.google.com/maps?q=Vijyant+Khand,+Gomti+Nagar+Yojna,+Lucknow&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                    width="100%" 
+                    height="100%" 
+                    style={{ border: 0 }} 
+                    allowFullScreen={false} 
+                    loading="lazy"
+                  ></iframe>
                   
+                  <Link 
+                    href="https://www.google.com/maps/place/The+HI+Labs/@26.8662219,81.0215737,17z/data=!3m1!4b1!4m6!3m5!1s0x399be38d1dfb7739:0xa8d7f6a87eee91ec!8m2!3d26.8662219!4d81.0215737!16s%2Fg%2F11nb4nf8lg?entry=ttu&g_ep=EgoyMDI2MDMyMy4xIKXMDSoASAFQAw%3D%3D" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="absolute top-2 left-2 bg-white text-blue-600 px-2.5 py-1 flex items-center gap-1.5 text-[12px] font-semibold rounded shadow-md hover:bg-gray-50 transition-colors"
+                  >
+                    Open in Maps 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                  </Link>
                 </div>
+
+                {/* Details */}
+                <div className="flex flex-col gap-2.5 leading-snug" style={{ color: '#ffffff' }}>
+                  <p style={{ color: '#ffffff' }}><strong className="font-semibold">Address:</strong> 2nd Floor of B-4/1, Vijyant Khand, Gomti Nagar Yojna, Lucknow</p>
+                </div>
+                
               </div>
             </div>
           </div>
