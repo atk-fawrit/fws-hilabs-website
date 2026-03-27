@@ -121,7 +121,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
       }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <nav
-          className={`relative flex items-center justify-between py-2 ${className}`}
+          className={`relative flex items-center justify-between py-0 h-14 ${className}`}
           role="navigation"
           aria-label="Primary navigation"
         >
@@ -136,7 +136,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
             <img
               src="/images/logo.png"
               alt="HI Labs"
-              className="h-14 sm:h-16 md:h-18 lg:h-20 w-auto select-none"
+              className="h-9 w-auto select-none scale-[2.9] origin-left translate-y-1"
             />
           </Link>
 
