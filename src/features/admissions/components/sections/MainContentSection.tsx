@@ -10,6 +10,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { admissionsData } from '../../data';
+import { ComparisonTableSection } from './ComparisonTableSection';
 
 export const MainContentSection: React.FC = () => {
   const router = useRouter();
@@ -87,6 +88,9 @@ export const MainContentSection: React.FC = () => {
           ))}
         </div>
       </div>
+
+      {/* Comparison Table */}
+      <ComparisonTableSection />
     </section>
   );
 };
