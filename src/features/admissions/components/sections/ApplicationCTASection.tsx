@@ -138,7 +138,7 @@ export const ApplicationCTASection: React.FC = () => {
                   whileTap={allChecked ? { scale: 0.98 } : {}}
                   className={`w-full py-6 px-8 font-bold text-lg rounded-2xl transition-all duration-300 ${
                     allChecked
-                      ? 'bg-gradient-to-r from-black to-gray-800 text-white hover:shadow-2xl shadow-xl'
+                      ? 'bg-blue-600 text-white hover:bg-blue-700 hover:shadow-2xl shadow-xl'
                       : 'bg-gray-300 text-gray-500 cursor-not-allowed'
                   }`}
                 >

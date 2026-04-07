@@ -1,26 +1,16 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { PageLayout, SimpleHero } from '@/src/shared/components/layout';
 import {
   MainContentSection,
-  SelectionProcessSection,
-  CommitmentRiskSection,
-  ApplicationTimelineSection,
-  ApplicationCTASection,
 } from './components/sections';
 import { admissionsData } from './data';
 
 export default function AdmissionsPage() {
-  const [expandedSection, setExpandedSection] = useState<string | null>(null);
-  const sectionRef = useRef<HTMLDivElement>(null);
   const ctaRef     = useRef<HTMLDivElement>(null);
   const isCtaInView = useInView(ctaRef, { once: false, amount: 0.3 });
-
-  const handleSectionToggle = (sectionId: string) => {
-    setExpandedSection(prev => prev === sectionId ? null : sectionId);
-  };
 
   const scrollToApplication = () => {
     ctaRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -42,24 +32,6 @@ export default function AdmissionsPage() {
       {/* Main Content */}
       <main className="w-full bg-white">
         <MainContentSection />
-
-        <div ref={sectionRef} className="relative">
-          <SelectionProcessSection
-            isExpanded={expandedSection === 'process'}
-            onToggle={() => handleSectionToggle('process')}
-          />
-          <CommitmentRiskSection
-            isExpanded={expandedSection === 'commitment'}
-            onToggle={() => handleSectionToggle('commitment')}
-          />
-          <ApplicationTimelineSection
-            isExpanded={expandedSection === 'timeline'}
-            onToggle={() => handleSectionToggle('timeline')}
-          />
-          <div ref={ctaRef}>
-            <ApplicationCTASection />
-          </div>
-        </div>
       </main>
 
       {/* Floating Apply Button - Shows when CTA section is not in view */}

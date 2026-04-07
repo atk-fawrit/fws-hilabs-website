@@ -45,7 +45,8 @@ export function HeroSection({ stages }: PipelineSectionProps) {
   }, []);
 
   const isExpanded = (i: number) => activeCard?.index === i;
-  const isLoopLit = (_i: number) => false;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const isLoopLit = (_i?: number) => false; // always false - reserved for future use
   const isApplicationCard = (i: number) => stages[i]?.id === 'application';
 
   const { mainText, subText, aiEnrichedText, flagshipText } = heroTextContent;
@@ -84,6 +85,7 @@ export function HeroSection({ stages }: PipelineSectionProps) {
 
   const handleCardEnter = useCallback((i: number) => { isUserHovering.current = true; setActive({ index: i, source: 'hover' }); }, [setActive]);
   const handleCardLeave = useCallback(() => { isUserHovering.current = false; if (activeRef.current?.source === 'hover') setActive(null); }, [setActive]);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleCardMove = useCallback((_e: React.MouseEvent<HTMLDivElement>, _stageId: string, _i: number) => {
     // mouse position tracking reserved for future use
   }, []);
@@ -242,7 +244,7 @@ export function HeroSection({ stages }: PipelineSectionProps) {
   );
 
   // CardChrome component
-  const CardChrome = ({ stageId: _stageId, isLoop, expanded, rounded, children }: {
+  const CardChrome = ({ isLoop, expanded, rounded, children }: {
     stageId: string; isLoop: boolean; expanded: boolean; rounded: string; children: React.ReactNode;
   }) => (
     <>
