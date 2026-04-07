@@ -3,3 +3,4 @@ export { SelectionProcessSection } from './SelectionProcessSection';
 export { CommitmentRiskSection } from './CommitmentRiskSection';
 export { ApplicationTimelineSection } from './ApplicationTimelineSection';
 export { ApplicationCTASection } from './ApplicationCTASection';
+export { ComparisonTableSection } from './ComparisonTableSection';

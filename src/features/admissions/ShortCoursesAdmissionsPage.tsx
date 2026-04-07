@@ -1,25 +1,14 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { PageLayout } from '@/src/shared/components/layout';
 import { admissionsData } from './data';
-import {
-  ApplicationCTASection,
-  SelectionProcessSection,
-  CommitmentRiskSection,
-  ApplicationTimelineSection,
-} from './components/sections';
+import { ApplicationCTASection } from './components/sections';
 
 export default function ShortCoursesAdmissionsPage() {
-  const [expandedSection, setExpandedSection] = useState<string | null>(null);
-
   const ctaRef = useRef<HTMLDivElement>(null);
   const isCtaInView = useInView(ctaRef, { once: false, amount: 0.3 });
-
-  const handleSectionToggle = (sectionId: string) => {
-    setExpandedSection(prev => prev === sectionId ? null : sectionId);
-  };
 
   const scrollToApplication = () => {
     ctaRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -30,16 +19,24 @@ export default function ShortCoursesAdmissionsPage() {
       <main className="w-full bg-white pb-24">
         <section className="relative w-full bg-white py-12 pt-24">
           <div className="max-w-[1400px] mx-auto px-6">
+            
+            {/* Page Heading */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-16"
+            >
+              <h1 className="text-3xl md:text-4xl font-bold text-black tracking-tight">
+                Premium Short Courses
+              </h1>
+            </motion.div>
+
             <div className="space-y-12">
-              
-              {/* Application CTA */}
-              <div ref={ctaRef} className="mb-8">
-                <ApplicationCTASection />
-              </div>
 
               {/* Direct Admission */}
               <div className="space-y-6">
-                <h3 className="text-3xl md:text-4xl font-bold text-black tracking-tight">
+                <h3 className="text-2xl md:text-3xl font-bold text-black tracking-tight">
                   {admissionsData.shortCourses.overview.title}
                 </h3>
                 
@@ -66,96 +63,61 @@ export default function ShortCoursesAdmissionsPage() {
 
               {/* Enrollment Steps */}
               <div className="space-y-6">
-                <h3 className="text-3xl md:text-4xl font-bold text-black tracking-tight text-center">
+                <h3 className="text-2xl md:text-3xl font-bold text-black tracking-tight text-center">
                   Enrollment Process
                 </h3>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                  {admissionsData.shortCourses.steps.map((item, idx) => (
-                    <motion.div
-                      key={idx}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: idx * 0.1 }}
-                      className="relative bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-gray-900 hover:shadow-lg transition-all duration-300"
-                    >
-                      <div className="absolute -top-3 -left-3 w-10 h-10 bg-black rounded-full flex items-center justify-center shadow-lg">
-                        <span className="text-white font-bold">{item.step}</span>
-                      </div>
-                      
-                      <div className="mt-4 space-y-3">
-                        <h4 className="text-lg font-bold text-black">
-                          {item.title}
-                        </h4>
-                        <p className="text-sm text-gray-600 leading-relaxed font-light">
-                          {item.description}
-                        </p>
-                      </div>
-                    </motion.div>
-                  ))}
+                  {admissionsData.shortCourses.steps.map((item, idx) => {
+                    const isFirstCard = idx === 0;
+                    const CardWrapper = isFirstCard ? motion.a : motion.div;
+                    const cardProps = isFirstCard 
+                      ? { href: '/courses', className: "relative bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-gray-900 hover:shadow-lg transition-all duration-300 cursor-pointer block" }
+                      : { className: "relative bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-gray-900 hover:shadow-lg transition-all duration-300" };
+
+                    return (
+                      <CardWrapper
+                        key={idx}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: idx * 0.1 }}
+                        {...cardProps}
+                      >
+                        <div className="absolute -top-3 -left-3 w-10 h-10 bg-black rounded-full flex items-center justify-center shadow-lg">
+                          <span className="text-white font-bold">{item.step}</span>
+                        </div>
+                        
+                        <div className="mt-4 space-y-3">
+                          <h4 className="text-lg font-bold text-black">
+                            {item.title}
+                          </h4>
+                          <p className="text-sm text-gray-600 leading-relaxed font-light">
+                            {item.description}
+                          </p>
+                          
+                          {isFirstCard && (
+                            <div className="flex items-center gap-2 text-blue-600 font-semibold text-sm pt-2">
+                              <span>View Courses</span>
+                              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                              </svg>
+                            </div>
+                          )}
+                        </div>
+                      </CardWrapper>
+                    );
+                  })}
                 </div>
               </div>
 
-              {/* Key Differences - Comparison Table */}
-              <div className="space-y-6">
-                <h3 className="text-3xl md:text-4xl font-bold text-black tracking-tight text-center">
-                  Flagship vs Premium Short Courses
-                </h3>
-
-                <div className="bg-white rounded-2xl border-2 border-gray-200 overflow-hidden shadow-lg">
-                  <div className="overflow-x-auto">
-                    <table className="w-full">
-                      <thead>
-                        <tr className="bg-gray-900">
-                          <th className="px-6 py-4 text-left text-sm font-bold text-white uppercase tracking-wider">
-                            Aspect
-                          </th>
-                          <th className="px-6 py-4 text-left text-sm font-bold text-white uppercase tracking-wider">
-                            Flagship Program
-                          </th>
-                          <th className="px-6 py-4 text-left text-sm font-bold text-white uppercase tracking-wider">
-                            Premium Short Courses
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-gray-200">
-                        {admissionsData.shortCourses.comparison.map((row, idx) => (
-                          <tr key={idx} className="hover:bg-gray-50 transition-colors">
-                            <td className="px-6 py-4 text-sm font-bold text-gray-900">
-                              {row.label}
-                            </td>
-                            <td className="px-6 py-4 text-sm text-gray-700 font-light">
-                              {row.flagship}
-                            </td>
-                            <td className="px-6 py-4 text-sm text-gray-700 font-light">
-                              {row.shortCourse}
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
+              {/* Application CTA - Moved to end */}
+              <div ref={ctaRef} className="mt-16">
+                <ApplicationCTASection programType="short-courses" />
               </div>
 
             </div>
           </div>
         </section>
-
-        <div className="relative mt-8">
-          <SelectionProcessSection
-            isExpanded={expandedSection === 'process'}
-            onToggle={() => handleSectionToggle('process')}
-          />
-          <CommitmentRiskSection
-            isExpanded={expandedSection === 'commitment'}
-            onToggle={() => handleSectionToggle('commitment')}
-          />
-          <ApplicationTimelineSection
-            isExpanded={expandedSection === 'timeline'}
-            onToggle={() => handleSectionToggle('timeline')}
-          />
-        </div>
       </main>
 
       {/* Floating Apply Button */}

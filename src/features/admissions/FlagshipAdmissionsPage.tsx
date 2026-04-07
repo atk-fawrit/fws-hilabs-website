@@ -31,16 +31,24 @@ export default function FlagshipAdmissionsPage() {
       <main className="w-full bg-white pb-24">
         <section className="relative w-full bg-white py-12 pt-24">
           <div className="max-w-[1400px] mx-auto px-6">
-            <div className="space-y-12">
+            
+            {/* Page Heading */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-16"
+            >
+              <h1 className="text-3xl md:text-4xl font-bold text-black tracking-tight">
+                Flagship Application Process
+              </h1>
+            </motion.div>
 
-              {/* Application CTA */}
-              <div ref={ctaRef} className="mb-8">
-                <ApplicationCTASection />
-              </div>
+            <div className="space-y-12">
 
               {/* Selection System */}
               <div className="space-y-6">
-                <h3 className="text-3xl md:text-4xl font-bold text-black tracking-tight">
+                <h3 className="text-2xl md:text-3xl font-bold text-black tracking-tight">
                   Selection System
                 </h3>
 
@@ -70,7 +78,7 @@ export default function FlagshipAdmissionsPage() {
 
               {/* Eligibility */}
               <div className="space-y-6">
-                <h3 className="text-3xl md:text-4xl font-bold text-black tracking-tight text-center">
+                <h3 className="text-2xl md:text-3xl font-bold text-black tracking-tight text-center">
                   Eligibility Requirements
                 </h3>
 
@@ -149,6 +157,11 @@ export default function FlagshipAdmissionsPage() {
             isExpanded={expandedSection === 'timeline'}
             onToggle={() => handleSectionToggle('timeline')}
           />
+          
+          {/* Application CTA - Moved after timeline */}
+          <div ref={ctaRef} className="mt-8">
+            <ApplicationCTASection programType="flagship" />
+          </div>
         </div>
       </main>
 
