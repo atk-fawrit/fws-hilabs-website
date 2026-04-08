@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { NavigationProps, NavigationItem } from '@/src/shared/types';
+import CourseDropdown from './CourseDropdown';
 
 // Primary navigation items - visible in main nav
 const primaryNavItems: NavigationItem[] = [
@@ -11,21 +12,22 @@ const primaryNavItems: NavigationItem[] = [
   { label: 'Admissions', href: '/admissions', primary: true },
   { label: 'Courses', href: '/courses', primary: true },
   { label: 'About', href: '/about', primary: true },
-  // { label: 'AI Course', href: '/artificial-intelligence-course-lucknow', primary: true },
 ];
-const courseDropdownItems: NavigationItem[] = [
-  { label: 'Python Developer Bootcamp', href: '/courses/python-developer-bootcamp', primary: false },
-  { label: 'SQL & Data Foundations', href: '/courses/sql-data-foundations', primary: false },
-  { label: 'Frontend Developer (React)', href: '/courses/frontend-developer-react', primary: false },
-  { label: 'Mobile App Developer (React Native)', href: '/courses/mobile-app-developer-react-native', primary: false },
-  { label: 'Backend Developer (Node.js)', href: '/courses/backend-developer-node-js', primary: false },
-  { label: 'Full-Stack Developer (MERN)', href: '/courses/full-stack-developer-mern', primary: false },
-  { label: 'Machine Learning with Python', href: '/courses/machine-learning-with-python', primary: false },
-  { label: 'AI Foundations', href: '/courses/ai-foundations', primary: false },
-  { label: 'AI Product Developer with Python', href: '/courses/ai-product-developer-with-python', primary: false },
-  { label: 'Data Analytics & Business Intelligence', href: '/courses/data-analytics-business-intelligence', primary: false },
-  { label: 'DevOps & Deployment for Developers', href: '/courses/devops-deployment-for-developers', primary: false },
-  { label: 'QA & Test Automation', href: '/courses/qa-test-automation', primary: false },
+
+// Mobile courses list
+const mobileCourses = [
+  { label: 'Python Developer Bootcamp', href: '/courses/python-developer-bootcamp' },
+  { label: 'Frontend Developer (React)', href: '/courses/frontend-developer-react' },
+  { label: 'Backend Developer (Node.js)', href: '/courses/backend-developer-node-js' },
+  { label: 'Full-Stack Developer (MERN)', href: '/courses/full-stack-developer-mern' },
+  { label: 'Mobile App Developer (React Native)', href: '/courses/mobile-app-developer-react-native' },
+  { label: 'SQL & Data Foundations', href: '/courses/sql-data-foundations' },
+  { label: 'Data Analytics & Business Intelligence', href: '/courses/data-analytics-business-intelligence' },
+  { label: 'AI Foundations', href: '/courses/ai-foundations' },
+  { label: 'Machine Learning with Python', href: '/courses/machine-learning-with-python' },
+  { label: 'AI Product Developer with Python', href: '/courses/ai-product-developer-with-python' },
+  { label: 'DevOps & Deployment for Developers', href: '/courses/devops-deployment-for-developers' },
+  { label: 'QA & Test Automation', href: '/courses/qa-test-automation' },
 ];
 
 // Secondary navigation items - in "More" dropdown (temporarily disabled)
@@ -41,7 +43,6 @@ export default function Navigation({ className = '' }: NavigationProps) {
   const [isMoreDropdownOpen, setIsMoreDropdownOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isCoursesDropdownOpen, setIsCoursesDropdownOpen] = useState(false);
-  const [isMoreCoursesExpanded, setIsMoreCoursesExpanded] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   // Temporarily disable "More" dropdown
@@ -173,60 +174,10 @@ export default function Navigation({ className = '' }: NavigationProps) {
                       Courses
                     </Link>
 
-                    {isCoursesDropdownOpen && (
-                      <div 
-                        className="absolute left-0 mt-2 w-72 z-50 bg-white border border-gray-200 rounded-xl shadow-2xl overflow-hidden transition-all duration-300"
-                        onMouseLeave={() => setIsMoreCoursesExpanded(false)}
-                      >
-                        <div className="py-2">
-                          {courseDropdownItems.slice(0, 5).map((course) => (
-                            <Link
-                              key={course.href}
-                              href={course.href}
-                              className="block px-6 py-2.5 text-[14px] text-gray-800 hover:bg-gray-50 hover:text-black transition-colors"
-                              onClick={() => {
-                                setIsCoursesDropdownOpen(false);
-                                setIsMoreCoursesExpanded(false);
-                              }}
-                            >
-                              {course.label}
-                            </Link>
-                          ))}
-
-                          {/* "More" section separator and toggle */}
-                          <div className="pt-1 mt-1 border-t border-gray-100">
-                            <button
-                              className="w-full text-left px-6 py-2.5 text-[14px] font-medium text-gray-500 hover:text-black hover:bg-gray-50 flex items-center justify-between transition-colors"
-                              onClick={() => setIsMoreCoursesExpanded(!isMoreCoursesExpanded)}
-                            >
-                              <span>More Courses</span>
-                              <svg className={`w-4 h-4 transition-transform duration-200 ${isMoreCoursesExpanded ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                              </svg>
-                            </button>
-                          </div>
-
-                          {/* Expanded list */}
-                          {isMoreCoursesExpanded && (
-                            <div className="bg-gray-50/50 pb-2">
-                              {courseDropdownItems.slice(5).map((course) => (
-                                <Link
-                                  key={course.href}
-                                  href={course.href}
-                                  className="block px-6 py-2.5 text-[14px] text-gray-600 hover:text-black hover:bg-gray-100 transition-colors"
-                                  onClick={() => {
-                                    setIsCoursesDropdownOpen(false);
-                                    setIsMoreCoursesExpanded(false);
-                                  }}
-                                >
-                                  {course.label}
-                                </Link>
-                              ))}
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    )}
+                    <CourseDropdown 
+                      isOpen={isCoursesDropdownOpen}
+                      onClose={() => setIsCoursesDropdownOpen(false)}
+                    />
                   </div>
                 );
               }
@@ -380,7 +331,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
                         </div>
                         {isCoursesDropdownOpen && (
                           <div className="pl-6 pr-2 py-2 space-y-1 bg-gray-50/50 rounded-lg mt-1 border shadow-inner border-gray-100">
-                             {courseDropdownItems.slice(0, 5).map(course => (
+                             {mobileCourses.map(course => (
                                <Link
                                  key={course.href}
                                  href={course.href}
@@ -390,33 +341,6 @@ export default function Navigation({ className = '' }: NavigationProps) {
                                  {course.label}
                                </Link>
                              ))}
-                             
-                             <div className="pt-2 mt-1 border-t border-gray-200">
-                               <button
-                                 className="w-full text-left px-4 py-2 text-[14px] font-medium text-gray-500 hover:text-black flex items-center justify-between transition-colors"
-                                 onClick={() => setIsMoreCoursesExpanded(!isMoreCoursesExpanded)}
-                               >
-                                 <span>More Courses</span>
-                                 <svg className={`w-4 h-4 transition-transform duration-200 ${isMoreCoursesExpanded ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                                 </svg>
-                               </button>
-                             </div>
-
-                             {isMoreCoursesExpanded && (
-                               <div className="pt-1 pb-2">
-                                 {courseDropdownItems.slice(5).map(course => (
-                                   <Link
-                                     key={course.href}
-                                     href={course.href}
-                                     className="block py-2.5 px-4 rounded-md text-[14px] text-gray-500 hover:text-black hover:bg-gray-100 transition-colors"
-                                     onClick={closeMobileMenu}
-                                   >
-                                     {course.label}
-                                   </Link>
-                                 ))}
-                               </div>
-                             )}
                           </div>
                         )}
                       </div>

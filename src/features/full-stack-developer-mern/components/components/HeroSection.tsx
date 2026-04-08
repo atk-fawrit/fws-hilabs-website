@@ -26,7 +26,7 @@ export default function HeroSection() {
                 Master the complete web development stack — from database to user interface.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mb-2 lg:mb-0">
-                <a href="#apply" className="inline-flex justify-center items-center px-8 py-4 rounded-full bg-blue-600 font-medium text-white hover:bg-blue-500 transition-all shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)]">
+                <a href="/admissions/premium-short-courses" className="inline-flex justify-center items-center px-8 py-4 rounded-full bg-blue-600 font-medium text-white hover:bg-blue-500 transition-all shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)]">
                   Apply Now
                 </a>
                 <a href="#curriculum" className="inline-flex justify-center items-center px-8 py-4 rounded-full bg-slate-800 font-medium text-white hover:bg-slate-700 transition-all border border-slate-700 hover:border-slate-600">
@@ -51,7 +51,7 @@ export default function HeroSection() {
                   </div>
                   <div>
                     <h4 className="font-medium text-white mb-1">Duration</h4>
-                    <p className="text-sm leading-relaxed">20 Weeks | Full-Time & Part-Time options available</p>
+                    <p className="text-sm leading-relaxed text-white">20 Weeks | Full-Time & Part-Time options available</p>
                   </div>
                 </div>
                 <div className="flex gap-4 items-start">
@@ -60,7 +60,7 @@ export default function HeroSection() {
                   </div>
                   <div>
                     <h4 className="font-medium text-white mb-1">Format</h4>
-                    <p className="text-sm leading-relaxed">Live instruction, project sprints, code reviews, and portfolio-ready capstone</p>
+                    <p className="text-sm leading-relaxed text-white">Live instruction, project sprints, code reviews, and portfolio-ready capstone</p>
                   </div>
                 </div>
               </div>
