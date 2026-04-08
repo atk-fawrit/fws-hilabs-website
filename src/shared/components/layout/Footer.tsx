@@ -10,8 +10,6 @@ const footerSections = [
     links: [
       { label: 'Flagship Program', href: '/flagship-program' },
       { label: 'Short Programs', href: '/courses' },
-      { label: 'Outcomes', href: '/outcomes' },
-      { label: 'Employers', href: '/employers' },
     ]
   },
   {
@@ -19,7 +17,6 @@ const footerSections = [
     links: [
       { label: 'Admissions', href: '/admissions' },
       { label: 'About', href: '/about' },
-      { label: 'Lucknow Lab', href: '/lucknow-lab' },
     ]
   }
 ];
