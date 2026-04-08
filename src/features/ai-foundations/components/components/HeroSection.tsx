@@ -26,7 +26,7 @@ export default function HeroSection() {
                 Understand artificial intelligence — its principles, capabilities, and real-world impact.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mb-2 lg:mb-0">
-                <a href="#apply" className="inline-flex justify-center items-center px-8 py-4 rounded-full bg-blue-600 font-medium text-white hover:bg-blue-500 transition-all shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)]">
+                <a href="/admissions/premium-short-courses" className="inline-flex justify-center items-center px-8 py-4 rounded-full bg-blue-600 font-medium text-white hover:bg-blue-500 transition-all shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)]">
                   Apply Now
                 </a>
                 <a href="#curriculum" className="inline-flex justify-center items-center px-8 py-4 rounded-full bg-slate-800 font-medium text-white hover:bg-slate-700 transition-all border border-slate-700 hover:border-slate-600">
@@ -51,7 +51,7 @@ export default function HeroSection() {
                   </div>
                   <div>
                     <h4 className="font-medium text-white mb-1">Duration</h4>
-                    <p className="text-sm leading-relaxed">6 Weeks | Self-Paced & Cohort-Based options available</p>
+                    <p className="text-sm leading-relaxed text-white">6 Weeks | Self-Paced & Cohort-Based options available</p>
                   </div>
                 </div>
                 <div className="flex gap-4 items-start">
@@ -60,7 +60,7 @@ export default function HeroSection() {
                   </div>
                   <div>
                     <h4 className="font-medium text-white mb-1">Format</h4>
-                    <p className="text-sm leading-relaxed">Video lectures, case studies, guided discussions, and applied assignments</p>
+                    <p className="text-sm leading-relaxed text-white">Video lectures, case studies, guided discussions, and applied assignments</p>
                   </div>
                 </div>
               </div>

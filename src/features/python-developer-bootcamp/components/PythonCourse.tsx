@@ -1,11 +1,17 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { PageLayout } from '@/src/shared/components/layout';
 import { HeroSection, CourseOverview, WhatYouWillLearn, Curriculum, WhoThisCourseIsFor, CareerOpportunities } from './components';
 
 export default function PythonCourse() {
+  useEffect(() => {
+    setTimeout(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    }, 0);
+  }, []);
+
   return (
     <PageLayout>
       <HeroSection />

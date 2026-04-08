@@ -26,7 +26,7 @@ export default function AdmissionsPage() {
         description={admissionsData.hero.description}
         eyebrow="HI Labs · Admissions"
         overlayOpacity="dark"
-        height="h-[520px]"
+        height="h-[360px]"
       />
 
       {/* Main Content */}

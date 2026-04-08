@@ -6,82 +6,135 @@
  * Displays all available program categories with elegant details
  */
 
-import React, { useState } from 'react';
+import React from 'react';
+import Link from 'next/link';
 import { BodyText } from '@/src/shared/components/typography';
 import '../../styles/ProgramCategoriesSection.styles.css';
 
 const programCategories = [
   {
     number: '01',
-    title: 'Web Development Fundamentals',
-    duration: '6 weekends',
-    prerequisites: 'Basic computer literacy',
-    skills: [
-      'HTML structure and semantic markup',
-      'CSS styling and responsive design principles',
-      'JavaScript fundamentals and DOM manipulation',
-      'Version control with Git and collaborative workflows',
-    ],
-    description: 'Suitable for professionals seeking to understand web technologies or add basic web development capabilities to existing skill sets.',
-    image: '/images/linux-system-administration.jpg',
-    category: 'WEB DEVELOPMENT',
+    title: 'Python Developer Bootcamp',
+    duration: '16 weeks',
+    prerequisites: 'Basic programming exposure',
+    description: 'Build a strong programming foundation with one of the world\'s most versatile languages.',
+    image: '/images/admsncard1.png',
+    category: 'PROGRAMMING',
+    link: '/courses/python-developer-bootcamp',
   },
   {
     number: '02',
-    title: 'Data Analysis with Python',
-    duration: '8 weekends',
-    prerequisites: 'Basic mathematics, spreadsheet experience',
-    skills: [
-      'Python programming fundamentals for data manipulation',
-      'Data cleaning and preparation techniques',
-      'Statistical analysis and visualization with libraries',
-      'Report generation and insight communication',
-    ],
-    description: 'Designed for analysts, researchers, and professionals who work with data and need programmatic analysis capabilities.',
-    image: '/images/data-analysis-python.jpg',
-    category: 'DATA SCIENCE',
+    title: 'SQL & Data Foundations',
+    duration: '8 weeks',
+    prerequisites: 'Basic computer literacy',
+    description: 'Master database fundamentals and SQL for effective data management and retrieval.',
+    image: '/images/admsncard2.webp',
+    category: 'DATABASE',
+    link: '/courses/sql-data-foundations',
   },
   {
     number: '03',
-    title: 'Database Design & Management',
-    duration: '4 weekends',
-    prerequisites: 'Basic understanding of data organization',
-    skills: [
-      'Relational database design principles and normalization',
-      'SQL query writing for data retrieval and manipulation',
-      'Database administration and performance optimization',
-      'Backup, recovery, and security implementation',
-    ],
-    description: 'Appropriate for professionals managing organizational data or requiring structured data storage and retrieval capabilities.',
-    image: '/images/database-design-management.jpg',
-    category: 'DATABASE',
+    title: 'Frontend Developer (React)',
+    duration: '12 weeks',
+    prerequisites: 'JavaScript fundamentals',
+    description: 'Build modern, interactive web applications with React and contemporary web technologies.',
+    image: '/images/admsncard3.png',
+    category: 'WEB DEVELOPMENT',
+    link: '/courses/frontend-developer-react',
   },
   {
     number: '04',
-    title: 'Linux System Administration',
-    duration: '6 weekends',
-    prerequisites: 'Basic command line familiarity',
-    skills: [
-      'Linux system installation, configuration, and maintenance',
-      'User management, permissions, and security protocols',
-      'Network configuration and service management',
-      'Automation scripting and system monitoring',
-    ],
-    description: 'Targeted at IT professionals and technical staff requiring server administration and system management competencies.',
-    image: '/images/web-development-fundamentals.jpg',
-    category: 'SYSTEM ADMINISTRATION',
+    title: 'Mobile App Developer (React Native)',
+    duration: '14 weeks',
+    prerequisites: 'JavaScript and React experience',
+    description: 'Develop cross-platform mobile applications using React Native framework.',
+    image: '/images/admsncard4.webp',
+    category: 'MOBILE DEVELOPMENT',
+    link: '/courses/mobile-app-developer-react-native',
+  },
+  {
+    number: '05',
+    title: 'Backend Developer (Node.js)',
+    duration: '14 weeks',
+    prerequisites: 'JavaScript fundamentals',
+    description: 'Create scalable server-side applications using Node.js and modern backend technologies.',
+    image: '/images/admsncard5.webp',
+    category: 'PROGRAMMING',
+    link: '/courses/backend-developer-node-js',
+  },
+  {
+    number: '06',
+    title: 'Full-Stack Developer (MERN)',
+    duration: '18 weeks',
+    prerequisites: 'JavaScript fundamentals',
+    description: 'Master complete web development with MongoDB, Express, React, and Node.js stack.',
+    image: '/images/admsncard6.jpg',
+    category: 'PROGRAMMING',
+    link: '/courses/full-stack-developer-mern',
+  },
+  {
+    number: '07',
+    title: 'Machine Learning with Python',
+    duration: '14 weeks',
+    prerequisites: 'Python fundamentals, basic statistics',
+    description: 'Build intelligent systems using machine learning algorithms and Python libraries.',
+    image: '/images/admsncard7.png',
+    category: 'AI & MACHINE LEARNING',
+    link: '/courses/machine-learning-with-python',
+  },
+  {
+    number: '08',
+    title: 'AI Foundations',
+    duration: '10 weeks',
+    prerequisites: 'Basic programming knowledge',
+    description: 'Explore fundamental concepts of artificial intelligence and its practical applications.',
+    image: '/images/admsncard8.webp',
+    category: 'AI & MACHINE LEARNING',
+    link: '/courses/ai-foundations',
+  },
+  {
+    number: '09',
+    title: 'AI Product Developer with Python',
+    duration: '16 weeks',
+    prerequisites: 'Python fundamentals, AI basics',
+    description: 'Develop AI-powered products and solutions using Python and modern AI frameworks.',
+    image: '/images/admsncard9.png',
+    category: 'AI & MACHINE LEARNING',
+    link: '/courses/ai-product-developer-with-python',
+  },
+  {
+    number: '10',
+    title: 'Data Analytics & Business Intelligence',
+    duration: '12 weeks',
+    prerequisites: 'Basic mathematics, spreadsheet experience',
+    description: 'Transform data into actionable business insights using analytics and BI tools.',
+    image: '/images/admsncard10.avif',
+    category: 'DATA SCIENCE',
+    link: '/courses/data-analytics-business-intelligence',
+  },
+  {
+    number: '11',
+    title: 'DevOps & Deployment for Developers',
+    duration: '10 weeks',
+    prerequisites: 'Basic Linux command line knowledge',
+    description: 'Master CI/CD pipelines, containerization, and deployment automation for modern applications.',
+    image: '/images/admsncard11.png',
+    category: 'DEVOPS',
+    link: '/courses/devops-deployment-for-developers',
+  },
+  {
+    number: '12',
+    title: 'QA & Test Automation',
+    duration: '10 weeks',
+    prerequisites: 'Basic programming knowledge',
+    description: 'Build robust quality assurance practices and automation testing frameworks.',
+    image: '/images/admsncard12.png',
+    category: 'TESTING',
+    link: '/courses/qa-test-automation',
   },
 ];
 
 export const ProgramCategoriesSection: React.FC = () => {
-  const [selectedProgram, setSelectedProgram] = useState<string | null>(null);
-
-  const handleProgramClick = (programNumber: string) => {
-    setSelectedProgram(selectedProgram === programNumber ? null : programNumber);
-  };
-
-  const selectedProgramData = programCategories.find(p => p.number === selectedProgram);
-
   return (
     <section className="space-y-8">
       {/* Header */}
@@ -97,264 +150,71 @@ export const ProgramCategoriesSection: React.FC = () => {
       </div>
       
       {/* Premium Course Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto px-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-full mx-auto px-4">
         {programCategories.map((program, index) => (
-          <div
+          <Link
             key={program.number}
-            onClick={() => handleProgramClick(program.number)}
+            href={program.link}
             className={`
-              group cursor-pointer bg-white rounded-3xl overflow-hidden
+              group cursor-pointer bg-white rounded-2xl overflow-hidden
               transition-all duration-500 ease-out
-              border border-gray-200 hover:border-black
-              hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.2)]
-              ${selectedProgram === program.number ? 'border-black shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)]' : ''}
+              border-2 border-black
+              flex flex-col
+              hover:shadow-[0_12px_40px_-10px_rgba(0,0,0,0.4)] hover:-translate-y-1
             `}
             style={{ animationDelay: `${index * 100}ms` }}
           >
-            {/* Image Header with Overlay */}
-            <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden bg-gradient-to-br from-gray-900 to-black">
+            {/* Clean Image Section */}
+            <div className="overflow-hidden h-72">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img 
                 src={program.image} 
                 alt={program.title}
-                className="w-full h-full object-cover opacity-40 transition-all duration-700 group-hover:opacity-50 group-hover:scale-110"
+                className="w-full h-full object-cover"
               />
-              
-              {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
-              
-              {/* Course Number - Top Left */}
-              <div className="absolute top-4 left-4 sm:top-6 sm:left-6">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-white blur-md opacity-50"></div>
-                  <div className="relative bg-white rounded-2xl w-14 h-14 flex items-center justify-center shadow-2xl">
-                    <span className="text-black font-bold text-xl">{program.number}</span>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Category Badge - Top Right */}
-              <div className="absolute top-4 right-4 sm:top-6 sm:right-6">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-white blur-sm opacity-30"></div>
-                  <span className="relative block bg-white/90 backdrop-blur-md px-4 py-2 rounded-full text-[10px] font-bold text-black tracking-widest shadow-lg">
-                    {program.category}
-                  </span>
-                </div>
-              </div>
-              
-              {/* Title - Bottom */}
-              <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6">
-                <h3 className="text-white font-bold text-xl sm:text-2xl leading-tight drop-shadow-2xl">
-                  {program.title}
-                </h3>
-              </div>
             </div>
             
             {/* Content Area */}
-            <div className="p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-6">
-              {/* Description */}
-              <BodyText className="text-gray-700 leading-relaxed text-sm">
-                {program.description}
-              </BodyText>
-              
-              {/* Meta Information */}
-              <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                <div className="flex items-center gap-2">
-                  <div className="w-5 h-5 bg-black rounded-md flex items-center justify-center">
-                    <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <span className="font-semibold text-black text-sm">{program.duration}</span>
-                </div>
-                <div className="text-xs text-gray-500 italic max-w-[180px] text-right">
-                  {program.prerequisites}
-                </div>
-              </div>
-              
-              {/* View Details Action */}
-              <div className="flex items-center justify-between pt-2">
-                <span className="text-sm font-semibold text-black group-hover:tracking-wide transition-all duration-300">
-                  {selectedProgram === program.number ? 'Hide Details' : 'View Full Details'}
-                </span>
-                <div className={`
-                  w-10 h-10 bg-black rounded-xl flex items-center justify-center text-white
-                  transition-all duration-500 group-hover:rounded-2xl
-                  ${selectedProgram === program.number ? 'rotate-180 rounded-2xl' : ''}
-                `}>
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Premium Modal */}
-      {selectedProgramData && (
-        <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 animate-fade-in"
-          onClick={() => setSelectedProgram(null)}
-        >
-          {/* Backdrop */}
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-md"></div>
-          
-          {/* Modal Container */}
-          <div 
-            className="relative w-full max-w-full sm:max-w-lg md:max-w-3xl lg:max-w-5xl max-h-[90vh] overflow-hidden bg-white rounded-xl sm:rounded-2xl lg:rounded-3xl shadow-2xl animate-scale-in"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Header Section */}
-            <div className="relative h-24 sm:h-32 md:h-40 overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-800">
-              {/* Background Image */}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img 
-                src={selectedProgramData.image} 
-                alt={selectedProgramData.title}
-                className="w-full h-full object-cover opacity-20"
-              />
-              <div className="absolute inset-0 bg-gradient-to-br from-black/80 to-black/60"></div>
-              
-              {/* Close Button */}
-              <button 
-                onClick={() => setSelectedProgram(null)}
-                className="absolute top-3 right-3 sm:top-6 sm:right-6 text-white/70 hover:text-white transition-all duration-300 p-2 sm:p-3 hover:bg-white/10 rounded-xl sm:rounded-2xl backdrop-blur-sm group z-10"
-              >
-                <svg className="w-6 h-6 group-hover:rotate-90 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-              
-              {/* Number Badge */}
-              <div className="absolute top-3 left-3 sm:top-6 sm:left-8">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-white blur-lg opacity-40"></div>
-                  <div className="relative w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-2xl">
-                    <span className="text-black font-bold text-2xl">{selectedProgramData.number}</span>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Category Badge */}
-              <div className="absolute top-4 left-16 sm:top-8 sm:left-28">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-white blur-md opacity-30"></div>
-                  <span className="relative block bg-white/90 backdrop-blur-md px-5 py-2.5 rounded-full text-xs font-bold text-black tracking-widest shadow-xl">
-                    {selectedProgramData.category}
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {/* Scrollable Content */}
-            <div className="overflow-y-auto max-h-[calc(90vh-10rem)] p-8">
-              {/* Title Section */}
-              <div className="mb-8 space-y-6">
-                <h3 className="text-4xl font-bold text-black tracking-tight">
-                  {selectedProgramData.title}
+            <div className="px-3 py-1.5 flex flex-col gap-0">
+              {/* Top Content */}
+              <div className="gap-0 flex flex-col">
+                {/* Title Heading */}
+                <h3 className="text-sm sm:text-base font-bold text-black leading-tight">
+                  {program.title}
                 </h3>
                 
-                {/* Quick Info Pills */}
-                <div className="flex flex-wrap gap-3">
-                  <div className="flex items-center gap-2.5 bg-gray-100 px-5 py-2.5 rounded-full border border-gray-200">
-                    <div className="w-5 h-5 bg-black rounded-md flex items-center justify-center">
-                      <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                {/* Description */}
+                <BodyText className="text-gray-600 leading-snug text-[10px] line-clamp-2 mt-0">
+                  {program.description}
+                </BodyText>
+              </div>
+              
+              {/* Bottom Content */}
+              <div className="flex flex-col gap-0 mt-auto">
+                {/* Meta Information */}
+                <div className="flex items-center justify-between border-t border-gray-100 pt-1 mt-0.5">
+                  <div className="flex items-center gap-1">
+                    <div className="w-3.5 h-3.5 bg-black rounded-md flex items-center justify-center">
+                      <svg className="w-2 h-2 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                     </div>
-                    <span className="font-semibold text-black text-sm">{selectedProgramData.duration}</span>
+                    <span className="font-semibold text-black text-[10px]">{program.duration}</span>
                   </div>
-                  <div className="flex items-center gap-2.5 bg-gray-100 px-5 py-2.5 rounded-full border border-gray-200">
-                    <div className="w-5 h-5 bg-black rounded-md flex items-center justify-center">
-                      <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                    </div>
-                    <span className="text-black text-sm">{selectedProgramData.prerequisites}</span>
+                  <div className="text-[10px] text-gray-500 italic max-w-[120px] text-right">
+                    {program.prerequisites}
                   </div>
                 </div>
                 
-                {/* Description */}
-                <div className="text-base text-gray-700 leading-relaxed max-w-3xl">
-                  {selectedProgramData.description}
-                </div>
-              </div>
-
-              {/* Two Column Layout */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                {/* Skills Column */}
-                <div className="space-y-5">
-                  <div className="flex items-center gap-3 pb-4 border-b-2 border-black">
-                    <div className="w-11 h-11 bg-black rounded-2xl flex items-center justify-center shadow-lg">
-                      <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                      </svg>
-                    </div>
-                    <h4 className="text-xl font-bold text-black">Skills Coverage</h4>
-                  </div>
-                  
-                  <div className="space-y-3">
-                    {selectedProgramData.skills.map((skill, index) => (
-                      <div 
-                        key={index} 
-                        className="group/skill flex items-start gap-4 p-4 bg-gray-50 hover:bg-gray-100 rounded-2xl border border-gray-200 hover:border-gray-300 transition-all duration-300"
-                      >
-                        <div className="w-6 h-6 bg-black rounded-lg flex items-center justify-center flex-shrink-0 shadow-sm group-hover/skill:scale-110 transition-transform duration-300">
-                          <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                          </svg>
-                        </div>
-                        <div className="text-sm text-gray-800 leading-relaxed flex-1 font-medium">
-                          {skill}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Program Info Column */}
-                <div className="space-y-5">
-                  <div className="flex items-center gap-3 pb-4 border-b-2 border-black">
-                    <div className="w-11 h-11 bg-black rounded-2xl flex items-center justify-center shadow-lg">
-                      <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                    </div>
-                    <h4 className="text-xl font-bold text-black">Program Details</h4>
-                  </div>
-                  
-                  <div className="space-y-4">
-                    {[
-                      { icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z", label: "Duration", value: selectedProgramData.duration },
-                      { icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z", label: "Prerequisites", value: selectedProgramData.prerequisites },
-                      { icon: "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z", label: "Location", value: "In-person at Lucknow facility" },
-                      { icon: "M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z", label: "Format", value: "Weekend sessions, Saturday & Sunday" }
-                    ].map((item, index) => (
-                      <div 
-                        key={index}
-                        className="p-5 bg-gray-50 rounded-2xl border border-gray-200 hover:border-gray-300 transition-all duration-300"
-                      >
-                        <div className="flex items-center gap-3 mb-3">
-                          <div className="w-9 h-9 bg-gray-200 rounded-xl flex items-center justify-center">
-                            <svg className="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                              <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
-                            </svg>
-                          </div>
-                          <span className="font-bold text-black text-sm">{item.label}</span>
-                        </div>
-                        <div className="text-gray-700 text-sm ml-12 font-medium">{item.value}</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                {/* View Details Action - Bottom Left */}
+                <span className="text-xs font-semibold text-black transition-all duration-300 mt-0.5">
+                  View Full Details
+                </span>
               </div>
             </div>
-          </div>
-        </div>
-      )}
+          </Link>
+        ))}
+      </div>
     </section>
   );
 };
