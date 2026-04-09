@@ -12,6 +12,8 @@ const primaryNavItems: NavigationItem[] = [
   { label: 'Admissions', href: '/admissions', primary: true },
   { label: 'Courses', href: '/courses', primary: true },
   { label: 'About', href: '/about', primary: true },
+  { label: 'Contact', href: '/contact', primary: true },
+  // { label: 'AI Course', href: '/artificial-intelligence-course-lucknow', primary: true },
 ];
 
 // Mobile courses list
