@@ -1,11 +1,6 @@
 import { PageLayout, SimpleHero } from '@/src/shared/components/layout';
 import {
-  ProgramBoundariesSection,
-  OperatingFormatSection,
   ProgramCategoriesSection,
-  EvaluationSection,
-  CandidateSuitabilitySection,
-  ScheduleCTASection,
 } from './components/sections';
 
 export default function CoursesPage() {
@@ -29,11 +24,6 @@ export default function CoursesPage() {
       
       <main className="px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 py-6 sm:py-8 space-y-8 sm:space-y-10 md:space-y-12">
         <ProgramCategoriesSection />
-        <ProgramBoundariesSection />
-        <OperatingFormatSection />
-        <EvaluationSection />
-        <CandidateSuitabilitySection />
-        <ScheduleCTASection />
       </main>
     </PageLayout>
   );

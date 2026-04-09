@@ -95,7 +95,7 @@ export const ProgramOverviewSection: React.FC<ProgramOverviewSectionProps> = () 
                       Next Batch:
                     </span>
                     <span className="text-base font-extrabold text-red-600 ml-1">
-                      6th July 2026
+                      15th July 2026
                     </span>
                   </div>
 

@@ -31,10 +31,10 @@ export const ApplicationCTASection: React.FC<ApplicationCTASectionProps> = ({
 
   const content = {
     flagship: {
-      description: 'Submit your application for the Flagship Program. Our admissions team will review your submission and contact you within 5 business days.',
+      description: 'Submit your application for the Flagship Program.',
     },
     'short-courses': {
-      description: 'Submit your application for the Premium Short Courses. Our admissions team will review your submission and contact you within 5 business days.',
+      description: 'Submit your application for the Premium Short Courses.',
     },
   };
 
@@ -66,9 +66,9 @@ export const ApplicationCTASection: React.FC<ApplicationCTASectionProps> = ({
             onClick={() => setIsModalOpen(true)}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="inline-flex items-center justify-center gap-3 px-12 py-6 bg-black text-white font-bold text-lg rounded-2xl shadow-2xl hover:shadow-black/50 transition-all duration-300 hover:bg-gray-900"
+            className="inline-flex items-center justify-center gap-3 px-12 py-6 bg-black text-white font-bold text-xl rounded-2xl shadow-2xl hover:shadow-black/50 transition-all duration-300 hover:bg-gray-900"
           >
-            <span>Submit Application</span>
+            <span>Submit</span>
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
@@ -80,6 +80,7 @@ export const ApplicationCTASection: React.FC<ApplicationCTASectionProps> = ({
       <ApplicationModal 
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 
+        programType={programType}
       />
     </section>
   );

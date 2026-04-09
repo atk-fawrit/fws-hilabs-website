@@ -46,34 +46,16 @@ export default function FlagshipAdmissionsPage() {
 
             <div className="space-y-12">
 
-              {/* Selection System */}
-              <div className="space-y-6">
-                <h3 className="text-2xl md:text-3xl font-bold text-black tracking-tight">
-                  Selection System
-                </h3>
-
-                <div className="space-y-4">
-                  <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
-                    <h4 className="text-lg font-bold text-black mb-4">
-                      HI Labs admissions operates as a selection system, not a sales funnel.
-                    </h4>
-                    <p className="text-base text-gray-700 leading-relaxed font-light">
-                      The process identifies candidates capable of completing the 12-month engineering production system under enforced evaluation and supervised deployment protocols.
-                    </p>
-                  </div>
-
-                  <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 text-white">
-                    <h4 className="text-sm font-bold text-white/60 uppercase tracking-[0.2em] mb-3">
-                      Selection Criteria
-                    </h4>
-                    <p className="text-base text-white/90 leading-relaxed font-light mb-4">
-                      This is a filtering mechanism designed to identify serious candidates who understand the commitment and constraints of the program. We select for aptitude, commitment, and alignment with institutional expectations.
-                    </p>
-                    <p className="text-base text-white/80 leading-relaxed font-light">
-                      The admissions process evaluates technical aptitude, commitment capacity, and understanding of program constraints. Candidates must demonstrate readiness for full-time, in-person participation and acceptance of elimination-based evaluation.
-                    </p>
-                  </div>
-                </div>
+              <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 text-white">
+                <h4 className="text-sm font-bold text-white/60 uppercase tracking-[0.2em] mb-3">
+                  Selection Criteria
+                </h4>
+                <p className="text-base text-white/90 leading-relaxed font-light mb-4">
+                  This is a filtering mechanism designed to identify serious candidates who understand the commitment and constraints of the program. We select for aptitude, commitment, and alignment with institutional expectations.
+                </p>
+                <p className="text-base text-white/80 leading-relaxed font-light">
+                  The admissions process evaluates technical aptitude, commitment capacity, and understanding of program constraints. Candidates must demonstrate readiness for full-time, in-person participation and acceptance of elimination-based evaluation.
+                </p>
               </div>
 
               {/* Eligibility */}
