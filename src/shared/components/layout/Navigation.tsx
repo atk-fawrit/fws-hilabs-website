@@ -9,10 +9,10 @@ import CourseDropdown from './CourseDropdown';
 // Primary navigation items - visible in main nav
 const primaryNavItems: NavigationItem[] = [
   { label: 'Flagship Program', href: '/flagship-program', primary: true },
-  { label: 'Admissions', href: '/admissions', primary: true },
   { label: 'Courses', href: '/courses', primary: true },
-  { label: 'About', href: '/about', primary: true },
+  { label: 'Admissions', href: '/admissions', primary: true },
   { label: 'Contact', href: '/contact', primary: true },
+  { label: 'About', href: '/about', primary: true },
   // { label: 'AI Course', href: '/artificial-intelligence-course-lucknow', primary: true },
 ];
 
