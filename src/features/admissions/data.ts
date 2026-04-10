@@ -8,7 +8,7 @@ export const admissionsData = {
   hero: {
     image: '/images/commitment-risk-discussion.jpg',
     title: 'Admissions',
-    description: 'A rigorous selection system designed to identify candidates capable of completing our 12-month engineering talent production program',
+    description: '',
   },
 
   categories: [
@@ -32,13 +32,14 @@ export const admissionsData = {
 
   eligibility: {
     criteria: [
-      'Age 18-28 at program commencement',
+      'Age 18-32 at program commencement',
       "Bachelor's degree in any discipline or equivalent",
       'Basic programming exposure (any language)',
       'English proficiency for technical communication',
       'Ability to commit full-time for 12 months',
       'Physical presence in Lucknow',
       'Financial capacity for living expenses',
+      'Special cases contact directly',
     ],
     nonEligible: [
       'Current employment that cannot be terminated',
@@ -116,9 +117,9 @@ export const admissionsData = {
   ],
 
   risks: [
-    'No guarantee of program completion or employment outcomes',
+    'Program completion or employment outcomes depends on individual performance',
     'Elimination possible at any stage based on performance',
-    'No refunds after program commencement',
+    'No refunds after program commencement except special circumstances',
     'Financial responsibility for living expenses during program',
     'Career opportunity cost during 12-month commitment',
     'No appeals process for elimination decisions',

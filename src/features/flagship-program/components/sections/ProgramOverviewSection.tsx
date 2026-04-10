@@ -126,7 +126,7 @@ export const ProgramOverviewSection: React.FC<ProgramOverviewSectionProps> = () 
 
                 {/* Apply Now Button */}
                 <Link
-                  href="/admissions"
+                  href="/admissions/flagship-program"
                   className="ml-auto mr-10 inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-gray-900 to-black text-white text-lg font-semibold rounded-full shadow-md shadow-black/20 hover:scale-105 hover:shadow-xl transition-transform duration-200 group mt-2 sm:mt-0"                >
                   <span>Apply Now</span>
                   <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
