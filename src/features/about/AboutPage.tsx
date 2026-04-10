@@ -81,19 +81,22 @@ export default function AboutPage() {
 function VenturesSection() {
   const ventures = [
     {
+      flagUrl: 'https://flagcdn.com/w80/es.png',
       country: 'Spain',
       company: 'Eje Technologies SL',
       address: 'Calle Antonio Lopez, 70, 1D, Madrid - 28019'
     },
     {
+      flagUrl: 'https://flagcdn.com/w80/in.png',
       country: 'India',
       company: 'Fawrit Technologies India Private Limited',
-      address: 'Near Cusat Metro Station, South Kalamassery, Kochi, Kerala 682033'
+      address: 'South Kalamassery, Kochi, Kerala - 682033'
     },
     {
+      flagUrl: 'https://flagcdn.com/w80/sa.png',
       country: 'Saudi Arabia',
       company: 'Al-Majal Al-Fawrieh',
-      address: '249 Dasman, Al Qusur Dist., Dhahran, Postal code - 34247'
+      address: '249 Dasman, Al Qusur Dist., Dhahran - 34247'
     }
   ];
 
@@ -104,7 +107,7 @@ function VenturesSection() {
         {/* Section Header */}
         <div className="text-center mb-10 sm:mb-12 md:mb-14">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-3 tracking-tight">
-            Ventures Backed by 3 International Technology Companies
+            Venture Backed by International Tech Companies
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-blue-600 mx-auto"></div>
         </div>
@@ -119,6 +122,16 @@ function VenturesSection() {
               }`}
             >
               <div className="text-center space-y-4">
+                {/* Flag */}
+                <div className="flex justify-center">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img 
+                    src={venture.flagUrl} 
+                    alt={`${venture.country} flag`}
+                    className="w-16 h-12 object-cover rounded shadow-md"
+                  />
+                </div>
+
                 {/* Country */}
                 <div className="text-xs uppercase tracking-[0.2em] text-blue-600 font-bold">
                   {venture.country}
