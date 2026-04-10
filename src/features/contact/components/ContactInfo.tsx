@@ -117,10 +117,10 @@ export const ContactInfo: React.FC<ContactInfoProps> = ({ phoneNumber }) => {
             <div className="flex-1">
               <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Email</h3>
               <a 
-                href="mailto:contact@hilabs.in"
+                href="mailto:contact@thehilabs.com"
                 className="text-gray-900 hover:text-black font-medium transition-colors text-lg"
               >
-                contact@hilabs.in
+                contact@thehilabs.com
               </a>
             </div>
           </div>

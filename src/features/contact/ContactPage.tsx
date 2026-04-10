@@ -8,7 +8,7 @@ import { FloatingWhatsAppButton } from './components/FloatingWhatsAppButton';
 import { useWhatsApp } from './hooks/useWhatsApp';
 
 export default function ContactPage() {
-  const whatsappNumber = '8355096135';
+  const whatsappNumber = '917388899595';
   const phoneNumber = '+917388899595';
   
   const { openWhatsAppChat } = useWhatsApp(whatsappNumber);

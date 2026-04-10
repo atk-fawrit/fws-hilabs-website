@@ -53,6 +53,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen font-sans bg-white text-gray-900">
       <HeroSection />
+      <VenturesSection />
 
       <main className="w-full">
         <div className="px-4 sm:px-6 md:px-8 py-8 sm:py-10 md:py-12 space-y-8 sm:space-y-10 md:space-y-12">
@@ -71,6 +72,77 @@ export default function AboutPage() {
       
       <Footer />
     </div>
+  );
+}
+
+// ============================================================
+// VENTURES SECTION
+// ============================================================
+function VenturesSection() {
+  const ventures = [
+    {
+      country: 'Spain',
+      company: 'Eje Technologies SL',
+      address: 'Calle Antonio Lopez, 70, 1D, Madrid - 28019'
+    },
+    {
+      country: 'India',
+      company: 'Fawrit Technologies India Private Limited',
+      address: 'Near Cusat Metro Station, South Kalamassery, Kochi, Kerala 682033'
+    },
+    {
+      country: 'Saudi Arabia',
+      company: 'Al-Majal Al-Fawrieh',
+      address: '249 Dasman, Al Qusur Dist., Dhahran, Postal code - 34247'
+    }
+  ];
+
+  return (
+    <section className="relative py-12 sm:py-16 md:py-20 bg-white border-b border-gray-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
+        
+        {/* Section Header */}
+        <div className="text-center mb-10 sm:mb-12 md:mb-14">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-3 tracking-tight">
+            Ventures Backed by 3 International Technology Companies
+          </h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-blue-600 mx-auto"></div>
+        </div>
+
+        {/* Ventures Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-1 max-w-6xl mx-auto">
+          {ventures.map((venture, index) => (
+            <div
+              key={index}
+              className={`relative bg-white p-8 ${
+                index !== ventures.length - 1 ? 'md:border-r border-gray-200' : ''
+              }`}
+            >
+              <div className="text-center space-y-4">
+                {/* Country */}
+                <div className="text-xs uppercase tracking-[0.2em] text-blue-600 font-bold">
+                  {venture.country}
+                </div>
+
+                {/* Company Name */}
+                <h3 className="text-lg font-bold text-black leading-tight px-4">
+                  {venture.company}
+                </h3>
+
+                {/* Divider */}
+                <div className="w-12 h-px bg-gray-300 mx-auto"></div>
+
+                {/* Address */}
+                <p className="text-sm text-gray-600 leading-relaxed font-light px-2">
+                  {venture.address}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
   );
 }
 
