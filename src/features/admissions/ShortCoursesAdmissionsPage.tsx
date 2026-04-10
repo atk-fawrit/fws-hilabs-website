@@ -36,20 +36,7 @@ export default function ShortCoursesAdmissionsPage() {
 
               {/* Direct Admission */}
               <div className="space-y-6">
-                <h3 className="text-2xl md:text-3xl font-bold text-black tracking-tight">
-                  {admissionsData.shortCourses.overview.title}
-                </h3>
-                
                 <div className="space-y-4">
-                  <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
-                    <p className="text-lg text-gray-700 leading-relaxed font-light mb-4">
-                      {admissionsData.shortCourses.overview.description}
-                    </p>
-                    <p className="text-base text-gray-600 leading-relaxed font-light">
-                      {admissionsData.shortCourses.overview.details}
-                    </p>
-                  </div>
-                  
                   <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 text-white">
                     <h4 className="text-sm font-bold text-white/60 uppercase tracking-[0.2em] mb-3">
                       How It Works

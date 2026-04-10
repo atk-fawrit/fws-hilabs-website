@@ -9,7 +9,6 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { BodyText } from '@/src/shared/components/typography';
 import '../../styles/ProgramCategoriesSection.styles.css';
 
 const programCategories = [
@@ -22,6 +21,7 @@ const programCategories = [
     image: '/images/pythoncard.jpg',
     category: 'PROGRAMMING',
     link: '/courses/python-developer-bootcamp',
+    startDate: '9 May 2026',
   },
   {
     number: '02',
@@ -32,6 +32,7 @@ const programCategories = [
     image: '/images/sqlcard.jpg',
     category: 'DATABASE',
     link: '/courses/sql-data-foundations',
+    startDate: '16 May 2026',
   },
   {
     number: '03',
@@ -42,6 +43,7 @@ const programCategories = [
     image: '/images/admsncard3.png',
     category: 'WEB DEVELOPMENT',
     link: '/courses/frontend-developer-react',
+    startDate: '30 May 2026',
   },
   {
     number: '04',
@@ -52,6 +54,7 @@ const programCategories = [
     image: '/images/mobilecard.jpg',
     category: 'MOBILE DEVELOPMENT',
     link: '/courses/mobile-app-developer-react-native',
+    startDate: '20 Jun 2026',
   },
   {
     number: '05',
@@ -62,6 +65,7 @@ const programCategories = [
     image: '/images/backend.jpg',
     category: 'PROGRAMMING',
     link: '/courses/backend-developer-node-js',
+    startDate: '6 Jun 2026',
   },
   {
     number: '06',
@@ -72,6 +76,7 @@ const programCategories = [
     image: '/images/fullstack.jpg',
     category: 'PROGRAMMING',
     link: '/courses/full-stack-developer-mern',
+    startDate: '13 Jun 2026',
   },
   {
     number: '07',
@@ -82,6 +87,7 @@ const programCategories = [
     image: '/images/machinelearning.jpg',
     category: 'AI & MACHINE LEARNING',
     link: '/courses/machine-learning-with-python',
+    startDate: '27 Jun 2026',
   },
   {
     number: '08',
@@ -92,6 +98,7 @@ const programCategories = [
     image: '/images/AIfoundationcard.jpg',
     category: 'AI & MACHINE LEARNING',
     link: '/courses/ai-foundations',
+    startDate: '23 May 2026',
   },
   {
     number: '09',
@@ -102,6 +109,7 @@ const programCategories = [
     image: '/images/admsncard9.png',
     category: 'AI & MACHINE LEARNING',
     link: '/courses/ai-product-developer-with-python',
+    startDate: '4 Jul 2026',
   },
   {
     number: '10',
@@ -112,6 +120,7 @@ const programCategories = [
     image: '/images/dataanalystcard.jpg',
     category: 'DATA SCIENCE',
     link: '/courses/data-analytics-business-intelligence',
+    startDate: '25 Jul 2026',
   },
   {
     number: '11',
@@ -122,6 +131,7 @@ const programCategories = [
     image: '/images/devopscard.jpg',
     category: 'DEVOPS',
     link: '/courses/devops-deployment-for-developers',
+    startDate: '11 Jul 2026',
   },
   {
     number: '12',
@@ -132,6 +142,7 @@ const programCategories = [
     image: '/images/QAcard.jpg',
     category: 'TESTING',
     link: '/courses/qa-test-automation',
+    startDate: '18 Jul 2026',
   },
 ];
 
@@ -141,12 +152,12 @@ export const ProgramCategoriesSection: React.FC = () => {
       {/* Header */}
       <div className="space-y-3">
         <h2 className="text-3xl md:text-4xl font-bold text-black tracking-tight">
-          Program Categories
+          Short Courses
         </h2>
         <p className="text-base md:text-lg text-gray-700 leading-relaxed font-light text-justify">
-          Short Programs are organized into categories based on skill domain and application context. 
-          Each category addresses specific professional development needs without attempting comprehensive 
-          coverage of engineering disciplines.
+          Weekend-based technical training modules designed for working professionals seeking targeted 
+          skill development without full-time commitment. Each course addresses specific professional 
+          development needs in focused skill domains.
         </p>
       </div>
       
@@ -156,61 +167,51 @@ export const ProgramCategoriesSection: React.FC = () => {
           <Link
             key={program.number}
             href={program.link}
-            className={`
-              group cursor-pointer bg-white rounded-2xl overflow-hidden
-              transition-all duration-500 ease-out
-              border-2 border-black
-              flex flex-col h-full outline-none
-              hover:shadow-[0_12px_40px_-10px_rgba(0,0,0,0.4)] hover:-translate-y-1
-            `}
+            className="group cursor-pointer rounded-2xl overflow-hidden transition-all duration-500 ease-out flex flex-col h-full outline-none hover:shadow-[0_12px_40px_-10px_rgba(0,0,0,0.4)] hover:-translate-y-1 relative"
             style={{ animationDelay: `${index * 100}ms` }}
           >
-            {/* Clean Image Section */}
-            <div className="overflow-hidden h-40">
+            {/* Full Image with Overlay */}
+            <div className="relative h-full min-h-[320px]">
               <Image
                 src={program.image}
                 alt={program.title}
-                width={640}
-                height={256}
+                fill
                 priority={index < 2}
                 sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 25vw"
-                className="w-full h-full object-cover"
+                className="object-cover"
               />
-            </div>
-            
-            {/* Content Area */}
-            <div className="px-4 py-3 flex flex-col gap-3 flex-1">
-              {/* Title Heading */}
-              <h3 className="text-sm sm:text-base font-bold text-black leading-tight">
-                {program.title}
-              </h3>
               
-              {/* Description */}
-              <BodyText className="text-gray-600 leading-snug text-[11px] line-clamp-2">
-                {program.description}
-              </BodyText>
-
-              {/* Meta Information */}
-              <div className="flex items-center justify-between border-t border-gray-100 pt-2">
-                <div className="flex items-center gap-1">
-                  <div className="w-3.5 h-3.5 bg-black rounded-md flex items-center justify-center">
-                    <svg className="w-2 h-2 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
+              {/* Dark gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+              
+              {/* Content overlay */}
+              <div className="absolute inset-0 p-4 flex flex-col justify-between">
+                {/* Title at top */}
+                <h3 className="text-base sm:text-lg font-bold text-white leading-tight">
+                  {program.title}
+                </h3>
+                
+                {/* Bottom content */}
+                <div className="space-y-3">
+                  {/* Duration */}
+                  <div className="flex items-center gap-2">
+                    <div className="w-4 h-4 bg-white rounded-md flex items-center justify-center">
+                      <svg className="w-2.5 h-2.5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                    <span className="font-semibold text-white text-xs">{program.duration}</span>
                   </div>
-                  <span className="font-semibold text-black text-[10px]">{program.duration}</span>
-                </div>
-                <div className="text-[10px] text-gray-500 italic max-w-[120px] text-right">
-                  {program.prerequisites}
+                  
+                  {/* Start date and View Details */}
+                  <div className="flex items-center justify-between">
+                    <span className="text-white/90 text-xs">Starts: {program.startDate}</span>
+                    <span className="text-white font-semibold text-xs">
+                      View Details
+                    </span>
+                  </div>
                 </div>
               </div>
-
-              <button
-                type="button"
-                className="mt-auto self-center inline-flex justify-center text-xs font-semibold text-black border-b-2 border-black transition-opacity duration-300 hover:opacity-70"
-              >
-                View Full Details
-              </button>
             </div>
           </Link>
         ))}

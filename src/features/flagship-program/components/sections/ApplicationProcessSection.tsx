@@ -33,7 +33,7 @@ export const ApplicationProcessSection: React.FC = () => {
 
               <div className="pt-4">
                 <Link 
-                  href="/admissions"
+                  href="/admissions/flagship-program"
                   className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-medium transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
                 >
                   Begin Admissions Process

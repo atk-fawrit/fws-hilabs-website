@@ -37,11 +37,11 @@ export const CommitmentRiskSection: React.FC<CommitmentRiskSectionProps> = ({
                   <span className="text-white font-bold text-lg">02</span>
                 </div>
                 <h2 className="text-3xl md:text-4xl font-bold text-black tracking-tight">
-                  Commitment & Risk
+                  Commitment & Concerns 
                 </h2>
               </div>
               <p className="text-base text-gray-600 font-light ml-14">
-                Understanding the full commitment and risks involved
+                Understanding the full commitment and concerns involved
               </p>
             </div>
             
@@ -82,7 +82,7 @@ export const CommitmentRiskSection: React.FC<CommitmentRiskSectionProps> = ({
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                     </div>
-                    <h3 className="text-xl font-bold uppercase tracking-wider">
+                    <h3 className="text-xl font-bold text-white uppercase tracking-wider">
                       Commitment Requirements
                     </h3>
                   </div>
@@ -117,7 +117,7 @@ export const CommitmentRiskSection: React.FC<CommitmentRiskSectionProps> = ({
                       </svg>
                     </div>
                     <h3 className="text-xl font-bold text-black uppercase tracking-wider">
-                      Risk Acknowledgment
+                      Concerns
                     </h3>
                   </div>
                   
@@ -145,8 +145,8 @@ export const CommitmentRiskSection: React.FC<CommitmentRiskSectionProps> = ({
                 transition={{ delay: 0.6 }}
                 className="mt-6 p-8 bg-gray-50 rounded-2xl border border-gray-200"
               >
-                <p className="text-lg text-gray-700 leading-relaxed font-light">
-                  Candidates who cannot accept these commitments and risks should not proceed with the application process. The program is designed for individuals who understand and embrace these constraints as necessary for effective talent production.
+                <p className="text-lg text-gray-700 leading-relaxed font-light text-center">
+                  Candidates who cannot accept these commitments and concerns should not proceed with the application process. The program is designed for individuals who understand and embrace these constraints as necessary for effective talent production.
                 </p>
               </motion.div>
             </motion.div>

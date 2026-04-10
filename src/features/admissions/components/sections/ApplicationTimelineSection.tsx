@@ -41,7 +41,7 @@ export const ApplicationTimelineSection: React.FC<ApplicationTimelineSectionProp
                 </h2>
               </div>
               <p className="text-base text-gray-600 font-light ml-14">
-                Timeline, response protocols, and confirmation requirements
+                Response protocols and confirmation requirements
               </p>
             </div>
             
@@ -68,68 +68,21 @@ export const ApplicationTimelineSection: React.FC<ApplicationTimelineSectionProp
               className="overflow-hidden"
             >
               <div className="pt-8 space-y-12">
-                
-                {/* Timeline */}
-                <div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-black mb-6 tracking-tight">
-                    Application Timeline
-                  </h3>
-                  
-                  <div className="relative">
-                    {/* Vertical line */}
-                    <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-gray-300 via-gray-900 to-gray-300" />
-                    
-                    <div className="space-y-8">
-                      {admissionsData.timeline.map((stage, index) => (
-                        <motion.div
-                          key={index}
-                          initial={{ opacity: 0, x: -20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.1 + index * 0.1, duration: 0.5 }}
-                          className="relative pl-16"
-                        >
-                          {/* Circle marker */}
-                          <div className="absolute left-0 top-0 w-12 h-12 rounded-xl bg-black border-4 border-white shadow-lg flex items-center justify-center">
-                            <span className="text-white font-bold">{index + 1}</span>
-                          </div>
-                          
-                          {/* Content card */}
-                          <div className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-gray-900 hover:shadow-lg transition-all duration-300">
-                            <h4 className="text-lg font-bold text-black mb-4">
-                              {stage.stage}
-                            </h4>
-                            <ul className="space-y-2">
-                              {stage.items.map((item, idx) => (
-                                <li key={idx} className="flex items-start gap-3">
-                                  <div className="w-1.5 h-1.5 rounded-full bg-black mt-2 flex-shrink-0" />
-                                  <span className="text-gray-700 font-light">{item}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        </motion.div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
 
                 {/* Response Protocols */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 }}
+                  transition={{ delay: 0.2 }}
                   className="bg-white rounded-2xl p-8 border border-gray-200"
                 >
-                  <h3 className="text-2xl md:text-3xl font-bold text-black mb-6 tracking-tight">
-                    Response Protocols
-                  </h3>
                   <div className="space-y-4">
                     {admissionsData.protocols.map((protocol, idx) => (
                       <motion.div
                         key={idx}
                         initial={{ opacity: 0, x: -10 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.6 + idx * 0.05 }}
+                        transition={{ delay: 0.3 + idx * 0.05 }}
                         className="flex items-start gap-4 p-4 hover:bg-gray-50 rounded-xl transition-colors"
                       >
                         <div className="flex-shrink-0 w-8 h-8 rounded-full bg-black flex items-center justify-center">
