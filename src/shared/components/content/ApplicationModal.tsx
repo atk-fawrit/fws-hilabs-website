@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { X } from 'lucide-react';
 
 interface ApplicationModalProps {
@@ -33,19 +33,7 @@ const shortCoursesList = [
   'QA & Test Automation',
 ];
 
-// Short courses Google Form
-// entry.1193222380 = Full Name
-// entry.458399431  = Email
-// entry.331991086  = Phone
-// entry.137427821  = Selected Course
-// entry.468477927  = Comment
-// entry.1596564807 = Address
-const SHORT_COURSES_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScUdHGpCmBxkCYd6mcySSYRtlwuOV7LTxqM9mwtUQx8AN7QlA/formResponse';
-// entry.298530135  = Email
-// entry.843169128  = Phone
-// entry.1315506959 = Address
-// entry.2045559370 = Comment
-const FLAGSHIP_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfm2Ryzj-gafNdLzjHAzrWHS9Yo_XAy5Ls1wDPSgLv-WfhosA/formResponse';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzShu3kEa8vW5p2ftYeI1U7mnZn-c339z5lwqfZ6m2UOZSF_9LZmOgX9bYBiNjuCjYGag/exec';
 
 export function ApplicationModal({ isOpen, onClose, programType = 'flagship' }: ApplicationModalProps) {
   const [formData, setFormData] = useState<FormData>({
@@ -56,9 +44,11 @@ export function ApplicationModal({ isOpen, onClose, programType = 'flagship' }: 
     comment: '',
     address: '',
   });
+  const [resumeFile, setResumeFile] = useState<File | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   if (!isOpen) return null;
 
@@ -68,10 +58,29 @@ export function ApplicationModal({ isOpen, onClose, programType = 'flagship' }: 
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0] || null;
+    setResumeFile(file);
+  };
+
   const resetForm = () => {
     setFormData({ fullName: '', email: '', phone: '', selectedCourse: '', comment: '', address: '' });
+    setResumeFile(null);
+    if (fileInputRef.current) fileInputRef.current.value = '';
     setSubmitStatus('idle');
   };
+
+  const toBase64 = (file: File): Promise<string> =>
+    new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const result = reader.result as string;
+        // Strip the data URL prefix (e.g. "data:application/pdf;base64,")
+        resolve(result.split(',')[1]);
+      };
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -79,48 +88,34 @@ export function ApplicationModal({ isOpen, onClose, programType = 'flagship' }: 
     setSubmitStatus('idle');
 
     try {
-      if (isShortCourses) {
-        // Short courses — Google Form
-        const body = new URLSearchParams({
-          'entry.1193222380': formData.fullName,
-          'entry.458399431': formData.email,
-          'entry.331991086': formData.phone,
-          'entry.137427821': formData.selectedCourse,
-          'entry.468477927': formData.comment,
-          'entry.1596564807': formData.address,
-        });
+      let base64File = '';
+      let filename = '';
 
-        await fetch(SHORT_COURSES_FORM_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: body.toString(),
-        });
-
-        // no-cors: cannot read response — assume success
-        setShowSuccessModal(true);
-        resetForm();
-      } else {
-        // Flagship — Google Form via no-cors
-        const body = new URLSearchParams({
-          'entry.36334069': formData.fullName,
-          'entry.298530135': formData.email,
-          'entry.843169128': formData.phone,
-          'entry.1315506959': formData.address,
-          'entry.2045559370': formData.comment,
-        });
-
-        await fetch(FLAGSHIP_FORM_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: body.toString(),
-        });
-
-        // no-cors: cannot read response status — assume success
-        setShowSuccessModal(true);
-        resetForm();
+      if (resumeFile) {
+        base64File = await toBase64(resumeFile);
+        filename = resumeFile.name;
       }
+
+      // Build form data as URLSearchParams — Apps Script reads via e.parameter
+      const body = new URLSearchParams();
+      body.append('formType', programType);
+      body.append('name', formData.fullName);
+      body.append('email', formData.email);
+      body.append('phone', formData.phone);
+      body.append('course', formData.selectedCourse || '-');
+      body.append('comment', formData.comment || '-');
+      body.append('address', formData.address);
+      body.append('file', base64File);
+      body.append('filename', filename);
+
+      await fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: body,
+      });
+
+      setShowSuccessModal(true);
+      resetForm();
     } catch (error) {
       console.error('Submission error:', error);
       setSubmitStatus('error');
@@ -184,6 +179,26 @@ export function ApplicationModal({ isOpen, onClose, programType = 'flagship' }: 
               </div>
             )}
 
+            {/* Resume Upload */}
+            <div>
+              <label htmlFor="resume" className="block text-sm font-semibold text-gray-900 mb-2">
+                Upload Resume * <span className="text-gray-400 font-normal">(PDF only)</span>
+              </label>
+              <input
+                ref={fileInputRef}
+                type="file"
+                id="resume"
+                name="resume"
+                accept=".pdf"
+                required
+                onChange={handleFileChange}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition-all text-gray-700 file:mr-4 file:py-1.5 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-gray-900 file:text-white hover:file:bg-gray-700"
+              />
+              {resumeFile && (
+                <p className="text-xs text-green-600 mt-1.5">✓ {resumeFile.name}</p>
+              )}
+            </div>
+
             {/* Comment */}
             <div>
               <label htmlFor="comment" className="block text-sm font-semibold text-gray-900 mb-2">Add a Comment</label>
@@ -227,15 +242,6 @@ export function ApplicationModal({ isOpen, onClose, programType = 'flagship' }: 
       {showSuccessModal && (
         <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/40 rounded-2xl">
           <div className="bg-white rounded-2xl shadow-2xl p-8 mx-4 max-w-sm w-full text-center">
-            {/* Close */}
-            <button
-              onClick={() => { setShowSuccessModal(false); onClose(); }}
-              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
-              aria-label="Close"
-            >
-              <X className="w-5 h-5" />
-            </button>
-            {/* Green circle checkmark */}
             <div className="w-16 h-16 rounded-full bg-green-500 flex items-center justify-center mx-auto mb-5">
               <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
