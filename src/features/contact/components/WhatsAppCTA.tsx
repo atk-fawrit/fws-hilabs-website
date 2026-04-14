@@ -19,9 +19,9 @@ export const WhatsAppCTA: React.FC<WhatsAppCTAProps> = ({ onWhatsAppClick }) => 
       initial={{ opacity: 0, x: 30 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.6, delay: 0.3 }}
-      className="flex flex-col justify-center h-full"
+      className="flex flex-col h-full"
     >
-      <div className="relative bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 rounded-3xl p-10 shadow-lg border-2 border-green-100 overflow-hidden">
+      <div className="relative bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 rounded-3xl p-10 shadow-lg border-2 border-green-100 overflow-hidden flex-1 flex flex-col justify-center">
         {/* Subtle decorative elements */}
         <div className="absolute top-0 right-0 w-48 h-48 bg-white/40 rounded-full -translate-y-24 translate-x-24"></div>
         <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/40 rounded-full translate-y-16 -translate-x-16"></div>

@@ -60,7 +60,7 @@ export default function CoursesPage() {
                 <div className="absolute inset-0 p-4 flex flex-col justify-between">
                   {/* Title at top */}
                   <h3 className="text-base sm:text-lg font-bold text-white leading-tight">
-                    Full-Stack Engineering Program
+                    AI Native Software Engineer Fellowship
                   </h3>
                   
                   {/* Bottom content */}
@@ -77,7 +77,7 @@ export default function CoursesPage() {
                     
                     {/* Start date and View Details */}
                     <div className="flex items-center justify-between">
-                      <span className="text-white/90 text-xs">Starts: 1 Aug 2026</span>
+                      <span className="text-white/90 text-xs">Starts: 15th july 2026</span>
                       <span className="text-white font-semibold text-xs">
                         View Details
                       </span>
