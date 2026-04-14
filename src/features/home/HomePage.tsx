@@ -39,7 +39,7 @@ export default function HomePage() {
         backgroundImage={homeData.programs.backgroundImage}
       />
       
-      <ExploreSection cards={homeData.explore.cards} />
+      <ExploreSection />
       
       <IdentitySection 
         positiveItems={homeData.identity.positive}
