@@ -74,10 +74,10 @@ export const teamMembers = [
   },
   {
     id: 2,
-    name: 'Sarah Chen',
+    name: 'Sohit',
     role: 'Program Director',
-    description: 'Strategic leader driving program operations and student outcomes. Sarah brings expertise in talent evaluation systems and deployment mechanisms with focus on measurable impact.',
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop'
+    description: 'Entrepreneurial operator with 10+ years of global experience, an MBA from IE Business School, and a technical maritime background. Built multiple ventures across Europe, Middle east and Asia, raised funding, and delivered up to 50% revenue growth and 40% profitability gains.',
+    image: '/images/sohitsirimg.png'
   },
   {
     id: 3,
