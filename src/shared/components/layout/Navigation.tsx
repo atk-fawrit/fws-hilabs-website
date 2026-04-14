@@ -153,7 +153,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-2 ml-auto">
+          <div className="hidden lg:flex items-center gap-1 ml-auto">
             {primaryNavItems.map((item) => {
               const isActive = pathname === item.href;
 
@@ -169,7 +169,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
                     <Link
                       href="/courses"
                       className={`
-                        relative px-6 py-2.5 text-[15px] font-semibold tracking-wide transition-all duration-300 rounded-lg
+                        relative px-4 py-2.5 text-[15px] font-semibold tracking-wide transition-all duration-300 rounded-lg
                         ${isActive ? 'text-black bg-black/15' : 'text-gray-800 hover:text-black hover:bg-black/10'}
                       `}
                     >
@@ -190,7 +190,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
                   key={item.href}
                   href={item.href}
                   className={`
-        relative px-6 py-2.5 text-[15px] font-semibold tracking-wide transition-all duration-300 rounded-lg
+        relative px-4 py-2.5 text-[15px] font-semibold tracking-wide transition-all duration-300 rounded-lg
         ${isActive
                       ? 'text-black bg-black/15'
                       : 'text-gray-800 hover:text-black hover:bg-black/10'

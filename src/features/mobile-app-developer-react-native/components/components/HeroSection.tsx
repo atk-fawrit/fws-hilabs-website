@@ -43,8 +43,16 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="bg-slate-800/80 backdrop-blur-md rounded-3xl p-8 border border-slate-700 shadow-2xl shadow-blue-900/20"
             >
-              <h3 className="text-xl font-semibold text-white mb-6 border-b border-slate-700 pb-4">Course Details</h3>
-              <div className="space-y-6 text-slate-300">
+                <div className="flex items-center justify-between mb-6 border-b border-slate-700 pb-4">
+                  <h3 className="text-xl font-semibold text-white">
+                    Course Details
+                  </h3>
+
+                  <span className="text-sm text-slate-300">
+                    Course starts: <span className="text-white font-medium">20 Jun 2026</span>
+                  </span>
+                </div>             
+                 <div className="space-y-6 text-slate-300">
                 <div className="flex gap-4 items-start">
                   <div className="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center shrink-0 border border-blue-500/20">
                     <Clock className="w-5 h-5 text-blue-400" />

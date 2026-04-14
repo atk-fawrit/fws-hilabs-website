@@ -39,7 +39,7 @@ export function ApplicationModal({ isOpen, onClose, programType = 'flagship' }: 
   const [formData, setFormData] = useState<FormData>({
     fullName: '',
     email: '',
-    phone: '',
+    phone: '+91 ',
     selectedCourse: '',
     comment: '',
     address: '',
@@ -49,10 +49,31 @@ export function ApplicationModal({ isOpen, onClose, programType = 'flagship' }: 
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const [phoneError, setPhoneError] = useState('');
+  const [emailError, setEmailError] = useState('');
 
   if (!isOpen) return null;
 
   const isShortCourses = programType === 'short-courses';
+
+  const PREFIX = '+91 ';
+
+  const validatePhone = (val: string) => /^\+91 [0-9]{10}$/.test(val);
+  const validateEmail = (val: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let val = e.target.value;
+    if (!val.startsWith(PREFIX)) val = PREFIX;
+    const digits = val.slice(PREFIX.length).replace(/\D/g, '').slice(0, 10);
+    const newVal = PREFIX + digits;
+    setFormData(prev => ({ ...prev, phone: newVal }));
+    setPhoneError('');
+  };
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData(prev => ({ ...prev, email: e.target.value }));
+    setEmailError('');
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -64,8 +85,10 @@ export function ApplicationModal({ isOpen, onClose, programType = 'flagship' }: 
   };
 
   const resetForm = () => {
-    setFormData({ fullName: '', email: '', phone: '', selectedCourse: '', comment: '', address: '' });
+    setFormData({ fullName: '', email: '', phone: PREFIX, selectedCourse: '', comment: '', address: '' });
     setResumeFile(null);
+    setPhoneError('');
+    setEmailError('');
     if (fileInputRef.current) fileInputRef.current.value = '';
     setSubmitStatus('idle');
   };
@@ -84,6 +107,18 @@ export function ApplicationModal({ isOpen, onClose, programType = 'flagship' }: 
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    const phoneValid = validatePhone(formData.phone);
+    const emailValid = validateEmail(formData.email);
+
+    if (!phoneValid && !emailValid) {
+      setPhoneError('Invalid phone number');
+      setEmailError('Enter email in correct format');
+      return;
+    }
+    if (!phoneValid) { setPhoneError('Invalid phone number'); return; }
+    if (!emailValid) { setEmailError('Enter email in correct format'); return; }
+
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
@@ -152,17 +187,19 @@ export function ApplicationModal({ isOpen, onClose, programType = 'flagship' }: 
             {/* Email */}
             <div>
               <label htmlFor="email" className="block text-sm font-semibold text-gray-900 mb-2">Email Address *</label>
-              <input type="email" id="email" name="email" required value={formData.email} onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition-all"
+              <input type="email" id="email" name="email" required value={formData.email} onChange={handleEmailChange}
+                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition-all ${emailError ? 'border-red-400' : 'border-gray-300'}`}
                 placeholder="your.email@gmail.com" />
+              {emailError && <p className="text-red-500 text-xs mt-1">{emailError}</p>}
             </div>
 
             {/* Phone */}
             <div>
               <label htmlFor="phone" className="block text-sm font-semibold text-gray-900 mb-2">Phone Number *</label>
-              <input type="tel" id="phone" name="phone" required value={formData.phone} onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition-all"
-                placeholder="+91 XXXXX XXXXX" />
+              <input type="tel" id="phone" name="phone" required value={formData.phone} onChange={handlePhoneChange}
+                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition-all ${phoneError ? 'border-red-400' : 'border-gray-300'}`}
+                placeholder="+91 XXXXXXXXXX" />
+              {phoneError && <p className="text-red-500 text-xs mt-1">{phoneError}</p>}
             </div>
 
             {/* Course Dropdown — short-courses only */}

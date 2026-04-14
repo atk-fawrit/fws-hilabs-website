@@ -293,7 +293,7 @@ export function HeroSection({ stages }: PipelineSectionProps) {
             </div>
             <div className="relative mt-0 md:mt-2 px-4">
               {/* Invisible placeholder blocks the correct layout space from frame 1 */}
-              <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-light invisible pointer-events-none select-none" aria-hidden="true">
+              <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-light invisible opacity-0 pointer-events-none select-none" aria-hidden="true">
                 {subText}
                 <span className="inline-block w-[4px] sm:w-[5px] md:w-[6px] h-[0.8em] ml-1 align-middle" />
               </div>
