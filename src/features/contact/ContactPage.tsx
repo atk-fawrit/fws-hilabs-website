@@ -18,16 +18,18 @@ export default function ContactPage() {
     <PageLayout>
       <HeroSection />
 
-      <main className="w-full bg-gradient-to-b from-gray-50 to-white pb-24">
+      <main className="w-full bg-gradient-to-b from-gray-50 to-white pb-12">
         <section className="w-full py-16">
-          <div className="max-w-[1200px] mx-auto px-6 space-y-6">
+          <div className="max-w-[1000px] mx-auto px-6 space-y-6">
 
             {/* Full-width HI Labs card */}
             <HiLabsCard />
 
-            {/* Two-column: contact info left, WhatsApp right — same height */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
-              <ContactInfo phoneNumber={phoneNumber} />
+            {/* Contact Information Cards */}
+            <ContactInfo phoneNumber={phoneNumber} />
+
+            {/* WhatsApp CTA - Small card at bottom */}
+            <div className="max-w-xs mx-auto mt-4">
               <WhatsAppCTA
                 whatsappNumber={whatsappNumber}
                 onWhatsAppClick={openWhatsAppChat}

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: 'HI Labs (Human Intelligence Labs Lucknow) is the best software development training institute in Lucknow offering 100% placement IT training, professional IT courses for working professionals, and coding classes for beginners.',
   keywords: [
     'Human Intelligence Labs Lucknow',
-    'Hi Labs',
+    'HI Labs',
     'Best Software development training institute in lucknow',
     'best coding classes in Lucknow',
   ],

@@ -5,8 +5,8 @@ export const metadata: Metadata = {
   description: 'About Human Intelligence Labs (HI Labs) - Institutional charter, operating principles, and governance of the premier IT training and engineering talent production lab in Lucknow.',
   keywords: [
     'Human Intelligence Labs Lucknow',
-    'Hi Labs',
-    'about Hi Labs',
+    'HI Labs',
+    'about HI Labs',
   ],
   alternates: {
     canonical: '/about/',

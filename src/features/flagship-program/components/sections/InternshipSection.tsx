@@ -106,7 +106,7 @@ export const InternshipSection: React.FC = () => {
           <div className="px-6 sm:px-8 md:px-10 py-4 bg-gradient-to-r from-emerald-500 to-teal-500 flex items-center gap-3">
             <div className="w-5 h-px bg-white/40"></div>
             <p className="text-white/90 text-sm italic font-light">
-              &ldquo;Beyond training — Hi-Labs shapes professionals.&rdquo;
+              &ldquo;Beyond training — HI Labs shapes professionals.&rdquo;
             </p>
             <span className="ml-auto text-white/60 text-xs tracking-widest uppercase hidden sm:block">HI Labs</span>
           </div>
