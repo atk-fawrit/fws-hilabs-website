@@ -9,7 +9,7 @@ export const heroLayoutConfig = {
 };
 
 export const heroTextContent = {
-  mainText: 'HI LABS',
+  mainText: 'HI Labs',
   subText: 'Engineering talent production and deployment',
   aiEnrichedText: 'AI-Enriched Software Engineering',
   flagshipText: 'HiLabs Flagship Program',
