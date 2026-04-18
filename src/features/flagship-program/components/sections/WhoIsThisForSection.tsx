@@ -21,19 +21,16 @@ const notForYouItems = [
 export const WhoIsThisForSection: React.FC = () => {
   return (
     <section style={{ padding: "80px 0", background: "#f2f2f0" }}>
-      <div style={{ maxWidth: "1120px", margin: "0 auto", padding: "0 56px" }}>
-        {/* Eyebrow */}
-        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "12px" }}>
-          <span style={{ fontSize: "9px", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#9a9a9a" }}>
+      <div style={{ maxWidth: "1600px", margin: "0 auto", padding: "0 56px" }}>
+        {/* Eyebrow and Title on same line */}
+        <div style={{ display: "flex", alignItems: "baseline", gap: "20px", marginBottom: "40px" }}>
+          <span style={{ fontSize: "clamp(2.4rem, 4.5vw, 3.6rem)", fontWeight: 200, letterSpacing: "-0.038em", lineHeight: 1.06, color: "#000000" }}>
             ELIGIBILITY
           </span>
-          <div style={{ flex: 1, height: "1px", background: "#e0dedd" }} />
+          <span style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#000000" }}>
+            Who is this <b style={{ fontWeight: 800 }}>for?</b>
+          </span>
         </div>
-
-        {/* Title */}
-        <h2 style={{ fontSize: "clamp(1.9rem, 3.8vw, 2.9rem)", fontWeight: 200, color: "#0d0d0d", letterSpacing: "-0.038em", lineHeight: 1.06, marginBottom: "40px" }}>
-          Who is this <b style={{ fontWeight: 800 }}>for?</b>
-        </h2>
 
         {/* Grid */}
         <div
@@ -47,25 +44,25 @@ export const WhoIsThisForSection: React.FC = () => {
           }}
         >
           {/* For You */}
-          <div style={{ background: "#ffffff", padding: "36px" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: "10px", paddingBottom: "20px", borderBottom: "1px solid #e0dedd", marginBottom: "2px" }}>
+          <div style={{ background: "#ffffff", padding: "50px" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "14px", paddingBottom: "26px", borderBottom: "1px solid #e0dedd", marginBottom: "6px" }}>
               <div
                 style={{
-                  width: "28px",
-                  height: "28px",
-                  borderRadius: "7px",
+                  width: "34px",
+                  height: "34px",
+                  borderRadius: "9px",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   flexShrink: 0,
-                  background: "#1c2030",
+                  background: "#000000",
                 }}
               >
-                <svg width="13" height="13" fill="none" stroke="white" viewBox="0 0 24 24">
+                <svg width="16" height="16" fill="none" stroke="white" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <span style={{ fontSize: "13px", fontWeight: 700, color: "#0d0d0d" }}>This is for you if:</span>
+              <span style={{ fontSize: "17px", fontWeight: 700, color: "#000000" }}>This is for you if:</span>
             </div>
 
             <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
@@ -75,50 +72,50 @@ export const WhoIsThisForSection: React.FC = () => {
                   style={{
                     display: "flex",
                     alignItems: "flex-start",
-                    gap: "12px",
-                    padding: "12px 0",
+                    gap: "16px",
+                    padding: "16px 0",
                     borderBottom: i < forYouItems.length - 1 ? "1px solid #e0dedd" : "none",
                   }}
                 >
-                  <svg width="13" height="13" fill="none" stroke="#3a3a3a" viewBox="0 0 24 24" style={{ flexShrink: 0, marginTop: "2px" }}>
+                  <svg width="16" height="16" fill="none" stroke="#000000" viewBox="0 0 24 24" style={{ flexShrink: 0, marginTop: "2px" }}>
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" />
                   </svg>
-                  <span style={{ fontSize: "13px", color: "#3a3a3a", lineHeight: 1.55 }}>{item}</span>
+                  <span style={{ fontSize: "16px", color: "#000000", lineHeight: 1.55 }}>{item}</span>
                 </li>
               ))}
             </ul>
           </div>
 
           {/* Not For You */}
-          <div style={{ background: "#1c2030", padding: "36px" }}>
+          <div style={{ background: "#1c2030", padding: "50px" }}>
             <div
               style={{
                 display: "flex",
                 alignItems: "center",
-                gap: "10px",
-                paddingBottom: "20px",
-                borderBottom: "1px solid rgba(255,255,255,0.06)",
-                marginBottom: "2px",
+                gap: "14px",
+                paddingBottom: "26px",
+                borderBottom: "1px solid rgba(255,255,255,0.1)",
+                marginBottom: "6px",
               }}
             >
               <div
                 style={{
-                  width: "28px",
-                  height: "28px",
-                  borderRadius: "7px",
+                  width: "34px",
+                  height: "34px",
+                  borderRadius: "9px",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   flexShrink: 0,
-                  background: "rgba(255,255,255,0.06)",
-                  border: "1px solid rgba(255,255,255,0.1)",
+                  background: "rgba(255,255,255,0.1)",
+                  border: "1px solid rgba(255,255,255,0.15)",
                 }}
               >
-                <svg width="10" height="10" fill="none" stroke="rgba(255,255,255,0.5)" viewBox="0 0 24 24">
+                <svg width="13" height="13" fill="none" stroke="#ffffff" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </div>
-              <span style={{ fontSize: "13px", fontWeight: 700, color: "rgba(255,255,255,0.65)" }}>This is NOT for you if:</span>
+              <span style={{ fontSize: "17px", fontWeight: 700, color: "#ffffff" }}>This is NOT for you if:</span>
             </div>
 
             <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
@@ -128,15 +125,15 @@ export const WhoIsThisForSection: React.FC = () => {
                   style={{
                     display: "flex",
                     alignItems: "flex-start",
-                    gap: "12px",
-                    padding: "12px 0",
-                    borderBottom: i < notForYouItems.length - 1 ? "1px solid rgba(255,255,255,0.05)" : "none",
+                    gap: "16px",
+                    padding: "16px 0",
+                    borderBottom: i < notForYouItems.length - 1 ? "1px solid rgba(255,255,255,0.08)" : "none",
                   }}
                 >
-                  <svg width="11" height="11" fill="none" stroke="rgba(255,255,255,0.22)" viewBox="0 0 24 24" style={{ flexShrink: 0, marginTop: "3px" }}>
+                  <svg width="14" height="14" fill="none" stroke="#ffffff" viewBox="0 0 24 24" style={{ flexShrink: 0, marginTop: "3px" }}>
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M6 18L18 6M6 6l12 12" />
                   </svg>
-                  <span style={{ fontSize: "13px", color: "rgba(255,255,255,0.38)", lineHeight: 1.55 }}>{item}</span>
+                  <span style={{ fontSize: "16px", color: "#ffffff", lineHeight: 1.55 }}>{item}</span>
                 </li>
               ))}
             </ul>
@@ -144,7 +141,7 @@ export const WhoIsThisForSection: React.FC = () => {
         </div>
 
         {/* Note */}
-        <p style={{ marginTop: "18px", fontSize: "11.5px", color: "#9a9a9a", textAlign: "center", fontStyle: "italic" }}>
+        <p style={{ marginTop: "24px", fontSize: "14px", color: "#000000", textAlign: "center", fontStyle: "italic" }}>
           Selection is based on commitment and aptitude — not prior experience.
         </p>
       </div>

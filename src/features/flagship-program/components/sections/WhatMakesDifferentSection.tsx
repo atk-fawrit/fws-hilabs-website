@@ -49,15 +49,15 @@ const differentiators = [
 export const WhatMakesDifferentSection: React.FC = () => {
   return (
     <section style={{ padding: "80px 0", background: "#ffffff" }}>
-      <div style={{ maxWidth: "1120px", margin: "0 auto", padding: "0 56px" }}>
+      <div style={{ maxWidth: "1600px", margin: "0 auto", padding: "0 56px" }}>
         {/* Eyebrow */}
         <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "12px" }}>
-          <span style={{ fontSize: "9px", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#9a9a9a" }}>DIFFERENTIATORS</span>
+          <span style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#000000" }}>DIFFERENTIATORS</span>
           <div style={{ flex: 1, height: "1px", background: "#e0dedd" }} />
         </div>
 
         {/* Title */}
-        <h2 style={{ fontSize: "clamp(1.9rem, 3.8vw, 2.9rem)", fontWeight: 200, color: "#0d0d0d", letterSpacing: "-0.038em", lineHeight: 1.06, marginBottom: "48px" }}>
+        <h2 style={{ fontSize: "clamp(2.4rem, 4.5vw, 3.6rem)", fontWeight: 200, color: "#000000", letterSpacing: "-0.038em", lineHeight: 1.06, marginBottom: "48px" }}>
           What makes this program <b style={{ fontWeight: 800 }}>different</b>
         </h2>
 
@@ -68,8 +68,9 @@ export const WhatMakesDifferentSection: React.FC = () => {
             gridTemplateColumns: "1fr 1fr",
             gap: 0,
             border: "1px solid #e0dedd",
-            borderRadius: "16px",
+            borderRadius: "20px",
             overflow: "hidden",
+            boxShadow: "0 4px 20px rgba(0,0,0,0.04)",
           }}
         >
           {differentiators.map((item, idx) => (
@@ -78,34 +79,39 @@ export const WhatMakesDifferentSection: React.FC = () => {
               style={{
                 display: "flex",
                 alignItems: "flex-start",
-                gap: "18px",
-                padding: "28px",
+                gap: "20px",
+                padding: "40px",
                 borderBottom: idx < differentiators.length - 2 ? "1px solid #e0dedd" : "none",
                 borderRight: idx % 2 === 0 ? "1px solid #e0dedd" : "none",
-                transition: "background 0.18s",
+                transition: "all 0.25s ease",
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = "#f2f2f0";
+                e.currentTarget.style.transform = "translateY(-2px)";
+                e.currentTarget.style.boxShadow = "0 8px 25px rgba(0,0,0,0.08)";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.background = "transparent";
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "none";
               }}
             >
               {/* Number */}
               <div
                 style={{
-                  width: "36px",
-                  height: "36px",
-                  borderRadius: "8px",
+                  width: "40px",
+                  height: "40px",
+                  borderRadius: "10px",
                   background: "#1c2030",
                   color: "#fff",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  fontSize: "13px",
+                  fontSize: "14px",
                   fontWeight: 800,
                   flexShrink: 0,
                   fontFamily: "'SF Mono', monospace",
+                  boxShadow: "0 4px 12px rgba(28, 32, 48, 0.15)",
                 }}
               >
                 {item.num}
@@ -113,12 +119,12 @@ export const WhatMakesDifferentSection: React.FC = () => {
 
               {/* Content */}
               <div style={{ flex: 1 }}>
-                <div style={{ fontSize: "14.5px", fontWeight: 700, color: "#0d0d0d", letterSpacing: "-0.015em", marginBottom: "6px" }}>{item.title}</div>
-                <div style={{ fontSize: "13px", color: "#6b6b6b", lineHeight: 1.68, marginBottom: "9px" }}>{item.desc}</div>
-                <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                <div style={{ fontSize: "19px", fontWeight: 700, color: "#000000", letterSpacing: "-0.015em", marginBottom: "10px" }}>{item.title}</div>
+                <div style={{ fontSize: "16px", color: "#000000", lineHeight: 1.68, marginBottom: "14px" }}>{item.desc}</div>
+                <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
                   {item.subs.map((sub, i) => (
-                    <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "8px", fontSize: "12.5px", color: "#9a9a9a" }}>
-                      <span style={{ flexShrink: 0, fontSize: "11px", marginTop: "1px", opacity: 0.5 }}>→</span>
+                    <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "8px", fontSize: "15px", color: "#000000" }}>
+                      <span style={{ flexShrink: 0, fontSize: "12px", marginTop: "1px", opacity: 0.7, color: "#1c2030" }}>→</span>
                       {sub}
                     </div>
                   ))}

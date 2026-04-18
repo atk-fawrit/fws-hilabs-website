@@ -16,7 +16,7 @@ export const admissionsData = {
       id: 'flagship',
       number: '01',
       title: 'Flagship Program',
-      description: '12-month full-time engineering talent production program with rigorous selection criteria',
+      description: '6 months training + 6 months internship full-time engineering talent production program with rigorous selection criteria',
       badge: 'Selection-Based Entry',
       icon: 'shield',
     },
@@ -36,7 +36,7 @@ export const admissionsData = {
       "Bachelor's degree in any discipline or equivalent",
       'Basic programming exposure (any language)',
       'English proficiency for technical communication',
-      'Ability to commit full-time for 12 months',
+      'Ability to commit full-time for 6 months training + 6 months internship',
       'Physical presence in Lucknow',
       'Financial capacity for living expenses',
       'Special cases contact directly',
@@ -62,7 +62,7 @@ export const admissionsData = {
         'Completed application form with eligibility verification',
         'Technical background summary (education, experience, projects)',
         'Commitment statement acknowledging program constraints',
-        'Timeline confirmation for 12-month availability',
+        'Timeline confirmation for 6 months training + 6 months internship availability',
       ],
       evaluationSignals: 'Completeness of application, clarity of technical background, understanding of program constraints, realistic timeline assessment',
     },
@@ -108,7 +108,7 @@ export const admissionsData = {
   ],
 
   commitments: [
-    'Full-time participation for 12 consecutive months',
+    'Full-time participation for 6 months training + 6 months internship',
     'Daily attendance 0800-1800 hours, Monday through Friday',
     'Relocation to Lucknow for program duration',
     'Termination of conflicting employment or commitments',
@@ -121,7 +121,7 @@ export const admissionsData = {
     'Elimination possible at any stage based on performance',
     'No refunds after program commencement except special circumstances',
     'Financial responsibility for living expenses during program',
-    'Career opportunity cost during 12-month commitment',
+    'Career opportunity cost during 6 months training + 6 months internship commitment',
     'No appeals process for elimination decisions',
   ],
 
@@ -183,7 +183,7 @@ export const admissionsData = {
     ],
     comparison: [
       { label: 'Selection Process', flagship: 'Multi-stage evaluation', shortCourse: 'None required' },
-      { label: 'Duration', flagship: '12 months full-time', shortCourse: '4-8 weekends' },
+      { label: 'Duration', flagship: '6 months training + 6 months internship', shortCourse: '4-8 weekends' },
       { label: 'Commitment', flagship: 'Full-time, in-person', shortCourse: 'Weekend sessions' },
       { label: 'Admission Type', flagship: 'Competitive selection', shortCourse: 'Direct enrollment' },
     ],
@@ -191,7 +191,7 @@ export const admissionsData = {
 
   checklist: [
     { key: 'eligibility', label: 'Verified eligibility against all criteria' },
-    { key: 'availability', label: 'Confirmed 12-month availability and relocation capacity' },
+    { key: 'availability', label: 'Confirmed 6 months training + 6 months internship availability and relocation capacity' },
     { key: 'evaluation', label: 'Acknowledged elimination-based evaluation system' },
     { key: 'costs', label: 'Accepted financial and career opportunity costs' },
     { key: 'policies', label: 'Understood no placement guarantees or refund policies' },

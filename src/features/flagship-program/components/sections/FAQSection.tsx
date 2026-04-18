@@ -59,15 +59,15 @@ export const FAQSection: React.FC = () => {
 
   return (
     <section style={{ padding: "80px 0", background: "#ffffff", borderTop: "1px solid #e0dedd" }}>
-      <div style={{ maxWidth: "800px", margin: "0 auto", padding: "0 56px" }}>
+      <div style={{ maxWidth: "1600px", margin: "0 auto", padding: "0 56px" }}>
         {/* Eyebrow */}
         <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "12px" }}>
-          <span style={{ fontSize: "9px", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#9a9a9a" }}>FAQ</span>
+          <span style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#000000" }}>QUESTIONS</span>
           <div style={{ flex: 1, height: "1px", background: "#e0dedd" }} />
         </div>
 
         {/* Title */}
-        <h2 style={{ fontSize: "clamp(1.9rem, 3.8vw, 2.9rem)", fontWeight: 200, color: "#0d0d0d", letterSpacing: "-0.038em", lineHeight: 1.06, marginBottom: "40px" }}>
+        <h2 style={{ fontSize: "clamp(2.4rem, 4.5vw, 3.6rem)", fontWeight: 200, color: "#000000", letterSpacing: "-0.038em", lineHeight: 1.06, marginBottom: "40px" }}>
           Common <b style={{ fontWeight: 800 }}>questions</b>
         </h2>
 
@@ -88,8 +88,8 @@ export const FAQSection: React.FC = () => {
                 }}
                 onClick={() => toggle(idx)}
               >
-                <span style={{ fontSize: "11px", fontWeight: 700, color: "#9a9a9a", minWidth: "20px" }}>{faq.num}</span>
-                <span style={{ fontSize: "14px", fontWeight: 600, color: "#0d0d0d", flex: 1, letterSpacing: "-0.01em" }}>{faq.question}</span>
+                <span style={{ fontSize: "12px", fontWeight: 700, color: "#000000", minWidth: "20px" }}>{faq.num}</span>
+                <span style={{ fontSize: "16px", fontWeight: 600, color: "#000000", flex: 1, letterSpacing: "-0.01em" }}>{faq.question}</span>
                 <div
                   style={{
                     width: "22px",
@@ -104,7 +104,7 @@ export const FAQSection: React.FC = () => {
                     background: openIndex === idx ? "#1c2030" : "transparent",
                   }}
                 >
-                  <svg width="10" height="10" fill="none" stroke={openIndex === idx ? "white" : "#0d0d0d"} viewBox="0 0 24 24">
+                  <svg width="12" height="12" fill="none" stroke={openIndex === idx ? "white" : "#000000"} viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d={openIndex === idx ? "M5 15l7-7 7 7" : "M19 9l-7 7-7-7"} />
                   </svg>
                 </div>
@@ -112,7 +112,7 @@ export const FAQSection: React.FC = () => {
 
               {/* Answer */}
               {openIndex === idx && (
-                <div style={{ fontSize: "13.5px", color: "#6b6b6b", lineHeight: 1.72, padding: "0 0 18px 28px" }}>{faq.answer}</div>
+                <div style={{ fontSize: "15px", color: "#000000", lineHeight: 1.72, padding: "0 0 18px 28px" }}>{faq.answer}</div>
               )}
             </div>
           ))}

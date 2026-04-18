@@ -20,7 +20,7 @@ export default function FlagshipProgramPage() {
         <ProgramOverviewSection />
       </div>
 
-      <main style={{ width: '100%', paddingTop: '350px' }}>
+      <main style={{ width: '100%', paddingTop: '280px' }}>
         <ProgramCardsSection />
         <WhoIsThisForSection />
         <WhatMakesDifferentSection />
