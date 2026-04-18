@@ -26,16 +26,16 @@ export default function Curriculum() {
         {curriculum.map((module, idx) => (
           <div 
             key={idx} 
-            className={`bg-white rounded-2xl border transition-all overflow-hidden ${openModule === idx ? 'border-blue-200 shadow-md ring-1 ring-blue-100' : 'border-slate-200 shadow-sm hover:border-slate-300'}`}
+            className={`bg-white rounded-2xl border transition-all overflow-hidden ${openModule === idx ? 'border-slate-300 shadow-md ring-1 ring-slate-100' : 'border-slate-200 shadow-sm hover:border-slate-300'}`}
           >
             <button 
               onClick={() => setOpenModule(openModule === idx ? null : idx)}
               className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none"
             >
-              <span className={`font-semibold text-lg ${openModule === idx ? 'text-blue-700' : 'text-slate-900'}`}>
+              <span className={`font-semibold text-lg ${openModule === idx ? 'text-slate-900' : 'text-slate-900'}`}>
                 {module.title}
               </span>
-              <ChevronDown className={`w-5 h-5 text-slate-400 transition-transform duration-300 ${openModule === idx ? 'rotate-180 text-blue-500' : ''}`} />
+              <ChevronDown className={`w-5 h-5 text-slate-400 transition-transform duration-300 ${openModule === idx ? 'rotate-180' : ''}`} />
             </button>
             <AnimatePresence>
               {openModule === idx && (

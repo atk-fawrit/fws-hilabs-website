@@ -11,12 +11,12 @@ import {
 } from 'lucide-react';
 
 const learningOutcomes = [
-  { text: "Build AI-powered applications using LLMs and modern AI APIs", icon: <Zap className="w-6 h-6 text-blue-500" /> },
-  { text: "Apply advanced prompt engineering techniques for reliable AI outputs", icon: <Brain className="w-6 h-6 text-blue-500" /> },
-  { text: "Integrate tools like OpenAI, LangChain, and vector databases into products", icon: <Code2 className="w-6 h-6 text-blue-500" /> },
-  { text: "Design and develop AI workflows with memory, retrieval, and agents", icon: <Database className="w-6 h-6 text-blue-500" /> },
-  { text: "Implement responsible AI practices in production applications", icon: <Shield className="w-6 h-6 text-blue-500" /> },
-  { text: "Deploy and manage AI product pipelines in cloud environments", icon: <Cloud className="w-6 h-6 text-blue-500" /> },
+  { text: "Build AI-powered applications using LLMs and modern AI APIs", icon: <Zap className="w-6 h-6 text-black" /> },
+  { text: "Apply advanced prompt engineering techniques for reliable AI outputs", icon: <Brain className="w-6 h-6 text-black" /> },
+  { text: "Integrate tools like OpenAI, LangChain, and vector databases into products", icon: <Code2 className="w-6 h-6 text-black" /> },
+  { text: "Design and develop AI workflows with memory, retrieval, and agents", icon: <Database className="w-6 h-6 text-black" /> },
+  { text: "Implement responsible AI practices in production applications", icon: <Shield className="w-6 h-6 text-black" /> },
+  { text: "Deploy and manage AI product pipelines in cloud environments", icon: <Cloud className="w-6 h-6 text-black" /> },
 ];
 
 export default function WhatYouWillLearn() {
@@ -30,7 +30,7 @@ export default function WhatYouWillLearn() {
             whileHover={{ y: -4, scale: 1.02 }}
             className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all group"
           >
-            <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-4 group-hover:bg-blue-600 transition-colors duration-300">
+            <div className="w-12 h-12 rounded-xl bg-gray-50 flex items-center justify-center mb-4 group-hover:bg-gray-200 transition-colors duration-300 text-black group-hover:text-black">
               {outcome.icon}
             </div>
             <p className="text-slate-700 font-medium leading-snug">{outcome.text}</p>

@@ -20,22 +20,14 @@ export default function ContactPage() {
 
       <main className="w-full bg-gradient-to-b from-gray-50 to-white pb-12">
         <section className="w-full py-16">
-          <div className="max-w-[1000px] mx-auto px-6 space-y-6">
-
-            {/* Full-width HI Labs card */}
+          {/* Full-width HI Labs card with increased width */}
+          <div className="max-w-7xl mx-auto px-6 mb-6">
             <HiLabsCard />
+          </div>
 
+          <div className="max-w-7xl mx-auto px-6 space-y-6">
             {/* Contact Information Cards */}
-            <ContactInfo phoneNumber={phoneNumber} />
-
-            {/* WhatsApp CTA - Small card at bottom */}
-            <div className="max-w-xs mx-auto mt-4">
-              <WhatsAppCTA
-                whatsappNumber={whatsappNumber}
-                onWhatsAppClick={openWhatsAppChat}
-              />
-            </div>
-
+            <ContactInfo phoneNumber={phoneNumber} onWhatsAppClick={openWhatsAppChat} />
           </div>
         </section>
       </main>

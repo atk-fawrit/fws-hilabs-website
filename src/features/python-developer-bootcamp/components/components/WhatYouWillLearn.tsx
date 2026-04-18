@@ -12,12 +12,12 @@ import {
 } from 'lucide-react';
 
 const learningOutcomes = [
-  { text: "Write clean, efficient Python code using core language constructs", icon: <Terminal className="w-6 h-6 text-blue-500" /> },
-  { text: "Apply object-oriented programming (OOP) principles to design scalable solutions", icon: <Layers className="w-6 h-6 text-blue-500" /> },
-  { text: "Build and consume RESTful APIs using Python frameworks", icon: <Globe className="w-6 h-6 text-blue-500" /> },
-  { text: "Automate tasks and scripts for productivity and workflow optimization", icon: <Cpu className="w-6 h-6 text-blue-500" /> },
-  { text: "Work with file systems, databases, and third-party libraries", icon: <Database className="w-6 h-6 text-blue-500" /> },
-  { text: "Deploy Python applications in real-world environments", icon: <Code2 className="w-6 h-6 text-blue-500" /> },
+  { text: "Write clean, efficient Python code using core language constructs", icon: <Terminal className="w-6 h-6 text-black" /> },
+  { text: "Apply object-oriented programming (OOP) principles to design scalable solutions", icon: <Layers className="w-6 h-6 text-black" /> },
+  { text: "Build and consume RESTful APIs using Python frameworks", icon: <Globe className="w-6 h-6 text-black" /> },
+  { text: "Automate tasks and scripts for productivity and workflow optimization", icon: <Cpu className="w-6 h-6 text-black" /> },
+  { text: "Work with file systems, databases, and third-party libraries", icon: <Database className="w-6 h-6 text-black" /> },
+  { text: "Deploy Python applications in real-world environments", icon: <Code2 className="w-6 h-6 text-black" /> },
 ];
 
 export default function WhatYouWillLearn() {
@@ -31,7 +31,7 @@ export default function WhatYouWillLearn() {
             whileHover={{ y: -4, scale: 1.02 }}
             className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all group"
           >
-            <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-4 group-hover:bg-blue-600 transition-colors duration-300 text-blue-600 group-hover:text-white">
+            <div className="w-12 h-12 rounded-xl bg-gray-50 flex items-center justify-center mb-4 group-hover:bg-gray-200 transition-colors duration-300 text-black group-hover:text-black">
               {outcome.icon}
             </div>
             <p className="text-slate-700 font-medium leading-snug">{outcome.text}</p>
