@@ -49,7 +49,7 @@ export function HeroSection({ stages }: PipelineSectionProps) {
   }, []);
 
   const isExpanded = (i: number) => activeCard?.index === i;
-  const isLoopLit = (_i?: number) => false;
+  const isLoopLit = () => false;
   const isApplicationCard = (i: number) => stages[i]?.id === 'application';
 
   const { mainText, subText, aiEnrichedText, flagshipText } = heroTextContent;
@@ -90,7 +90,7 @@ export function HeroSection({ stages }: PipelineSectionProps) {
     if (activeRef.current?.source === 'hover') setActive(null);
   }, [setActive]);
 
-  const handleCardMove = useCallback((_e: React.MouseEvent<HTMLDivElement>, _stageId: string, _i: number) => {
+  const handleCardMove = useCallback(() => {
     // reserved for future use
   }, []);
 
@@ -397,7 +397,7 @@ export function HeroSection({ stages }: PipelineSectionProps) {
                   >
                     {stages.map((stage, index) => {
                       const expanded = isExpanded(index);
-                      const loop = isLoopLit(index);
+                      const loop = isLoopLit();
                       return (
                         <motion.div
                           key={stage.id}
@@ -427,7 +427,7 @@ export function HeroSection({ stages }: PipelineSectionProps) {
                             }}
                             onMouseEnter={() => handleCardEnter(index)}
                             onMouseLeave={handleCardLeave}
-                            onMouseMove={e => handleCardMove(e, stage.id, index)}
+                            onMouseMove={handleCardMove}
                           >
                             <CardChrome stageId={stage.id} isLoop={loop} expanded={expanded} rounded="rounded-2xl">
                               {/* Collapsed */}
@@ -494,7 +494,7 @@ export function HeroSection({ stages }: PipelineSectionProps) {
                     <div className="space-y-4">
                       {stages.map((stage, index) => {
                         const expanded = isExpanded(index);
-                        const loop = isLoopLit(index);
+                        const loop = isLoopLit();
                         return (
                           <motion.div
                             key={stage.id}
@@ -526,7 +526,7 @@ export function HeroSection({ stages }: PipelineSectionProps) {
                               }}
                               onMouseEnter={() => handleCardEnter(index)}
                               onMouseLeave={handleCardLeave}
-                              onMouseMove={e => handleCardMove(e, stage.id, index)}
+                              onMouseMove={handleCardMove}
                             >
                               <CardChrome stageId={stage.id} isLoop={loop} expanded={expanded} rounded="rounded-2xl">
                                 {/* Collapsed */}
@@ -592,7 +592,7 @@ export function HeroSection({ stages }: PipelineSectionProps) {
                   <div ref={desktopRowRef} className="hidden xl:block relative w-full h-[460px]">
                     {stages.map((stage, index) => {
                       const expanded = isExpanded(index);
-                      const loop = isLoopLit(index);
+                      const loop = isLoopLit();
                       const delay = getDelay(index);
                       const xPos = isInView ? getCardX(index, expandedIndex) : 'calc(-50%)';
 

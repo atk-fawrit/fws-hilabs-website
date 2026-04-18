@@ -1,12 +1,9 @@
-
-
 export { HeroVideoSection } from './HeroVideoSection';
 export { ProgramOverviewSection } from './ProgramOverviewSection';
-export { ProgramSpecificationSection } from './ProgramSpecificationSection';
+export { WhoIsThisForSection } from './WhoIsThisForSection';
 export { ProgramCardsSection } from './ProgramCardsSection';
-export { PhaseOneSection } from './Term1Section';
-export { PhaseTwoSection } from './Term2Section';
-export { PhaseThreeSection } from './PhaseThreeSection';
-export { InternshipSection } from './InternshipSection';
-export { EvaluationSystemSection } from './EvaluationSystemSection';
-export { ApplicationProcessSection } from './ApplicationProcessSection';
+export { TermDetailsSection } from './TermDetailsSection';
+export { WhatMakesDifferentSection } from './WhatMakesDifferentSection';
+export { OutcomesSection } from './OutcomesSection';
+export { FAQSection } from './FAQSection';
+export { ImportantNotesSection } from './ImportantNotesSection';

@@ -1,158 +1,204 @@
 /**
- * Program Cards Section
- * 
- * Interactive cards with latest 2024-2025 animation trends:
- * - 3D perspective tilt on hover
- * - Magnetic attraction effect
- * - Smooth parallax background movement
- * - Glassmorphism and depth effects
+ * ProgramCardsSection.tsx — Clean Brand Design (Program Structure)
  */
+"use client";
+import React from "react";
+import Image from "next/image";
 
-import React, { useRef, useEffect } from 'react';
-import Image from 'next/image';
-import { programSections } from '../../data';
-import '../../styles/ProgramCardsSection.styles.css';
+const terms = [
+  {
+    num: "1",
+    badge: "2 Months",
+    badgeClass: "tb-blue",
+    title: "Term 1 — Foundations",
+    desc: "Build strong core fundamentals.",
+    topLineClass: "ttl-1",
+    imgClass: "ti-1",
+    image: "/images/coding1.png",
+    items: ["Data Structures & Algorithms", "Database Fundamentals (SQL + PostgreSQL)", "Problem Solving & Coding Practice"],
+    more: "+2 more topics",
+  },
+  {
+    num: "2",
+    badge: "2 Months",
+    badgeClass: "tb-green",
+    title: "Term 2 — Advanced Development",
+    desc: "Move from theory to building real systems.",
+    topLineClass: "ttl-2",
+    imgClass: "ti-2",
+    image: "/images/coding2.png",
+    items: ["MERN Stack (MongoDB, Express, React, Node.js)", "Backend + API Development", "Real-world coding practices"],
+    more: "+2 more topics",
+  },
+  {
+    num: "3",
+    badge: "2 Months",
+    badgeClass: "tb-purple",
+    title: "Term 3 — Real-World Implementation",
+    desc: "This is where you become an engineer.",
+    topLineClass: "ttl-3",
+    imgClass: "ti-3",
+    image: "/images/phase3card.png",
+    items: ["Build real-world applications", "Work on structured live projects", "Collaborate in teams"],
+    more: "+3 more topics",
+  },
+  {
+    num: "4",
+    badge: "6 Months",
+    badgeClass: "tb-red",
+    title: "Term 4 — Internship",
+    desc: "After training at HiLabs, you move into a real startup.",
+    topLineClass: "ttl-4",
+    imgClass: "ti-4",
+    image: "/images/internship1.png",
+    items: ["Work on live production systems", "Real codebases, not dummy projects", "Industry exposure and team collaboration"],
+    more: "+2 more",
+  },
+];
 
-interface ProgramCardsSectionProps {
-  onViewAllClick: () => void;
-  isExpanded: boolean;
-}
+const badgeStyles: Record<string, React.CSSProperties> = {
+  "tb-blue": { color: "rgba(122,163,212,.9)", background: "rgba(122,163,212,.1)", border: "1px solid rgba(122,163,212,.18)" },
+  "tb-green": { color: "rgba(93,191,160,.9)", background: "rgba(93,191,160,.1)", border: "1px solid rgba(93,191,160,.18)" },
+  "tb-purple": { color: "rgba(168,134,232,.9)", background: "rgba(168,134,232,.1)", border: "1px solid rgba(168,134,232,.18)" },
+  "tb-red": { color: "rgba(229,62,62,.9)", background: "rgba(229,62,62,.1)", border: "1px solid rgba(229,62,62,.18)" },
+};
 
-export const ProgramCardsSection: React.FC<ProgramCardsSectionProps> = ({ onViewAllClick, isExpanded }) => {
-  const filteredSections = programSections.filter(section => section.id !== 'specification');
-  const containerRef = useRef<HTMLDivElement>(null);
+const topLineStyles: Record<string, string> = {
+  "ttl-1": "linear-gradient(90deg, #4a6fa5, #7ba3d4)",
+  "ttl-2": "linear-gradient(90deg, #3a8c6e, #5dbfa0)",
+  "ttl-3": "linear-gradient(90deg, #7c5cbf, #a886e8)",
+  "ttl-4": "linear-gradient(90deg, #b83232, #e53e3e)",
+};
 
-  useEffect(() => {
-    // Parallax scroll effect
-    const handleScroll = () => {
-      const scrolled = window.scrollY;
-      const parallaxElements = document.querySelectorAll('.parallax-layer');
+const imgBgStyles: Record<string, string> = {
+  "ti-1": "#0d1220",
+  "ti-2": "#0a1710",
+  "ti-3": "#0f0e1e",
+  "ti-4": "#1a0a0a",
+};
 
-      parallaxElements.forEach((element, index) => {
-        const speed = 0.3 + (index * 0.05);
-        const yPos = -(scrolled * speed * 0.1);
-        (element as HTMLElement).style.transform = `translateY(${yPos}px)`;
-      });
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
+export const ProgramCardsSection: React.FC = () => {
   return (
-    <section className="w-full mb-12" ref={containerRef}>
-      {/* Dark blue background container */}
-      <div className="bg-gradient-to-br from-slate-800 via-slate-900 to-slate-950 p-4 sm:p-6 md:p-8 lg:p-12 rounded-xl sm:rounded-2xl relative overflow-hidden">
-        {/* Animated background orbs */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="orb orb-1" />
-          <div className="orb orb-2" />
-          <div className="orb orb-3" />
+    <section style={{ background: "#f2f2f0", borderTop: "1px solid #e0dedd", borderBottom: "1px solid #e0dedd", padding: "80px 0" }}>
+      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 32px" }}>
+        {/* Eyebrow */}
+        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "12px" }}>
+          <span style={{ fontSize: "9px", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#9a9a9a" }}>CURRICULUM</span>
+          <div style={{ flex: 1, height: "1px", background: "#e0dedd" }} />
         </div>
 
-        <div className="relative z-10 mb-6 sm:mb-8 md:mb-12">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-light text-white mb-2 sm:mb-3 slide-up">
-            Program Components
-          </h2>
-          <p className="text-base sm:text-lg text-white/80 max-w-3xl slide-up" style={{ animationDelay: '0.1s' }}>
-            Explore detailed documentation for each phase and process of the flagship program
-          </p>
-        </div>
+        {/* Title */}
+        <h2 style={{ fontSize: "clamp(1.9rem, 3.8vw, 2.9rem)", fontWeight: 200, color: "#0d0d0d", letterSpacing: "-0.038em", lineHeight: 1.06 }}>
+          Program <b style={{ fontWeight: 800 }}>Structure</b>
+        </h2>
 
-        {/* Cards Grid */}
-        <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
-          {filteredSections.map((section, index) => (
-            <div key={section.id} className="parallax-layer">
+        <p style={{ fontSize: "14px", color: "#6b6b6b", fontWeight: 500, marginBottom: "40px", marginTop: "6px" }}>6 Months Training + 6 Months Internship</p>
+
+        {/* Terms Grid */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "16px" }}>
+          {terms.map((term, idx) => (
+            <div
+              key={idx}
+              style={{
+                background: "#1c2030",
+                borderRadius: "14px",
+                overflow: "hidden",
+                position: "relative",
+                transition: "background 0.2s, transform 0.2s",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = "#242838";
+                e.currentTarget.style.transform = "translateY(-3px)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "#1c2030";
+                e.currentTarget.style.transform = "translateY(0)";
+              }}
+            >
+              {/* Top line */}
+              <div style={{ height: "2px", width: "100%", background: topLineStyles[term.topLineClass] }} />
+
+              {/* Image area */}
               <div
-                className="magnetic-card group text-left h-full"
-                onMouseMove={(e) => {
-                  const cardElement = e.currentTarget;
-                  const rect = cardElement.getBoundingClientRect();
-                  const x = e.clientX - rect.left;
-                  const y = e.clientY - rect.top;
-                  const centerX = rect.width / 2;
-                  const centerY = rect.height / 2;
-
-                  const rotateX = (y - centerY) / 15;
-                  const rotateY = (centerX - x) / 15;
-
-                  cardElement.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(20px) scale(1.05)`;
-
-                  const glowX = (x / rect.width) * 100;
-                  const glowY = (y / rect.height) * 100;
-                  cardElement.style.setProperty('--mouse-x', `${glowX}%`);
-                  cardElement.style.setProperty('--mouse-y', `${glowY}%`);
-                }}
-                onMouseLeave={(e) => {
-                  const cardElement = e.currentTarget;
-                  cardElement.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px) scale(1)';
-                }}
                 style={{
-                  animationDelay: `${index * 0.15}s`,
-                  '--mouse-x': '50%',
-                  '--mouse-y': '50%'
-                } as React.CSSProperties}
+                  width: "100%",
+                  height: "120px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  position: "relative",
+                  overflow: "hidden",
+                  background: imgBgStyles[term.imgClass],
+                  padding: "16px",
+                }}
               >
-                {/* Rotating gradient border */}
-                <div className="gradient-border" />
-
-                {/* Inner glow that follows mouse */}
-                <div className="inner-glow" />
-
-                {/* Card content wrapper */}
-                <div className="card-content-wrapper">
-                  {/* Image with parallax effect */}
-                  <div className="relative h-48 overflow-hidden">
-                    <div className="image-wrapper">
-                      <Image
-                        src={section.image}
-                        alt={section.title}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-
-                    {/* Shine effect */}
-                    <div className="shine-effect" />
-
-                    {/* Color overlay */}
-                    <div className={`color-overlay overlay-${index + 1}`} />
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-6 relative bg-white">
-                    <h3 className="text-lg font-bold text-gray-900 mb-2 leading-tight relative z-10">
-                      {section.title}
-                    </h3>
-                    <p className="text-sm text-gray-600 leading-relaxed mb-3">
-                      {section.description}
-                    </p>
-
-                  </div>
+                <Image
+                  src={term.image}
+                  alt={term.title}
+                  width={200}
+                  height={120}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "contain",
+                    position: "relative",
+                    zIndex: 2,
+                  }}
+                />
+                <div
+                  style={{
+                    position: "absolute",
+                    right: "8px",
+                    bottom: "-10px",
+                    fontSize: "60px",
+                    fontWeight: 900,
+                    color: "rgba(255,255,255,.04)",
+                    fontFamily: "'SF Mono', monospace",
+                    lineHeight: 1,
+                    pointerEvents: "none",
+                    zIndex: 1,
+                  }}
+                >
+                  {term.num}
                 </div>
+              </div>
+
+              {/* Body */}
+              <div style={{ padding: "16px 18px 20px" }}>
+                <span
+                  style={{
+                    display: "inline-block",
+                    fontSize: "9.5px",
+                    fontWeight: 700,
+                    letterSpacing: "0.07em",
+                    padding: "3px 9px",
+                    borderRadius: "100px",
+                    marginBottom: "8px",
+                    ...badgeStyles[term.badgeClass],
+                  }}
+                >
+                  {term.badge}
+                </span>
+
+                <div style={{ fontSize: "12.5px", fontWeight: 700, color: "rgba(255,255,255,.85)", marginBottom: "6px", letterSpacing: "-0.01em", lineHeight: 1.3 }}>
+                  {term.title}
+                </div>
+
+                <p style={{ fontSize: "11.5px", color: "rgba(255,255,255,.3)", lineHeight: 1.6, marginBottom: "10px" }}>{term.desc}</p>
+
+                <div style={{ display: "flex", flexDirection: "column", gap: "5px" }}>
+                  {term.items.map((item, i) => (
+                    <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "8px", fontSize: "11px", color: "rgba(255,255,255,.45)", lineHeight: 1.45 }}>
+                      <span style={{ width: "3px", height: "3px", borderRadius: "50%", background: "rgba(255,255,255,.25)", flexShrink: 0, marginTop: "5px" }} />
+                      {item}
+                    </div>
+                  ))}
+                </div>
+
+                <p style={{ fontSize: "10.5px", color: "rgba(255,255,255,.18)", marginTop: "7px", fontStyle: "italic" }}>{term.more}</p>
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Centralized View Details Button */}
-        <div className="relative z-10 mt-10 md:mt-14 lg:mt-16 flex justify-center slide-up" style={{ animationDelay: '0.4s' }}>
-          <button
-            onClick={onViewAllClick}
-            className="group relative inline-flex items-center justify-center gap-3 px-8 py-3.5 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold rounded-xl transition-all duration-300 hover:from-blue-600 hover:to-blue-700 shadow-lg hover:shadow-blue-500/50 hover:-translate-y-0.5"
-            style={{ textShadow: '0 1px 2px rgba(0,0,0,0.2)' }}
-          >
-            <span>{isExpanded ? 'Collapse Details' : 'View Program Details'}</span>
-            <svg
-              className={`w-5 h-5 transition-transform duration-300 ${isExpanded ? 'rotate-180' : 'group-hover:translate-y-1'}`}
-              fill="none" stroke="currentColor" viewBox="0 0 24 24"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
         </div>
       </div>
     </section>

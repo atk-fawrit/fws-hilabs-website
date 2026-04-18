@@ -59,9 +59,9 @@ export default function Footer({ className = '' }: FooterProps) {
     <footer className={`bg-gradient-to-b from-gray-50 to-white border-t border-gray-200 ${className}`}>
       <div className="w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-12 sm:py-16 md:py-20">
         {/* Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 md:gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 md:gap-12 lg:gap-8 max-w-6xl mx-auto">
           {/* Company Info - Takes more space */}
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-6">
             <h3 className="font-sans text-2xl sm:text-3xl font-black mb-2 text-gray-900 tracking-tight">
               {companyInfo.title}
             </h3>
@@ -190,9 +190,9 @@ export default function Footer({ className = '' }: FooterProps) {
       {/* Footer Bottom - Dark Bar */}
       <div className="w-full bg-gray-900 text-white py-8">
         <div className="w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex flex-col md:flex-row items-center justify-center md:justify-between gap-6">
             {/* Copyright */}
-            <p className="font-sans text-sm text-gray-400 text-center md:text-left">
+            <p className="font-sans text-sm text-gray-400 text-center">
               © {currentYear} Human Intelligence Labs Private Limited. All rights reserved.
             </p>
             

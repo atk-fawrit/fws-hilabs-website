@@ -1,21 +1,24 @@
 import { Metadata } from 'next';
 
 const keywordsList = [
+  'AI Native Software Engineer Fellowship',
   '6 month software training with internship in Lucknow',
   'Software development internship in Lucknow',
   'full stack developer course in Lucknow',
+  'guaranteed internship program',
+  'software engineer training Lucknow',
 ];
 
 export const metadata: Metadata = {
-  title: 'Flagship Program - 6 Month Software Training with Internship in Lucknow',
-  description: 'HI Labs Flagship Program - 12-month engineering talent production with 6 month software training & internship in Lucknow. Full stack developer course, backend developer training, and software development internship with guaranteed placement.',
+  title: 'AI Native Software Engineer Fellowship - 6 Months Training + Guaranteed Internship | HI Labs',
+  description: 'Become a job-ready software engineer in 6 months with 100% guaranteed internship at real startups. Full-time, in-person program in Lucknow. Learn MERN stack, AI-assisted development, and real-world engineering.',
   keywords: keywordsList,
   alternates: {
     canonical: '/flagship-program/',
   },
   openGraph: {
-    title: 'Flagship Program - 6 Month Software Training with Internship in Lucknow - HI Labs',
-    description: 'Join HI Labs Flagship Program for intensive software training with internship in Lucknow. Full stack, backend development & guaranteed placement.',
+    title: 'AI Native Software Engineer Fellowship - HI Labs Lucknow',
+    description: 'Transform into a job-ready software engineer in 6 months + guaranteed 6-month internship. Full-time training in Lucknow with real projects and industry exposure.',
     url: 'https://www.thehilabs.com/flagship-program/',
   },
   other: {
