@@ -1,39 +1,208 @@
 /**
- * Hero Video Section
- * 
- * Video background only - content card will overlap from ProgramOverviewSection
+ * HeroVideoSection.tsx — Clean Brand Design
  */
-
-import React from 'react';
+"use client";
+import React from "react";
 
 export const HeroVideoSection: React.FC = () => {
   return (
-    <section className="relative h-[400px] sm:h-[450px] md:h-[550px] overflow-hidden">
-      {/* Video Background */}
-      <div className="absolute inset-0">
+    <section
+      style={{
+        position: "relative",
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "flex-end",
+        overflow: "hidden",
+        background: "#ffffff",
+        paddingTop: "60px",
+      }}
+    >
+      {/* Background Video */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          zIndex: 1,
+        }}
+      >
         <video
           autoPlay
           muted
           loop
           playsInline
-          preload="auto"
-          className="w-full h-full object-cover"
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            opacity: 0.35,
+          }}
         >
-          <source src="/images/flagship-program-hero.mp4" type="video/mp4" />
+          <source src="/images/flagshipbg.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-black/30"></div>
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "linear-gradient(to bottom, rgba(255,255,255,0.3), rgba(255,255,255,0.15), rgba(255,255,255,0.3))",
+          }}
+        />
       </div>
-      
-      {/* Text Overlay on Video */}
-      <div className="relative h-full flex items-end sm:items-start justify-start px-4 sm:px-6 md:px-8 pt-20 sm:pt-24 pb-8 sm:pb-0">
-        <div className="max-w-2xl">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-light mb-3 sm:mb-4 text-white leading-tight">
-            AI Native Software Engineer Fellowship
-          </h1>
-          <p className="text-base sm:text-lg text-white/90 leading-relaxed">
-A structured, high-performance engineering program designed to produce AI-native software engineers through rigorous evaluation, disciplined fundamentals, and real-world deployment.          </p>
+
+      {/* Subtle grid lines */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          pointerEvents: "none",
+          backgroundImage:
+            "linear-gradient(#e0dedd 1px, transparent 1px), linear-gradient(90deg, #e0dedd 1px, transparent 1px)",
+          backgroundSize: "120px 120px",
+          opacity: 0.25,
+          zIndex: 2,
+        }}
+      />
+
+      {/* Content */}
+      <div
+        style={{
+          position: "relative",
+          zIndex: 10,
+          maxWidth: "1200px",
+          margin: "0",
+          width: "100%",
+          padding: "clamp(60px, 8vh, 100px) 56px clamp(160px, 22vh, 220px)",
+          alignSelf: "flex-start",
+        }}
+      >
+        {/* Badge pill */}
+        <div
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "9px",
+            padding: "5px 16px 5px 10px",
+            border: "1px solid #e0dedd",
+            borderRadius: "100px",
+            background: "#ffffff",
+            marginBottom: "32px",
+            opacity: 0,
+            animation: "fadeUp 0.7s 0.1s ease forwards",
+          }}
+        >
+          <div
+            style={{
+              width: "6px",
+              height: "6px",
+              borderRadius: "50%",
+              background: "#e53e3e",
+              flexShrink: 0,
+              animation: "blink 1.4s ease-in-out infinite",
+            }}
+          />
+          <span
+            style={{
+              fontSize: "11px",
+              fontWeight: 600,
+              letterSpacing: "0.06em",
+              color: "#6b6b6b",
+            }}
+          >
+            IN-PERSON · LUCKNOW
+          </span>
+          <div
+            style={{
+              width: "1px",
+              height: "10px",
+              background: "#e0dedd",
+            }}
+          />
+          <span
+            style={{
+              fontSize: "11px",
+              fontWeight: 800,
+              color: "#e53e3e",
+              letterSpacing: "0.02em",
+            }}
+          >
+            15TH JULY 2026
+          </span>
+          <div
+            style={{
+              width: "1px",
+              height: "10px",
+              background: "#e0dedd",
+            }}
+          />
+          <span
+            style={{
+              fontSize: "11px",
+              fontWeight: 600,
+              letterSpacing: "0.06em",
+              color: "#6b6b6b",
+            }}
+          >
+            60 SEATS
+          </span>
         </div>
+
+        {/* Headline */}
+        <h1
+          style={{
+            fontSize: "clamp(3rem, 6vw, 5.8rem)",
+            fontWeight: 300,
+            lineHeight: 1.0,
+            letterSpacing: "-0.04em",
+            color: "#0d0d0d",
+            opacity: 0,
+            animation: "fadeUp 0.7s 0.18s ease forwards",
+            margin: 0,
+          }}
+        >
+          AI Native Software
+          <br />
+          <strong style={{ fontWeight: 800, display: "block" }}>
+            Engineer Fellowship
+          </strong>
+          <em
+            style={{
+              fontStyle: "normal",
+              fontWeight: 300,
+              color: "#9a9a9a",
+              display: "block",
+              fontSize: "0.46em",
+              letterSpacing: "-0.005em",
+              marginTop: "14px",
+              lineHeight: 1.5,
+            }}
+          >
+            Become a Job-Ready Software Engineer in 6 Months · 100% Guaranteed
+            Internship at Real Startups
+          </em>
+        </h1>
       </div>
+
+      <style>{`
+        @keyframes fadeUp {
+          from {
+            opacity: 0;
+            transform: translateY(12px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        @keyframes blink {
+          0%, 100% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0.25;
+          }
+        }
+      `}</style>
     </section>
   );
 };

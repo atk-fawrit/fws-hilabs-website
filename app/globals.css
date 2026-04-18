@@ -22,6 +22,23 @@
   --shadow: none;
 }
 
+/* Premium Design System Variables */
+:root {
+  --gold: #C8962A;
+  --gold-light: #E8B84B;
+  --gold-pale: #F5E6C0;
+  --ink: #0A0908;
+  --ink-2: #1C1917;
+  --ink-3: #2D2A26;
+  --smoke: #F7F5F0;
+  --smoke-2: #EDE9E2;
+  --muted: #8A8278;
+  --faint: #C5BFB5;
+  --white: #FFFFFF;
+  --font-display: var(--font-playfair), 'Playfair Display', Georgia, serif;
+  --font-body: var(--font-dm-sans), 'DM Sans', -apple-system, sans-serif;
+}
+
 /* Base Styles */
 @layer base {
 

@@ -1,64 +1,32 @@
 'use client';
 
-import { useState, useRef } from 'react';
 import Footer from '@/src/shared/components/layout/Footer';
 import {
   HeroVideoSection,
   ProgramOverviewSection,
+  WhoIsThisForSection,
   ProgramCardsSection,
-  ProgramSpecificationSection,
-  PhaseOneSection,
-  PhaseTwoSection,
-  PhaseThreeSection,
-  InternshipSection,
-  EvaluationSystemSection,
-  ApplicationProcessSection,
+  WhatMakesDifferentSection,
+  OutcomesSection,
+  FAQSection,
+  ImportantNotesSection,
 } from './components/sections';
 
 export default function FlagshipProgramPage() {
-  const [showAllDetails, setShowAllDetails] = useState(false);
-  const detailsRef = useRef<HTMLDivElement>(null);
-
-  const handleViewAllClick = () => {
-    setShowAllDetails(prev => !prev);
-
-    if (!showAllDetails) {
-      setTimeout(() => {
-        detailsRef.current?.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }, 100);
-    }
-  };
-
   return (
-    <div className="min-h-screen font-sans bg-white text-gray-900">
-      <HeroVideoSection />
+    <div style={{ minHeight: '100vh', background: '#f2f2f0', color: '#0d0d0d' }}>
+      <div style={{ position: 'relative' }}>
+        <HeroVideoSection />
+        <ProgramOverviewSection />
+      </div>
 
-      <main className="w-full">
-        <ProgramOverviewSection onLearnMoreClick={() => { }} />
-
-        <div className="px-4 sm:px-6 md:px-8 py-8 sm:py-10 md:py-12 space-y-8 sm:space-y-10 md:space-y-12">
-          <ProgramCardsSection
-            onViewAllClick={handleViewAllClick}
-            isExpanded={showAllDetails}
-          />
-
-          {/* Show all expanded sections inline */}
-          {showAllDetails && (
-            <div ref={detailsRef} className="space-y-12">
-              <PhaseOneSection />
-              <PhaseTwoSection />
-              <PhaseThreeSection />
-              <InternshipSection />
-              <EvaluationSystemSection />
-              <ApplicationProcessSection />
-            </div>
-          )}
-
-          <ProgramSpecificationSection />
-        </div>
+      <main style={{ width: '100%', paddingTop: '350px' }}>
+        <ProgramCardsSection />
+        <WhoIsThisForSection />
+        <WhatMakesDifferentSection />
+        <OutcomesSection />
+        <FAQSection />
+        <ImportantNotesSection />
       </main>
 
       <Footer />
