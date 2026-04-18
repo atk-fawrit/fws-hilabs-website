@@ -111,10 +111,10 @@ export const ProgramOverviewSection: React.FC = () => {
   const over = !t.days && !t.hours && !t.minutes && !t.seconds;
 
   return (
-    <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "0 32px", marginBottom: "80px", display: "flex", justifyContent: "center", transform: "translateY(70%)", zIndex: 20 }}>
+    <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "0 32px", marginBottom: "60px", display: "flex", justifyContent: "center", transform: "translateY(60%)", zIndex: 20 }}>
       <div
         style={{
-          maxWidth: "1120px",
+          maxWidth: "1600px",
           width: "100%",
           borderRadius: "20px",
           background: "#ffffff",
@@ -122,12 +122,12 @@ export const ProgramOverviewSection: React.FC = () => {
           boxShadow: "0 24px 64px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.04)",
           overflow: "hidden",
           display: "grid",
-          gridTemplateColumns: "1fr 290px",
+          gridTemplateColumns: "1fr 400px",
           position: "relative",
         }}
       >
         {/* Left */}
-        <div style={{ padding: "36px 40px" }}>
+        <div style={{ padding: "50px 60px" }}>
           {/* Countdown row */}
           <div
             style={{
@@ -144,8 +144,8 @@ export const ProgramOverviewSection: React.FC = () => {
             <div>
               <div style={{ display: "flex", alignItems: "center", gap: "7px", marginBottom: "12px" }}>
                 <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#e53e3e", animation: "blink 1.4s ease-in-out infinite" }} />
-                <span style={{ fontSize: "9px", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#9a9a9a" }}>NEXT BATCH</span>
-                <span style={{ fontSize: "11px", fontWeight: 800, color: "#e53e3e", letterSpacing: "0.02em" }}>15TH JULY 2026</span>
+                <span style={{ fontSize: "10px", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#6b6b6b" }}>NEXT BATCH</span>
+                <span style={{ fontSize: "12px", fontWeight: 800, color: "#e53e3e", letterSpacing: "0.02em" }}>15TH JULY 2026</span>
               </div>
 
               {!over ? (
@@ -165,7 +165,7 @@ export const ProgramOverviewSection: React.FC = () => {
               )}
 
               {!over && (
-                <p style={{ fontSize: "11px", color: "#9a9a9a", marginTop: "9px" }}>Enroll before the batch fills up</p>
+                <p style={{ fontSize: "12px", color: "#6b6b6b", marginTop: "9px" }}>Enroll before the batch fills up</p>
               )}
             </div>
 
@@ -179,7 +179,7 @@ export const ProgramOverviewSection: React.FC = () => {
                 background: "#1c2030",
                 color: "#fff",
                 borderRadius: "100px",
-                fontSize: "12px",
+                fontSize: "13px",
                 fontWeight: 700,
                 letterSpacing: "0.02em",
                 textDecoration: "none",
@@ -206,31 +206,31 @@ export const ProgramOverviewSection: React.FC = () => {
           {/* Overview text */}
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "14px" }}>
-              <span style={{ fontSize: "9px", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#9a9a9a" }}>
+              <span style={{ fontSize: "10px", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#6b6b6b" }}>
                 PROGRAM OVERVIEW
               </span>
               <span style={{ flex: 1, height: "1px", background: "#e0dedd" }} />
             </div>
 
-            <h2 style={{ fontSize: "clamp(1.25rem, 1.8vw, 1.55rem)", fontWeight: 800, color: "#0d0d0d", letterSpacing: "-0.025em", lineHeight: 1.15, marginBottom: "9px" }}>
+            <h2 style={{ fontSize: "clamp(1.6rem, 2.2vw, 2rem)", fontWeight: 800, color: "#000000", letterSpacing: "-0.025em", lineHeight: 1.15, marginBottom: "12px" }}>
               What is this program?
             </h2>
 
-            <p style={{ fontSize: "14px", fontWeight: 700, color: "#0d0d0d", marginBottom: "5px" }}>This is not a typical course.</p>
-            <p style={{ fontSize: "13.5px", color: "#6b6b6b", lineHeight: 1.72, marginBottom: "4px" }}>
+            <p style={{ fontSize: "18px", fontWeight: 700, color: "#000000", marginBottom: "8px" }}>This is not a typical course.</p>
+            <p style={{ fontSize: "16px", color: "#1a1a1a", lineHeight: 1.72, marginBottom: "6px" }}>
               A structured engineering program designed to transform serious learners into industry-ready software engineers.
             </p>
-            <p style={{ fontSize: "13px", color: "#9a9a9a", marginBottom: "16px", fontStyle: "italic" }}>You won&apos;t just watch tutorials.</p>
+            <p style={{ fontSize: "15px", color: "#333333", marginBottom: "20px", fontStyle: "italic" }}>You won&apos;t just watch tutorials.</p>
 
-            <div style={{ fontSize: "9px", fontWeight: 800, letterSpacing: "0.22em", textTransform: "uppercase", color: "#9a9a9a", marginBottom: "10px" }}>
+            <div style={{ fontSize: "12px", fontWeight: 800, letterSpacing: "0.22em", textTransform: "uppercase", color: "#333333", marginBottom: "12px" }}>
               YOU WILL:
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "7px 16px" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px 20px" }}>
               {bullets.map((item) => (
-                <div key={item} style={{ display: "flex", alignItems: "flex-start", gap: "9px" }}>
-                  <div style={{ width: "4px", height: "4px", borderRadius: "50%", background: "#1c2030", flexShrink: 0, marginTop: "8px" }} />
-                  <span style={{ fontSize: "13px", color: "#3a3a3a", lineHeight: 1.55, fontWeight: 600 }}>{item}</span>
+                <div key={item} style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
+                  <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#000000", flexShrink: 0, marginTop: "9px" }} />
+                  <span style={{ fontSize: "16px", color: "#000000", lineHeight: 1.55, fontWeight: 600 }}>{item}</span>
                 </div>
               ))}
             </div>
@@ -243,7 +243,7 @@ export const ProgramOverviewSection: React.FC = () => {
             background: "#1c2030",
             display: "flex",
             flexDirection: "column",
-            padding: "30px 26px",
+            padding: "44px 40px",
             position: "relative",
             overflow: "hidden",
           }}
@@ -274,9 +274,9 @@ export const ProgramOverviewSection: React.FC = () => {
               alignSelf: "flex-start",
             }}
           >
-            <span style={{ fontSize: "12px", fontWeight: 800, color: "#fff" }}>12 months</span>
+            <span style={{ fontSize: "15px", fontWeight: 800, color: "#ffffff" }}>12 months</span>
             <div style={{ width: "1px", height: "9px", background: "rgba(255,255,255,0.2)" }} />
-            <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.38)", fontWeight: 500 }}>Training + Internship</span>
+            <span style={{ fontSize: "14px", color: "rgba(255,255,255,0.9)", fontWeight: 500 }}>Training + Internship</span>
           </div>
 
           <div style={{ display: "flex", flexDirection: "column", marginTop: "22px", flex: 1, justifyContent: "center" }}>
@@ -307,10 +307,10 @@ export const ProgramOverviewSection: React.FC = () => {
                   {stat.icon}
                 </div>
                 <div>
-                  <div style={{ fontSize: "9.5px", letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.3)", fontWeight: 700, marginBottom: "2px" }}>
+                  <div style={{ fontSize: "12px", letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.7)", fontWeight: 700, marginBottom: "3px" }}>
                     {stat.label}
                   </div>
-                  <div style={{ fontSize: "13px", fontWeight: 600, color: "rgba(255,255,255,0.78)" }}>{stat.value}</div>
+                  <div style={{ fontSize: "16px", fontWeight: 600, color: "#ffffff" }}>{stat.value}</div>
                 </div>
               </div>
             ))}

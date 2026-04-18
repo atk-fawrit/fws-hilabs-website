@@ -12,7 +12,8 @@ export const HeroVideoSection: React.FC = () => {
         minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "flex-end",
+        justifyContent: "flex-start",
+        alignItems: "flex-start",
         overflow: "hidden",
         background: "#ffffff",
         paddingTop: "60px",
@@ -72,7 +73,7 @@ export const HeroVideoSection: React.FC = () => {
           maxWidth: "1200px",
           margin: "0",
           width: "100%",
-          padding: "clamp(60px, 8vh, 100px) 56px clamp(160px, 22vh, 220px)",
+          padding: "clamp(50px, 7vh, 90px) 56px clamp(60px, 8vh, 100px)",
           alignSelf: "flex-start",
         }}
       >
@@ -103,58 +104,24 @@ export const HeroVideoSection: React.FC = () => {
           />
           <span
             style={{
-              fontSize: "11px",
+              fontSize: "13px",
               fontWeight: 600,
               letterSpacing: "0.06em",
-              color: "#6b6b6b",
+              color: "#000000",
             }}
           >
-            IN-PERSON · LUCKNOW
-          </span>
-          <div
-            style={{
-              width: "1px",
-              height: "10px",
-              background: "#e0dedd",
-            }}
-          />
-          <span
-            style={{
-              fontSize: "11px",
-              fontWeight: 800,
-              color: "#e53e3e",
-              letterSpacing: "0.02em",
-            }}
-          >
-            15TH JULY 2026
-          </span>
-          <div
-            style={{
-              width: "1px",
-              height: "10px",
-              background: "#e0dedd",
-            }}
-          />
-          <span
-            style={{
-              fontSize: "11px",
-              fontWeight: 600,
-              letterSpacing: "0.06em",
-              color: "#6b6b6b",
-            }}
-          >
-            60 SEATS
+            LIVE · LUCKNOW
           </span>
         </div>
 
         {/* Headline */}
         <h1
           style={{
-            fontSize: "clamp(3rem, 6vw, 5.8rem)",
+            fontSize: "clamp(2.8rem, 5.5vw, 5rem)",
             fontWeight: 300,
             lineHeight: 1.0,
             letterSpacing: "-0.04em",
-            color: "#0d0d0d",
+            color: "#000000",
             opacity: 0,
             animation: "fadeUp 0.7s 0.18s ease forwards",
             margin: 0,
@@ -169,7 +136,7 @@ export const HeroVideoSection: React.FC = () => {
             style={{
               fontStyle: "normal",
               fontWeight: 300,
-              color: "#9a9a9a",
+              color: "#333333",
               display: "block",
               fontSize: "0.46em",
               letterSpacing: "-0.005em",
