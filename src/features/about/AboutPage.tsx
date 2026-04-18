@@ -42,9 +42,9 @@ export default function AboutPage() {
   useEffect(() => {
     if (activeSection && contentRef.current) {
       setTimeout(() => {
-        contentRef.current?.scrollIntoView({ 
-          behavior: 'smooth', 
-          block: 'start' 
+        contentRef.current?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
         });
       }, 100);
     }
@@ -56,20 +56,20 @@ export default function AboutPage() {
       <VenturesSection />
 
       <main className="w-full">
-        <div className="px-4 sm:px-6 md:px-8 py-8 sm:py-10 md:py-12 space-y-8 sm:space-y-10 md:space-y-12">
+        <div className="px-4 sm:px-6 md:px-8 py-4 sm:py-6 md:py-8 space-y-4 sm:space-y-6 md:space-y-8">
+          <QuickReferenceSection />
+
           <InstitutionalFrameworkSection onCardClick={handleCardClick} />
-          
+
           {/* Show only one section at a time */}
           {activeSection && (
             <div ref={contentRef}>
               {sectionComponents[activeSection as keyof typeof sectionComponents]}
             </div>
           )}
-          
-          <QuickReferenceSection />
         </div>
       </main>
-      
+
       <Footer />
     </div>
   );
@@ -89,7 +89,7 @@ function VenturesSection() {
     {
       flagUrl: 'https://flagcdn.com/w80/in.png',
       country: 'India',
-      company: 'Fawrit Technologies India Private Limited',
+      company: 'Fawrit Technologies Pvt Ltd',
       address: 'South Kalamassery, Kochi, Kerala - 682033'
     },
     {
@@ -103,7 +103,7 @@ function VenturesSection() {
   return (
     <section className="relative py-12 sm:py-16 md:py-20 bg-white border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
-        
+
         {/* Section Header */}
         <div className="text-center mb-10 sm:mb-12 md:mb-14">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-3 tracking-tight">
@@ -117,16 +117,15 @@ function VenturesSection() {
           {ventures.map((venture, index) => (
             <div
               key={index}
-              className={`relative bg-white p-8 ${
-                index !== ventures.length - 1 ? 'md:border-r border-gray-200' : ''
-              }`}
+              className={`relative bg-white p-8 ${index !== ventures.length - 1 ? 'md:border-r border-gray-200' : ''
+                }`}
             >
               <div className="text-center space-y-4">
                 {/* Flag */}
                 <div className="flex justify-center">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img 
-                    src={venture.flagUrl} 
+                  <img
+                    src={venture.flagUrl}
                     alt={`${venture.country} flag`}
                     className="w-16 h-12 object-cover rounded shadow-md"
                   />
@@ -164,7 +163,7 @@ function VenturesSection() {
 // ============================================================
 function HeroSection() {
   return (
-    <section className="relative overflow-hidden min-h-[85vh]">
+    <section className="relative overflow-hidden min-h-[65vh]">
       {/* Full-bleed Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center"
@@ -177,24 +176,18 @@ function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/90 to-white/70"></div>
       <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-transparent to-white/60"></div>
 
-      <div className="relative z-10 max-w-7xl mx-auto pt-20 sm:pt-24 lg:pt-32">
-        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[calc(85vh-8rem)]">
+      <div className="relative z-10 max-w-7xl mx-auto pt-10 sm:pt-12 lg:pt-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[calc(65vh-8rem)]">
           {/* Left Column */}
           <div className="flex items-center px-4 sm:px-6 md:px-8 lg:px-16 xl:px-20 py-12 sm:py-16 lg:py-24">
             <div className="max-w-xl space-y-6 sm:space-y-8 lg:space-y-10">
               <div className="space-y-5 sm:space-y-6 lg:space-y-8">
-                <div className="text-xs uppercase tracking-widest text-blue-600 font-semibold">
-                  Institutional Document
-                </div>
+
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-[0.95] text-black">
-                  About HI Labs
+                  About HiLabs
                 </h1>
                 <div className="w-16 sm:w-20 h-1 bg-gradient-to-r from-blue-500 to-blue-600"></div>
-                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 leading-relaxed font-light">
-                  Institutional charter, operating principles, and governance framework defining HI Labs
-                  as a systematic engineering talent production facility with documented accountability
-                  structures and operational boundaries.
-                </p>
+
               </div>
             </div>
           </div>
@@ -202,19 +195,14 @@ function HeroSection() {
           {/* Right Column */}
           <div className="relative px-4 sm:px-6 md:px-8 lg:px-16 xl:px-20 py-12 sm:py-16 lg:py-24 flex items-center">
             <div className="relative max-w-xl space-y-5 sm:space-y-6 lg:space-y-8 z-10">
-              <div>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-4 sm:mb-6 tracking-tight">
-                  Institutional Overview
-                </h2>
-              </div>
 
-              <div className="text-base sm:text-lg text-gray-700 leading-relaxed font-light">
-                <p>
-                  HI Labs operates as an institutional engineering talent production system with
-                  systematic competency development, enforced evaluation protocols, and supervised
-                  deployment mechanisms. This documentation provides comprehensive institutional
-                  specifications across seven key areas.
-                </p>
+
+              <div className="text-2xl sm:text-3xl md:text-4xl text-gray-900 leading-relaxed font-medium"><p>
+                HI Labs operates as an institutional engineering talent production system with
+                systematic competency development, enforced evaluation protocols, and supervised
+                deployment mechanisms. This documentation provides comprehensive institutional
+                specifications across seven key areas.
+              </p>
               </div>
             </div>
           </div>
@@ -243,8 +231,7 @@ function InstitutionalFrameworkSection({ onCardClick }: InstitutionalFrameworkSe
             Institutional Framework
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed font-light max-w-3xl">
-            Explore detailed documentation of HI Labs&apos; institutional structure, operating principles,
-            and governance mechanisms through systematic domain specifications
+            Explore detailed documentation of HI Labs through systematic domain specifications
           </p>
         </div>
 
@@ -259,8 +246,8 @@ function InstitutionalFrameworkSection({ onCardClick }: InstitutionalFrameworkSe
               {/* Image */}
               <div className="relative h-48 bg-gray-100 overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img 
-                  src={item.image} 
+                <img
+                  src={item.image}
                   alt={item.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
@@ -291,7 +278,7 @@ function QuickReferenceSection() {
   const referenceData: Array<{ title: string; items: string[] }> = [];
 
   return (
-    <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 lg:px-16 bg-white">
+    <section className="py-4 sm:py-6 md:py-8 px-4 sm:px-6 md:px-8 lg:px-16 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="mb-8 sm:mb-12 md:mb-16">
@@ -304,7 +291,7 @@ function QuickReferenceSection() {
         </div>
 
         {/* Team Members Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12 md:mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-4 sm:mb-6 md:mb-8">
           {teamMembers.map((member) => (
             <div
               key={member.id}
@@ -315,7 +302,7 @@ function QuickReferenceSection() {
                 <img
                   src={member.image}
                   alt={member.name}
-                  className={`w-full h-full object-cover ${member.id === 2 ? 'object-top' : 'object-center'} group-hover:scale-110 transition-transform duration-500`}
+                  className={`w-full h-full object-cover ${member.id === 2 ? 'object-top' : member.id === 3 ? 'object-[center_10%]' : 'object-[center_15%]'} group-hover:scale-110 transition-transform duration-500`}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>

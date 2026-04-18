@@ -67,23 +67,23 @@ export const quickReferenceData = {
 export const teamMembers = [
   {
     id: 1,
-    name: 'Alex Johnson',
-    role: 'Faculty Lead',
-    description: 'With over 15 years of engineering experience, Alex leads curriculum development and instructor excellence. Expert in systematic competency assessment and elimination protocol design.',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop'
+    name: 'Mayank Bajpai',
+    role: 'Director - Sales & Marketing',
+    description: 'A business development and branding leader with 12+ years of experience across banking, PR, and HR. Holds a B.Tech and MBA, and has built a 20+ member PR firm in 2 years, generating $20K+ monthly revenue. Known for driving client acquisition and revenue growth, he brings strong execution and market aligned training to Human Intelligence Labs',
+    image: '/images/Mayank.jpg'
   },
   {
     id: 2,
-    name: 'Sohit',
-    role: 'Program Director',
+    name: 'Sohit Shukla',
+    role: 'Director - Operations & Business Development',
     description: 'Entrepreneurial operator with 10+ years of global experience, an MBA from IE Business School, and a technical maritime background. Built multiple ventures across Europe, Middle east and Asia, raised funding, and delivered up to 50% revenue growth and 40% profitability gains.',
     image: '/images/sohitsirimg.png'
   },
   {
     id: 3,
-    name: 'Michael Patel',
-    role: 'Operations Manager',
-    description: 'Ensures systematic excellence across all institutional domains. Michael manages assessment integrity, partnership accountability, and operational efficiency protocols.',
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop'
+    name: 'Ansari',
+    role: 'Director - Technology & Product',
+    description: 'A deep-tech entrepreneur with a Computer Science background from Indian Institute of Science, an MBA from IE Business School, and hands-on engineering experience as a Senior Software Engineer at NVIDIA. A published researcher with multiple international papers and a book chapter, he has co-founded multiple startups across the tech space. At Human Intelligence Labs, he leads technology and product development, building scalable systems and driving the institute’s technical vision.',
+    image: '/images/Ansari.jpg'
   }
 ];

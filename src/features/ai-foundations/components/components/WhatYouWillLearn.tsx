@@ -11,12 +11,12 @@ import {
 } from 'lucide-react';
 
 const learningOutcomes = [
-  { text: "Explain core AI concepts including machine learning, deep learning, and NLP", icon: <Brain className="w-6 h-6 text-blue-500" /> },
-  { text: "Distinguish between different categories of AI tools and their use cases", icon: <Lightbulb className="w-6 h-6 text-blue-500" /> },
-  { text: "Evaluate the potential of AI solutions for specific business challenges", icon: <TrendingUp className="w-6 h-6 text-blue-500" /> },
-  { text: "Understand the ethical implications and limitations of AI systems", icon: <Shield className="w-6 h-6 text-blue-500" /> },
-  { text: "Communicate effectively with technical teams on AI projects", icon: <MessageSquare className="w-6 h-6 text-blue-500" /> },
-  { text: "Apply basic AI tools and prompting strategies in professional workflows", icon: <Zap className="w-6 h-6 text-blue-500" /> },
+  { text: "Explain core AI concepts including machine learning, deep learning, and NLP", icon: <Brain className="w-6 h-6 text-black" /> },
+  { text: "Distinguish between different categories of AI tools and their use cases", icon: <Lightbulb className="w-6 h-6 text-black" /> },
+  { text: "Evaluate the potential of AI solutions for specific business challenges", icon: <TrendingUp className="w-6 h-6 text-black" /> },
+  { text: "Understand the ethical implications and limitations of AI systems", icon: <Shield className="w-6 h-6 text-black" /> },
+  { text: "Communicate effectively with technical teams on AI projects", icon: <MessageSquare className="w-6 h-6 text-black" /> },
+  { text: "Apply basic AI tools and prompting strategies in professional workflows", icon: <Zap className="w-6 h-6 text-black" /> },
 ];
 
 export default function WhatYouWillLearn() {
@@ -30,7 +30,7 @@ export default function WhatYouWillLearn() {
             whileHover={{ y: -4, scale: 1.02 }}
             className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all group"
           >
-            <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-4 group-hover:bg-blue-600 transition-colors duration-300">
+            <div className="w-12 h-12 rounded-xl bg-gray-50 flex items-center justify-center mb-4 group-hover:bg-gray-200 transition-colors duration-300 text-black group-hover:text-black">
               {outcome.icon}
             </div>
             <p className="text-slate-700 font-medium leading-snug">{outcome.text}</p>

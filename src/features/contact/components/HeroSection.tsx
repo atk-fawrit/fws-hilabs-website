@@ -5,17 +5,19 @@ import { motion } from 'framer-motion';
 
 export const HeroSection: React.FC = () => {
   return (
-    <section className="relative w-full pt-30 pb-46 overflow-hidden">
-      {/* Background image */}
-      <Image
-        src="/images/contact.jpg"
-        alt="Contact HI Labs"
-        fill
-        className="object-cover object-[center_80%]"
-        priority
-      />
-      {/* Light white overlay — keeps image visible, ensures dark text readable */}
-      <div className="absolute inset-0 bg-white/55"></div>
+    <section className="relative w-full min-h-[50vh] flex flex-col items-center justify-center pt-32 pb-32 overflow-hidden">
+      {/* Background container */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/contact2.jpg"
+          alt="Contact HI Labs"
+          fill
+          className="object-cover object-center"
+          priority
+        />
+        {/* Dark overlay to ensure the image is visible while keeping text readable */}
+        <div className="absolute inset-0 bg-black/60"></div>
+      </div>
 
       <div className="relative z-10 max-w-[1200px] mx-auto px-6 text-center">
         <motion.div
@@ -24,7 +26,7 @@ export const HeroSection: React.FC = () => {
           transition={{ duration: 0.5 }}
           className="inline-block mb-4"
         >
-          <span className="px-4 py-2 bg-black/8 border border-black/15 rounded-full text-xs font-bold text-gray-800 tracking-widest uppercase">
+          <span className="px-4 py-2 bg-white/10 border border-white/20 rounded-full text-xs font-bold text-white tracking-widest uppercase backdrop-blur-sm">
             Get in Touch
           </span>
         </motion.div>
@@ -33,7 +35,7 @@ export const HeroSection: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-5xl md:text-6xl font-black text-gray-900 tracking-tight mb-4 leading-tight"
+          className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight mb-4 leading-tight"
         >
           Contact Us
         </motion.h1>
@@ -42,7 +44,7 @@ export const HeroSection: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-lg md:text-xl text-gray-900 font-medium max-w-2xl mx-auto"
+          className="text-lg md:text-xl text-white/90 font-medium max-w-2xl mx-auto"
         >
           We&apos;re here to answer your questions about our programs and admissions
         </motion.p>
