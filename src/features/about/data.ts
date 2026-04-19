@@ -69,7 +69,7 @@ export const teamMembers = [
     id: 1,
     name: 'Mayank Bajpai',
     role: 'Director - Sales & Marketing',
-    description: 'A business development and branding leader with 12+ years of experience across banking, PR, and HR. Holds a B.Tech and MBA, and has built a 20+ member PR firm in 2 years, generating $20K+ monthly revenue. Known for driving client acquisition and revenue growth, he brings strong execution and market aligned training to Human Intelligence Labs',
+    description: 'A business development and branding leader with 12+ years of experience across banking, PR, and HR. Holds a B.Tech and MBA, and has built a 20+ member PR firm in 2 years, generating $20K+ monthly revenue. Known for driving client acquisition and revenue growth, he brings strong execution and market aligned training to Human Intelligence Labs.',
     image: '/images/Mayank.jpg'
   },
   {
@@ -81,9 +81,9 @@ export const teamMembers = [
   },
   {
     id: 3,
-    name: 'Ansari',
+    name: 'Ansari T K',
     role: 'Director - Technology & Product',
-    description: 'A deep-tech entrepreneur with a Computer Science background from Indian Institute of Science, an MBA from IE Business School, and hands-on engineering experience as a Senior Software Engineer at NVIDIA. A published researcher with multiple international papers and a book chapter, he has co-founded multiple startups across the tech space. At Human Intelligence Labs, he leads technology and product development, building scalable systems and driving the institute’s technical vision.',
+    description: 'A deep-tech entrepreneur with a Computer Science background from Indian Institute of Science, an MBA from IE Business School, and hands-on engineering experience as a Senior Software Engineer at NVIDIA. A published researcher with multiple international papers and a book chapter, he has co-founded multiple startups across the tech space.',
     image: '/images/Ansari.jpg'
   }
 ];

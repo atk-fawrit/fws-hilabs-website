@@ -59,9 +59,9 @@ export default function Footer({ className = '' }: FooterProps) {
     <footer className={`bg-gradient-to-b from-gray-50 to-white border-t border-gray-200 ${className}`}>
       <div className="w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-12 sm:py-16 md:py-20">
         {/* Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12 lg:gap-16 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12 lg:gap-16 max-w-7xl mx-auto">
           {/* Company Info - Takes more space */}
-          <div className="justify-self-start">
+          <div className="lg:col-span-2">
             <h3 className="font-sans text-2xl sm:text-3xl font-black mb-2 text-gray-900 tracking-tight">
               {companyInfo.title}
             </h3>
@@ -90,7 +90,7 @@ export default function Footer({ className = '' }: FooterProps) {
 
           {/* Footer Sections - Distributed evenly */}
           {footerSections.map((section, index) => (
-            <div key={index} className={`${index === 0 ? 'justify-self-center' : 'justify-self-end'}`}>
+            <div key={index} className="">
               <h4 className="font-sans text-sm font-bold uppercase tracking-wider mb-5 text-gray-900">
                 {section.title}
               </h4>
