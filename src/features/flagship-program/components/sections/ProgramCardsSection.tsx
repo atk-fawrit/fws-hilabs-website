@@ -370,7 +370,7 @@ export const ProgramCardsSection: React.FC = () => {
           <p style={{ fontSize: "18px", color: "#000000", fontWeight: 500, marginBottom: "40px", marginTop: "6px" }}>6 Months Training + 6 Months Internship</p>
 
           {/* Terms Grid */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "32px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "32px" }}>
             {terms.map((term, idx) => (
               <div
                 key={idx}

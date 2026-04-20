@@ -25,9 +25,9 @@ const footerSections = [
 
 const companyInfo = {
   title: 'HiLabs',
-  description: 'Human Intelligence Labs Private Limited  Banglore,Lucknow',
+  description: 'Human Intelligence Labs Private Limited',
+  locations: 'Bangalore | Lucknow',
   tagline: 'Engineering talent production through enforced evaluation and supervised deployment.',
-  phone: '+91 7388899595'
 };
 
 const locations = [
@@ -59,42 +59,47 @@ export default function Footer({ className = '' }: FooterProps) {
     <footer className={`bg-gradient-to-b from-gray-50 to-white border-t border-gray-200 ${className}`}>
       <div className="w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-12 sm:py-16 md:py-20">
         {/* Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12 lg:gap-16 max-w-7xl mx-auto">
-          {/* Company Info - Takes more space */}
-          <div className="lg:col-span-2">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16 max-w-6xl mx-auto">          {/* Company Info - Takes more space */}
+          <div className="text-left -ml-0 md:-ml-15">
             <h3 className="font-sans text-2xl sm:text-3xl font-black mb-2 text-gray-900 tracking-tight">
               {companyInfo.title}
             </h3>
-            <p className="font-sans text-base font-semibold text-gray-700 mb-4">
+            <p className="font-sans text-base font-normal text-gray-700 mb-1">
               {companyInfo.description}
             </p>
-            <p className="font-sans text-sm text-gray-600 leading-relaxed mb-8 max-w-md">
-              {companyInfo.tagline}
-            </p>
-            
-            {/* Contact Info with Icons */}
-            <div className="space-y-4">
-
-              <div className="flex items-center gap-3">
-                <svg className="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="flex items-center gap-4 mb-4">
+              <span className="font-sans text-sm text-gray-500">{companyInfo.locations}</span>
+              
+              <div className="flex items-center gap-1.5">
+                <svg className="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
-                <div>
-                  <a href={`tel:${companyInfo.phone}`} className="font-sans text-sm text-gray-600 hover:text-gray-900 transition-colors">
-                    {companyInfo.phone}
-                  </a>
-                </div>
+                <a href="tel:+917388899595" className="font-sans text-sm text-gray-500 hover:text-gray-900 transition-colors">
+                  +91 7388899595
+                </a>
               </div>
             </div>
+            <p className="font-sans text-sm text-gray-600 leading-relaxed mb-8 max-w-md">
+            Engineering talent production through enforced <br />
+            evaluation and supervised deployment.
+          </p>
+             
           </div>
 
           {/* Footer Sections - Distributed evenly */}
           {footerSections.map((section, index) => (
-            <div key={index} className="">
+           <div
+              key={index}
+              className={
+              index === 0
+                ? "text-center md:text-center"
+                : "text-center md:text-right"
+            }
+            >
               <h4 className="font-sans text-sm font-bold uppercase tracking-wider mb-5 text-gray-900">
                 {section.title}
               </h4>
-              <ul className="flex flex-col gap-3">
+              <ul className="space-y-2 text-left inline-block ml-6 md:ml-6">
                 {section.links.map((link, linkIndex) => (
                   <li key={linkIndex}>
                     <Link 

@@ -27,19 +27,19 @@ const differentiators = [
     subs: ["Work on real products", "Contribute to actual codebases"],
   },
   {
-    num: "5",
+    num: "4",
     title: "High Discipline Environment",
     desc: "Structured daily schedule, continuous feedback and evaluation, strong accountability.",
     subs: ["Structured daily schedule", "Continuous feedback and evaluation", "Strong accountability — this ensures you stay consistent and actually improve"],
   },
   {
-    num: "6",
+    num: "5",
     title: "Performance-Based Progression",
     desc: "This is not a \"pay and pass\" program. We maintain high standards.",
     subs: ["You stay serious", "Your skills stay real", "Your outcome stays strong"],
   },
   {
-    num: "7",
+    num: "6",
     title: "Direct Path to Industry",
     desc: "From learning → building → working. No gap. No confusion.",
     subs: ["Just a clear path to becoming a software engineer"],
@@ -62,16 +62,16 @@ export const WhatMakesDifferentSection: React.FC = () => {
         </h2>
 
         {/* Grid */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: 0,
-            border: "1px solid #e0dedd",
-            borderRadius: "20px",
-            overflow: "hidden",
-            boxShadow: "0 4px 20px rgba(0,0,0,0.04)",
-          }}
+            <div
+        className="responsivegrid"
+        style={{
+          display: "grid",
+          gap: 0,
+          border: "1px solid #e0dedd",
+          borderRadius: "20px",
+          overflow: "hidden",
+          boxShadow: "0 4px 20px rgba(0,0,0,0.04)",
+        }}
         >
           {differentiators.map((item, idx) => (
             <div
@@ -81,7 +81,7 @@ export const WhatMakesDifferentSection: React.FC = () => {
                 alignItems: "flex-start",
                 gap: "20px",
                 padding: "40px",
-                borderBottom: idx < differentiators.length - 2 ? "1px solid #e0dedd" : "none",
+                borderBottom: idx !== differentiators.length - 1 ? "1px solid #e0dedd" : "none",
                 borderRight: idx % 2 === 0 ? "1px solid #e0dedd" : "none",
                 transition: "all 0.25s ease",
               }}

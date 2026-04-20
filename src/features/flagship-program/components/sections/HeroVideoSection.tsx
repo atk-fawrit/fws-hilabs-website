@@ -9,7 +9,7 @@ export const HeroVideoSection: React.FC = () => {
     <section
       style={{
         position: "relative",
-        minHeight: "100vh",
+        minHeight: "50vh",
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-start",
@@ -110,7 +110,7 @@ export const HeroVideoSection: React.FC = () => {
               color: "#000000",
             }}
           >
-            LIVE · LUCKNOW
+            IN-PERSON · LUCKNOW
           </span>
         </div>
 
@@ -132,18 +132,22 @@ export const HeroVideoSection: React.FC = () => {
           <strong style={{ fontWeight: 800, display: "block" }}>
             Engineer Fellowship
           </strong>
-          <em
+            <em
             style={{
               fontStyle: "normal",
-              fontWeight: 300,
-              color: "#333333",
+              fontWeight: 400, // 🔥 not too thin
+              color: "#444444",
               display: "block",
-              fontSize: "0.46em",
-              letterSpacing: "-0.005em",
-              marginTop: "14px",
-              lineHeight: 1.5,
+
+              fontSize: "clamp(15px, 1.4vw, 18px)", // balanced size
+              lineHeight: 1.7, // better readability
+              marginTop: "16px",
+
+              maxWidth: "900px", // allow natural wrapping
+              letterSpacing: "0.01em", // fixes cramped look
             }}
-          >
+         >
+
             Become a Job-Ready Software Engineer in 6 Months · 100% Guaranteed
             Internship at Real Startups
           </em>
