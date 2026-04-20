@@ -23,7 +23,7 @@ export const WhoIsThisForSection: React.FC = () => {
     <section style={{ padding: "80px 0", background: "#f2f2f0" }}>
       <div style={{ maxWidth: "1600px", margin: "0 auto", padding: "0 56px" }}>
         {/* Eyebrow and Title on same line */}
-        <div style={{ display: "flex", alignItems: "baseline", gap: "20px", marginBottom: "40px" }}>
+        <div style={{ display: "flex", flexWrap:"wrap", alignItems: "baseline", gap: "20px", marginBottom: "40px" }}>
           <span style={{ fontSize: "clamp(2.4rem, 4.5vw, 3.6rem)", fontWeight: 200, letterSpacing: "-0.038em", lineHeight: 1.06, color: "#000000" }}>
             ELIGIBILITY
           </span>
@@ -36,7 +36,7 @@ export const WhoIsThisForSection: React.FC = () => {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "1fr 1fr",
+            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
             gap: "2px",
             borderRadius: "16px",
             overflow: "hidden",

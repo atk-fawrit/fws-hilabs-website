@@ -296,3 +296,14 @@
   animation: slide-in-up 0.4s ease-out;
   animation-fill-mode: both;
 }
+.responsivegrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns desktop */
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .responsivegrid {
+    grid-template-columns: 1fr; /* 1 column mobile */
+  }
+}

@@ -111,8 +111,16 @@ export const ProgramOverviewSection: React.FC = () => {
   const over = !t.days && !t.hours && !t.minutes && !t.seconds;
 
   return (
-    <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "0 32px", marginBottom: "60px", display: "flex", justifyContent: "center", transform: "translateY(60%)", zIndex: 20 }}>
-      <div
+<div
+  style={{
+    position: "relative", // 
+    padding: "0 clamp(16px, 5vw, 32px)",
+    marginTop: "40px", // 
+    display: "flex",
+    justifyContent: "center",
+    zIndex: 20,
+  }}
+>      <div
         style={{
           maxWidth: "1600px",
           width: "100%",
@@ -122,12 +130,12 @@ export const ProgramOverviewSection: React.FC = () => {
           boxShadow: "0 24px 64px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.04)",
           overflow: "hidden",
           display: "grid",
-          gridTemplateColumns: "1fr 400px",
+          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
           position: "relative",
         }}
       >
         {/* Left */}
-        <div style={{ padding: "50px 60px" }}>
+        <div style={{ padding: "clamp(20px, 5vw, 50px)" }}>
           {/* Countdown row */}
           <div
             style={{
@@ -226,7 +234,7 @@ export const ProgramOverviewSection: React.FC = () => {
               YOU WILL:
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px 20px" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "10px 20px" }}>
               {bullets.map((item) => (
                 <div key={item} style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
                   <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#000000", flexShrink: 0, marginTop: "9px" }} />
