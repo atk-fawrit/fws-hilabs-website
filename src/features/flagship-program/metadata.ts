@@ -10,7 +10,7 @@ const keywordsList = [
 ];
 
 export const metadata: Metadata = {
-  title: 'AI Native Software Engineer Fellowship - 6 Months Training + Guaranteed Internship | HI Labs',
+  title: 'AI Software Engineer Fellowship - 6 Months + Internship',
   description: 'Become a job-ready software engineer in 6 months with 100% guaranteed internship at real startups. Full-time, in-person program in Lucknow. Learn MERN stack, AI-assisted development, and real-world engineering.',
   keywords: keywordsList,
   alternates: {

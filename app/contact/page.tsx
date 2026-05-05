@@ -1,9 +1,6 @@
 import ContactPage from '@/src/features/contact/ContactPage';
 
-export const metadata = {
-  title: 'Contact Us | HI Labs',
-  description: 'Get in touch with HI Labs. Engineering talent production through enforced evaluation and supervised deployment.',
-};
+export { metadata } from '@/src/features/contact/metadata';
 
 export default function Contact() {
   return <ContactPage />;
