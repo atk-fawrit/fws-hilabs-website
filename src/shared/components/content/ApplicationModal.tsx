@@ -33,7 +33,7 @@ const shortCoursesList = [
   'QA & Test Automation',
 ];
 
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzShu3kEa8vW5p2ftYeI1U7mnZn-c339z5lwqfZ6m2UOZSF_9LZmOgX9bYBiNjuCjYGag/exec';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz2RL_r_0e-oQxpopulDiKwu8y1bobbbDqft4LVXDX6nHUfNiODBjZTV_Peym7ALBqV/exec';
 
 export function ApplicationModal({ isOpen, onClose, programType = 'flagship' }: ApplicationModalProps) {
   const [formData, setFormData] = useState<FormData>({
@@ -255,9 +255,8 @@ export function ApplicationModal({ isOpen, onClose, programType = 'flagship' }: 
             {/* Submit */}
             <div className="pt-4">
               <button type="submit" disabled={isSubmitting}
-                className={`w-full py-4 px-8 font-semibold text-base rounded-lg transition-all ${
-                  isSubmitting ? 'bg-gray-400 text-white cursor-not-allowed' : 'bg-gray-900 text-white hover:bg-gray-800 hover:shadow-lg'
-                }`}>
+                className={`w-full py-4 px-8 font-semibold text-base rounded-lg transition-all ${isSubmitting ? 'bg-gray-400 text-white cursor-not-allowed' : 'bg-gray-900 text-white hover:bg-gray-800 hover:shadow-lg'
+                  }`}>
                 {isSubmitting ? 'Submitting...' : 'Submit Application'}
               </button>
             </div>
