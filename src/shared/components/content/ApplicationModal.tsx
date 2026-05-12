@@ -33,7 +33,7 @@ const shortCoursesList = [
   'QA & Test Automation',
 ];
 
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz2RL_r_0e-oQxpopulDiKwu8y1bobbbDqft4LVXDX6nHUfNiODBjZTV_Peym7ALBqV/exec';
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxav9deF0DcoK_K_5v4iovXhuk-Ir7T5rctx1NA5Yo49J4p2UnKyVNB4T5Y4MUQK2Q/exec";
 
 export function ApplicationModal({ isOpen, onClose, programType = 'flagship' }: ApplicationModalProps) {
   const [formData, setFormData] = useState<FormData>({
@@ -133,7 +133,12 @@ export function ApplicationModal({ isOpen, onClose, programType = 'flagship' }: 
 
       // Build form data as URLSearchParams — Apps Script reads via e.parameter
       const body = new URLSearchParams();
-      body.append('formType', programType);
+      body.append(
+        'formType',
+        programType === 'short-courses'
+          ? 'premium'
+          : 'flagship'
+      );
       body.append('name', formData.fullName);
       body.append('email', formData.email);
       body.append('phone', formData.phone);
