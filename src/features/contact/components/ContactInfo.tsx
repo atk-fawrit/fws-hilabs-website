@@ -93,7 +93,7 @@ export const LocationCards: React.FC = () => {
               </div>
               <div className="p-3 bg-gray-50 border-t border-gray-200 flex justify-center items-center">
                 <a
-                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent('2nd Floor of B-4/1, Vijyant Khand, Gomti Nagar Yojna, Lucknow')}`}
+                  href="https://maps.app.goo.gl/Jmgfvy9U3yFEi2RQ7"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 text-sm font-bold transition-colors"
