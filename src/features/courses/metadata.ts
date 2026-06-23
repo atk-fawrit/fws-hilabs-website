@@ -18,6 +18,10 @@ const keywordsList = [
   'web development course in Lucknow',
   'weekend coding classes in lucknow',
   'coding classes for beginners in Lucknow',
+  'AI software engineer course in Lucknow',
+  'AI developer course in Lucknow',
+  'AI Coding Classes in Lucknow',
+  'Generative AI Development Training',
 ];
 
 export const metadata: Metadata = {
