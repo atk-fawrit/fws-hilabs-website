@@ -7,6 +7,10 @@ const keywordsList = [
   'full stack developer course in Lucknow',
   'guaranteed internship program',
   'software engineer training Lucknow',
+  'AI Native Software Engineer Internship in Lucknow',
+  'AI Internship in Lucknow',
+  'Software development internships in Lucknow',
+  'AI Software Engineering Program in Lucknow',
 ];
 
 export const metadata: Metadata = {

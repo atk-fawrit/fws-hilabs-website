@@ -32,10 +32,11 @@ export const metadata: Metadata = {
     "Human Intelligence Labs Lucknow",
     "Hi Labs",
     "Best Software development training institute in lucknow",
-    "best coding classes in Lucknow"
+    "best coding classes in Lucknow",
+    "AI Software Development Company",
   ],
   other: {
-    keywords: "Human Intelligence Labs Lucknow, Hi Labs, Best Software development training institute in lucknow, best coding classes in Lucknow",
+    keywords: "Human Intelligence Labs Lucknow, Hi Labs, Best Software development training institute in lucknow, best coding classes in Lucknow, AI Software Development Company",
   },
   authors: [{ name: "HI Labs" }],
   creator: "HI Labs",

@@ -3,6 +3,8 @@ import { Metadata } from 'next';
 const keywordsList = [
   'IT training center in Gomti Nagar Lucknow',
   'coding institute near me Lucknow',
+  'Best Coding Institute in Lucknow',
+  'AI training institute in lucknow',
 ];
 
 export const metadata: Metadata = {
