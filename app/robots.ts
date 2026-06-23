@@ -1,6 +1,5 @@
 import { MetadataRoute } from 'next';
 
-// Enable static generation
 export const dynamic = 'force-static';
 
 export default function robots(): MetadataRoute.Robots {
@@ -8,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/api/', '/_next/'],
+      disallow: ['/api/'],
     },
     sitemap: 'https://www.thehilabs.com/sitemap.xml',
   };
