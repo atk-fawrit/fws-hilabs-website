@@ -38,13 +38,13 @@ export const homeData = {
         id: 'phase-one',
         title: 'Training',
         subtitle: 'full time workshop',
-        duration: 'Month 1-6',
+        duration: 'Month 1-4',
         number: '02',
         details: {
           description: 'Intensive full-time engineering training',
           highlights: [
-            'Systems Fundamentals (3 months)',
-            'Applied Engineering (3 months)',
+            'Systems Fundamentals (2 months)',
+            'Applied Engineering (2 months)',
             'Daily 0800-1800 hours',
             'Weekly evaluations'
           ]
@@ -54,7 +54,7 @@ export const homeData = {
         id: 'evaluation',
         title: 'Evaluation',
         subtitle: 'Assessment',
-        duration: 'Month 6-7',
+        duration: 'Month 4-5',
         number: '03',
         details: {
           description: 'Comprehensive performance assessment',
@@ -70,7 +70,7 @@ export const homeData = {
         id: 'phase-two',
         title: 'Internship',
         subtitle: 'external company',
-        duration: 'Month 7-12',
+        duration: 'Month 5-10',
         number: '04',
         details: {
           description: 'Supervised deployment at partner companies',
@@ -86,7 +86,7 @@ export const homeData = {
         id: 'exit',
         title: 'Graduation',
         subtitle: 'Deployment Ready',
-        duration: 'Month 12',
+        duration: 'Month 10',
         number: '05',
         details: {
           description: 'Program completion and certification',
@@ -109,7 +109,7 @@ export const homeData = {
         image: '/images/Flag-Ship.png',
         href: '/flagship-program',
         badge: 'Flagship',
-        duration: '12 Months',
+        duration: '10 Months',
         tagline: 'Transform into a deployment-ready engineer'
       },
       {
