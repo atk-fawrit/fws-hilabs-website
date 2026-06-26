@@ -101,7 +101,7 @@ function AccordionCard({
 }
 
 const receiveItems = [
-  '6 months of enforced, in-person engineering training',
+  '4 months of enforced, in-person engineering training',
   'Structured daily work discipline (6–8 hours)',
   'Weekly evaluation with documented feedback',
   'Elimination-based quality control',
@@ -114,6 +114,7 @@ const leaveItems = [
   'Production exposure',
   'Structured workflow competence',
   'Reduced onboarding risk for employers',
+  'A Certificate of your training & work'
 ];
 
 export function ExploreSection() {
@@ -149,9 +150,9 @@ export function ExploreSection() {
           <Reveal delay={80} className="lg:col-span-5">
             <div className="h-full bg-gray-950 p-10 md:p-14 flex flex-col justify-center min-h-[320px]">
               {[
-                { sub: 'Phase I',  label: 'Training',     val: '6',  dim: true  },
+                { sub: 'Phase I',  label: 'Training',     val: '4',  dim: true  },
                 { sub: 'Phase II', label: 'Internship',   val: '6',  dim: true  },
-                { sub: 'Total',    label: 'Full Program', val: '12', dim: false },
+                { sub: 'Total',    label: 'Full Program', val: '10', dim: false },
               ].map(({ sub, label, val, dim }, i) => (
                 <div key={label} className={`flex items-center justify-between ${i < 2 ? 'pb-6 mb-6 border-b border-white/[.07]' : ''}`}>
                   <div>

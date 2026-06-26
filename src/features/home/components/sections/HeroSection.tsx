@@ -710,13 +710,7 @@ export function HeroSection({ stages }: PipelineSectionProps) {
                 initial={{ opacity: 0, y: 16 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
                 transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              >
-                <h2 className="font-light text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-2 md:mb-3 text-black tracking-tight">
-                  6 month Training + 6 month Internship
-                </h2>
-                <p className="text-xs sm:text-sm md:text-base font-light leading-relaxed max-w-2xl mx-auto text-black/60">
-                  Systematic talent development through structured phases
-                </p>
+              >              
               </motion.div>
             </div>
           </div>
