@@ -148,7 +148,7 @@ export const HeroVideoSection: React.FC = () => {
             }}
          >
 
-            Become a Job-Ready Software Engineer in 6 Months · 100% Guaranteed
+            Become a Job-Ready Software Engineer in 4 Months · 100% Guaranteed
             Internship at Real Startups
           </em>
         </h1>

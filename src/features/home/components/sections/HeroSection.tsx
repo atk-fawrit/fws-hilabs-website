@@ -359,7 +359,7 @@ export function HeroSection({ stages }: PipelineSectionProps) {
               )}
             </div>
 
-            <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light mt-12 md:mt-14 text-black drop-shadow-sm px-4">
+            <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light mt-4 md:mt-6 text-black drop-shadow-sm px-4">
               {aiEnrichedText}
             </div>
             <div className="text-sm sm:text-base md:text-lg lg:text-xl font-light mt-1 md:mt-2 text-black/60 drop-shadow-sm px-4">

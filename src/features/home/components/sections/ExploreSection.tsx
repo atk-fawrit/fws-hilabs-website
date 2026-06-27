@@ -106,7 +106,7 @@ const receiveItems = [
   'Weekly evaluation with documented feedback',
   'Elimination-based quality control',
   'Real-world tool usage — Git, task tracking, review systems',
-  '6 months of supervised internship deployment',
+  '2-6 months of supervised internship deployment',
 ];
 
 const leaveItems = [
@@ -147,28 +147,45 @@ export function ExploreSection() {
             </div>
           </Reveal>
 
-          <Reveal delay={80} className="lg:col-span-5">
-            <div className="h-full bg-gray-950 p-10 md:p-14 flex flex-col justify-center min-h-[320px]">
-              {[
-                { sub: 'Phase I',  label: 'Training',     val: '4',  dim: true  },
-                { sub: 'Phase II', label: 'Internship',   val: '6',  dim: true  },
-                { sub: 'Total',    label: 'Full Program', val: '10', dim: false },
-              ].map(({ sub, label, val, dim }, i) => (
-                <div key={label} className={`flex items-center justify-between ${i < 2 ? 'pb-6 mb-6 border-b border-white/[.07]' : ''}`}>
-                  <div>
-                    <p className="text-[11px] font-bold tracking-[.2em] uppercase text-gray-600 mb-1">{sub}</p>
-                    <p className={`text-[17px] font-bold ${dim ? 'text-gray-400' : 'text-white'}`}>{label}</p>
-                  </div>
-                  <div className="text-right">
-                    <span className={`font-black tabular-nums leading-none block ${dim ? 'text-[40px] text-white/25' : 'text-[52px] text-white'}`}>
-                      {val}
-                    </span>
-                    <p className="text-[11px] text-gray-600 tracking-wider mt-0.5">months</p>
-                  </div>
-                </div>
-              ))}
+        <Reveal delay={80} className="lg:col-span-5">
+        <div className="h-full bg-gray-950 px-10 py-14 md:px-14 flex flex-col justify-center min-h-[420px]">
+          {[
+            { sub: 'Phase I', label: 'Training', val: '4' },
+            { sub: 'Phase II', label: 'Internship', val: '2-6' },
+          ].map(({ sub, label, val }, i, arr) => (
+            <div
+              key={label}
+              className={`flex items-center justify-between ${
+                i !== arr.length - 1
+                  ? 'pb-10 mb-10 border-b border-white/[0.06]'
+                  : ''
+              }`}
+            >
+              {/* Left */}
+              <div>
+                <p className="text-[13px] font-extrabold tracking-[0.25em] uppercase text-gray-500 mb-2">
+                  {sub}
+                </p>
+
+                <p className="text-[22px] font-extrabold text-gray-300">
+                  {label}
+                </p>
+              </div>
+
+              {/* Right */}
+              <div className="text-right">
+                <span className="block text-[56px] font-black leading-none text-white/35">
+                  {val}
+                </span>
+
+                <p className="mt-1 text-[13px] font-medium tracking-[0.18em] uppercase text-gray-500">
+                  months
+                </p>
+              </div>
             </div>
-          </Reveal>
+          ))}
+        </div>
+      </Reveal>
         </div>
 
         <Reveal className="mt-px mb-px">
