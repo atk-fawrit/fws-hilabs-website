@@ -282,9 +282,7 @@ export const ProgramOverviewSection: React.FC = () => {
               alignSelf: "flex-start",
             }}
           >
-            <span style={{ fontSize: "15px", fontWeight: 800, color: "#ffffff" }}>12 months</span>
-            <div style={{ width: "1px", height: "9px", background: "rgba(255,255,255,0.2)" }} />
-            <span style={{ fontSize: "14px", color: "rgba(255,255,255,0.9)", fontWeight: 500 }}>Training + Internship</span>
+            <span style={{ fontSize: "14px", color: "rgba(255,255,255,0.9)", fontWeight: 800 }}>Training + Internship</span>
           </div>
 
           <div style={{ display: "flex", flexDirection: "column", marginTop: "22px", flex: 1, justifyContent: "center" }}>

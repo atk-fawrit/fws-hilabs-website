@@ -8,7 +8,7 @@ import Image from "next/image";
 const terms = [
   {
     num: "1",
-    badge: "2 Months",
+    badge: "1 Month",
     badgeClass: "tb-blue",
     title: "Term 1 — Foundations",
     desc: "Build strong core fundamentals.",
@@ -34,7 +34,7 @@ const terms = [
   },
   {
     num: "2",
-    badge: "2 Months",
+    badge: "1 Month",
     badgeClass: "tb-green",
     title: "Term 2 — Advanced Development",
     desc: "Move from theory to building real systems.",
@@ -86,7 +86,7 @@ const terms = [
   },
   {
     num: "4",
-    badge: "6 Months",
+    badge: "2-6 Months",
     badgeClass: "tb-red",
     title: "Term 4 — Internship",
     desc: "After training at HiLabs, you move into a real startup.",
@@ -367,7 +367,7 @@ export const ProgramCardsSection: React.FC = () => {
           <h2 style={{ fontSize: "clamp(2.4rem, 4.5vw, 3.6rem)", fontWeight: 200, color: "#000000", letterSpacing: "-0.038em", lineHeight: 1.06 }}>
             Program <b style={{ fontWeight: 800 }}>Structure</b>
           </h2>
-          <p style={{ fontSize: "18px", color: "#000000", fontWeight: 500, marginBottom: "40px", marginTop: "6px" }}>6 Months Training + 6 Months Internship</p>
+          <p style={{ fontSize: "18px", color: "#000000", fontWeight: 500, marginBottom: "40px", marginTop: "6px" }}>4 Months Training + Internship</p>
 
           {/* Terms Grid */}
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "32px" }}>

@@ -45,7 +45,7 @@ export const homeData = {
           highlights: [
             'Systems Fundamentals (2 months)',
             'Applied Engineering (2 months)',
-            'Daily 0800-1800 hours',
+            'Daily 06-08 hours',
             'Weekly evaluations'
           ]
         }
@@ -109,7 +109,7 @@ export const homeData = {
         image: '/images/Flag-Ship.png',
         href: '/flagship-program',
         badge: 'Flagship',
-        duration: '10 Months',
+        duration: '4 Months Training + Internship',
         tagline: 'Transform into a deployment-ready engineer'
       },
       {
