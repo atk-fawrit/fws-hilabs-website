@@ -72,7 +72,7 @@ export default function CoursesPage() {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                       </div>
-                      <span className="font-semibold text-white text-xs">6+6 Months</span>
+                      <span className="font-semibold text-white text-xs">4 months Training + Internship</span>
                     </div>
                     
                     {/* Start date and View Details */}

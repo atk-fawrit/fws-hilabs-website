@@ -120,10 +120,6 @@ export function HeroSection({ stages }: PipelineSectionProps) {
           : 'w-6 h-6 text-[9px]  tracking-widest border-white/18 bg-white/6  text-white/55'}`}>
         {number}
       </div>
-      <span className={`font-black tracking-[0.38em] uppercase
-        ${large ? 'text-[10px] text-white/50' : 'text-[8px] text-white/30'}`}>
-        STAGE {number}
-      </span>
     </div>
   );
 
@@ -145,7 +141,7 @@ export function HeroSection({ stages }: PipelineSectionProps) {
       <div className={`mt-auto pt-3 border-t transition-colors duration-500 w-full ${loopActive ? 'border-white/20' : 'border-white/10'}`}>
         <p className={`font-medium transition-colors duration-500
           ${large ? 'text-[11px]' : 'text-[10px]'} ${loopActive ? 'text-white/50' : 'text-white/28'}`}>
-          {stage.duration}
+          {stage.tagline}
         </p>
       </div>
     </div>
@@ -258,13 +254,13 @@ export function HeroSection({ stages }: PipelineSectionProps) {
           ease: FADE_EASE,
         }}
       >
-        <div className={`flex items-center gap-2 mb-4 ${centerText ? 'justify-center' : ''}`}>
-          <svg width={large ? 13 : 11} height={large ? 13 : 11} viewBox="0 0 13 13" fill="none" className="text-white/40 shrink-0">
-            <circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" strokeWidth="1" />
-            <path d="M6.5 3.5V6.5L8.5 8" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
-          </svg>
-          <p className={`text-white/50 font-medium ${large ? 'text-[12px]' : 'text-[10px]'}`}>{stage.duration}</p>
-        </div>
+      <p
+        className={`mt-4 text-white/50 font-medium leading-relaxed ${
+          large ? 'text-[12px]' : 'text-[10px]'
+        } ${centerText ? 'text-center' : ''}`}
+      >
+        {stage.tagline}
+      </p>
 
         {isAppCard && (
           <motion.div
