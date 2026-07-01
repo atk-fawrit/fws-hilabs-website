@@ -13,7 +13,7 @@ export interface Stage {
   id: string;
   title: string;
   subtitle: string;
-  duration: string;
+  tagline: string;
   number: string;
   details?: {
     description: string;

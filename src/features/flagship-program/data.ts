@@ -246,7 +246,7 @@ export const faqs = [
   {
     id: 'total-duration',
     question: 'What is the total duration?',
-    answer: '6 Months Training + 6 Months Internship. A complete 12-month structured path to industry.'
+    answer: '4 Months Training + Internship. A complete structured path to industry.'
   },
   {
     id: 'refund-policy',

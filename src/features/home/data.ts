@@ -22,79 +22,81 @@ export const homeData = {
         id: 'application',
         title: 'Application',
         subtitle: 'Entry Point',
-        duration: 'Week 1-2',
+        tagline: 'Entry: Only those who mean it, make it in',
         number: '01',
         details: {
-          description: 'Structured application and selection protocols',
+          description: 'Structured application and assessment process',
           highlights: [
-            'Technical aptitude assessment',
-            'Commitment evaluation',
-            'Program orientation',
-            'Enrollment procedures'
+            'Aptitude check — we assess how you think, not what you know',
+            'Commitment check — ready to give your best',
+            'Program orientation — know what to expect',
+            'Enrollment & onboarding — begin your journey',
+
           ]
         }
       },
       {
-        id: 'phase-one',
-        title: 'Training',
-        subtitle: 'full time workshop',
-        duration: 'Month 1-4',
+        id: 'training',
+        title: 'Foundation',
+        subtitle: 'Phase 1',
+        tagline: 'Objective: Problem-solving fundamentals first',
         number: '02',
         details: {
-          description: 'Intensive full-time engineering training',
+          description: 'Build the technical base before anything else',
           highlights: [
-            'Systems Fundamentals (2 months)',
-            'Applied Engineering (2 months)',
-            'Daily 06-08 hours',
-            'Weekly evaluations'
+            'How computers think — logic, data & problem solving',
+            'Storing, querying & managing information',
+            'Writing clean code and understanding how software is built',
+            'Using AI as a tool, not a shortcut'
           ]
         }
       },
       {
-        id: 'evaluation',
-        title: 'Evaluation',
-        subtitle: 'Assessment',
-        duration: 'Month 4-5',
+        id: 'Advanced',
+        title: 'Advanced',
+        subtitle: 'Phase 2',
+        tagline: 'Outcome: Build practical full-stack applications end to end',
         number: '03',
         details: {
-          description: 'Comprehensive performance assessment',
+          description: 'Full-stack development and modern software technologies',
           highlights: [
-            'Technical assessments',
-            'Project deliverables review',
-            'Peer evaluation',
-            'Elimination consideration'
+            'Build complete web apps — front to backDatabases, APIs & how the internet actually works',
+            'Foundations of Generative AI & how to integrate it',
+            'Ship it — testing, deployment & making things live',
+            
           ]
         }
       },
       {
-        id: 'phase-two',
-        title: 'Internship',
-        subtitle: 'external company',
-        duration: 'Month 5-10',
+        id: 'Execution',
+        title: 'Execution',
+        subtitle: 'Phase 3',
+        tagline: 'Goal: Work like a software engineer, not a student',
         number: '04',
         details: {
-          description: 'Supervised deployment at partner companies',
+          description: 'Real-world implementation and AI-assisted workflows',
           highlights: [
-            'Daily technical supervision',
-            'Real-world projects',
-            'Weekly progress reports',
-            'Professional development'
+            'Code with AI assistance — and know when not to',
+            'Work on live projects with real codebases & real stakes',
+            'Collaborate like a team — standups, sprints & reviews',
+            'Think like an engineer, own like a founder'
           ]
         }
       },
       {
-        id: 'exit',
-        title: 'Graduation',
-        subtitle: 'Deployment Ready',
-        duration: 'Month 10',
+        id: 'internship',
+        title: 'Internship',
+        subtitle: 'EXTERNAL COMPANY',
+        tagline: 'Placement: This is where the classroom becomes your career.',
         number: '05',
         details: {
-          description: 'Program completion and certification',
+          description: 'Your training ends. Your career begins.',
           highlights: [
-            'Deployment-ready status',
-            'Portfolio of work',
-            'Industry connections',
-            'Career placement support'
+            'Student gets placed — paid or stipend-based ',
+            '2–6 months of real work at an actual company',
+            'Daily mentorship so you are never on your own',
+            'Walk out interview-ready, offer-ready',
+        
           ]
         }
       }
