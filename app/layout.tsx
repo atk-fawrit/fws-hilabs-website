@@ -132,6 +132,22 @@ export default function RootLayout({
             gtag('config', 'G-NQEY8YG2H0');
           `}
         </Script>
+
+        export const metadata: Metadata = {
+  metadataBase: new URL("https://www.thehilabs.com"),
+
+  verification: {
+    google: "cCVQkIHuQi6gDTR8qG5CRxctjKFnuT3LByMdlYLYvmY",
+  },
+
+  title: {
+    default: "HI Labs - Best IT Training Institute in Lucknow | 100% Placement",
+    template: "%s | HI Labs",
+  },
+
+  // ...rest of your metadata
+};
+        
       </head>
 
       <body
