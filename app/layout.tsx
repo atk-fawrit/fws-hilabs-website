@@ -24,12 +24,15 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.thehilabs.com"),
+
   title: {
     default: "HI Labs - Best IT Training Institute in Lucknow | 100% Placement",
     template: "%s | HI Labs",
   },
+
   description:
     "HI Labs (Human Intelligence Labs) is a premier IT training institute in Lucknow offering software development courses, data science, AI, full stack developer training with 100% placement assistance. Join coding classes for beginners & working professionals.",
+
   keywords: [
     "Human Intelligence Labs Lucknow",
     "Hi Labs",
@@ -37,14 +40,25 @@ export const metadata: Metadata = {
     "best coding classes in Lucknow",
     "AI Software Development Company",
   ],
+
   other: {
     keywords:
       "Human Intelligence Labs Lucknow, Hi Labs, Best Software development training institute in lucknow, best coding classes in Lucknow, AI Software Development Company",
   },
+
+  verification: {
+    google: "cCVQkIHuQi6gDTR8qG5CRxctjKFnuT3LByMdlYLYvmY",
+  },
+
   authors: [{ name: "HI Labs" }],
   creator: "HI Labs",
   publisher: "Human Intelligence Labs Private Limited",
-  robots: "index, follow",
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
   icons: {
     icon: [
       {
@@ -67,9 +81,9 @@ export const metadata: Metadata = {
       },
     ],
   },
+
   openGraph: {
-    title:
-      "HI Labs - Best IT Training Institute in Lucknow | 100% Placement",
+    title: "HI Labs - Best IT Training Institute in Lucknow | 100% Placement",
     description:
       "HI Labs (Human Intelligence Labs) is a premier IT training institute in Lucknow offering software development, data science, AI & full stack developer courses with 100% placement assistance.",
     type: "website",
@@ -77,10 +91,10 @@ export const metadata: Metadata = {
     url: "https://www.thehilabs.com",
     siteName: "HI Labs - Human Intelligence Labs",
   },
+
   twitter: {
     card: "summary_large_image",
-    title:
-      "HI Labs - Best IT Training Institute in Lucknow | 100% Placement",
+    title: "HI Labs - Best IT Training Institute in Lucknow | 100% Placement",
     description:
       "HI Labs (Human Intelligence Labs) is a premier IT training institute in Lucknow offering software development, data science, AI & full stack developer courses with 100% placement assistance.",
   },
@@ -103,13 +117,14 @@ export default function RootLayout({
       className={`${inter.variable} ${jetbrainsMono.variable}`}
     >
       <head>
-        {/* Preload critical videos */}
+        {/* Preload Critical Videos */}
         <link
           rel="preload"
           as="video"
           href="/images/Mbgvideo.mp4"
           type="video/mp4"
         />
+
         <link
           rel="preload"
           as="video"
@@ -132,22 +147,6 @@ export default function RootLayout({
             gtag('config', 'G-NQEY8YG2H0');
           `}
         </Script>
-
-        export const metadata: Metadata = {
-  metadataBase: new URL("https://www.thehilabs.com"),
-
-  verification: {
-    google: "cCVQkIHuQi6gDTR8qG5CRxctjKFnuT3LByMdlYLYvmY",
-  },
-
-  title: {
-    default: "HI Labs - Best IT Training Institute in Lucknow | 100% Placement",
-    template: "%s | HI Labs",
-  },
-
-  // ...rest of your metadata
-};
-        
       </head>
 
       <body
