@@ -94,6 +94,17 @@ export default function RootLayout({
           href="/images/bg-video.mp4"
           type="video/mp4"
         />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NQEY8YG2H0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NQEY8YG2H0');
+</script>
+        
       </head>
       <body className="antialiased bg-black text-white font-sans overflow-x-hidden" suppressHydrationWarning={true}>
         <Navigation />
