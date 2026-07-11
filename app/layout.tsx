@@ -2,14 +2,12 @@ import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import Navigation from "@/src/shared/components/layout/Navigation";
-// import JsonLd from "@/src/shared/components/JsonLd";
 import "./globals.css";
 
-// Modern typography - Inter and JetBrains Mono
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300","400","500","600","700"],
   display: "swap",
   preload: true,
 });
@@ -17,22 +15,22 @@ const inter = Inter({
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400","500","600"],
   display: "swap",
   preload: true,
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.thehilabs.com"),
-
+  verification: {
+    google: "cCVQkIHuQi6gDTR8qG5CRxctjKFnuT3LByMdlYLYvmY",
+  },
   title: {
     default: "HI Labs - Best IT Training Institute in Lucknow | 100% Placement",
     template: "%s | HI Labs",
   },
-
   description:
     "HI Labs (Human Intelligence Labs) is a premier IT training institute in Lucknow offering software development courses, data science, AI, full stack developer training with 100% placement assistance. Join coding classes for beginners & working professionals.",
-
   keywords: [
     "Human Intelligence Labs Lucknow",
     "Hi Labs",
@@ -40,48 +38,22 @@ export const metadata: Metadata = {
     "best coding classes in Lucknow",
     "AI Software Development Company",
   ],
-
   other: {
     keywords:
       "Human Intelligence Labs Lucknow, Hi Labs, Best Software development training institute in lucknow, best coding classes in Lucknow, AI Software Development Company",
   },
-
-  verification: {
-    google: "cCVQkIHuQi6gDTR8qG5CRxctjKFnuT3LByMdlYLYvmY",
-  },
-
   authors: [{ name: "HI Labs" }],
   creator: "HI Labs",
   publisher: "Human Intelligence Labs Private Limited",
-
-  robots: {
-    index: true,
-    follow: true,
-  },
-
+  robots: { index: true, follow: true },
   icons: {
     icon: [
-      {
-        url: "/images/favicon-1.png",
-        sizes: "32x32",
-        type: "image/png",
-      },
-      {
-        url: "/images/favicon-1.png",
-        sizes: "192x192",
-        type: "image/png",
-      },
+      { url: "/images/favicon-1.png", sizes: "32x32", type: "image/png" },
+      { url: "/images/favicon-1.png", sizes: "192x192", type: "image/png" },
     ],
     shortcut: "/images/favicon.png",
-    apple: [
-      {
-        url: "/images/favicon.png",
-        sizes: "180x180",
-        type: "image/png",
-      },
-    ],
+    apple: [{ url: "/images/favicon.png", sizes: "180x180", type: "image/png" }],
   },
-
   openGraph: {
     title: "HI Labs - Best IT Training Institute in Lucknow | 100% Placement",
     description:
@@ -91,7 +63,6 @@ export const metadata: Metadata = {
     url: "https://www.thehilabs.com",
     siteName: "HI Labs - Human Intelligence Labs",
   },
-
   twitter: {
     card: "summary_large_image",
     title: "HI Labs - Best IT Training Institute in Lucknow | 100% Placement",
@@ -106,53 +77,28 @@ export const viewport: Viewport = {
   themeColor: "#000000",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{children: React.ReactNode;}>) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} ${jetbrainsMono.variable}`}
-    >
+    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <head>
-        {/* Preload Critical Videos */}
-        <link
-          rel="preload"
-          as="video"
-          href="/images/Mbgvideo.mp4"
-          type="video/mp4"
-        />
+        <link rel="preload" as="video" href="/images/Mbgvideo.mp4" type="video/mp4" />
+        <link rel="preload" as="video" href="/images/bg-video.mp4" type="video/mp4" />
 
-        <link
-          rel="preload"
-          as="video"
-          href="/images/bg-video.mp4"
-          type="video/mp4"
-        />
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-NQEY8YG2H0" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-NQEY8YG2H0');
+        `}</Script>
 
-        {/* Google Analytics */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-NQEY8YG2H0"
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="zlPNENSxgp88c0wwTFRAWA"
           strategy="afterInteractive"
         />
-
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-NQEY8YG2H0');
-          `}
-        </Script>
       </head>
-
-      <body
-        className="antialiased bg-black text-white font-sans overflow-x-hidden"
-        suppressHydrationWarning={true}
-      >
+      <body className="antialiased bg-black text-white font-sans overflow-x-hidden" suppressHydrationWarning={true}>
         <Navigation />
         {children}
       </body>
