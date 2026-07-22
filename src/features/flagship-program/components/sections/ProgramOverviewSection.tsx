@@ -107,7 +107,7 @@ const bullets = [
 ];
 
 export const ProgramOverviewSection: React.FC = () => {
-  const t = useCountdown("2026-07-15T00:00:00");
+  const t = useCountdown("2026-08-14T00:00:00");
   const over = !t.days && !t.hours && !t.minutes && !t.seconds;
 
   return (
@@ -153,7 +153,7 @@ export const ProgramOverviewSection: React.FC = () => {
               <div style={{ display: "flex", alignItems: "center", gap: "7px", marginBottom: "12px" }}>
                 <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#e53e3e", animation: "blink 1.4s ease-in-out infinite" }} />
                 <span style={{ fontSize: "10px", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#6b6b6b" }}>NEXT BATCH</span>
-                <span style={{ fontSize: "12px", fontWeight: 800, color: "#e53e3e", letterSpacing: "0.02em" }}>15TH JULY 2026</span>
+                <span style={{ fontSize: "12px", fontWeight: 800, color: "#e53e3e", letterSpacing: "0.02em" }}>14TH AUGUST 2026</span>
               </div>
 
               {!over ? (
