@@ -265,5 +265,5 @@ export const programOverview = {
   format: 'Full-time, In-person',
   location: 'Lucknow',
   seats: '60 nos',
-  nextBatch: '15th July 2026'
+  nextBatch: '14th August 2026'
 };

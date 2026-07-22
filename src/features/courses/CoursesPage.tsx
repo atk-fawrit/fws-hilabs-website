@@ -77,7 +77,7 @@ export default function CoursesPage() {
                     
                     {/* Start date and View Details */}
                     <div className="flex items-center justify-between">
-                      <span className="text-white/90 text-xs">Starts: 15th july 2026</span>
+                      <span className="text-white/90 text-xs">Starts: 14th august 2026</span>
                       <span className="text-white font-semibold text-xs">
                         View Details
                       </span>
