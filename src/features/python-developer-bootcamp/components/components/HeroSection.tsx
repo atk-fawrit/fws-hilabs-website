@@ -56,7 +56,7 @@ export default function HeroSection() {
                   Course Details
                 </h3>
                 <span className="text-sm text-gray-300">
-                  Course starts: <span className="text-white font-medium">15 Jul 2026</span>
+                  Course starts: <span className="text-white font-medium">15 August 2026</span>
                 </span>
               </div>
               <div className="space-y-6 text-gray-300">
