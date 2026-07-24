@@ -1,8 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { Inter, JetBrains_Mono } from "next/font/google";
+import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
 import Navigation from "@/src/shared/components/layout/Navigation";
 import "./globals.css";
+import { googleAnalytics, googleTag } from "./constant";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -80,18 +82,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{children: React.ReactNode;}>) {
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
+      <GoogleTagManager gtmId={googleTag}/>
       <head>
         <link rel="preload" as="video" href="/images/Mbgvideo.mp4" type="video/mp4" />
         <link rel="preload" as="video" href="/images/bg-video.mp4" type="video/mp4" />
-
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-NQEY8YG2H0" strategy="afterInteractive" />
-        <Script id="google-analytics" strategy="afterInteractive">{`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-NQEY8YG2H0');
-        `}</Script>
-
         <Script
           src="https://analytics.ahrefs.com/analytics.js"
           data-key="zlPNENSxgp88c0wwTFRAWA"
@@ -102,6 +96,7 @@ export default function RootLayout({ children }: Readonly<{children: React.React
         <Navigation />
         {children}
       </body>
+      <GoogleAnalytics gaId={googleAnalytics} />
     </html>
   );
 }

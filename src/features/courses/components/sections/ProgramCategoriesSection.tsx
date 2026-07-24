@@ -20,7 +20,7 @@ const programCategories = [
     image:'/images/pythoncard2.jpg',
     category: 'PROGRAMMING',
     link: '/courses/python-developer-bootcamp',
-    startDate: '15 Jul 2026',
+    startDate: '15 August 2026',
   },
   {
     number: '02',
@@ -30,7 +30,7 @@ const programCategories = [
     image: '/images/sqlcard1.jpg',
     category: 'DATABASE',
     link: '/courses/sql-data-foundations',
-    startDate: '15 Jul 2026',
+    startDate: '15 August 2026',
   },
   {
     number: '03',
@@ -40,7 +40,7 @@ const programCategories = [
     image: '/images/frontendcard1.jpg',
     category: 'WEB DEVELOPMENT',
     link: '/courses/frontend-developer-react',
-    startDate: '20 Jul 2026',
+    startDate: '20 August 2026',
   },
   {
     number: '04',
@@ -50,7 +50,7 @@ const programCategories = [
     image: '/images/mobilecard.jpg',
     category: 'MOBILE DEVELOPMENT',
     link: '/courses/mobile-app-developer-react-native',
-    startDate: '20 Jul 2026',
+    startDate: '20 August 2026',
   },
   {
     number: '05',
@@ -60,7 +60,7 @@ const programCategories = [
     image: '/images/backend.jpg',
     category: 'PROGRAMMING',
     link: '/courses/backend-developer-node-js',
-    startDate: '15 Jul 2026',
+    startDate: '15 August 2026',
   },
   {
     number: '06',
@@ -70,7 +70,7 @@ const programCategories = [
     image: '/images/fullstackcard.jpg',
     category: 'PROGRAMMING',
     link: '/courses/full-stack-developer-mern',
-    startDate: '20 Jul 2026',
+    startDate: '20 August 2026',
   },
   {
     number: '07',
@@ -80,7 +80,7 @@ const programCategories = [
     image: '/images/MLcard.jpg',
     category: 'AI & MACHINE LEARNING',
     link: '/courses/machine-learning-with-python',
-    startDate: '15 Jul 2026',
+    startDate: '15 August 2026',
   },
   {
     number: '08',
@@ -90,7 +90,7 @@ const programCategories = [
     image: '/images/AIcard1.jpg',
     category: 'AI & MACHINE LEARNING',
     link: '/courses/ai-foundations',
-    startDate: '15 Jul 2026',
+    startDate: '15 August 2026',
   },
   {
     number: '09',
@@ -100,7 +100,7 @@ const programCategories = [
     image: '/images/AIproductcard1.jpg',
     category: 'AI & MACHINE LEARNING',
     link: '/courses/ai-product-developer-with-python',
-    startDate: '20 Jul 2026',
+    startDate: '20 August 2026',
   },
   {
     number: '10',
@@ -110,7 +110,7 @@ const programCategories = [
     image: '/images/dataanalystcard.jpg',
     category: 'DATA SCIENCE',
     link: '/courses/data-analytics-business-intelligence',
-    startDate: '20 Jul 2026',
+    startDate: '20 August 2026',
   },
   {
     number: '11',
@@ -120,7 +120,7 @@ const programCategories = [
     image: '/images/devopscard.jpg',
     category: 'DEVOPS',
     link: '/courses/devops-deployment-for-developers',
-    startDate: '15 Jul 2026',
+    startDate: '15 August 2026',
   },
   {
     number: '12',
@@ -130,7 +130,7 @@ const programCategories = [
     image: '/images/QAcard.jpg',
     category: 'TESTING',
     link: '/courses/qa-test-automation',
-    startDate: '20 Jul 2026',
+    startDate: '20 August 2026',
   },
 ];
 
