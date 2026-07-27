@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { FooterProps } from '@/src/shared/types';
+import { TermsModal } from '@/src/shared/components/content/TermsModal';
 
 // Footer sections data
 const footerSections = [
@@ -19,6 +20,7 @@ const footerSections = [
       { label: 'Admissions', href: '/admissions' },
       { label: 'About', href: '/about' },
       { label: 'Contact', href: '/contact' },
+      { label: 'Terms', href: '/terms-and-conditions' }
     ]
   }
 ];
@@ -48,6 +50,7 @@ const locations = [
 export default function Footer({ className = '' }: FooterProps) {
   const currentYear = new Date().getFullYear();
   const [selectedLocation, setSelectedLocation] = useState<string | null>(null);
+  const [isTermsOpen, setIsTermsOpen] = useState(false);
   
   const handleLocationClick = (locationName: string) => {
     setSelectedLocation(selectedLocation === locationName ? null : locationName);
@@ -56,7 +59,7 @@ export default function Footer({ className = '' }: FooterProps) {
   const selectedLocationData = locations.find(loc => loc.name === selectedLocation);
   
   return (
-    <footer className={`bg-gradient-to-b from-gray-50 to-white border-t border-gray-200 ${className}`}>
+    <footer id="site-footer" className={`bg-gradient-to-b from-gray-50 to-white border-t border-gray-200 ${className}`}>
       <div className="w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-12 sm:py-16 md:py-20">
         {/* Footer Content */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16 max-w-6xl mx-auto">          {/* Company Info - Takes more space */}
@@ -67,7 +70,7 @@ export default function Footer({ className = '' }: FooterProps) {
             <p className="font-sans text-base font-normal text-gray-700 mb-1">
               {companyInfo.description}
             </p>
-            <div className="flex items-center gap-4 mb-4">
+            <div className="flex flex-col gap-2 mb-4">
               <span className="font-sans text-sm text-gray-500">{companyInfo.locations}</span>
               
               <div className="flex items-center gap-1.5">
@@ -76,6 +79,22 @@ export default function Footer({ className = '' }: FooterProps) {
                 </svg>
                 <a href="tel:+917388899595" className="font-sans text-sm text-gray-500 hover:text-gray-900 transition-colors">
                   +91 7388899595
+                </a>
+                <p className='text-gray-400 pl-1 pr-1'>|</p>
+                <svg className="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                <a href="tel:+918188803344" className="font-sans text-sm text-gray-500 hover:text-gray-900 transition-colors">
+                  +91 8188803344
+                </a>
+              </div>
+
+              <div className="flex items-center gap-1.5">
+                <svg className="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <a href="mailto:contact@thehilabs.com" className="font-sans text-sm text-gray-500 hover:text-gray-900 transition-colors">
+                  contact@thehilabs.com
                 </a>
               </div>
             </div>
@@ -96,31 +115,45 @@ export default function Footer({ className = '' }: FooterProps) {
                 : "text-center md:text-right"
             }
             >
-              <h4 className="font-sans text-sm font-bold uppercase tracking-wider mb-5 text-gray-900">
-                {section.title}
-              </h4>
-              <ul className="space-y-2 text-left inline-block ml-6 md:ml-6">
-                {section.links.map((link, linkIndex) => (
-                  <li key={linkIndex}>
-                    <Link 
-                      href={link.href}
-                      className="font-sans text-sm text-gray-600 hover:text-gray-900 transition-colors duration-200 inline-flex items-center gap-2 group"
-                    >
-                      <span className="group-hover:translate-x-1 transition-transform duration-200">{link.label}</span>
-                      <svg className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                      </svg>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              <div className="inline-block text-left">
+                <h4 className="font-sans text-sm font-bold uppercase tracking-wider mb-5 text-gray-900">
+                  {section.title}
+                </h4>
+                <ul className="space-y-2">
+                  {section.links.map((link, linkIndex) => (
+                    <li key={linkIndex}>
+                      {link.label === 'Terms' ? (
+                        <button 
+                          onClick={() => setIsTermsOpen(true)}
+                          className="font-sans text-sm text-gray-600 hover:text-gray-900 transition-colors duration-200 inline-flex items-center gap-2 group cursor-pointer text-left"
+                        >
+                          <span className="group-hover:translate-x-1 transition-transform duration-200">{link.label}</span>
+                          <svg className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                          </svg>
+                        </button>
+                      ) : (
+                        <Link 
+                          href={link.href}
+                          className="font-sans text-sm text-gray-600 hover:text-gray-900 transition-colors duration-200 inline-flex items-center gap-2 group"
+                        >
+                          <span className="group-hover:translate-x-1 transition-transform duration-200">{link.label}</span>
+                          <svg className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                          </svg>
+                        </Link>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           ))}
         </div>
       </div>
 
       {/* Footer Bottom - Dark Bar */}
-      <div className="w-full bg-gray-900 text-white py-8">
+      <div className="w-full bg-gray-900 text-white py-8 dark-section">
         <div className="w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
           <div className="flex flex-col md:flex-row items-center justify-center md:justify-between gap-6">
             {/* Copyright */}
@@ -154,6 +187,8 @@ export default function Footer({ className = '' }: FooterProps) {
           </div>
         </div>
       </div>
+      
+      <TermsModal isOpen={isTermsOpen} onClose={() => setIsTermsOpen(false)} />
     </footer>
   );
 }

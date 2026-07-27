@@ -3,12 +3,13 @@
  */
 "use client";
 import React, { useState } from "react";
-import Link from "next/link";
+import { ApplicationModal } from "../../../../shared/components/content/ApplicationModal";
 
-const notes = ["Full-time, in-person program", "Not compatible with jobs or college attendance", "No refunds after program start", "Seats are limited and selective"];
+const notes = ["Full-time, in-person program", "Not compatible with jobs or college attendance", "Terms and conditions apply to refunds", "Seats are limited and selective"];
 
 export const ImportantNotesSection: React.FC = () => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleExpanded = () => {
     setIsExpanded(!isExpanded);
@@ -21,6 +22,7 @@ export const ImportantNotesSection: React.FC = () => {
         <div style={{ maxWidth: "1600px", margin: "0 auto", padding: "0 56px" }}>
           {/* Collapsible Header */}
           <div
+            className="dark-section"
             style={{
               cursor: "pointer",
               display: "flex",
@@ -111,8 +113,8 @@ export const ImportantNotesSection: React.FC = () => {
 
           <p style={{ fontSize: "18px", color: "#000000", marginBottom: "32px", fontWeight: 400, lineHeight: 1.65 }}>This can completely change your career.</p>
 
-          <Link
-            href="/admissions/flagship-program"
+          <button
+            onClick={() => setIsModalOpen(true)}
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -142,7 +144,7 @@ export const ImportantNotesSection: React.FC = () => {
             <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
-          </Link>
+          </button>
         </div>
 
         <style>{`
@@ -158,6 +160,12 @@ export const ImportantNotesSection: React.FC = () => {
           }
         `}</style>
       </section>
+
+      <ApplicationModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        programType="flagship"
+      />
     </>
   );
 };

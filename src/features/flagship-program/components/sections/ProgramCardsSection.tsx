@@ -374,6 +374,7 @@ export const ProgramCardsSection: React.FC = () => {
             {terms.map((term, idx) => (
               <div
                 key={idx}
+                className="dark-section"
                 style={{
                   background: "#1c2030", borderRadius: "14px",
                   overflow: "hidden", position: "relative",
