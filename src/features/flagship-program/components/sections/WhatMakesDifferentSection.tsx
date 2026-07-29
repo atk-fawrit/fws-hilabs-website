@@ -49,7 +49,7 @@ const differentiators = [
 export const WhatMakesDifferentSection: React.FC = () => {
   return (
     <section style={{ padding: "80px 0", background: "#ffffff" }}>
-      <div style={{ maxWidth: "1600px", margin: "0 auto", padding: "0 56px" }}>
+      <div style={{ maxWidth: "1600px", margin: "0 auto", padding: "0 clamp(16px, 5vw, 56px)" }}>
         {/* Eyebrow */}
         <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "12px" }}>
           <span style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#000000" }}>DIFFERENTIATORS</span>
@@ -62,7 +62,7 @@ export const WhatMakesDifferentSection: React.FC = () => {
         </h2>
 
         {/* Grid */}
-            <div
+        <div
         className="responsivegrid"
         style={{
           display: "grid",
@@ -78,9 +78,9 @@ export const WhatMakesDifferentSection: React.FC = () => {
               key={idx}
               style={{
                 display: "flex",
-                alignItems: "flex-start",
-                gap: "20px",
-                padding: "40px",
+                flexDirection: "column", /* Changed to column to let text drop below */
+                gap: "16px",
+                padding: "clamp(24px, 5vw, 40px)",
                 borderBottom: idx !== differentiators.length - 1 ? "1px solid #e0dedd" : "none",
                 borderRight: idx % 2 === 0 ? "1px solid #e0dedd" : "none",
                 transition: "all 0.25s ease",
@@ -96,30 +96,34 @@ export const WhatMakesDifferentSection: React.FC = () => {
                 e.currentTarget.style.boxShadow = "none";
               }}
             >
-              {/* Number */}
-              <div
-                style={{
-                  width: "40px",
-                  height: "40px",
-                  borderRadius: "10px",
-                  background: "#1c2030",
-                  color: "#fff",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: "14px",
-                  fontWeight: 800,
-                  flexShrink: 0,
-                  fontFamily: "'SF Mono', monospace",
-                  boxShadow: "0 4px 12px rgba(28, 32, 48, 0.15)",
-                }}
-              >
-                {item.num}
+              {/* Header Row: Number + Title side-by-side */}
+              <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+                <div
+                  style={{
+                    width: "40px",
+                    height: "40px",
+                    borderRadius: "10px",
+                    background: "#1c2030",
+                    color: "#fff",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: "14px",
+                    fontWeight: 800,
+                    flexShrink: 0,
+                    fontFamily: "'SF Mono', monospace",
+                    boxShadow: "0 4px 12px rgba(28, 32, 48, 0.15)",
+                  }}
+                >
+                  {item.num}
+                </div>
+                <div style={{ fontSize: "19px", fontWeight: 700, color: "#000000", letterSpacing: "-0.015em" }}>
+                  {item.title}
+                </div>
               </div>
 
-              {/* Content */}
-              <div style={{ flex: 1 }}>
-                <div style={{ fontSize: "19px", fontWeight: 700, color: "#000000", letterSpacing: "-0.015em", marginBottom: "10px" }}>{item.title}</div>
+              {/* Content Block: Description and Bullets (Starts from the far left now!) */}
+              <div style={{ flex: 1, marginTop: "4px" }}>
                 <div style={{ fontSize: "16px", color: "#000000", lineHeight: 1.68, marginBottom: "14px" }}>{item.desc}</div>
                 <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
                   {item.subs.map((sub, i) => (

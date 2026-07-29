@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { X } from 'lucide-react';
 
 interface ApplicationModalProps {
@@ -51,6 +51,24 @@ export function ApplicationModal({ isOpen, onClose, programType = 'flagship' }: 
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [phoneError, setPhoneError] = useState('');
   const [emailError, setEmailError] = useState('');
+
+  const originalOverflow = useRef('');
+
+  useEffect(() => {
+    if (isOpen) {
+      originalOverflow.current = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = originalOverflow.current;
+    }
+    
+    // Cleanup when component unmounts
+    return () => {
+      if (isOpen) {
+        document.body.style.overflow = originalOverflow.current;
+      }
+    };
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
@@ -166,20 +184,20 @@ export function ApplicationModal({ isOpen, onClose, programType = 'flagship' }: 
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-      <div className="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl max-h-[90vh] overflow-y-auto">
+      <div className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl max-h-[85vh] overflow-y-auto">
         <button onClick={onClose}
           className="absolute top-6 right-6 p-2 text-gray-400 hover:text-gray-600 transition-colors rounded-full hover:bg-gray-100"
           aria-label="Close modal">
           <X className="w-6 h-6" />
         </button>
 
-        <div className="p-8 md:p-12">
-          <div className="mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Application Form</h2>
-            <p className="text-lg text-gray-600 font-light">Please provide your details to begin the application process</p>
+        <div className="p-6 md:p-8">
+          <div className="mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">Application Form</h2>
+            <p className="text-base text-gray-600 font-light">Please provide your details to begin the application process</p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-4">
 
             {/* Full Name */}
             <div>
@@ -222,7 +240,7 @@ export function ApplicationModal({ isOpen, onClose, programType = 'flagship' }: 
             )}
 
             {/* Resume Upload */}
-            <div>
+            {/* <div>
               <label htmlFor="resume" className="block text-sm font-semibold text-gray-900 mb-2">
                 Upload Resume * <span className="text-gray-400 font-normal">(PDF only)</span>
               </label>
@@ -239,30 +257,30 @@ export function ApplicationModal({ isOpen, onClose, programType = 'flagship' }: 
               {resumeFile && (
                 <p className="text-xs text-green-600 mt-1.5">✓ {resumeFile.name}</p>
               )}
-            </div>
+            </div> */}
 
             {/* Comment */}
-            <div>
+            {/* <div>
               <label htmlFor="comment" className="block text-sm font-semibold text-gray-900 mb-2">Add a Comment</label>
               <input type="text" id="comment" name="comment" value={formData.comment} onChange={handleChange}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition-all"
                 placeholder="Any questions or comments? (optional)" />
-            </div>
+            </div> */}
 
             {/* Address */}
-            <div>
+            {/* <div>
               <label htmlFor="address" className="block text-sm font-semibold text-gray-900 mb-2">Address *</label>
               <textarea id="address" name="address" required value={formData.address} onChange={handleChange} rows={3}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition-all resize-none"
                 placeholder="Enter your complete address" />
-            </div>
+            </div> */}
 
             {/* Submit */}
             <div className="pt-4">
               <button type="submit" disabled={isSubmitting}
                 className={`w-full py-4 px-8 font-semibold text-base rounded-lg transition-all ${isSubmitting ? 'bg-gray-400 text-white cursor-not-allowed' : 'bg-gray-900 text-white hover:bg-gray-800 hover:shadow-lg'
                   }`}>
-                {isSubmitting ? 'Submitting...' : 'Submit Application'}
+                {isSubmitting ? 'Applying...' : 'Apply Now'}
               </button>
             </div>
 

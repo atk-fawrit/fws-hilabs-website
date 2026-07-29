@@ -21,7 +21,7 @@ const notForYouItems = [
 export const WhoIsThisForSection: React.FC = () => {
   return (
     <section style={{ padding: "80px 0", background: "#f2f2f0" }}>
-      <div style={{ maxWidth: "1600px", margin: "0 auto", padding: "0 56px" }}>
+      <div style={{ maxWidth: "1600px", margin: "0 auto", padding: "0 clamp(16px, 5vw, 56px)" }}>
         {/* Eyebrow and Title on same line */}
         <div style={{ display: "flex", flexWrap:"wrap", alignItems: "baseline", gap: "20px", marginBottom: "40px" }}>
           <span style={{ fontSize: "clamp(2.4rem, 4.5vw, 3.6rem)", fontWeight: 200, letterSpacing: "-0.038em", lineHeight: 1.06, color: "#000000" }}>
@@ -34,9 +34,10 @@ export const WhoIsThisForSection: React.FC = () => {
 
         {/* Grid */}
         <div
+          className="dark-section"
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))",
             gap: "2px",
             borderRadius: "16px",
             overflow: "hidden",
@@ -44,7 +45,7 @@ export const WhoIsThisForSection: React.FC = () => {
           }}
         >
           {/* For You */}
-          <div style={{ background: "#ffffff", padding: "50px" }}>
+          <div style={{ background: "#ffffff", padding: "clamp(24px, 5vw, 50px)" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "14px", paddingBottom: "26px", borderBottom: "1px solid #e0dedd", marginBottom: "6px" }}>
               <div
                 style={{
@@ -87,7 +88,7 @@ export const WhoIsThisForSection: React.FC = () => {
           </div>
 
           {/* Not For You */}
-          <div style={{ background: "#1c2030", padding: "50px" }}>
+          <div style={{ background: "#1c2030", padding: "clamp(24px, 5vw, 50px)" }}>
             <div
               style={{
                 display: "flex",

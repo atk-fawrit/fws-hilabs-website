@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { NavigationProps, NavigationItem } from '@/src/shared/types';
 import CourseDropdown from './CourseDropdown';
+import { ApplicationModal } from '../content/ApplicationModal';
 
 // Primary navigation items - visible in main nav
 const primaryNavItems: NavigationItem[] = [
@@ -45,6 +46,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
   const [isMoreDropdownOpen, setIsMoreDropdownOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isCoursesDropdownOpen, setIsCoursesDropdownOpen] = useState(false);
+  const [isApplicationModalOpen, setIsApplicationModalOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   // Temporarily disable "More" dropdown
@@ -127,11 +129,12 @@ export default function Navigation({ className = '' }: NavigationProps) {
   const isSecondaryActive = secondaryNavItems.some(item => pathname === item.href);
 
   return (
-    <div className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
+    <>
+      <div className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
       ? 'bg-white/95 backdrop-blur-xl border-b border-black/10 shadow-lg'
       : 'bg-white/90 backdrop-blur-sm border-b border-white/20'
       }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8">
         <nav
           className={`relative flex items-center justify-between py-0 h-14 ${className}`}
           role="navigation"
@@ -295,7 +298,31 @@ export default function Navigation({ className = '' }: NavigationProps) {
             </svg>
           </button>
         </nav>
+      </div>
 
+      {/* Marquee Banner */}
+      <button 
+        onClick={() => setIsApplicationModalOpen(true)}
+        className={`w-full overflow-hidden transition-all duration-300 bg-black hover:bg-zinc-900 cursor-pointer text-white/90 border-t border-white/10 flex items-center ${scrolled ? 'h-0 opacity-0' : 'h-9 opacity-100'}`}
+        tabIndex={scrolled ? -1 : 0}
+        disabled={scrolled}
+        aria-hidden={scrolled}
+      >
+        <div className="relative flex w-full overflow-hidden">
+          <div className="animate-marquee whitespace-nowrap flex items-center text-[13px] font-medium tracking-wide">
+            <div className="flex shrink-0">
+               <span className="mx-8">📢 Admissions Open &nbsp;&bull;&nbsp; Limited Seats Available &nbsp;&bull;&nbsp; Next Batch Starts on 15th August 2026 &nbsp;&bull;&nbsp; Build Real AI Products &nbsp;&bull;&nbsp; <span className="underline font-medium"><b>Apply Now</b></span> to Secure Your Seat!</span>
+               <span className="mx-8">📢 Admissions Open &nbsp;&bull;&nbsp; Limited Seats Available &nbsp;&bull;&nbsp; Next Batch Starts on 15th August 2026 &nbsp;&bull;&nbsp; Build Real AI Products &nbsp;&bull;&nbsp; <span className="underline font-medium"><b>Apply Now</b></span> to Secure Your Seat!</span>
+            </div>
+            <div className="flex shrink-0">
+               <span className="mx-8">📢 Admissions Open &nbsp;&bull;&nbsp; Limited Seats Available &nbsp;&bull;&nbsp; Next Batch Starts on 15th August 2026 &nbsp;&bull;&nbsp; Build Real AI Products &nbsp;&bull;&nbsp; <span className="underline font-medium"><b>Apply Now</b></span> to Secure Your Seat!</span>
+               <span className="mx-8">📢 Admissions Open &nbsp;&bull;&nbsp; Limited Seats Available &nbsp;&bull;&nbsp; Next Batch Starts on 15th August 2026 &nbsp;&bull;&nbsp; Build Real AI Products &nbsp;&bull;&nbsp; <span className="underline font-medium"><b>Apply Now</b></span> to Secure Your Seat!</span>
+            </div>
+          </div>
+        </div>
+      </button>
+
+      <div className="max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Mobile Navigation Menu */}
         {isMobileMenuOpen && (
           <div
@@ -423,7 +450,31 @@ export default function Navigation({ className = '' }: NavigationProps) {
         .animate-fade-in {
           animation: fade-in 0.2s ease-out;
         }
+
+        @keyframes marquee {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        
+        .animate-marquee {
+          animation: marquee 25s linear infinite;
+          width: fit-content;
+        }
+        
+        .animate-marquee:hover {
+          animation-play-state: paused;
+        }
       `}</style>
     </div>
+    
+    <ApplicationModal 
+      isOpen={isApplicationModalOpen} 
+      onClose={() => setIsApplicationModalOpen(false)} 
+    />
+    </>
   );
 }

@@ -177,32 +177,26 @@ function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-transparent to-white/60"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto pt-10 sm:pt-12 lg:pt-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[calc(65vh-8rem)]">
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-center min-h-[calc(65vh-8rem)]">
           {/* Left Column */}
           <div className="flex items-center px-4 sm:px-6 md:px-8 lg:px-16 xl:px-20 py-12 sm:py-16 lg:py-24">
-            <div className="max-w-xl space-y-6 sm:space-y-8 lg:space-y-10">
+            <div className="max-w-xl space-y-6 sm:space-y-8 lg:space-y-10 w-full">
               <div className="space-y-5 sm:space-y-6 lg:space-y-8">
-
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-[0.95] text-black">
                   About HiLabs
                 </h1>
                 <div className="w-16 sm:w-20 h-1 bg-gradient-to-r from-blue-500 to-blue-600"></div>
-
               </div>
             </div>
           </div>
 
           {/* Right Column */}
           <div className="relative px-4 sm:px-6 md:px-8 lg:px-16 xl:px-20 py-12 sm:py-16 lg:py-24 flex items-center">
-            <div className="relative max-w-xl space-y-5 sm:space-y-6 lg:space-y-8 z-10">
-
-
-              <div className="text-2xl sm:text-3xl md:text-4xl text-gray-900 leading-relaxed font-medium"><p>
-                HI Labs operates as an institutional engineering talent production system with
-                systematic competency development, enforced evaluation protocols, and supervised
-                deployment mechanisms. This documentation provides comprehensive institutional
-                specifications across seven key areas.
-              </p>
+            <div className="relative max-w-xl space-y-5 sm:space-y-6 lg:space-y-8 z-10 w-full">
+              <div className="text-2xl sm:text-3xl md:text-4xl text-gray-900 leading-relaxed font-medium">
+                <p>
+                  Hi Labs is an AI-native engineering lab founded by alumni of IISc Bangalore and IE Business School, Spain. We help students become industry-ready by building real products, working with modern AI technologies, and learning through hands-on engineering.
+                </p>
               </div>
             </div>
           </div>

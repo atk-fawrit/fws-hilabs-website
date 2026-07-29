@@ -4,6 +4,7 @@ import { PageLayout, SimpleHero } from '@/src/shared/components/layout';
 import {
   ProgramCategoriesSection,
 } from './components/sections';
+import { programOverview } from '@/src/features/flagship-program/data';
 
 export default function CoursesPage() {
   return (
@@ -77,7 +78,7 @@ export default function CoursesPage() {
                     
                     {/* Start date and View Details */}
                     <div className="flex items-center justify-between">
-                      <span className="text-white/90 text-xs">Starts: 14th august 2026</span>
+                      <span className="text-white/90 text-xs">Starts: {programOverview.nextBatch}</span>
                       <span className="text-white font-semibold text-xs">
                         View Details
                       </span>

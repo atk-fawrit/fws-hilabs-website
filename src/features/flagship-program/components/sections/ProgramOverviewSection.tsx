@@ -2,8 +2,9 @@
  * ProgramOverviewSection.tsx — Clean Brand Design
  */
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { ApplicationModal } from "@/src/shared/components/content/ApplicationModal";
 
 interface TL {
   days: number;
@@ -107,20 +108,64 @@ const bullets = [
 ];
 
 export const ProgramOverviewSection: React.FC = () => {
-  const t = useCountdown("2026-08-14T00:00:00");
+  const t = useCountdown("2026-08-15T00:00:00");
   const over = !t.days && !t.hours && !t.minutes && !t.seconds;
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  // NEW GLOBAL TRACKER
+  const [isOverDark, setIsOverDark] = useState(false);
+  const [isFooterVisible, setIsFooterVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Find EVERY element on the page that we mark as a "dark-section"
+      const darkSections = document.querySelectorAll('.dark-section');
+      
+      // Where is our button on the screen?
+      const buttonY = window.innerHeight - 40; 
+      let isOverlapping = false;
+      
+      // Check if our button is currently hovering over ANY of the dark sections
+      darkSections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= buttonY && rect.bottom >= buttonY) {
+          isOverlapping = true;
+        }
+      });
+      
+      
+      setIsOverDark(isOverlapping);
+      
+      // Check if footer is visible
+      const footer = document.getElementById('site-footer');
+      let footerOverlaps = false;
+      if (footer) {
+        const footerRect = footer.getBoundingClientRect();
+        if (footerRect.top <= window.innerHeight) {
+          footerOverlaps = true;
+        }
+      }
+      setIsFooterVisible(footerOverlaps);
+    };
+    
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); 
+    
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-<div
-  style={{
-    position: "relative", // 
-    padding: "0 clamp(16px, 5vw, 32px)",
-    marginTop: "40px", // 
-    display: "flex",
-    justifyContent: "center",
-    zIndex: 20,
-  }}
->      <div
+    <>
+      <div
+        style={{
+          position: "relative", // 
+          padding: "0 clamp(16px, 5vw, 32px)",
+          marginTop: "40px", // 
+          display: "flex",
+          justifyContent: "center",
+          zIndex: 20,
+        }}
+      >      
+      <div
         style={{
           maxWidth: "1600px",
           width: "100%",
@@ -153,7 +198,7 @@ export const ProgramOverviewSection: React.FC = () => {
               <div style={{ display: "flex", alignItems: "center", gap: "7px", marginBottom: "12px" }}>
                 <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#e53e3e", animation: "blink 1.4s ease-in-out infinite" }} />
                 <span style={{ fontSize: "10px", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#6b6b6b" }}>NEXT BATCH</span>
-                <span style={{ fontSize: "12px", fontWeight: 800, color: "#e53e3e", letterSpacing: "0.02em" }}>14TH AUGUST 2026</span>
+                <span style={{ fontSize: "12px", fontWeight: 800, color: "#e53e3e", letterSpacing: "0.02em" }}>15TH AUGUST 2026</span>
               </div>
 
               {!over ? (
@@ -177,38 +222,24 @@ export const ProgramOverviewSection: React.FC = () => {
               )}
             </div>
 
-            <Link
-              href="/admissions/flagship-program"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-                padding: "11px 24px",
-                background: "#1c2030",
-                color: "#fff",
-                borderRadius: "100px",
-                fontSize: "13px",
-                fontWeight: 700,
-                letterSpacing: "0.02em",
-                textDecoration: "none",
-                flexShrink: 0,
-                alignSelf: "flex-start",
-                transition: "background 0.2s, transform 0.15s",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = "#242838";
-                e.currentTarget.style.transform = "translateY(-1px)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = "#1c2030";
-                e.currentTarget.style.transform = "translateY(0)";
-              }}
-            >
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className={`fixed bottom-6 right-0 md:bottom-10 z-40 flex items-center gap-2 px-6 py-3.5 rounded-l-full rounded-r-none text-[15px] font-bold transition-all duration-300 bg-[#1c2030] text-white border ${
+                  isOverDark 
+                    ? "border-white/30" 
+                    : "border-transparent"
+                } ${isFooterVisible ? "opacity-0 translate-x-full pointer-events-none" : "opacity-100 translate-x-0 hover:-translate-y-1"}`}
+               style={{
+                boxShadow: isOverDark 
+                  ? "-2px 2px 10px rgba(255, 255, 255, 0.2), 0 0 5px rgba(255, 255, 255, 0.1)" // Tighter glowing white drop shadow
+                  : "-5px 5px 25px rgba(28, 32, 48, 0.35), -2px 2px 10px rgba(0, 0, 0, 0.2)"   // Standard dark shadow
+               }}
+              >
               Apply Now{" "}
               <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
-            </Link>
+            </button>
           </div>
 
           {/* Overview text */}
@@ -217,7 +248,6 @@ export const ProgramOverviewSection: React.FC = () => {
               <span style={{ fontSize: "10px", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#6b6b6b" }}>
                 PROGRAM OVERVIEW
               </span>
-              <span style={{ flex: 1, height: "1px", background: "#e0dedd" }} />
             </div>
 
             <h2 style={{ fontSize: "clamp(1.6rem, 2.2vw, 2rem)", fontWeight: 800, color: "#000000", letterSpacing: "-0.025em", lineHeight: 1.15, marginBottom: "12px" }}>
@@ -247,6 +277,7 @@ export const ProgramOverviewSection: React.FC = () => {
 
         {/* Right panel */}
         <div
+        className="hidden lg:flex dark-section"
           style={{
             background: "#1c2030",
             display: "flex",
@@ -255,7 +286,6 @@ export const ProgramOverviewSection: React.FC = () => {
             position: "relative",
             overflow: "hidden",
           }}
-          className="hidden lg:flex"
         >
           <div
             style={{
@@ -331,5 +361,11 @@ export const ProgramOverviewSection: React.FC = () => {
         }
       `}</style>
     </div>
+    <ApplicationModal 
+      isOpen={isModalOpen} 
+      onClose={() => setIsModalOpen(false)} 
+      programType="flagship" 
+    />
+    </>
   );
 };
