@@ -309,14 +309,14 @@ export default function Navigation({ className = '' }: NavigationProps) {
         aria-hidden={scrolled}
       >
         <div className="relative flex w-full overflow-hidden">
-          <div className="animate-marquee whitespace-nowrap flex items-center text-[13px] font-medium tracking-wide">
+          <div className="animate-marquee hover:[animation-play-state:paused] whitespace-nowrap flex items-center text-[13px] font-medium tracking-wide">
             <div className="flex shrink-0">
-               <span className="mx-8">📢 Admissions Open &nbsp;&bull;&nbsp; Limited Seats Available &nbsp;&bull;&nbsp; Next Batch Starts on 15th August 2026 &nbsp;&bull;&nbsp; Build Real AI Products &nbsp;&bull;&nbsp; <span className="underline font-medium"><b>Apply Now</b></span> to Secure Your Seat!</span>
-               <span className="mx-8">📢 Admissions Open &nbsp;&bull;&nbsp; Limited Seats Available &nbsp;&bull;&nbsp; Next Batch Starts on 15th August 2026 &nbsp;&bull;&nbsp; Build Real AI Products &nbsp;&bull;&nbsp; <span className="underline font-medium"><b>Apply Now</b></span> to Secure Your Seat!</span>
+               <span className="mx-8">📢 Admissions Open &nbsp;&bull;&nbsp; Limited Seats Available &nbsp;&bull;&nbsp; Next Batch Starts on 15th August 2026 &nbsp;&bull;&nbsp; Build Real AI Products &nbsp;&bull;&nbsp; <span className="text-[#7fc3ff] font-bold mx-1 text-[16px]">Apply Now</span> to Secure Your Seat!</span>
+               <span className="mx-8">📢 Admissions Open &nbsp;&bull;&nbsp; Limited Seats Available &nbsp;&bull;&nbsp; Next Batch Starts on 15th August 2026 &nbsp;&bull;&nbsp; Build Real AI Products &nbsp;&bull;&nbsp; <span className="text-[#7fc3ff] font-bold mx-1 text-[16px]">Apply Now</span> to Secure Your Seat!</span>
             </div>
             <div className="flex shrink-0">
-               <span className="mx-8">📢 Admissions Open &nbsp;&bull;&nbsp; Limited Seats Available &nbsp;&bull;&nbsp; Next Batch Starts on 15th August 2026 &nbsp;&bull;&nbsp; Build Real AI Products &nbsp;&bull;&nbsp; <span className="underline font-medium"><b>Apply Now</b></span> to Secure Your Seat!</span>
-               <span className="mx-8">📢 Admissions Open &nbsp;&bull;&nbsp; Limited Seats Available &nbsp;&bull;&nbsp; Next Batch Starts on 15th August 2026 &nbsp;&bull;&nbsp; Build Real AI Products &nbsp;&bull;&nbsp; <span className="underline font-medium"><b>Apply Now</b></span> to Secure Your Seat!</span>
+               <span className="mx-8">📢 Admissions Open &nbsp;&bull;&nbsp; Limited Seats Available &nbsp;&bull;&nbsp; Next Batch Starts on 15th August 2026 &nbsp;&bull;&nbsp; Build Real AI Products &nbsp;&bull;&nbsp; <span className="text-[#7fc3ff] font-bold mx-1 text-[16px]">Apply Now</span> to Secure Your Seat!</span>
+               <span className="mx-8">📢 Admissions Open &nbsp;&bull;&nbsp; Limited Seats Available &nbsp;&bull;&nbsp; Next Batch Starts on 15th August 2026 &nbsp;&bull;&nbsp; Build Real AI Products &nbsp;&bull;&nbsp; <span className="text-[#7fc3ff] font-bold mx-1 text-[16px]">Apply Now</span> to Secure Your Seat!</span>
             </div>
           </div>
         </div>
