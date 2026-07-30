@@ -224,11 +224,11 @@ export const ProgramOverviewSection: React.FC = () => {
 
             <button
               onClick={() => setIsModalOpen(true)}
-              className={`fixed bottom-6 right-0 md:bottom-10 z-40 flex items-center gap-2 px-6 py-3.5 rounded-l-full rounded-r-none text-[15px] font-bold transition-all duration-300 bg-[#1c2030] text-white border ${
+              className={`group fixed bottom-6 -right-4 md:bottom-10 z-40 flex items-center gap-2 pl-6 pr-10 py-3.5 rounded-l-full rounded-r-none text-[15px] font-bold transition-all duration-300 bg-[#1c2030] text-white border border-r-0 origin-right ${
                   isOverDark 
                     ? "border-white/30" 
                     : "border-transparent"
-                } ${isFooterVisible ? "opacity-0 translate-x-full pointer-events-none" : "opacity-100 translate-x-0 hover:-translate-y-1"}`}
+                } ${isFooterVisible ? "opacity-0 translate-x-full pointer-events-none" : "opacity-100 translate-x-0 hover:-translate-x-2 hover:scale-105"}`}
                style={{
                 boxShadow: isOverDark 
                   ? "-2px 2px 10px rgba(255, 255, 255, 0.2), 0 0 5px rgba(255, 255, 255, 0.1)" // Tighter glowing white drop shadow
@@ -236,7 +236,7 @@ export const ProgramOverviewSection: React.FC = () => {
                }}
               >
               Apply Now{" "}
-              <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="transition-transform duration-300 group-hover:translate-x-1" width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </button>

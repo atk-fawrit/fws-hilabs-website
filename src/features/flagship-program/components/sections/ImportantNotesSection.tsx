@@ -5,8 +5,6 @@
 import React, { useState } from "react";
 import { ApplicationModal } from "../../../../shared/components/content/ApplicationModal";
 
-const notes = ["Full-time, in-person program", "Not compatible with jobs or college attendance", "Terms and conditions apply to refunds", "Seats are limited and selective"];
-
 export const ImportantNotesSection: React.FC = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -18,11 +16,10 @@ export const ImportantNotesSection: React.FC = () => {
   return (
     <>
       {/* Important Notes */}
-      <section style={{ background: "#1c2030", padding: "56px 0" }}>
+      <section className="dark-section" style={{ background: "#1c2030", padding: "56px 0" }}>
         <div style={{ maxWidth: "1600px", margin: "0 auto", padding: "0 56px" }}>
           {/* Collapsible Header */}
           <div
-            className="dark-section"
             style={{
               cursor: "pointer",
               display: "flex",
@@ -38,12 +35,12 @@ export const ImportantNotesSection: React.FC = () => {
               {/* Eyebrow */}
               <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "10px" }}>
                 <span style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#ffffff" }}>
-                  IMPORTANT NOTES
+                  KNOW MORE
                 </span>
                 <div style={{ flex: 1, height: "1px", background: "rgba(255,255,255,0.08)" }} />
               </div>
               <h2 style={{ fontSize: "clamp(2.4rem, 4.5vw, 3.6rem)", fontWeight: 200, color: "#ffffff", letterSpacing: "-0.038em", lineHeight: 1.06, margin: 0 }}>
-                Before you <b style={{ fontWeight: 800 }}>apply</b>
+                About <b style={{ fontWeight: 800 }}>Human Intelligence Labs</b>
               </h2>
             </div>
             <div
@@ -68,26 +65,43 @@ export const ImportantNotesSection: React.FC = () => {
 
           {/* Expandable Notes Grid */}
           {isExpanded && (
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 0, marginTop: "24px", animation: "fadeIn 0.3s ease-in-out" }}>
-              {notes.map((note, idx) => (
-                <div
-                  key={idx}
+            <div style={{ marginTop: "24px", animation: "fadeIn 0.3s ease-in-out" }}>
+              <p style={{ fontSize: "18px", color: "#ffffff", lineHeight: 1.6, opacity: 0.9, maxWidth: "1000px" }}>
+                Hi Labs is an AI-native engineering lab founded by alumni of IISc Bangalore and IE Business School, Spain. We help students become industry-ready by building real products, working with modern AI technologies, and learning through hands-on engineering.
+              </p>
+              <div style={{ display: "flex", justifyContent: "flex-start", marginTop: "32px", paddingBottom: "16px" }}>
+                <a
+                  href="/about"
                   style={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    gap: "12px",
-                    padding: "13px 0",
-                    borderBottom: idx < notes.length - 2 ? "1px solid rgba(255,255,255,0.05)" : "none",
-                    fontSize: "15px",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    padding: "12px 28px",
+                    background: "rgba(255,255,255,0.05)",
                     color: "#ffffff",
-                    lineHeight: 1.5,
-                    paddingRight: idx % 2 === 0 ? "40px" : "0",
+                    borderRadius: "100px",
+                    fontSize: "14px",
+                    fontWeight: 600,
+                    letterSpacing: "0.02em",
+                    textDecoration: "none",
+                    border: "1px solid rgba(255,255,255,0.15)",
+                    transition: "all 0.2s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "rgba(255,255,255,0.15)";
+                    e.currentTarget.style.transform = "translateY(-1px)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "rgba(255,255,255,0.05)";
+                    e.currentTarget.style.transform = "translateY(0)";
                   }}
                 >
-                  <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "rgba(255,255,255,0.7)", flexShrink: 0, marginTop: "5px" }} />
-                  {note}
-                </div>
-              ))}
+                  View More
+                  <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 12h14m-7-7l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
             </div>
           )}
         </div>

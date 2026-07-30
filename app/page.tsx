@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import HomePage from '@/src/features/home/HomePage';
 
 export const metadata: Metadata = {
-  title: 'HI Labs - Best Software Development Training Institute in Lucknow | Human Intelligence Labs',
-  description: 'HI Labs (Human Intelligence Labs Lucknow) is the best software development training institute in Lucknow offering 100% placement IT training, professional IT courses for working professionals, and coding classes for beginners.',
+  title: ' HI Labs | AI-Enriched Software Development Courses',
+  description: 'HI Labs is a leading AI software engineering training institute in Lucknow. Build real projects, gain internship experience, launch your career',
   keywords: [
     'Human Intelligence Labs Lucknow',
     'HI Labs',
