@@ -33,7 +33,7 @@ const shortCoursesList = [
   'QA & Test Automation',
 ];
 
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxav9deF0DcoK_K_5v4iovXhuk-Ir7T5rctx1NA5Yo49J4p2UnKyVNB4T5Y4MUQK2Q/exec";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxRMm5Ty0ClhEvAhR6WXFBq4gpH6rxgy83sssjbTJw_kP9R23DJzbOmb7j0GXJSeOVY/exec";
 
 export function ApplicationModal({ isOpen, onClose, programType = 'flagship' }: ApplicationModalProps) {
   const [formData, setFormData] = useState<FormData>({
@@ -159,7 +159,7 @@ export function ApplicationModal({ isOpen, onClose, programType = 'flagship' }: 
       );
       body.append('name', formData.fullName);
       body.append('email', formData.email);
-      body.append('phone', formData.phone);
+      body.append('phone', formData.phone.replace('+91 ', ''));
       body.append('course', formData.selectedCourse || '-');
       body.append('comment', formData.comment || '-');
       body.append('address', formData.address);
@@ -306,16 +306,33 @@ export function ApplicationModal({ isOpen, onClose, programType = 'flagship' }: 
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-3">Application Submitted</h3>
-            <p className="text-gray-600 text-sm leading-relaxed mb-6">
-              Our admissions team will review your submission and contact you within 5 business days.
+            <h3 className="text-xl font-bold text-gray-900 mb-2">🎉 Application Submitted Successfully!</h3>
+            <p className="text-gray-600 text-sm leading-relaxed mb-2">
+              Thank you for applying to the AI Native Software Engineer Fellowship.
             </p>
-            <button
-              onClick={() => { setShowSuccessModal(false); onClose(); }}
-              className="px-10 py-2.5 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition"
-            >
-              OK
-            </button>
+            <p className="text-gray-600 text-sm leading-relaxed mb-6">
+              Our Admissions Team will review your application and contact you within 24 hours.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <button
+                onClick={() => { setShowSuccessModal(false); onClose(); }}
+                className="px-6 py-2 text-sm bg-green-500 text-white font-medium rounded-lg hover:bg-green-600 transition w-full sm:w-auto shadow-sm"
+              >
+                OKAY
+              </button>
+              <a
+                href="/images/AI%20Native%20Flagship%20program.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                download
+                className="px-5 py-2 text-sm border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition w-full sm:w-auto inline-flex items-center justify-center shadow-sm"
+              >
+                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                Download Brochure
+              </a>
+            </div>
           </div>
         </div>
       )}

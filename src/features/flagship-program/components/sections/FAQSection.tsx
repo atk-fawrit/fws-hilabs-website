@@ -39,15 +39,15 @@ const faqs = [
   },
   {
     num: "7",
-    question: "What makes this different from other courses?",
+    question: "What should I know before applying to the program?",
     answer:
-      "Full-time in-person structure, real startup internship guarantee, performance-based progression, and an AI-native curriculum. This is not a passive course — it's an engineering bootcamp.",
+      "This is a full-time, in-person engineering bootcamp that requires your complete commitment and is not compatible with college attendance or full-time jobs. Admissions are highly selective, with limited seats available. Please review our refund terms and conditions before enrolling, as they apply once you join the program.",
   },
   {
     num: "8",
     question: "How are students evaluated?",
     answer: "Weekly assessments, project-based evaluation, code reviews, and team collaboration scores. Standards are high — this ensures your skills are genuinely job-ready.",
-  },
+  }
 ];
 
 export const FAQSection: React.FC = () => {
