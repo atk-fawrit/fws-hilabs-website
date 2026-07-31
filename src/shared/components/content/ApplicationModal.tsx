@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { X } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 interface ApplicationModalProps {
   isOpen: boolean;
@@ -47,7 +48,7 @@ export function ApplicationModal({ isOpen, onClose, programType = 'flagship' }: 
   const [resumeFile, setResumeFile] = useState<File | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const router = useRouter();
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [phoneError, setPhoneError] = useState('');
   const [emailError, setEmailError] = useState('');
@@ -172,8 +173,9 @@ export function ApplicationModal({ isOpen, onClose, programType = 'flagship' }: 
         body: body,
       });
 
-      setShowSuccessModal(true);
       resetForm();
+      onClose();
+      router.push('/application-success');
     } catch (error) {
       console.error('Submission error:', error);
       setSubmitStatus('error');
@@ -296,46 +298,6 @@ export function ApplicationModal({ isOpen, onClose, programType = 'flagship' }: 
           </p>
         </div>
       </div>
-
-      {/* Success Modal */}
-      {showSuccessModal && (
-        <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/40 rounded-2xl">
-          <div className="bg-white rounded-2xl shadow-2xl p-8 mx-4 max-w-sm w-full text-center">
-            <div className="w-16 h-16 rounded-full bg-green-500 flex items-center justify-center mx-auto mb-5">
-              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-              </svg>
-            </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">🎉 Application Submitted Successfully!</h3>
-            <p className="text-gray-600 text-sm leading-relaxed mb-2">
-              Thank you for applying to the AI Native Software Engineer Fellowship.
-            </p>
-            <p className="text-gray-600 text-sm leading-relaxed mb-6">
-              Our Admissions Team will review your application and contact you within 24 hours.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <button
-                onClick={() => { setShowSuccessModal(false); onClose(); }}
-                className="px-6 py-2 text-sm bg-green-500 text-white font-medium rounded-lg hover:bg-green-600 transition w-full sm:w-auto shadow-sm"
-              >
-                OKAY
-              </button>
-              <a
-                href="/images/AI%20Native%20Flagship%20program.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                download
-                className="px-5 py-2 text-sm border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition w-full sm:w-auto inline-flex items-center justify-center shadow-sm"
-              >
-                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                </svg>
-                Download Brochure
-              </a>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
