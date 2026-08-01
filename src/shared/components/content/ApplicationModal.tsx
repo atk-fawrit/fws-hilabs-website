@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { X } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-
+import { APPS_SCRIPT_URL } from '@/app/constant';
 interface ApplicationModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -33,8 +33,6 @@ const shortCoursesList = [
   'DevOps & Deployment for Developers',
   'QA & Test Automation',
 ];
-
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxRMm5Ty0ClhEvAhR6WXFBq4gpH6rxgy83sssjbTJw_kP9R23DJzbOmb7j0GXJSeOVY/exec";
 
 export function ApplicationModal({ isOpen, onClose, programType = 'flagship' }: ApplicationModalProps) {
   const [formData, setFormData] = useState<FormData>({
