@@ -44,24 +44,21 @@ export default function ApplicationSuccessPage() {
         {/* Dark About Section */}
         <div className="bg-[#161a23] text-white py-16 px-4 sm:px-6 lg:px-8 relative">
           <div className="max-w-7xl mx-auto">
-            <div className="flex flex-col items-start gap-8">
-              <div className="max-w-3xl w-full">
-                <div className="flex items-center mb-4">
+            <div className="flex flex-col items-center text-center gap-8">
+              <div className="max-w-3xl w-full flex flex-col items-center">
+                <div className="flex items-center justify-center mb-4 w-full">
+                  <div className="mr-4 h-px bg-gray-700 flex-grow max-w-[100px]"></div>
                   <div className="uppercase tracking-[0.2em] text-[10px] font-bold text-gray-400">
                     KNOW MORE
                   </div>
-                  <div className="ml-4 h-px bg-gray-700 flex-grow max-w-[200px]"></div>
+                  <div className="ml-4 h-px bg-gray-700 flex-grow max-w-[100px]"></div>
                 </div>
                 <h2 className="text-3xl md:text-5xl font-light mb-6 tracking-tight text-white">
                   About <span className="font-bold">Human Intelligence Labs</span>
                 </h2>
-                <p className="text-gray-300 text-sm md:text-base leading-relaxed max-w-2xl font-light mb-8">
+                <p className="text-gray-300 text-sm md:text-base leading-relaxed max-w-2xl font-light">
                   Hi Labs is an AI-native engineering lab founded by alumni of IISc Bangalore and IE Business School, Spain. We help students become industry-ready by building real products, working with modern AI technologies, and learning through hands-on engineering.
                 </p>
-
-                <Link href="/about" className="inline-flex items-center px-6 py-2.5 text-sm font-medium text-white bg-[#232836] hover:bg-[#2d3446] rounded-full border border-gray-700 transition-colors shadow-sm">
-                  View More <ArrowRight className="w-4 h-4 ml-2" />
-                </Link>
               </div>
             </div>
           </div>
@@ -99,12 +96,12 @@ function VenturesSection() {
   ];
 
   return (
-    <section className="relative py-16 sm:py-24 bg-white border-b border-gray-100">
+    <section className="relative py-16 sm:py-24 bg-[#161a23] border-b border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
 
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-3 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 tracking-tight">
             Venture Backed by International Tech Companies
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-blue-600 mx-auto"></div>
@@ -115,7 +112,7 @@ function VenturesSection() {
           {ventures.map((venture, index) => (
             <div
               key={index}
-              className={`relative bg-white p-8 ${index !== ventures.length - 1 ? 'md:border-r border-gray-200' : ''
+              className={`relative bg-[#161a23] p-8 ${index !== ventures.length - 1 ? 'md:border-r border-gray-700' : ''
                 }`}
             >
               <div className="text-center space-y-4">
@@ -130,20 +127,20 @@ function VenturesSection() {
                 </div>
 
                 {/* Country */}
-                <div className="text-xs uppercase tracking-[0.2em] text-blue-600 font-bold">
+                <div className="text-xs uppercase tracking-[0.2em] text-blue-400 font-bold">
                   {venture.country}
                 </div>
 
                 {/* Company Name */}
-                <h3 className="text-lg font-bold text-black leading-tight px-4">
+                <h3 className="text-lg font-bold text-white leading-tight px-4">
                   {venture.company}
                 </h3>
 
                 {/* Divider */}
-                <div className="w-12 h-px bg-gray-300 mx-auto"></div>
+                <div className="w-12 h-px bg-gray-700 mx-auto"></div>
 
                 {/* Address */}
-                <p className="text-sm text-gray-600 leading-relaxed font-light px-2">
+                <p className="text-sm text-gray-400 leading-relaxed font-light px-2">
                   {venture.address}
                 </p>
               </div>
@@ -153,8 +150,8 @@ function VenturesSection() {
 
         {/* Action Buttons */}
         <div className="mt-12 sm:mt-16 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 max-w-6xl mx-auto">
-          <Link href="/about" className="w-full sm:w-auto px-8 py-3.5 bg-white text-gray-800 border border-gray-200 font-semibold rounded-full hover:bg-gray-50 transition-all duration-300 shadow-sm text-sm tracking-wide text-center">
-            View More
+          <Link href="/about" className="w-full sm:w-auto inline-flex justify-center items-center px-8 py-3.5 text-sm font-medium text-white bg-[#232836] hover:bg-[#2d3446] rounded-full border border-gray-700 transition-colors shadow-sm tracking-wide">
+            View More <ArrowRight className="w-4 h-4 ml-2" />
           </Link>
           <a href="/images/AI Native Flagship program.pdf" download className="w-full sm:w-auto px-8 py-3.5 bg-green-600 text-white font-semibold rounded-full hover:bg-green-700 transition-all duration-300 shadow-md flex items-center justify-center gap-2 text-sm tracking-wide">
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
