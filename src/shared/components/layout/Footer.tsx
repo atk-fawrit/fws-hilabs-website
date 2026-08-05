@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { FooterProps } from '@/src/shared/types';
 import { TermsModal } from '@/src/shared/components/content/TermsModal';
+import { EventPopupModal } from '@/src/shared/components/content/EventPopupModal';
 
 // Footer sections data
 const footerSections = [
@@ -19,6 +20,12 @@ const footerSections = [
     links: [
       { label: 'Admissions', href: '/admissions' },
       { label: 'About', href: '/about' },
+      { label: 'Events', href: '/events' }
+    ]
+  },
+  {
+    title: 'Support',
+    links: [
       { label: 'Contact', href: '/contact' },
       { label: 'Terms', href: '/terms-and-conditions' }
     ]
@@ -51,6 +58,7 @@ export default function Footer({ className = '' }: FooterProps) {
   const currentYear = new Date().getFullYear();
   const [selectedLocation, setSelectedLocation] = useState<string | null>(null);
   const [isTermsOpen, setIsTermsOpen] = useState(false);
+  const [isEventPopupOpen, setIsEventPopupOpen] = useState(false);
   
   const handleLocationClick = (locationName: string) => {
     setSelectedLocation(selectedLocation === locationName ? null : locationName);
@@ -62,8 +70,9 @@ export default function Footer({ className = '' }: FooterProps) {
     <footer id="site-footer" className={`bg-gradient-to-b from-gray-50 to-white border-t border-gray-200 ${className}`}>
       <div className="w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-12 sm:py-16 md:py-20">
         {/* Footer Content */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16 max-w-6xl mx-auto">          {/* Company Info - Takes more space */}
-          <div className="text-left -ml-0 md:-ml-15">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-16 max-w-7xl mx-auto">
+          {/* Company Info - Takes 2 columns for proper spacing */}
+          <div className="text-left lg:col-span-2">
             <h3 className="font-sans text-2xl sm:text-3xl font-black mb-2 text-gray-900 tracking-tight">
               {companyInfo.title}
             </h3>
@@ -73,7 +82,7 @@ export default function Footer({ className = '' }: FooterProps) {
             <div className="flex flex-col gap-2 mb-4">
               <span className="font-sans text-sm text-gray-500">{companyInfo.locations}</span>
               
-              <div className="flex items-center gap-1.5">
+              <div className="flex flex-wrap items-center gap-1.5">
                 <svg className="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
@@ -99,22 +108,14 @@ export default function Footer({ className = '' }: FooterProps) {
               </div>
             </div>
             <p className="font-sans text-sm text-gray-600 leading-relaxed mb-8 max-w-md">
-            Engineering talent production through enforced <br />
-            evaluation and supervised deployment.
-          </p>
-             
+              Engineering talent production through enforced <br className="hidden sm:inline" />
+              evaluation and supervised deployment.
+            </p>
           </div>
 
-          {/* Footer Sections - Distributed evenly */}
+          {/* Footer Sections */}
           {footerSections.map((section, index) => (
-           <div
-              key={index}
-              className={
-              index === 0
-                ? "text-center md:text-center"
-                : "text-center md:text-right"
-            }
-            >
+            <div key={index} className="text-left lg:col-span-1">
               <div className="inline-block text-left">
                 <h4 className="font-sans text-sm font-bold uppercase tracking-wider mb-5 text-gray-900">
                   {section.title}
@@ -125,6 +126,16 @@ export default function Footer({ className = '' }: FooterProps) {
                       {link.label === 'Terms' ? (
                         <button 
                           onClick={() => setIsTermsOpen(true)}
+                          className="font-sans text-sm text-gray-600 hover:text-gray-900 transition-colors duration-200 inline-flex items-center gap-2 group cursor-pointer text-left"
+                        >
+                          <span className="group-hover:translate-x-1 transition-transform duration-200">{link.label}</span>
+                          <svg className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                          </svg>
+                        </button>
+                      ) : link.label === 'Events' ? (
+                        <button 
+                          onClick={() => setIsEventPopupOpen(true)}
                           className="font-sans text-sm text-gray-600 hover:text-gray-900 transition-colors duration-200 inline-flex items-center gap-2 group cursor-pointer text-left"
                         >
                           <span className="group-hover:translate-x-1 transition-transform duration-200">{link.label}</span>
@@ -189,6 +200,7 @@ export default function Footer({ className = '' }: FooterProps) {
       </div>
       
       <TermsModal isOpen={isTermsOpen} onClose={() => setIsTermsOpen(false)} />
+      <EventPopupModal isOpen={isEventPopupOpen} onClose={() => setIsEventPopupOpen(false)} />
     </footer>
   );
 }

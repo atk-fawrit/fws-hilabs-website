@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import {
   HeroSection,
   ProgramsSection,
@@ -9,10 +9,18 @@ import {
   CTASection,
 } from './components';
 import Footer from '@/src/shared/components/layout/Footer';
+import { EventPopupModal } from '@/src/shared/components/content';
 import { homeData } from './data';
 
 export default function HomePage() {
+  const [isEventModalOpen, setIsEventModalOpen] = useState(false);
+
   useEffect(() => {
+    // Automatically open the event popup modal on home page load
+    const popupTimer = setTimeout(() => {
+      setIsEventModalOpen(true);
+    }, 500);
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -27,7 +35,10 @@ export default function HomePage() {
     const sections = document.querySelectorAll('.reveal-on-scroll, [class*="visible"]');
     sections.forEach((section) => observer.observe(section));
 
-    return () => observer.disconnect();
+    return () => {
+      clearTimeout(popupTimer);
+      observer.disconnect();
+    };
   }, []);
 
   return (
@@ -54,6 +65,12 @@ export default function HomePage() {
       />
       
       <Footer />
+
+      {/* Event Popup Modal */}
+      <EventPopupModal
+        isOpen={isEventModalOpen}
+        onClose={() => setIsEventModalOpen(false)}
+      />
     </div>
   );
 }
