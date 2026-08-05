@@ -8,4 +8,7 @@ export { SectionHeader } from './SectionHeader';
 export { ApplicationModal } from './ApplicationModal';
 export { CardGrid } from './CardGrid';
 export type { CardItem } from './CardGrid';
+export { Captcha } from './Captcha';
+export type { CaptchaRef } from './Captcha';
+export { EventPopupModal } from './EventPopupModal';
 
