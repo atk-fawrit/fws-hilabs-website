@@ -1,73 +1,71 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { PageLayout, SimpleHero } from '@/src/shared/components/layout';
 import {
   MainContentSection,
 } from './components/sections';
 import { admissionsData } from './data';
+import { ApplicationModal } from '@/src/shared/components/content/ApplicationModal';
 
 export default function AdmissionsPage() {
   const ctaRef     = useRef<HTMLDivElement>(null);
   const isCtaInView = useInView(ctaRef, { once: false, amount: 0.3 });
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const scrollToApplication = () => {
     ctaRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   return (
-    <PageLayout>
-      {/* Hero Section */}
-      <SimpleHero
-        image={admissionsData.hero.image}
-        imageAlt={admissionsData.hero.title}
-        title={admissionsData.hero.title}
-        description={admissionsData.hero.description}
-        eyebrow="HI Labs · Admissions"
-        overlayOpacity="dark"
-        height="h-[360px]"
-      />
+    <>
+      <PageLayout>
+        {/* Hero Section */}
+        <SimpleHero
+          image={admissionsData.hero.image}
+          imageAlt={admissionsData.hero.title}
+          title={admissionsData.hero.title}
+          description={admissionsData.hero.description}
+          eyebrow="HI Labs · Admissions"
+          overlayOpacity="dark"
+          height="h-[360px]"
+        />
 
-      {/* Main Content */}
-      <main className="w-full bg-white">
-        <MainContentSection />
-      </main>
+        {/* Main Content */}
+        <main className="w-full bg-white">
+          <MainContentSection />
+        </main>
 
-      {/* Floating Apply Button - Shows when CTA section is not in view */}
-      <AnimatePresence>
-        {!isCtaInView && (
-          <motion.button
-            initial={{ opacity: 0, y: 20, scale: 0.94 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 12, scale: 0.94 }}
-            transition={{ duration: 0.36, ease: [0.16, 1, 0.3, 1] }}
-            onClick={scrollToApplication}
-            whileHover={{ scale: 1.04, boxShadow: '0 16px 44px rgba(0,0,0,0.32)' }}
-            whileTap={{ scale: 0.97 }}
-            className="fixed bottom-8 right-8 z-50 flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-black text-white border border-white/8 shadow-2xl cursor-pointer font-semibold text-sm tracking-wide"
-          >
-            <span>Apply Now</span>
-            <motion.svg
-              width="14"
-              height="14"
-              viewBox="0 0 14 14"
-              fill="none"
-              animate={{ y: [0, 3, 0] }}
-              transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
+        {/* Floating Apply Button - Shows when CTA section is not in view */}
+        <AnimatePresence>
+          {!isCtaInView && (
+            <motion.button
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 12 }}
+              transition={{ duration: 0.36, ease: [0.16, 1, 0.3, 1] }}
+              onClick={() => setIsModalOpen(true)}
+              className="lg:hidden fixed bottom-4 left-4 right-4 z-40 flex items-center justify-center gap-2 py-3.5 rounded-[20px] text-[15px] font-bold transition-all duration-300 bg-[#1c2030] text-white border border-transparent"
+              style={{
+                boxShadow: "0 8px 30px rgba(28, 32, 48, 0.35), 0 4px 10px rgba(0, 0, 0, 0.2)"
+              }}
             >
-              <path
-                d="M7 1.5V12.5M7 12.5L2.5 8M7 12.5L11.5 8"
-                stroke="currentColor"
-                strokeWidth="1.6"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </motion.svg>
-          </motion.button>
-        )}
-      </AnimatePresence>
+              Apply Now{" "}
+              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 12h14m-7-7l7 7-7 7" />
+              </svg>
+            </motion.button>
+          )}
+        </AnimatePresence>
 
-    </PageLayout>
+      </PageLayout>
+      
+      <ApplicationModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        programType="flagship" 
+      />
+    </>
   );
 }

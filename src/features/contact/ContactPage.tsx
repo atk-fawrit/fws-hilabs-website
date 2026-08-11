@@ -31,8 +31,6 @@ export default function ContactPage() {
           </div>
         </section>
       </main>
-
-      <FloatingWhatsAppButton onWhatsAppClick={openWhatsAppChat} />
     </PageLayout>
   );
 }

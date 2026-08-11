@@ -148,8 +148,7 @@ export const HeroVideoSection: React.FC = () => {
             }}
          >
 
-            Become a Job-Ready Software Engineer in 4 Months · 100% Guaranteed
-            Internship at Real Startups
+            Founded by alumni of IISc Bangalore and IE Business School,Spain
           </em>
         </h1>
       </div>
