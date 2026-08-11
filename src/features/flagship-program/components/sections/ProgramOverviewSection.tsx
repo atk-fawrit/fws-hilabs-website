@@ -224,20 +224,18 @@ export const ProgramOverviewSection: React.FC = () => {
 
             <button
               onClick={() => setIsModalOpen(true)}
-              className={`group fixed bottom-6 -right-4 md:bottom-10 z-40 flex items-center gap-2 pl-6 pr-10 py-3.5 rounded-l-full rounded-r-none text-[15px] font-bold transition-all duration-300 bg-[#1c2030] text-white border border-r-0 origin-right ${
-                  isOverDark 
-                    ? "border-white/30" 
-                    : "border-transparent"
-                } ${isFooterVisible ? "opacity-0 translate-x-full pointer-events-none" : "opacity-100 translate-x-0 hover:-translate-x-2 hover:scale-105"}`}
+              className={`lg:hidden fixed bottom-4 left-4 right-4 z-40 flex items-center justify-center gap-2 py-3.5 rounded-[20px] text-[15px] font-bold transition-all duration-300 bg-[#1c2030] text-white border border-transparent ${
+                 isFooterVisible ? "opacity-0 translate-y-full pointer-events-none" : "opacity-100 translate-y-0"
+              }`}
                style={{
                 boxShadow: isOverDark 
-                  ? "-2px 2px 10px rgba(255, 255, 255, 0.2), 0 0 5px rgba(255, 255, 255, 0.1)" // Tighter glowing white drop shadow
-                  : "-5px 5px 25px rgba(28, 32, 48, 0.35), -2px 2px 10px rgba(0, 0, 0, 0.2)"   // Standard dark shadow
+                  ? "0 4px 20px rgba(255, 255, 255, 0.15), 0 0 5px rgba(255, 255, 255, 0.1)"
+                  : "0 8px 30px rgba(28, 32, 48, 0.35), 0 4px 10px rgba(0, 0, 0, 0.2)"
                }}
               >
               Apply Now{" "}
-              <svg className="transition-transform duration-300 group-hover:translate-x-1" width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 12h14m-7-7l7 7-7 7" />
               </svg>
             </button>
           </div>

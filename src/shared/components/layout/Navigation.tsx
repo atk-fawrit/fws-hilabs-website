@@ -204,6 +204,15 @@ export default function Navigation({ className = '' }: NavigationProps) {
                 </Link>
               );
             })}
+            {['/flagship-program', '/admissions', '/admissions/flagship-program', '/admissions/premium-short-courses'].includes(pathname) && (
+              <button 
+                onClick={() => setIsApplicationModalOpen(true)}
+                className="ml-2 px-5 py-2.5 bg-black text-white text-[15px] font-semibold tracking-wide rounded-lg hover:bg-zinc-800 transition-colors shadow-sm"
+              >
+                Apply Now
+              </button>
+            )}
+
             {/* More Dropdown - Temporarily Hidden */}
             {showMoreDropdown && (
               <div className="relative" ref={dropdownRef}>

@@ -5,17 +5,21 @@ import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { PageLayout } from '@/src/shared/components/layout';
 import { admissionsData } from './data';
 import { ApplicationCTASection } from './components/sections';
+import { useState } from 'react';
+import { ApplicationModal } from '@/src/shared/components/content/ApplicationModal';
 
 export default function ShortCoursesAdmissionsPage() {
   const ctaRef = useRef<HTMLDivElement>(null);
   const isCtaInView = useInView(ctaRef, { once: false, amount: 0.3 });
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const scrollToApplication = () => {
     ctaRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   return (
-    <PageLayout>
+    <>
+      <PageLayout>
       <main className="w-full bg-white pb-24">
         <section className="relative w-full bg-white py-12 pt-24">
           <div className="max-w-[1400px] mx-auto px-6">
@@ -111,22 +115,29 @@ export default function ShortCoursesAdmissionsPage() {
       <AnimatePresence>
         {!isCtaInView && (
           <motion.button
-            initial={{ opacity: 0, y: 20, scale: 0.94 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 12, scale: 0.94 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 12 }}
             transition={{ duration: 0.36, ease: [0.16, 1, 0.3, 1] }}
-            onClick={scrollToApplication}
-            whileHover={{ scale: 1.04, boxShadow: '0 16px 44px rgba(0,0,0,0.32)' }}
-            whileTap={{ scale: 0.97 }}
-            className="fixed bottom-8 right-8 z-50 flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-black text-white border border-white/8 shadow-2xl cursor-pointer font-semibold text-sm tracking-wide"
+            onClick={() => setIsModalOpen(true)}
+            className="lg:hidden fixed bottom-4 left-4 right-4 z-40 flex items-center justify-center gap-2 py-3.5 rounded-[20px] text-[15px] font-bold transition-all duration-300 bg-[#1c2030] text-white border border-transparent"
+            style={{
+              boxShadow: "0 8px 30px rgba(28, 32, 48, 0.35), 0 4px 10px rgba(0, 0, 0, 0.2)"
+            }}
           >
-            <span>Apply Now</span>
-            <motion.svg width="14" height="14" viewBox="0 0 14 14" fill="none" animate={{ y: [0, 3, 0] }} transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}>
-              <path d="M7 1.5V12.5M7 12.5L2.5 8M7 12.5L11.5 8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-            </motion.svg>
+            Apply Now{" "}
+            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 12h14m-7-7l7 7-7 7" />
+            </svg>
           </motion.button>
         )}
       </AnimatePresence>
     </PageLayout>
+    <ApplicationModal 
+      isOpen={isModalOpen} 
+      onClose={() => setIsModalOpen(false)} 
+      programType="short-courses" 
+    />
+  </>
   );
 }

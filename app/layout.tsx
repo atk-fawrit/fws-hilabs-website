@@ -3,6 +3,7 @@ import Script from "next/script";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
 import Navigation from "@/src/shared/components/layout/Navigation";
+import WhatsAppStickyButton from "@/src/shared/components/layout/WhatsAppStickyButton";
 import "./globals.css";
 import { googleAnalytics, googleTag } from "./constant";
 
@@ -95,6 +96,7 @@ export default function RootLayout({ children }: Readonly<{children: React.React
       <body className="antialiased bg-black text-white font-sans overflow-x-hidden" suppressHydrationWarning={true}>
         <Navigation />
         {children}
+        <WhatsAppStickyButton />
       </body>
       <GoogleAnalytics gaId={googleAnalytics} />
     </html>
