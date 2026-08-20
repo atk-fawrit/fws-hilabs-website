@@ -16,11 +16,6 @@ export default function HomePage() {
   const [isEventModalOpen, setIsEventModalOpen] = useState(false);
 
   useEffect(() => {
-    // Automatically open the event popup modal on home page load
-    const popupTimer = setTimeout(() => {
-      setIsEventModalOpen(true);
-    }, 500);
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -36,7 +31,6 @@ export default function HomePage() {
     sections.forEach((section) => observer.observe(section));
 
     return () => {
-      clearTimeout(popupTimer);
       observer.disconnect();
     };
   }, []);

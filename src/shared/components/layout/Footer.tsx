@@ -200,7 +200,7 @@ export default function Footer({ className = '' }: FooterProps) {
       </div>
       
       <TermsModal isOpen={isTermsOpen} onClose={() => setIsTermsOpen(false)} />
-      <EventPopupModal isOpen={isEventPopupOpen} onClose={() => setIsEventPopupOpen(false)} />
+      <EventPopupModal isOpen={isEventPopupOpen} onClose={() => setIsEventPopupOpen(false)} disableActions={true} />
     </footer>
   );
 }

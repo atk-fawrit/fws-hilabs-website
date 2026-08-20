@@ -8,9 +8,10 @@ interface EventPopupModalProps {
   isOpen: boolean;
   onClose: () => void;
   onViewMoreEvents?: () => void;
+  disableActions?: boolean;
 }
 
-export function EventPopupModal({ isOpen, onClose, onViewMoreEvents }: EventPopupModalProps) {
+export function EventPopupModal({ isOpen, onClose, onViewMoreEvents, disableActions }: EventPopupModalProps) {
   const originalOverflow = useRef('');
 
   useEffect(() => {
@@ -113,8 +114,11 @@ export function EventPopupModal({ isOpen, onClose, onViewMoreEvents }: EventPopu
             View More Events
           </button>
           <button
+            disabled={disableActions}
             onClick={handleRegisterClick}
-            className="flex-1 py-2.5 sm:py-3 px-3 sm:px-4 text-center font-medium text-xs sm:text-sm text-white bg-[#1d59f2] hover:bg-blue-700 rounded-xl shadow-sm transition-all"
+            className={`flex-1 py-2.5 sm:py-3 px-3 sm:px-4 text-center font-medium text-xs sm:text-sm rounded-xl shadow-sm transition-all ${
+              disableActions ? 'text-gray-400 bg-gray-100 cursor-not-allowed' : 'text-white bg-[#1d59f2] hover:bg-blue-700'
+            }`}
           >
             Register
           </button>
