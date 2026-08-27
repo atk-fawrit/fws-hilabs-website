@@ -88,7 +88,7 @@ export function EventPopupModal({ isOpen, onClose, onViewMoreEvents, disableActi
         <div className="space-y-1.5 text-[11px] sm:text-sm text-gray-800 mb-5 font-normal">
           <div className="flex items-center gap-2">
             <span>📅</span>
-            <span>16th August 2026</span>
+            <span>16th September 2026</span>
           </div>
           <div className="flex items-center gap-2">
             <span>📍</span>

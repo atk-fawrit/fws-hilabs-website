@@ -324,7 +324,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
       {/* Marquee Banner */}
       <button 
         onClick={() => setIsApplicationModalOpen(true)}
-        className={`w-full overflow-hidden transition-all duration-300 bg-black hover:bg-zinc-900 cursor-pointer text-white/90 border-t border-white/10 flex items-center ${scrolled ? 'h-0 opacity-0' : 'h-9 opacity-100'}`}
+        className={`w-full overflow-hidden transition-all duration-300 bg-black hover:bg-zinc-900 cursor-pointer text-white/90 border-t border-white/10 hidden md:flex items-center ${scrolled ? 'h-0 opacity-0' : 'h-9 opacity-100'}`}
         tabIndex={scrolled ? -1 : 0}
         disabled={scrolled}
         aria-hidden={scrolled}
@@ -332,12 +332,12 @@ export default function Navigation({ className = '' }: NavigationProps) {
         <div className="relative flex w-full overflow-hidden">
           <div className="animate-marquee hover:[animation-play-state:paused] whitespace-nowrap flex items-center text-[13px] font-medium tracking-wide">
             <div className="flex shrink-0">
-               <span className="mx-8">📢 Admissions Open &nbsp;&bull;&nbsp; Limited Seats Available &nbsp;&bull;&nbsp; Next Batch Starts on 15th August 2026 &nbsp;&bull;&nbsp; Build Real AI Products &nbsp;&bull;&nbsp; <span className="text-[#7fc3ff] font-bold mx-1 text-[16px]">Apply Now</span> to Secure Your Seat!</span>
-               <span className="mx-8">📢 Admissions Open &nbsp;&bull;&nbsp; Limited Seats Available &nbsp;&bull;&nbsp; Next Batch Starts on 15th August 2026 &nbsp;&bull;&nbsp; Build Real AI Products &nbsp;&bull;&nbsp; <span className="text-[#7fc3ff] font-bold mx-1 text-[16px]">Apply Now</span> to Secure Your Seat!</span>
+               <span className="mx-8">📢 Admissions Open &nbsp;&bull;&nbsp; Limited Seats Available &nbsp;&bull;&nbsp; Next Batch Starts on 15th September 2026 &nbsp;&bull;&nbsp; Build Real AI Products &nbsp;&bull;&nbsp; <span className="text-[#7fc3ff] font-bold mx-1 text-[16px]">Apply Now</span> to book you seat! . Contact us - 7388899595 / contact@thehilabs.com</span>
+               <span className="mx-8">📢 Admissions Open &nbsp;&bull;&nbsp; Limited Seats Available &nbsp;&bull;&nbsp; Next Batch Starts on 15th September 2026 &nbsp;&bull;&nbsp; Build Real AI Products &nbsp;&bull;&nbsp; <span className="text-[#7fc3ff] font-bold mx-1 text-[16px]">Apply Now</span> to book you seat! . Contact us - 7388899595 / contact@thehilabs.com</span>
             </div>
             <div className="flex shrink-0">
-               <span className="mx-8">📢 Admissions Open &nbsp;&bull;&nbsp; Limited Seats Available &nbsp;&bull;&nbsp; Next Batch Starts on 15th August 2026 &nbsp;&bull;&nbsp; Build Real AI Products &nbsp;&bull;&nbsp; <span className="text-[#7fc3ff] font-bold mx-1 text-[16px]">Apply Now</span> to Secure Your Seat!</span>
-               <span className="mx-8">📢 Admissions Open &nbsp;&bull;&nbsp; Limited Seats Available &nbsp;&bull;&nbsp; Next Batch Starts on 15th August 2026 &nbsp;&bull;&nbsp; Build Real AI Products &nbsp;&bull;&nbsp; <span className="text-[#7fc3ff] font-bold mx-1 text-[16px]">Apply Now</span> to Secure Your Seat!</span>
+               <span className="mx-8">📢 Admissions Open &nbsp;&bull;&nbsp; Limited Seats Available &nbsp;&bull;&nbsp; Next Batch Starts on 15th September 2026 &nbsp;&bull;&nbsp; Build Real AI Products &nbsp;&bull;&nbsp; <span className="text-[#7fc3ff] font-bold mx-1 text-[16px]">Apply Now</span> to book you seat! . Contact us - 7388899595 / contact@thehilabs.com</span>
+               <span className="mx-8">📢 Admissions Open &nbsp;&bull;&nbsp; Limited Seats Available &nbsp;&bull;&nbsp; Next Batch Starts on 15th September 2026 &nbsp;&bull;&nbsp; Build Real AI Products &nbsp;&bull;&nbsp; <span className="text-[#7fc3ff] font-bold mx-1 text-[16px]">Apply Now</span> to book you seat! . Contact us - 7388899595 / contact@thehilabs.com</span>
             </div>
           </div>
         </div>
