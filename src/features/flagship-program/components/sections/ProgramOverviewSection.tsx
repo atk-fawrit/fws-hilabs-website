@@ -14,21 +14,43 @@ import "../../styles/ProgramOverviewSection.styles.css";
 // -- Countdown hook ------------------------------------------------------------
 
 function useCountdown(target: string): CountdownTime {
-  const calc = (): CountdownTime => {
-    const d = new Date(target).getTime() - Date.now();
-    if (d <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
-    return {
-      days:    Math.floor(d / 86400000),
-      hours:   Math.floor((d / 3600000) % 24),
-      minutes: Math.floor((d / 60000)   % 60),
-      seconds: Math.floor((d / 1000)    % 60),
-    };
-  };
-  const [t, setT] = useState<CountdownTime>(calc);
+  const [t, setT] = useState<CountdownTime>({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+
   useEffect(() => {
-    const id = setInterval(() => setT(calc()), 1000);
+    const calc = (): CountdownTime => {
+      const d = new Date(target).getTime() - Date.now();
+
+      if (d <= 0) {
+        return {
+          days: 0,
+          hours: 0,
+          minutes: 0,
+          seconds: 0,
+        };
+      }
+
+      return {
+        days: Math.floor(d / 86400000),
+        hours: Math.floor((d / 3600000) % 24),
+        minutes: Math.floor((d / 60000) % 60),
+        seconds: Math.floor((d / 1000) % 60),
+      };
+    };
+
+    setT(calc());
+
+    const id = setInterval(() => {
+      setT(calc());
+    }, 1000);
+
     return () => clearInterval(id);
-  }, []); // eslint-disable-line
+  }, [target]);
+
   return t;
 }
 
