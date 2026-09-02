@@ -1,0 +1,69 @@
+﻿/**
+ * ProgramOverviewSection.styles.css
+ * Styles for the Program Overview card section
+ */
+
+/* -- Blink animation (live batch indicator dot) -------------------------------- */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.25; }
+}
+
+/* -- Stats grid (2-col mobile, 4-col desktop) ---------------------------------- */
+.stats-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+.stat-value {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (min-width: 1024px) {
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* -- Inline apply form inputs (dark card) -------------------------------------- */
+.inline-apply-form input::placeholder,
+.inline-apply-form select::placeholder {
+  color: rgba(255,255,255,0.45);
+}
+.inline-apply-form input:focus,
+.inline-apply-form select:focus {
+  border-color: rgba(255,255,255,0.35) !important;
+  background: rgba(255,255,255,0.09) !important;
+}
+.inline-apply-form select option {
+  background: #1c2030;
+  color: #ffffff;
+}
+
+/* -- Dark captcha overrides ---------------------------------------------------- */
+.dark-captcha-wrap > div {
+  background: rgba(255,255,255,0.05) !important;
+  border-color: rgba(255,255,255,0.1) !important;
+}
+.dark-captcha-wrap label {
+  color: rgba(255,255,255,0.4) !important;
+}
+.dark-captcha-wrap input {
+  background: rgba(255,255,255,0.06) !important;
+  border-color: rgba(255,255,255,0.12) !important;
+  color: #ffffff !important;
+}
+.dark-captcha-wrap input::placeholder {
+  color: rgba(255,255,255,0.25) !important;
+}
+.dark-captcha-wrap button {
+  background: rgba(255,255,255,0.08) !important;
+  border-color: rgba(255,255,255,0.12) !important;
+  color: rgba(255,255,255,0.6) !important;
+}
+.dark-captcha-wrap button:hover {
+  background: rgba(255,255,255,0.14) !important;
+  color: #ffffff !important;
+}
+.dark-captcha-wrap p {
+  color: #f87171 !important;
+}
