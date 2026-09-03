@@ -2,11 +2,13 @@
  * HeroVideoSection.tsx — Clean Brand Design
  */
 "use client";
+
 import React from "react";
 
 export const HeroVideoSection: React.FC = () => {
   return (
     <section
+      className="hero-section"
       style={{
         position: "relative",
         minHeight: "50vh",
@@ -41,6 +43,7 @@ export const HeroVideoSection: React.FC = () => {
         >
           <source src="/images/flagshipbg.mp4" type="video/mp4" />
         </video>
+
         <div
           style={{
             position: "absolute",
@@ -67,18 +70,21 @@ export const HeroVideoSection: React.FC = () => {
 
       {/* Content */}
       <div
+        className="hero-content"
         style={{
           position: "relative",
           zIndex: 10,
           maxWidth: "1200px",
           margin: "0",
           width: "100%",
-          padding: "clamp(50px, 7vh, 90px) 56px clamp(60px, 8vh, 100px)",
+          padding:
+            "clamp(50px, 7vh, 90px) 56px clamp(60px, 8vh, 100px)",
           alignSelf: "flex-start",
         }}
       >
         {/* Badge pill */}
         <div
+          className="hero-badge"
           style={{
             display: "inline-flex",
             alignItems: "center",
@@ -102,6 +108,7 @@ export const HeroVideoSection: React.FC = () => {
               animation: "blink 1.4s ease-in-out infinite",
             }}
           />
+
           <span
             style={{
               fontSize: "13px",
@@ -116,6 +123,7 @@ export const HeroVideoSection: React.FC = () => {
 
         {/* Headline */}
         <h1
+          className="hero-headline"
           style={{
             fontSize: "clamp(2.8rem, 5.5vw, 5rem)",
             fontWeight: 300,
@@ -129,25 +137,29 @@ export const HeroVideoSection: React.FC = () => {
         >
           AI Native Software
           <br />
-          <strong style={{ fontWeight: 800, display: "block" }}>
+
+          <strong
+            style={{
+              fontWeight: 800,
+              display: "block",
+            }}
+          >
             Engineer Fellowship
           </strong>
-            <em
+
+          <em
             style={{
               fontStyle: "normal",
-              fontWeight: 400, // 🔥 not too thin
+              fontWeight: 400,
               color: "#444444",
               display: "block",
-
-              fontSize: "clamp(15px, 1.4vw, 18px)", // balanced size
-              lineHeight: 1.7, // better readability
+              fontSize: "clamp(15px, 1.4vw, 18px)",
+              lineHeight: 1.7,
               marginTop: "16px",
-
-              maxWidth: "900px", // allow natural wrapping
-              letterSpacing: "0.01em", // fixes cramped look
+              maxWidth: "900px",
+              letterSpacing: "0.01em",
             }}
-         >
-
+          >
             Founded by alumni of IISc Bangalore and IE Business School,Spain
           </em>
         </h1>
@@ -159,17 +171,46 @@ export const HeroVideoSection: React.FC = () => {
             opacity: 0;
             transform: translateY(12px);
           }
+
           to {
             opacity: 1;
             transform: translateY(0);
           }
         }
+
         @keyframes blink {
-          0%, 100% {
+          0%,
+          100% {
             opacity: 1;
           }
+
           50% {
             opacity: 0.25;
+          }
+        }
+
+        /* Mobile */
+
+        @media (max-width: 768px) {
+          .hero-section {
+            min-height: auto !important;
+            padding-top: 10px !important;
+          }
+
+          .hero-content {
+            padding-bottom: 0 !important;
+          }
+
+          .hero-headline {
+            display: none !important;
+          }
+
+          .hero-badge {
+            display: none !important;
+          }
+
+          .timer-card {
+            order: -1;
           }
         }
       `}</style>
